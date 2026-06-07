@@ -205,7 +205,7 @@ function renderHistoricalCharts() {
         }
     }
     
-    // Generam graficul comparativ 2025 vs 2026 (Format Vertical)
+    // Generam graficul comparativ 2025 vs 2026
     const compContainer = document.getElementById('monthly-comp-list');
     if (compContainer) {
         compContainer.innerHTML = '';
@@ -221,30 +221,31 @@ function renderHistoricalCharts() {
             const val25 = regs2025[m];
             const val26 = regs2026[m];
             
-            const h25 = ((val25 / maxVal) * 100).toFixed(1);
-            const h26 = val26 !== null ? ((val26 / maxVal) * 100).toFixed(1) : 0;
+            const w25 = ((val25 / maxVal) * 100).toFixed(1);
+            const w26 = val26 !== null ? ((val26 / maxVal) * 100).toFixed(1) : 0;
             
-            const col = document.createElement('div');
-            col.className = 'v-col-group';
-            col.innerHTML = `
-                <div class="v-bars">
-                    <div class="v-bar-2025" style="height: ${h25}%;"></div>
-                    ${val26 !== null ? `
-                        <div class="v-bar-2026" style="height: ${h26}%;"></div>
-                    ` : ''}
-                </div>
-                <div class="v-col-lbl">${m}</div>
-                <div class="v-bar-tooltip">
-                    Luna: <strong>${m}</strong><br>
-                    2025: <strong>${val25.toLocaleString('ro-RO')}</strong>
-                    ${val26 !== null ? `<br>2026: <strong>${val26.toLocaleString('ro-RO')}</strong>` : ''}
+            const row = document.createElement('div');
+            row.className = 'comp-row';
+            row.innerHTML = `
+                <div class="comp-month-lbl">${m}</div>
+                <div class="comp-tracks">
+                    <div class="track-2025">
+                        <div class="track-fill-2025" style="width: ${w25}%;"></div>
+                        <span class="track-val">${val25.toLocaleString('ro-RO')}</span>
+                    </div>
+                    <div class="track-2026">
+                        ${val26 !== null ? `
+                            <div class="track-fill-2026" style="width: ${w26}%;"></div>
+                            <span class="track-val active-year">${val26.toLocaleString('ro-RO')}</span>
+                        ` : `<span class="track-val" style="font-style: italic; opacity: 0.5;">-</span>`}
+                    </div>
                 </div>
             `;
-            compContainer.appendChild(col);
+            compContainer.appendChild(row);
         });
     }
     
-    // 2. Evolutie Anuala 2011 - Prezent (Format Vertical)
+    // 2. Evolutie Anuala 2011 - Prezent
     const annualData = [
         { year: 2011, qty: 7 },
         { year: 2012, qty: 5 },
@@ -278,24 +279,28 @@ function renderHistoricalCharts() {
         
         const maxQty = Math.max(...annualData.map(d => d.qty));
         
-        // Afisam in ordine cronologica normala (stanga la dreapta)
-        annualData.forEach(d => {
-            const heightPct = ((d.qty / maxQty) * 100).toFixed(1);
+        // Afisam in ordine cronologica inversa
+        const sortedData = [...annualData].reverse();
+        
+        sortedData.forEach(d => {
+            const widthPct = ((d.qty / maxQty) * 100).toFixed(1);
             const is2026Class = d.active ? 'highlight' : '';
             
-            const col = document.createElement('div');
-            col.className = 'v-col-group';
-            col.innerHTML = `
-                <div class="v-bars">
-                    <div class="v-bar-annual ${is2026Class}" style="height: ${heightPct}%; ${d.active ? '' : 'background: linear-gradient(180deg, #94a3b8, #64748b);'}"></div>
+            const item = document.createElement('div');
+            item.className = 'bar-item';
+            item.style.gap = '0.5rem';
+            item.innerHTML = `
+                <div class="country-label" style="width: 50px; font-size: 0.85rem; justify-content: flex-start; text-align: left; font-weight: 800;">
+                    ${d.year}
                 </div>
-                <div class="v-col-lbl" style="font-size: 0.65rem;">'${String(d.year).substring(2)}</div>
-                <div class="v-bar-tooltip">
-                    Anul: <strong>${d.year}</strong><br>
-                    Volum: <strong>${d.qty.toLocaleString('ro-RO')}</strong>
+                <div class="bar-track" style="height: 18px; border-radius: 4px;">
+                    <div class="bar-fill ${is2026Class}" style="width: ${widthPct}%; ${d.active ? '' : 'background: linear-gradient(90deg, #94a3b8, #64748b);'}"></div>
+                </div>
+                <div class="bar-value" style="width: 75px; font-size: 0.85rem; font-weight: 700; text-align: right;">
+                    ${d.qty.toLocaleString('ro-RO')}
                 </div>
             `;
-            annualContainer.appendChild(col);
+            annualContainer.appendChild(item);
         });
     }
 }
