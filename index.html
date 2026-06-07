@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Radar România - Vizualizator Date Publice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
+    <style>
+        /* Meniu public simplificat */
+        .public-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .public-controls label {
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; margin-bottom: 3rem;">
+            <!-- Logo Partner Electromobilitate -->
+            <div class="partner-logo" style="margin-bottom: 0.25rem;">
+                <a href="https://electromobilitate.com" target="_blank" rel="noopener">
+                    <img src="electromobilitate_logo.png" alt="Electromobilitate Logo" style="height: 48px; display: block; max-width: 100%;">
+                </a>
+            </div>
+            
+            <div class="logo-area" style="display: flex; align-items: center; gap: 0.75rem;">
+                <!-- Animated EV Radar SVG Logo -->
+                <svg class="ev-radar-logo" viewBox="0 0 100 100" width="55" height="55" style="display: block;">
+                    <!-- Radar grids -->
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="var(--primary-color)" stroke-width="2" opacity="0.15" />
+                    <circle cx="50" cy="50" r="30" fill="none" stroke="var(--primary-color)" stroke-width="2" opacity="0.3" />
+                    <circle cx="50" cy="50" r="15" fill="none" stroke="var(--primary-color)" stroke-width="2" opacity="0.5" />
+                    
+                    <!-- Radar sweep animation -->
+                    <line x1="50" y1="50" x2="82" y2="18" stroke="var(--secondary-color)" stroke-width="3.5" stroke-linecap="round">
+                        <animateTransform 
+                            attributeName="transform" 
+                            type="rotate" 
+                            from="0 50 50" 
+                            to="360 50 50" 
+                            dur="5s" 
+                            repeatCount="indefinite" />
+                    </line>
+                    
+                    <!-- Central Lightning Bolt representing EV -->
+                    <polygon points="48,22 59,46 50,46 52,78 41,50 50,50" fill="var(--primary-color)" />
+                </svg>
+                <h1 style="margin: 0; font-size: 2.8rem; font-weight: 800;">EV Radar <span>România</span></h1>
+            </div>
+            <p class="subtitle">Statistici Publice Înmatriculări și Radieri Vehicule Electrice (EV)</p>
+        </header>
+
+        <!-- Selector Luna Public -->
+        <div class="public-controls">
+            <label for="public-month-select">Selectează Luna:</label>
+            <select id="public-month-select" class="month-select">
+                <option value="202605|MAY">Mai 2026</option>
+                <option value="202604|APR">Aprilie 2026</option>
+                <option value="202603|MAR">Martie 2026</option>
+                <option value="202602|FEB">Februarie 2026</option>
+                <option value="202601|JAN">Ianuarie 2026</option>
+            </select>
+        </div>
+
+        <main>
+             <!-- Dashboard Date -->
+             <section class="results-section" id="results-dashboard">
+                 <!-- Parcul Auto Hero -->
+                 <div class="fleet-hero-card card animate-fade-in" style="margin-bottom: 1.5rem; text-align: center; background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(0, 75, 135, 0.03) 100%); border-color: rgba(0, 75, 135, 0.15);">
+                     <span class="stat-label" style="font-size: 1.1rem; letter-spacing: 0.1em; color: var(--primary-color); font-weight: 700;">🚗 PARCUL AUTO NAȚIONAL EV</span>
+                     <div class="stat-value" id="val-national-fleet" style="font-size: 4rem; font-weight: 900; color: var(--primary-color); text-shadow: none; margin: 0.5rem 0;">0</div>
+                     <p style="color: var(--text-muted); font-size: 0.9rem;">Total vehicule electrice (M1 + N1) înmatriculate în România la finalul lunii <span id="fleet-month-name">-</span></p>
+                 </div>
+ 
+                 <!-- Delimitator Luna -->
+                 <div class="month-divider animate-fade-in">
+                     <span>Statistici detaliate: <strong id="divider-month-name">-</strong></span>
+                 </div>
+ 
+                 <!-- Stats Grid 1 -->
+                 <div class="stats-grid grid-4">
+                     <div class="stat-card card">
+                         <span class="stat-label">Autoturisme Noi (M1)</span>
+                         <div class="stat-value" id="val-auto-reg">0</div>
+                     </div>
+                     <div class="stat-card card">
+                         <span class="stat-label">Utilitare Noi (N1)</span>
+                         <div class="stat-value" id="val-util-reg">0</div>
+                     </div>
+                     <div class="stat-card card">
+                         <span class="stat-label">Total Radieri EV</span>
+                         <div class="stat-value warning-value" id="val-total-rad">0</div>
+                     </div>
+                     <div class="stat-card card">
+                         <span class="stat-label">Creștere Netă Parc</span>
+                         <div class="stat-value success-value" id="val-net-growth">0</div>
+                     </div>
+                 </div>
+ 
+                 <!-- Stats Grid 2 -->
+                 <div class="stats-grid grid-3" style="margin-top: 1.5rem;">
+                     <div class="stat-card card">
+                         <span class="stat-label">Cota EV (Înmatriculări Noi)</span>
+                         <div class="stat-value success-value" id="val-ev-share">0.00%</div>
+                     </div>
+                     <div class="stat-card card">
+                         <span class="stat-label">Pondere Rulate (Second-Hand)</span>
+                         <div class="stat-value" id="val-used-share">0.00%</div>
+                     </div>
+                     <div class="stat-card card">
+                         <span class="stat-label" id="lbl-yoy-growth">Creștere YoY vs 2025</span>
+                         <div class="stat-value success-value" id="val-yoy-growth">0.00%</div>
+                     </div>
+                 </div>
+
+                 <!-- Stats Grid 3: Companii vs PF -->
+                 <div class="stats-grid grid-2" style="margin-top: 1.5rem;">
+                     <div class="stat-card card" style="border-color: rgba(79, 172, 254, 0.25);">
+                         <span class="stat-label">Pondere Companii (Firme)</span>
+                         <div class="stat-value" id="val-firme-pct" style="color: var(--secondary-color);">0.00%</div>
+                         <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;"><span id="val-firme-qty">0</span> unități</p>
+                     </div>
+                     <div class="stat-card card" style="border-color: rgba(16, 185, 129, 0.25);">
+                         <span class="stat-label">Pondere Persoane Fizice</span>
+                         <div class="stat-value success-value" id="val-pf-pct">0.00%</div>
+                         <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.25rem;"><span id="val-pf-qty">0</span> unități</p>
+                     </div>
+                 </div>
+ 
+                 <!-- Tables Grid -->
+                 <div class="stats-grid grid-2" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+                      <!-- Top 10 Marci -->
+                      <div class="details-card card">
+                          <h3>🏆 Top 10 Mărci Înmatriculate</h3>
+                          <div class="table-container">
+                              <table>
+                                  <thead>
+                                      <tr>
+                                          <th style="width: 60px; text-align: center; color: var(--primary-color);">Nr.</th>
+                                          <th>Marcă</th>
+                                          <th>Volum</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody id="top-brands-tbody">
+                                      <!-- Randurile vor fi adaugate din JS -->
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+ 
+                      <!-- Top 20 Modele -->
+                      <div class="details-card card">
+                          <h3>🏆 Top Modele Înmatriculate</h3>
+                          <div class="table-container">
+                              <table>
+                                  <thead>
+                                      <tr>
+                                          <th style="width: 60px; text-align: center; color: var(--primary-color);">Nr.</th>
+                                          <th>Marcă</th>
+                                          <th>Model</th>
+                                          <th>Volum</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody id="top-models-tbody">
+                                      <!-- Randurile vor fi adaugate din JS -->
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>
+                 </div>
+ 
+                 <!-- Top Radieri -->
+                 <div class="details-card card animate-slide-up" style="opacity: 0.8; margin-top: 1.5rem;">
+                     <h3 style="color: var(--warning-color);">📉 Top Modele Radiate</h3>
+                     <p class="section-desc" style="margin-bottom: 1rem;">Mărcile și modelele EV radiate din circulație în luna selectată.</p>
+                     <div class="table-container">
+                         <table>
+                             <thead>
+                                 <tr>
+                                     <th style="width: 60px; text-align: center; color: var(--warning-color);">Nr.</th>
+                                     <th>Marcă</th>
+                                     <th>Model</th>
+                                     <th>Volum</th>
+                                 </tr>
+                             </thead>
+                             <tbody id="top-rad-tbody">
+                                 <!-- Rândurile vor fi adăugate din JS -->
+                             </tbody>
+                         </table>
+                     </div>
+                 </div>
+             </section>
+        </main>
+    </div>
+    
+    <script src="public.js"></script>
+</body>
+</html>

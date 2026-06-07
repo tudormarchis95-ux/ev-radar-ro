@@ -1,0 +1,623 @@
+:root {
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --primary-color: #004b87;
+    --primary-glow: rgba(0, 75, 135, 0.1);
+    --secondary-color: #0284c7;
+    --text-color: #1e293b;
+    --text-muted: #64748b;
+    --success-color: #10b981;
+    --warning-color: #ef4444;
+    --font-sans: 'Montserrat', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(2, 132, 199, 0.03) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(0, 75, 135, 0.03) 0px, transparent 50%);
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.electric-bolt {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 2px 8px rgba(0, 75, 135, 0.2));
+}
+
+header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    background: linear-gradient(135deg, #0f172a 40%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header h1 span {
+    color: var(--primary-color);
+    -webkit-text-fill-color: initial;
+    text-shadow: none;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Stiluri Utilitare Card */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px 0 rgba(15, 23, 42, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+    border-color: rgba(0, 75, 135, 0.2);
+    box-shadow: 0 8px 30px 0 rgba(0, 75, 135, 0.06);
+}
+
+.section-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* Config Sheets Card */
+.config-card {
+    margin-bottom: 2rem;
+}
+
+.config-card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.input-group {
+    display: flex;
+    gap: 0.75rem;
+}
+
+input[type="text"] {
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: var(--text-color);
+    font-family: inherit;
+    transition: all 0.2s;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+/* Butoane */
+.btn {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 14px 0 rgba(2, 132, 199, 0.25);
+}
+
+.primary-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px 0 rgba(2, 132, 199, 0.35);
+}
+
+.secondary-btn {
+    background: #ffffff;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.secondary-btn:hover {
+    background: #f1f5f9;
+    border-color: var(--text-muted);
+}
+
+/* Upload cards layout */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.upload-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    cursor: pointer;
+    position: relative;
+    border-style: dashed;
+    border-width: 2px;
+}
+
+.upload-card:hover {
+    border-color: var(--primary-color);
+    background: rgba(0, 242, 254, 0.02);
+}
+
+.upload-card.dragover {
+    border-color: var(--primary-color);
+    background: var(--primary-glow);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+}
+
+.upload-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.upload-card p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-status {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+}
+
+.upload-card.loaded {
+    border-style: solid;
+    border-color: var(--success-color);
+}
+
+.upload-card.loaded .file-status {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--success-color);
+}
+
+/* Sectiunea actiuni detectie */
+.action-card {
+    margin-bottom: 2rem;
+}
+
+.action-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.action-header h2 span {
+    color: var(--primary-color);
+    text-shadow: none;
+}
+
+/* Month selector dropdown */
+.month-select {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.4rem 0.8rem;
+    color: var(--primary-color);
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s;
+    text-shadow: none;
+}
+
+.month-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-glow);
+}
+
+.month-select option {
+    background: #ffffff;
+    color: var(--text-color);
+    font-weight: normal;
+}
+
+#files-summary {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Stats dashboard */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    padding: 1.5rem;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.success-value {
+    color: var(--success-color);
+    text-shadow: none;
+}
+
+.warning-value {
+    color: var(--warning-color);
+    text-shadow: none;
+}
+
+/* Details columns grid */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+    .input-group {
+        flex-direction: column;
+    }
+}
+
+.details-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.table-container {
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+tbody tr:hover {
+    background: rgba(0, 75, 135, 0.02);
+}
+
+/* Sheets action alert */
+.sheets-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.05) 0%, rgba(0, 75, 135, 0.05) 100%);
+    border-color: rgba(0, 75, 135, 0.15);
+    margin-bottom: 2rem;
+}
+
+.sheets-info h3 {
+    margin-bottom: 0.25rem;
+}
+
+.sheets-info p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Modal loader styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(248, 250, 252, 0.85);
+    backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--text-color);
+}
+
+.spinner {
+    border: 4px solid rgba(0, 75, 135, 0.05);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-left-color: var(--primary-color);
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1.5rem;
+    box-shadow: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Status classes */
+.status-msg {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.status-msg.success { color: var(--success-color); }
+.status-msg.error { color: var(--warning-color); }
+
+/* Animatii */
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pulse {
+    animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    from {
+        box-shadow: 0 4px 14px 0 rgba(0, 242, 254, 0.3);
+    }
+    to {
+        box-shadow: 0 4px 25px 0 rgba(0, 242, 254, 0.6);
+    }
+}
+
+/* Car Silhouettes and Blog Report CSS */
+.car-silhouette {
+    height: 18px;
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    opacity: 0.85;
+    stroke: var(--primary-color);
+    stroke-width: 1.75;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 0.2s ease;
+}
+
+tr:hover .car-silhouette {
+    transform: translateX(2px) scale(1.05);
+    opacity: 1;
+}
+
+.blog-report-card {
+    border-color: rgba(2, 132, 199, 0.2);
+}
+
+.blog-report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.report-tabs {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.tab-btn.active {
+    background: var(--primary-glow);
+    color: var(--primary-color);
+    box-shadow: none;
+}
+
+.tab-btn:hover:not(.active) {
+    color: var(--primary-color);
+    background: rgba(0, 75, 135, 0.04);
+}
+
+.blog-summary-preview {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.blog-summary-preview p {
+    margin-bottom: 1rem;
+}
+
+.blog-summary-preview p:last-child {
+    margin-bottom: 0;
+}
+
+.blog-summary-preview strong {
+    color: var(--primary-color);
+}
+
+/* Stiluri Month Divider */
+.month-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 2.5rem 0;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+}
+
+.month-divider::before,
+.month-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: none;
+}
+
+.month-divider::before {
+    margin-right: 1.5rem;
+}
+
+.month-divider::after {
+    margin-left: 1.5rem;
+}
+
+.month-divider span {
+    background: #ffffff;
+    padding: 0.6rem 1.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+    backdrop-filter: blur(8px);
+}
+
+/* Admin panel display controls */
+.admin-only {
+    display: none !important;
+}
+
+body.is-admin .admin-only {
+    display: block !important;
+}
+
+body.is-admin .admin-only.grid-3 {
+    display: grid !important;
+}
+
+body.is-admin .admin-only.sheets-action {
+    display: flex !important;
+}
+
+
