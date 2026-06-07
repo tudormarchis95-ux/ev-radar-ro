@@ -1,3 +1,8 @@
+/* 
+  Copyright © 2026 Tudor Marchis & Electromobilitate. Toate drepturile rezervate.
+  Cod de monitorizare înmatriculări EV protejat intelectual.
+*/
+
 // Starea vizualizatorului public
 const state = {
     data: null
@@ -8,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initUI() {
+    console.log("%c© 2026 Tudor Marchis & Electromobilitate. Toate drepturile rezervate. EV Radar România.", "color: #004b87; font-weight: bold; font-size: 13px;");
     const select = document.getElementById('public-month-select');
     if (!select) return;
     

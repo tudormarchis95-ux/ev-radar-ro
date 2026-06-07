@@ -1,3 +1,8 @@
+/* 
+  Copyright © 2026 Tudor Marchis & Electromobilitate. Toate drepturile rezervate.
+  Cod de analiză comparativă BEV protejat intelectual.
+*/
+
 // Date predefinite pentru alte tari europene (Mai 2026 ca referinta)
 const euDataByMonth = {
     "MAY": {
@@ -73,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initComparison() {
+    console.log("%c© 2026 Tudor Marchis & Electromobilitate. Toate drepturile rezervate. EV Radar România.", "color: #004b87; font-weight: bold; font-size: 13px;");
     const select = document.getElementById('comp-month-select');
     select.addEventListener('change', () => {
         renderComparisonCharts();
