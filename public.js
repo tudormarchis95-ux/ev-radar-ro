@@ -33,11 +33,9 @@ async function loadMonthData() {
     const lunaHyphen = luna.includes('-') ? luna : `${luna.substring(0, 4)}-${luna.substring(4)}`;
     
     try {
-        // Incercare 1: Citire din folderul static (pentru cand este publicat pe web)
-        let response = await fetch(`rapoarte/dashboard_${lunaHyphen}.json`);
+        let response = await fetch(`rapoarte/dashboard_${lunaHyphen}.json?t=${Date.now()}`);
         if (!response.ok) {
-            // Incercare cu numele fara cratima
-            response = await fetch(`rapoarte/dashboard_${luna}.json`);
+            response = await fetch(`rapoarte/dashboard_${luna}.json?t=${Date.now()}`);
         }
         if (!response.ok) {
             throw new Error(`File not found`);
