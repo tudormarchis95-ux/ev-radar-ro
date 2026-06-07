@@ -113,7 +113,9 @@ async function renderComparisonCharts() {
     }
     
     if (roVolume === 0) {
-        const localRoData = localStorage.getItem('ev_radar_ro_data_' + lunaNume);
+        const localRoData = localStorage.getItem('ev_radar_ro_data_' + lunaCode) || 
+                            localStorage.getItem('ev_radar_ro_data_' + lunaHyphen) || 
+                            localStorage.getItem('ev_radar_ro_data_' + lunaNume);
         if (localRoData) {
             try {
                 const roData = JSON.parse(localRoData);

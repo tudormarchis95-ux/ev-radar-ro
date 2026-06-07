@@ -258,7 +258,10 @@ function renderHistoricalCharts() {
                         <span class="v-bar-val-static">${val25.toLocaleString('ro-RO')}</span>
                     </div>
                 </div>
-                <div class="v-col-lbl">${m}</div>
+                <div class="v-col-lbl">${{
+                    'JAN': 'IAN', 'FEB': 'FEB', 'MAR': 'MAR', 'APR': 'APR', 'MAY': 'MAI', 'JUN': 'IUN',
+                    'JUL': 'IUL', 'AUG': 'AUG', 'SEP': 'SEP', 'OCT': 'OCT', 'NOV': 'NOV', 'DEC': 'DEC'
+                }[m] || m}</div>
             `;
             compContainer.appendChild(col);
         });
