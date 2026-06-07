@@ -65,16 +65,22 @@
             <p class="subtitle">Statistici Publice Înmatriculări și Radieri Vehicule Electrice (EV)</p>
         </header>
 
-        <!-- Selector Luna Public -->
-        <div class="public-controls">
-            <label for="public-month-select">Selectează Luna:</label>
-            <select id="public-month-select" class="month-select">
-                <option value="202605|MAY">Mai 2026</option>
-                <option value="202604|APR">Aprilie 2026</option>
-                <option value="202603|MAR">Martie 2026</option>
-                <option value="202602|FEB">Februarie 2026</option>
-                <option value="202601|JAN">Ianuarie 2026</option>
-            </select>
+        <!-- Meniu Navigare Public -->
+        <div class="nav-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
+            <div class="nav-links" style="display: flex; gap: 1rem;">
+                <a href="index.html" class="nav-btn active" style="background: var(--primary-color); border: 1px solid var(--primary-color); color: #ffffff; box-shadow: 0 4px 12px rgba(0, 75, 135, 0.2); font-weight: 600; text-decoration: none; padding: 0.5rem 1.25rem; border-radius: 8px; font-size: 0.9rem;">📊 Dashboard Local</a>
+                <a href="comparatie.html" class="nav-btn" style="background: #ffffff; border: 1px solid var(--border-color); color: var(--text-color); font-weight: 600; text-decoration: none; padding: 0.5rem 1.25rem; border-radius: 8px; font-size: 0.9rem; transition: all 0.2s;">🇪🇺 Comparație Europeană</a>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <label for="public-month-select" style="font-weight: 700; color: var(--primary-color); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;">Lună:</label>
+                <select id="public-month-select" class="month-select" style="font-size: 0.9rem; padding: 0.4rem 0.8rem;">
+                    <option value="202605|MAY">Mai 2026</option>
+                    <option value="202604|APR">Aprilie 2026</option>
+                    <option value="202603|MAR">Martie 2026</option>
+                    <option value="202602|FEB">Februarie 2026</option>
+                    <option value="202601|JAN">Ianuarie 2026</option>
+                </select>
+            </div>
         </div>
 
         <main>
