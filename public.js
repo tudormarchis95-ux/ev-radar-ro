@@ -185,7 +185,7 @@ function renderHistoricalCharts() {
     };
     
     const regs2026 = {
-        'JAN': 1370, 'FEB': 1370, 'MAR': 1230, 'APR': 1303, 'MAY': 1505,
+        'JAN': 1411, 'FEB': 1372, 'MAR': 1209, 'APR': 1308, 'MAY': 1505,
         'JUN': null, 'JUL': null, 'AUG': null, 'SEP': null, 'OCT': null, 'NOV': null, 'DEC': null
     };
     
@@ -205,37 +205,58 @@ function renderHistoricalCharts() {
         }
     }
     
-    // Generam graficul comparativ 2025 vs 2026 (Format Vertical)
+    // Generam badge-urile de crestere procentuala
+    const badgesContainer = document.getElementById('growth-badges-container');
+    if (badgesContainer) {
+        badgesContainer.innerHTML = '';
+        monthsOrder.forEach(m => {
+            const val25 = regs2025[m];
+            const val26 = regs2026[m];
+            if (val26 !== null && val26 > 0) {
+                const pct = ((val26 - val25) / val25 * 100).toFixed(1);
+                const sign = pct >= 0 ? '+' : '';
+                const badgeClass = pct >= 0 ? 'positive' : 'negative';
+                
+                const badgeEl = document.createElement('span');
+                badgeEl.className = `growth-badge ${badgeClass}`;
+                badgeEl.innerText = `${sign}${pct}%`;
+                badgesContainer.appendChild(badgeEl);
+            }
+        });
+    }
+    
+    // Generam graficul comparativ 2025 vs 2026 (Format Vertical Mockup)
     const compContainer = document.getElementById('monthly-comp-list');
     if (compContainer) {
         compContainer.innerHTML = '';
         
-        // Gasim valoarea maxima pentru scalare
+        // Gasim valoarea maxima pentru scalare (adaugam un buffer de 15% pentru a incapea etichetele de deasupra)
         let maxVal = 0;
         monthsOrder.forEach(m => {
             if (regs2025[m] > maxVal) maxVal = regs2025[m];
             if (regs2026[m] !== null && regs2026[m] > maxVal) maxVal = regs2026[m];
         });
+        const scaleMax = maxVal * 1.15;
         
         monthsOrder.forEach(m => {
             const val25 = regs2025[m];
             const val26 = regs2026[m];
             
-            const h25 = ((val25 / maxVal) * 100).toFixed(1);
-            const h26 = val26 !== null ? ((val26 / maxVal) * 100).toFixed(1) : 0;
+            const h25 = ((val25 / scaleMax) * 100).toFixed(1);
+            const h26 = val26 !== null ? ((val26 / scaleMax) * 100).toFixed(1) : 0;
             
             const col = document.createElement('div');
             col.className = 'v-col-group';
             col.innerHTML = `
                 <div class="v-bars">
-                    <div class="v-bar-2025" style="height: ${h25}%;">
-                        <span class="v-bar-val-static">${val25.toLocaleString('ro-RO')}</span>
-                    </div>
                     ${val26 !== null ? `
                         <div class="v-bar-2026" style="height: ${h26}%;">
                             <span class="v-bar-val-static active-year">${val26.toLocaleString('ro-RO')}</span>
                         </div>
                     ` : ''}
+                    <div class="v-bar-2025" style="height: ${h25}%;">
+                        <span class="v-bar-val-static">${val25.toLocaleString('ro-RO')}</span>
+                    </div>
                 </div>
                 <div class="v-col-lbl">${m}</div>
             `;
@@ -271,26 +292,64 @@ function renderHistoricalCharts() {
     });
     annualData.push({ year: 2026, qty: total2026, active: true });
     
+    // Calculeaza parcul auto total estimat (similar cu cardul principal)
+    const base2025 = 63986;
+    const history2026 = {
+        'JAN': 1411 - 86,
+        'FEB': 1372 - 92,
+        'MAR': 1209 - 188,
+        'APR': 1308 - 49,
+        'MAY': 1505 - 103,
+        'JUN': 0, 'JUL': 0, 'AUG': 0, 'SEP': 0, 'OCT': 0, 'NOV': 0, 'DEC': 0
+    };
+    
+    // Calculam netGrowth din datele curente ale lunii selectate
+    const netGrowth = (state.data.totalAutoReg + state.data.totalUtilReg) - state.data.totalRadieri;
+    history2026[currentLunaNume] = netGrowth;
+    
+    let totalFleet = base2025;
+    for (const m of monthsOrder) {
+        totalFleet += history2026[m];
+        if (m === currentLunaNume) break;
+    }
+    
+    // Actualizam caseta de sumare din card
+    const summaryVal = document.getElementById('val-fleet-summary');
+    if (summaryVal) {
+        summaryVal.innerText = totalFleet.toLocaleString('ro-RO');
+    }
+    const summaryTitle = document.getElementById('annual-summary-title');
+    if (summaryTitle) {
+        summaryTitle.innerText = `TOTAL PARC AUTO (${currentLunaNume} '26)`;
+    }
+    const captionEl = document.getElementById('annual-chart-caption');
+    if (captionEl) {
+        captionEl.innerHTML = `* Date aferente anului 2026 sunt în curs de actualizare (${monthsOrder[0].toLowerCase()} – ${currentLunaNume.toLowerCase()}).`;
+    }
+    
     const annualContainer = document.getElementById('annual-evolution-list');
     if (annualContainer) {
         annualContainer.innerHTML = '';
         
         const maxQty = Math.max(...annualData.map(d => d.qty));
+        const scaleMaxQty = maxQty * 1.15; // buffer de 15% pentru etichete
         
         // Afisam in ordine cronologica normala (stanga la dreapta)
         annualData.forEach(d => {
-            const heightPct = ((d.qty / maxQty) * 100).toFixed(1);
+            const heightPct = ((d.qty / scaleMaxQty) * 100).toFixed(1);
             const is2026Class = d.active ? 'highlight' : '';
             
             const col = document.createElement('div');
             col.className = 'v-col-group';
             col.innerHTML = `
                 <div class="v-bars">
-                    <div class="v-bar-annual ${is2026Class}" style="height: ${heightPct}%; ${d.active ? '' : 'background: linear-gradient(180deg, #94a3b8, #64748b);'}">
+                    <div class="v-bar-annual ${is2026Class}" style="height: ${heightPct}%;">
                         <span class="v-bar-val-static ${d.active ? 'active-year' : ''}">${d.qty.toLocaleString('ro-RO')}</span>
                     </div>
                 </div>
-                <div class="v-col-lbl" style="font-size: 0.65rem;">'${String(d.year).substring(2)}</div>
+                <div class="v-col-lbl" style="font-size: 0.72rem; font-weight: 700;">
+                    ${d.year}${d.active ? '*' : ''}
+                </div>
             `;
             annualContainer.appendChild(col);
         });

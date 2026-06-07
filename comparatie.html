@@ -204,6 +204,11 @@
                 </p>
             </section>
 
+            <!-- Delimitator cu denumirea lunii -->
+            <div class="month-divider animate-fade-in" style="margin-bottom: 2rem;">
+                <span>Statistici comparativ europene: <strong id="divider-month-name">-</strong></span>
+            </div>
+
             <!-- Sectiunea 2: Clasamente -->
             <div class="comp-grid">
                 <!-- Cota de Piata EV (Market Share %) -->
@@ -217,10 +222,20 @@
 
                 <!-- Indicatori Rapizi -->
                 <section style="display: flex; flex-direction: column; gap: 1.5rem;">
-                    <div class="card" style="flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center; border-color: rgba(244, 63, 94, 0.2);">
-                        <span class="stat-label" style="font-size: 0.85rem; letter-spacing: 0.1em; color: #fb7185; font-weight: 700;">🇷🇴 STATUT ROMÂNIA</span>
+                    <div class="card" style="flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center; border-color: rgba(2, 132, 199, 0.2);">
+                        <span class="stat-label" style="font-size: 0.85rem; letter-spacing: 0.1em; color: var(--primary-color); font-weight: 700;">🇷🇴 STATUT ROMÂNIA</span>
                         <div class="stat-value" id="ro-adoption-status" style="font-size: 1.8rem; font-weight: 900; color: var(--primary-color); margin: 0.5rem 0;">Adopție Timpurie</div>
-                        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5;">Cota de piață de sub 10% poziționează piața locală în faza de "Early Adopters", departe de maturitatea piețelor nordice.</p>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.75rem;">Cota de piață poziționează piața locală în faza de tranziție, reflectând evoluția infrastructurii și stimulentelor.</p>
+                        <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; margin-top: 0.5rem; display: flex; justify-content: space-around; font-size: 0.9rem;">
+                            <div>
+                                <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Înmatriculări</span>
+                                <strong id="ro-comp-volume" style="font-size: 1.15rem; color: var(--primary-color);">-</strong>
+                            </div>
+                            <div>
+                                <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Cotă de piață</span>
+                                <strong id="ro-comp-share" style="font-size: 1.15rem; color: var(--success-color);">-</strong>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="card" style="flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center;">

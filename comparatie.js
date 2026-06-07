@@ -198,19 +198,36 @@ async function renderComparisonCharts() {
         volumeContainer.appendChild(item);
     });
     
-    // 4. Actualizare Card Statut România
+    // 4. Actualizare Card Statut România & Divizor Lună
+    const dividerMonthName = document.getElementById('divider-month-name');
+    if (dividerMonthName) {
+        const lunaTradusa = {
+            'JAN': 'Ianuarie', 'FEB': 'Februarie', 'MAR': 'Martie', 'APR': 'Aprilie',
+            'MAY': 'Mai', 'JUN': 'Iunie', 'JUL': 'Iulie', 'AUG': 'August',
+            'SEP': 'Septembrie', 'OCT': 'Octombrie', 'NOV': 'Noiembrie', 'DEC': 'Decembrie'
+        }[lunaNume] || lunaNume;
+        dividerMonthName.innerText = `${lunaTradusa} 2026`;
+    }
+
+    const roVolEl = document.getElementById('ro-comp-volume');
+    const roShareEl = document.getElementById('ro-comp-share');
+    if (roVolEl) roVolEl.innerText = roVolume.toLocaleString('ro-RO');
+    if (roShareEl) roShareEl.innerText = `${roShare.toFixed(2)}%`;
+
     const roStatusText = document.getElementById('ro-adoption-status');
-    if (roShare > 10) {
-        roStatusText.innerText = "Creștere Accelerată 🇷🇴";
-        roStatusText.parentElement.style.borderColor = "rgba(16, 185, 129, 0.3)";
-        roStatusText.style.color = "var(--success-color)";
-    } else if (roShare > 5) {
-        roStatusText.innerText = "Adopție Timpurie 🇷🇴";
-        roStatusText.parentElement.style.borderColor = "rgba(245, 158, 11, 0.3)";
-        roStatusText.style.color = "#f59e0b";
-    } else {
-        roStatusText.innerText = "Piață Incipientă 🇷🇴";
-        roStatusText.parentElement.style.borderColor = "rgba(239, 68, 68, 0.3)";
-        roStatusText.style.color = "var(--warning-color)";
+    if (roStatusText) {
+        if (roShare > 10) {
+            roStatusText.innerText = "Creștere Accelerată";
+            roStatusText.parentElement.style.borderColor = "rgba(16, 185, 129, 0.4)";
+            roStatusText.style.color = "var(--success-color)";
+        } else if (roShare > 5) {
+            roStatusText.innerText = "Adopție Timpurie";
+            roStatusText.parentElement.style.borderColor = "rgba(245, 158, 11, 0.4)";
+            roStatusText.style.color = "#f59e0b";
+        } else {
+            roStatusText.innerText = "Piață Incipientă";
+            roStatusText.parentElement.style.borderColor = "rgba(239, 68, 68, 0.4)";
+            roStatusText.style.color = "var(--warning-color)";
+        }
     }
 }

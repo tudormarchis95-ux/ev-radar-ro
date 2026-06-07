@@ -758,17 +758,18 @@ input, textarea, select {
     color: var(--text-color);
 }
 
-/* Stiluri pentru graficele cu bare verticale (tip coloana) */
+/* Stiluri pentru graficele cu bare verticale (Premium Mockup Look) */
 .v-chart-container {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    height: 260px;
-    padding-top: 30px;
+    height: 280px;
+    padding-top: 45px;
     position: relative;
-    gap: 6px;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 4px;
+    gap: 0;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 10px;
+    margin-top: 1.5rem;
 }
 
 .v-col-group {
@@ -779,80 +780,146 @@ input, textarea, select {
     height: 100%;
     justify-content: flex-end;
     position: relative;
-    cursor: pointer;
+    border-right: 1px dashed rgba(226, 232, 240, 0.8);
+}
+
+.v-col-group:last-child {
+    border-right: none;
 }
 
 .v-bars {
     display: flex;
     align-items: flex-end;
-    gap: 3px;
-    height: calc(100% - 20px);
-    width: 100%;
+    gap: 8px;
+    height: calc(100% - 25px);
     justify-content: center;
+    position: relative;
+    width: 100%;
+    padding: 0 4px;
+}
+
+/* Culori conform mockup-ului */
+.v-bar-2025 {
+    width: 18px;
+    background: #4299e1; /* Albastru deschis */
+    border-radius: 4px 4px 0 0;
+    transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
 }
 
-.v-bar-2025 {
-    width: 8px;
-    background: #cbd5e1;
-    border-radius: 2px 2px 0 0;
-    transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative; /* Asigura pozitionarea corecta a etichetelor */
-}
-
 .v-bar-2026 {
-    width: 8px;
-    background: var(--primary-color);
-    border-radius: 2px 2px 0 0;
+    width: 18px;
+    background: #004b87; /* Albastru inchis */
+    border-radius: 4px 4px 0 0;
     transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative; /* Asigura pozitionarea corecta a etichetelor */
-}
-
-.v-bar-2026.highlight {
-    background: linear-gradient(180deg, #f43f5e, #fb7185) !important;
+    position: relative;
 }
 
 .v-bar-annual {
-    width: 14px;
-    background: linear-gradient(180deg, var(--secondary-color), var(--primary-color));
-    border-radius: 2px 2px 0 0;
+    width: 30px;
+    background: #4299e1; /* Albastru deschis */
+    border-radius: 4px 4px 0 0;
     transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative; /* Asigura pozitionarea corecta a etichetelor */
+    position: relative;
 }
 
 .v-bar-annual.highlight {
-    background: linear-gradient(180deg, #f43f5e, #fb7185) !important;
+    background: #004b87 !important; /* Albastru inchis */
 }
 
 .v-col-lbl {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 800;
-    margin-top: 6px;
-    color: var(--text-muted);
+    margin-top: 10px;
+    color: #1e293b;
     text-transform: uppercase;
-}
-
-.v-col-group:hover .v-col-lbl {
-    color: var(--primary-color);
+    letter-spacing: 0.05em;
 }
 
 .v-bar-val-static {
-    font-size: 0.6rem;
+    font-size: 0.72rem;
     font-weight: 800;
-    color: var(--text-muted);
+    color: #2b6cb0; /* Albastru mediu pentru contrast mai bun */
     position: absolute;
     bottom: 100%;
     left: 50%;
-    transform: translateX(-50%) rotate(-90deg); /* Rotit permanent pentru a evita suprapunerile */
-    transform-origin: bottom center;
-    margin-bottom: 8px;
+    transform: translateX(-50%);
+    margin-bottom: 6px;
     white-space: nowrap;
     z-index: 5;
 }
 
 .v-bar-val-static.active-year {
-    color: var(--primary-color);
+    color: #004b87;
+}
+
+/* Badge-uri de crestere */
+.growth-badges-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.growth-badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.78rem;
     font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.growth-badge.positive {
+    background-color: #ecfdf5;
+    color: #10b981;
+}
+
+.growth-badge.negative {
+    background-color: #fef2f2;
+    color: #ef4444;
+}
+
+/* Header summary card pentru evolutie */
+.annual-summary-box {
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid #004b87;
+    background: #f8fafc;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0 12px 12px 0;
+    align-items: flex-start;
+}
+
+.annual-summary-title {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.25rem;
+}
+
+.annual-summary-value {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #004b87;
+}
+
+/* Custom layout scroll pe mobil */
+@media (max-width: 600px) {
+    .v-chart-container {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 15px;
+    }
+    .v-col-group {
+        min-width: 42px;
+    }
+    .v-bar-val-static {
+        font-size: 0.58rem;
+    }
 }
 
 
