@@ -172,4 +172,135 @@ function renderDashboard() {
         tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${item.marca}</td><td>${item.model}</td><td><strong>${item.volum}</strong></td>`;
         radTbody.appendChild(tr);
     });
+
+    // Rulare grafice istorice
+    renderHistoricalCharts();
+}
+
+function renderHistoricalCharts() {
+    // 1. Date lunare 2025 vs 2026 (Inmatriculari brute BEV)
+    const regs2025 = {
+        'JAN': 1639, 'FEB': 1069, 'MAR': 628, 'APR': 612, 'MAY': 863, 'JUN': 807,
+        'JUL': 976, 'AUG': 1335, 'SEP': 1158, 'OCT': 1562, 'NOV': 1552, 'DEC': 1880
+    };
+    
+    const regs2026 = {
+        'JAN': 1370, 'FEB': 1370, 'MAR': 1230, 'APR': 1303, 'MAY': 1505,
+        'JUN': null, 'JUL': null, 'AUG': null, 'SEP': null, 'OCT': null, 'NOV': null, 'DEC': null
+    };
+    
+    // Suprascriem luna selectata in mod dinamic cu datele actuale incarcate
+    const currentLunaNume = state.data.lunaNume;
+    const currentRegs = state.data.totalAutoReg + state.data.totalUtilReg;
+    if (regs2026.hasOwnProperty(currentLunaNume)) {
+        regs2026[currentLunaNume] = currentRegs;
+    }
+    
+    // De asemenea, daca suntem pe o luna ulterioara, sa stergem valorile din lunile viitoare
+    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    const currentIdx = monthsOrder.indexOf(currentLunaNume);
+    if (currentIdx !== -1) {
+        for (let i = currentIdx + 1; i < monthsOrder.length; i++) {
+            regs2026[monthsOrder[i]] = null;
+        }
+    }
+    
+    // Generam graficul comparativ 2025 vs 2026
+    const compContainer = document.getElementById('monthly-comp-list');
+    if (compContainer) {
+        compContainer.innerHTML = '';
+        
+        // Gasim valoarea maxima pentru scalare
+        let maxVal = 0;
+        monthsOrder.forEach(m => {
+            if (regs2025[m] > maxVal) maxVal = regs2025[m];
+            if (regs2026[m] !== null && regs2026[m] > maxVal) maxVal = regs2026[m];
+        });
+        
+        monthsOrder.forEach(m => {
+            const val25 = regs2025[m];
+            const val26 = regs2026[m];
+            
+            const w25 = ((val25 / maxVal) * 100).toFixed(1);
+            const w26 = val26 !== null ? ((val26 / maxVal) * 100).toFixed(1) : 0;
+            
+            const row = document.createElement('div');
+            row.className = 'comp-row';
+            row.innerHTML = `
+                <div class="comp-month-lbl">${m}</div>
+                <div class="comp-tracks">
+                    <div class="track-2025">
+                        <div class="track-fill-2025" style="width: ${w25}%;"></div>
+                        <span class="track-val">${val25.toLocaleString('ro-RO')}</span>
+                    </div>
+                    <div class="track-2026">
+                        ${val26 !== null ? `
+                            <div class="track-fill-2026" style="width: ${w26}%;"></div>
+                            <span class="track-val active-year">${val26.toLocaleString('ro-RO')}</span>
+                        ` : `<span class="track-val" style="font-style: italic; opacity: 0.5;">-</span>`}
+                    </div>
+                </div>
+            `;
+            compContainer.appendChild(row);
+        });
+    }
+    
+    // 2. Evolutie Anuala 2011 - Prezent
+    const annualData = [
+        { year: 2011, qty: 7 },
+        { year: 2012, qty: 5 },
+        { year: 2013, qty: 50 },
+        { year: 2014, qty: 16 },
+        { year: 2015, qty: 32 },
+        { year: 2016, qty: 104 },
+        { year: 2017, qty: 247 },
+        { year: 2018, qty: 710 },
+        { year: 2019, qty: 1747 },
+        { year: 2020, qty: 3134 },
+        { year: 2021, qty: 6831 },
+        { year: 2022, qty: 12466 },
+        { year: 2023, qty: 16852 },
+        { year: 2024, qty: 12677 },
+        { year: 2025, qty: 15082 }
+    ];
+    
+    // Adaugam 2026 in mod dinamic
+    let total2026 = 0;
+    monthsOrder.forEach(m => {
+        if (regs2026[m] !== null) {
+            total2026 += regs2026[m];
+        }
+    });
+    annualData.push({ year: 2026, qty: total2026, active: true });
+    
+    const annualContainer = document.getElementById('annual-evolution-list');
+    if (annualContainer) {
+        annualContainer.innerHTML = '';
+        
+        const maxQty = Math.max(...annualData.map(d => d.qty));
+        
+        // Afisam in ordine cronologica inversa
+        const sortedData = [...annualData].reverse();
+        
+        sortedData.forEach(d => {
+            const widthPct = ((d.qty / maxQty) * 100).toFixed(1);
+            const is2026Class = d.active ? 'highlight' : '';
+            
+            const item = document.createElement('div');
+            item.className = 'bar-item';
+            item.style.gap = '0.5rem';
+            item.innerHTML = `
+                <div class="country-label" style="width: 50px; font-size: 0.85rem; justify-content: flex-start; text-align: left; font-weight: 800;">
+                    ${d.year}
+                </div>
+                <div class="bar-track" style="height: 18px; border-radius: 4px;">
+                    <div class="bar-fill ${is2026Class}" style="width: ${widthPct}%; ${d.active ? '' : 'background: linear-gradient(90deg, #94a3b8, #64748b);'}"></div>
+                </div>
+                <div class="bar-value" style="width: 75px; font-size: 0.85rem; font-weight: 700; text-align: right;">
+                    ${d.qty.toLocaleString('ro-RO')}
+                </div>
+            `;
+            annualContainer.appendChild(item);
+        });
+    }
 }

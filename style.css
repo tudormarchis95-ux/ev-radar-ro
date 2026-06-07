@@ -644,7 +644,7 @@ input, textarea, select {
     overflow: hidden;
 }
 
-.card::before {
+.card::after {
     content: "";
     position: absolute;
     top: 0;
@@ -652,9 +652,9 @@ input, textarea, select {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    opacity: 0.08; /* Crescut de la 0.035 pentru o mai bună vizibilitate pe diverse ecrane */
-    z-index: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='160' viewBox='0 0 240 160'%3E%3Ctext x='10' y='110' fill='%23004b87' font-family='Montserrat, sans-serif' font-size='8' font-weight='800' transform='rotate(-28, 10, 110)'%3EEV RADAR ROMÂNIA %26 ELECTROMOBILITATE%3C/text%3E%3C/svg%3E");
+    opacity: 0.18; /* Crescut pentru a fi vizibil pe orice ecran, fara a deranja */
+    z-index: 2; /* Deasupra textului si graficelor pentru protectie maxima */
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PHRleHQgeD0iMTUiIHk9IjEzMCIgZmlsbD0iIzAwNGI4NyIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSJib2xkIiB0cmFuc2Zvcm09InJvdGF0ZSgtMzAsIDE1LCAxMzApIj5FViBSQURBUiBST01BTklBICZhbXA7IEVMRUNUUk9NT0JJTElUQVRFPC90ZXh0Pjwvc3ZnPg==");
     background-repeat: repeat;
 }
 
