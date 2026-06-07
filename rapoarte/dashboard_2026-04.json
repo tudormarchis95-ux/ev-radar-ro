@@ -1,12 +1,12 @@
 {
     "totalAutoReg": 1233,
-    "totalUtilReg": 70,
+    "totalUtilReg": 73,
     "totalRadieri": 49,
-    "evShare": 0.06059787502251036,
-    "usedShare": 0.4834996162701458,
-    "yoyGrowth": 112.90849673202614,
-    "totalFirme": 759,
-    "totalPf": 544,
+    "evShare": 0.05980627388252022,
+    "usedShare": 0.48468606431852984,
+    "yoyGrowth": 113.39869281045752,
+    "totalFirme": 755,
+    "totalPf": 551,
     "inmatriculariModele": [
         {
             "marca": "TESLA",
@@ -46,7 +46,7 @@
         {
             "marca": "RENAULT",
             "model": "ZOE",
-            "volum": 28
+            "volum": 27
         },
         {
             "marca": "BYD",
@@ -124,18 +124,8 @@
             "volum": 11
         },
         {
-            "marca": "MERCEDES-BENZ",
-            "model": "ESPRINTER",
-            "volum": 11
-        },
-        {
             "marca": "VOLKSWAGEN",
             "model": "GOLF",
-            "volum": 10
-        },
-        {
-            "marca": "MAXUS",
-            "model": "MAXUS E-DELIVER 3",
             "volum": 10
         },
         {
@@ -146,6 +136,11 @@
         {
             "marca": "NISSAN",
             "model": "NISSAN LEAF 40KWH",
+            "volum": 9
+        },
+        {
+            "marca": "FORD",
+            "model": "TRANSIT",
             "volum": 9
         },
         {
@@ -174,6 +169,11 @@
             "volum": 7
         },
         {
+            "marca": "KIA",
+            "model": "PV5",
+            "volum": 7
+        },
+        {
             "marca": "TESLA",
             "model": "MODEL S",
             "volum": 7
@@ -181,6 +181,11 @@
         {
             "marca": "VOLVO",
             "model": "EX30",
+            "volum": 7
+        },
+        {
+            "marca": "FORD",
+            "model": "TRANSIT COURIER",
             "volum": 7
         },
         {
@@ -264,13 +269,13 @@
             "volum": 5
         },
         {
-            "marca": "KIA",
-            "model": "PV5",
+            "marca": "VOLKSWAGEN, VW",
+            "model": "ID,4 PURE 125KW",
             "volum": 5
         },
         {
-            "marca": "VOLKSWAGEN, VW",
-            "model": "ID,4 PURE 125KW",
+            "marca": "FORD",
+            "model": "TRANSIT CUSTOM",
             "volum": 5
         },
         {
@@ -281,6 +286,16 @@
         {
             "marca": "MERCEDES-BENZ",
             "model": "EVITO",
+            "volum": 5
+        },
+        {
+            "marca": "NISSAN",
+            "model": "NISSAN E-NV200",
+            "volum": 5
+        },
+        {
+            "marca": "MAXUS",
+            "model": "MAXUS EDELIVER 9",
             "volum": 5
         },
         {
@@ -331,11 +346,6 @@
         {
             "marca": "AUDI",
             "model": "E-TRON 55",
-            "volum": 4
-        },
-        {
-            "marca": "FORD",
-            "model": "TRANSIT COURIER",
             "volum": 4
         },
         {
@@ -429,8 +439,8 @@
             "volum": 3
         },
         {
-            "marca": "RENAULT",
-            "model": "KANGOO EXPRESS Z,E,",
+            "marca": "TOYOTA",
+            "model": "PROACE CITY ELECTRIC",
             "volum": 3
         },
         {
@@ -439,13 +449,8 @@
             "volum": 3
         },
         {
-            "marca": "RENAULT",
-            "model": "KANGOO VAN E-TECH ELECTRIC",
-            "volum": 3
-        },
-        {
-            "marca": "TOYOTA",
-            "model": "PROACE",
+            "marca": "MAXUS",
+            "model": "MAXUS E-DELIVER 3",
             "volum": 3
         },
         {
@@ -594,8 +599,13 @@
             "volum": 2
         },
         {
-            "marca": "TOYOTA",
-            "model": "PROACE CITY ELECTRIC",
+            "marca": "RENAULT",
+            "model": "KANGOO EXPRESS Z,E,",
+            "volum": 2
+        },
+        {
+            "marca": "FIAT",
+            "model": "DUCATO",
             "volum": 2
         },
         {
@@ -604,23 +614,18 @@
             "volum": 2
         },
         {
-            "marca": "FORD",
-            "model": "TRANSIT",
-            "volum": 2
-        },
-        {
-            "marca": "MAXUS",
-            "model": "MAXUS EDELIVER 9",
-            "volum": 2
-        },
-        {
             "marca": "OPEL",
-            "model": "COMBO-E CARGO",
+            "model": "VIVARO",
             "volum": 2
         },
         {
-            "marca": "NISSAN",
-            "model": "NISSAN E-NV200",
+            "marca": "PEUGEOT",
+            "model": "EXPERT",
+            "volum": 2
+        },
+        {
+            "marca": "RENAULT",
+            "model": "MASTER E-TECH",
             "volum": 2
         },
         {
@@ -844,11 +849,6 @@
             "volum": 1
         },
         {
-            "marca": "FORD",
-            "model": "TRANSIT CUSTOM",
-            "volum": 1
-        },
-        {
             "marca": "AUDI",
             "model": "Q4 45 E-TRON",
             "volum": 1
@@ -1064,58 +1064,43 @@
             "volum": 1
         },
         {
-            "marca": "MAXUS",
-            "model": "MAXUS EDELIVER 5",
+            "marca": "IVECO",
+            "model": "35S10E",
             "volum": 1
         },
         {
-            "marca": "PEUGEOT",
-            "model": "E-PARTNER",
+            "marca": "TOYOTA",
+            "model": "PROACE",
             "volum": 1
         },
         {
-            "marca": "CITROEN",
-            "model": "JUMPY",
+            "marca": "FIAT",
+            "model": "E-DOBLO",
             "volum": 1
         },
         {
-            "marca": "MAXUS",
-            "model": "MAXUS EDELIVER 7",
+            "marca": "KG MOBILITY",
+            "model": "KG MOBILITY MUSSO EV",
             "volum": 1
         },
         {
-            "marca": "NISSAN",
-            "model": "E-NV200",
+            "marca": "MERCEDES-BENZ",
+            "model": "ESPRINTER",
+            "volum": 1
+        },
+        {
+            "marca": "OPEL",
+            "model": "COMBO-E CARGO",
             "volum": 1
         },
         {
             "marca": "RENAULT",
-            "model": "TRAFIC E-TECH",
+            "model": "KANGOO VAN E-TECH ELECTRIC",
             "volum": 1
         },
         {
             "marca": "VOLKSWAGEN",
             "model": "CRAFTER",
-            "volum": 1
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "TRANSPORTER",
-            "volum": 1
-        },
-        {
-            "marca": "RENAULT",
-            "model": "KANGOO EXPRES Z,E,",
-            "volum": 1
-        },
-        {
-            "marca": "OPEL",
-            "model": "VIVARO",
-            "volum": 1
-        },
-        {
-            "marca": "FARIZON",
-            "model": "FARIZON SV",
             "volum": 1
         },
         {
@@ -1125,7 +1110,22 @@
         },
         {
             "marca": "CITROEN",
-            "model": "E-BERLINGO VAN",
+            "model": "JUMPY",
+            "volum": 1
+        },
+        {
+            "marca": "NISSAN",
+            "model": "E-NV200",
+            "volum": 1
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "ID, BUZZ CARGO PRO 210 KW",
+            "volum": 1
+        },
+        {
+            "marca": "CENNTRO",
+            "model": "LOGISTAR 260",
             "volum": 1
         }
     ],

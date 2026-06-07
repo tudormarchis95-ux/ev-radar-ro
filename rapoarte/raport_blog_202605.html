@@ -1,0 +1,315 @@
+<!-- ================================================================= -->
+<!--                   SECȚIUNE TEXT SUMAR PE BLOG                     -->
+<!-- ================================================================= -->
+<p>În luna Mai 2026, au fost înmatriculate un total de <strong>1505</strong> vehicule electrice (M1 + N1), înregistrând o creștere spectaculoasă de <strong>74.39%</strong> comparativ cu aceeași lună a anului trecut (863 unități în Mai 2025).</p>
+
+<p class="has-pale-cyan-blue-background-color has-background">Din totalul înmatriculărilor de EV-uri, <strong>675 unități (44.85%)</strong> sunt reprezentate de vehicule second-hand (rulate), restul de 830 unități fiind vehicule noi.</p>
+
+<p>Vehiculele electrice noi au reprezentat <strong>6.83%</strong> din totalul autovehiculelor noi înmatriculate în luna Mai.</p>
+
+
+<style>
+  .ev-chart-container { 
+    font-family: 'Montserrat', sans-serif; 
+    background: #FAFAFA; 
+    padding: 35px 25px; 
+    max-width: 800px; 
+    margin: 20px auto; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+  }
+  .ev-chart-title { 
+    color: #004b87; 
+    font-weight: 900; 
+    font-size: 26px; 
+    margin-bottom: 5px; 
+  }
+  .ev-chart-subtitle { 
+    color: #666; 
+    font-size: 14px; 
+    margin-bottom: 30px; 
+    font-weight: 600; 
+  }
+  .ev-bar-row { 
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 12px; 
+  }
+  .ev-label { 
+    width: 150px; 
+    text-align: right; 
+    padding-right: 15px; 
+    font-weight: 700; 
+    font-size: 13px; 
+    color: #333; 
+  }
+  .ev-bar-wrapper { 
+    flex-grow: 1; 
+    display: flex; 
+    align-items: center; 
+  }
+  .ev-bar { 
+    background: #4A90E2; 
+    height: 24px; 
+    border-radius: 0 4px 4px 0; 
+    min-width: 2px; 
+  }
+  .ev-bar.top-3 { background: #004b87; }
+  .ev-value { 
+    margin-left: 10px; 
+    font-weight: 900; 
+    font-size: 14px; 
+    color: #333; 
+  }
+  .ev-table-wrapper {
+    font-family: 'Montserrat', sans-serif;
+    max-width: 850px;
+    margin: 25px auto;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+    border: 1px solid #eaeaea;
+  }
+  .ev-table-header {
+    padding: 20px 25px;
+    background: #FAFAFA;
+    border-bottom: 3px solid #004b87;
+  }
+  .ev-table-title {
+    color: #004b87;
+    font-weight: 800;
+    font-size: 22px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+  .ev-table-subtitle {
+    color: #666;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .ev-table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+  .ev-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+  }
+  .ev-data-table th {
+    background-color: #f4f7fa;
+    color: #004b87;
+    font-weight: 800;
+    padding: 14px 20px;
+    border-bottom: 2px solid #dde4eb;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  .ev-data-table td {
+    padding: 12px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #333;
+  }
+  .ev-data-table tr:nth-child(even) {
+    background-color: #fcfcfc;
+  }
+  .ev-data-table tr:hover {
+    background-color: #f0f6fc;
+  }
+  .col-rank { width: 50px; font-weight: 700; color: #888; text-align: center; }
+  .col-model { font-weight: 600; }
+  .col-val { font-weight: 700; color: #004b87; }
+  .col-pct { color: #555; font-weight: 600; }
+  
+  @media (max-width: 500px) {
+    .ev-data-table td, .ev-data-table th { padding: 10px 12px; font-size: 12px; }
+    .col-rank { padding-left: 10px; padding-right: 10px; }
+    .ev-label { width: 110px; font-size: 11px; padding-right: 10px; }
+    .ev-value { font-size: 12px; }
+  }
+</style>
+
+
+<!-- ================================================================= -->
+<!--                     GRAFIC HTML TOP 20 LUNAR                      -->
+<!-- ================================================================= -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<div class="ev-chart-container">
+  <div class="ev-chart-title">Top 20 Mai</div>
+  <div class="ev-chart-subtitle">Înmatriculări mașini electrice România (2026)</div>
+
+  <div class="ev-bar-row"><div class="ev-label">TESLA TESLA MODEL 3</div><div class="ev-bar-wrapper"><div class="ev-bar top-3" style="width: 100.0%;"></div><span class="ev-value">176</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">TESLA TESLA MODEL Y</div><div class="ev-bar-wrapper"><div class="ev-bar top-3" style="width: 76.1%;"></div><span class="ev-value">134</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">BYD BYD SEALION 7</div><div class="ev-bar-wrapper"><div class="ev-bar top-3" style="width: 52.8%;"></div><span class="ev-value">93</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">BYD BYD DOLPHIN SURF</div><div class="ev-bar-wrapper"><div class="ev-bar " style="width: 32.4%;"></div><span class="ev-value">57</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">HYUNDAI HYUNDAI KONA</div><div class="ev-bar-wrapper"><div class="ev-bar " style="width: 31.8%;"></div><span class="ev-value">56</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">FORD FORD PUMA</div><div class="ev-bar-wrapper"><div class="ev-bar " style="width: 25.6%;"></div><span class="ev-value">45</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">RENAULT RENAULT ZOE</div><div class="ev-bar-wrapper"><div class="ev-bar " style="width: 22.7%;"></div><span class="ev-value">40</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">BYD BYD ATTO 2</div><div class="ev-bar-wrapper"><div class="ev-bar " style="width: 18.8%;"></div><span class="ev-value">33</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">VOLKSWAGEN VOLKSWAGEN ID.4</div><div class="ev-bar-wrapper"><div class="ev-bar " style="width: 17.6%;"></div><span class="ev-value">31</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">DACIA DACIA SPRING</div><div class="ev-bar-wrapper"><div class="ev-bar " style="width: 17.0%;"></div><span class="ev-value">30</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">RENAULT RENAULT RENAULT 5 E-TECH</div><div class="ev-bar-wrapper"><div class="ev-bar " style="width: 16.5%;"></div><span class="ev-value">29</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">FORD FORD EXPLORER</div><div class="ev-bar-wrapper"><div class="ev-bar " style="width: 15.3%;"></div><span class="ev-value">27</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">KIA KIA EV6</div><div class="ev-bar-wrapper"><div class="ev-bar " style="width: 15.3%;"></div><span class="ev-value">27</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">BYD BYD SEAL</div><div class="ev-bar-wrapper"><div class="ev-bar " style="width: 15.3%;"></div><span class="ev-value">27</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">MERCEDES - BENZ MERCEDES - BENZ EQE</div><div class="ev-bar-wrapper"><div class="ev-bar " style="width: 14.8%;"></div><span class="ev-value">26</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">BMW BMW IX3</div><div class="ev-bar-wrapper"><div class="ev-bar " style="width: 14.8%;"></div><span class="ev-value">26</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">KIA KIA NIRO</div><div class="ev-bar-wrapper"><div class="ev-bar " style="width: 12.5%;"></div><span class="ev-value">22</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">MG MG MG4</div><div class="ev-bar-wrapper"><div class="ev-bar " style="width: 11.9%;"></div><span class="ev-value">21</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">FORD FORD MUSTANG MACH-E</div><div class="ev-bar-wrapper"><div class="ev-bar " style="width: 11.4%;"></div><span class="ev-value">20</span></div></div>
+  <div class="ev-bar-row"><div class="ev-label">VOLVO VOLVO EX30</div><div class="ev-bar-wrapper"><div class="ev-bar " style="width: 10.8%;"></div><span class="ev-value">19</span></div></div>
+</div>
+
+
+<!-- ================================================================= -->
+<!--                  TABEL HTML TOP 50 CUMULAT (YTD)                  -->
+<!-- ================================================================= -->
+<div class="ev-table-wrapper">
+  <div class="ev-table-header">
+    <div class="ev-table-title">TOP 50 - 2026</div>
+    <div class="ev-table-subtitle">Înmatriculări cumulate (Ianuarie - Mai)</div>
+  </div>
+  <div class="ev-table-container">
+    <table class="ev-data-table">
+      <thead>
+        <tr>
+          <th class="col-rank">#</th>
+          <th class="col-model">Model</th>
+          <th class="col-val">2026</th>
+          <th class="col-pct">% 2026</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="col-rank">1</td><td class="col-model">TESLA TESLA MODEL 3</td><td class="col-val">817</td><td class="col-pct">12.02%</td></tr>
+        <tr><td class="col-rank">2</td><td class="col-model">TESLA TESLA MODEL Y</td><td class="col-val">686</td><td class="col-pct">10.09%</td></tr>
+        <tr><td class="col-rank">3</td><td class="col-model">BYD BYD DOLPHIN SURF</td><td class="col-val">383</td><td class="col-pct">5.63%</td></tr>
+        <tr><td class="col-rank">4</td><td class="col-model">DACIA DACIA SPRING</td><td class="col-val">301</td><td class="col-pct">4.43%</td></tr>
+        <tr><td class="col-rank">5</td><td class="col-model">BYD BYD SEALION 7</td><td class="col-val">272</td><td class="col-pct">4.00%</td></tr>
+        <tr><td class="col-rank">6</td><td class="col-model">FORD FORD PUMA</td><td class="col-val">263</td><td class="col-pct">3.87%</td></tr>
+        <tr><td class="col-rank">7</td><td class="col-model">HYUNDAI HYUNDAI KONA</td><td class="col-val">242</td><td class="col-pct">3.56%</td></tr>
+        <tr><td class="col-rank">8</td><td class="col-model">VOLKSWAGEN VOLKSWAGEN ID.4</td><td class="col-val">159</td><td class="col-pct">2.34%</td></tr>
+        <tr><td class="col-rank">9</td><td class="col-model">MG MG MG4</td><td class="col-val">157</td><td class="col-pct">2.31%</td></tr>
+        <tr><td class="col-rank">10</td><td class="col-model">RENAULT RENAULT RENAULT 5 E-TECH</td><td class="col-val">139</td><td class="col-pct">2.05%</td></tr>
+        <tr><td class="col-rank">11</td><td class="col-model">BYD BYD ATTO 2</td><td class="col-val">138</td><td class="col-pct">2.03%</td></tr>
+        <tr><td class="col-rank">12</td><td class="col-model">FORD FORD EXPLORER</td><td class="col-val">136</td><td class="col-pct">2.00%</td></tr>
+        <tr><td class="col-rank">13</td><td class="col-model">RENAULT RENAULT ZOE</td><td class="col-val">126</td><td class="col-pct">1.85%</td></tr>
+        <tr><td class="col-rank">14</td><td class="col-model">BYD BYD SEAL</td><td class="col-val">92</td><td class="col-pct">1.35%</td></tr>
+        <tr><td class="col-rank">15</td><td class="col-model">HYUNDAI HYUNDAI INSTER</td><td class="col-val">88</td><td class="col-pct">1.29%</td></tr>
+        <tr><td class="col-rank">16</td><td class="col-model">AUDI AUDI E-TRON (SUV)</td><td class="col-val">85</td><td class="col-pct">1.25%</td></tr>
+        <tr><td class="col-rank">17</td><td class="col-model">VOLVO VOLVO EX30</td><td class="col-val">85</td><td class="col-pct">1.25%</td></tr>
+        <tr><td class="col-rank">18</td><td class="col-model">LEAPMOTOR LEAPMOTOR T03</td><td class="col-val">82</td><td class="col-pct">1.21%</td></tr>
+        <tr><td class="col-rank">19</td><td class="col-model">TESLA TESLA MODEL S</td><td class="col-val">79</td><td class="col-pct">1.16%</td></tr>
+        <tr><td class="col-rank">20</td><td class="col-model">VOLKSWAGEN VOLKSWAGEN ID.3</td><td class="col-val">74</td><td class="col-pct">1.09%</td></tr>
+        <tr><td class="col-rank">21</td><td class="col-model">NISSAN NISSAN LEAF</td><td class="col-val">64</td><td class="col-pct">0.94%</td></tr>
+        <tr><td class="col-rank">22</td><td class="col-model">MERCEDES - BENZ MERCEDES - BENZ EQA</td><td class="col-val">63</td><td class="col-pct">0.93%</td></tr>
+        <tr><td class="col-rank">23</td><td class="col-model">KIA KIA NIRO</td><td class="col-val">61</td><td class="col-pct">0.90%</td></tr>
+        <tr><td class="col-rank">24</td><td class="col-model">BMW BMW I4</td><td class="col-val">60</td><td class="col-pct">0.88%</td></tr>
+        <tr><td class="col-rank">25</td><td class="col-model">MERCEDES - BENZ MERCEDES - BENZ EQE</td><td class="col-val">57</td><td class="col-pct">0.84%</td></tr>
+        <tr><td class="col-rank">26</td><td class="col-model">BMW BMW IX3</td><td class="col-val">57</td><td class="col-pct">0.84%</td></tr>
+        <tr><td class="col-rank">27</td><td class="col-model">FORD FORD MUSTANG MACH-E</td><td class="col-val">55</td><td class="col-pct">0.81%</td></tr>
+        <tr><td class="col-rank">28</td><td class="col-model">FORD FORD CAPRI</td><td class="col-val">54</td><td class="col-pct">0.79%</td></tr>
+        <tr><td class="col-rank">29</td><td class="col-model">FORD FORD TRANSIT</td><td class="col-val">52</td><td class="col-pct">0.77%</td></tr>
+        <tr><td class="col-rank">30</td><td class="col-model">MG MG ZS</td><td class="col-val">51</td><td class="col-pct">0.75%</td></tr>
+        <tr><td class="col-rank">31</td><td class="col-model">PEUGEOT PEUGEOT 2008</td><td class="col-val">50</td><td class="col-pct">0.74%</td></tr>
+        <tr><td class="col-rank">32</td><td class="col-model">HYUNDAI HYUNDAI IONIQ 5</td><td class="col-val">45</td><td class="col-pct">0.66%</td></tr>
+        <tr><td class="col-rank">33</td><td class="col-model">RENAULT RENAULT MEGANE E-TECH</td><td class="col-val">42</td><td class="col-pct">0.62%</td></tr>
+        <tr><td class="col-rank">34</td><td class="col-model">SKODA SKODA ENYAQ</td><td class="col-val">42</td><td class="col-pct">0.62%</td></tr>
+        <tr><td class="col-rank">35</td><td class="col-model">BMW BMW IX1</td><td class="col-val">41</td><td class="col-pct">0.60%</td></tr>
+        <tr><td class="col-rank">36</td><td class="col-model">HYUNDAI HYUNDAI IONIQ</td><td class="col-val">40</td><td class="col-pct">0.59%</td></tr>
+        <tr><td class="col-rank">37</td><td class="col-model">KIA KIA EV6</td><td class="col-val">37</td><td class="col-pct">0.54%</td></tr>
+        <tr><td class="col-rank">38</td><td class="col-model">AUDI AUDI Q4 E-TRON</td><td class="col-val">35</td><td class="col-pct">0.51%</td></tr>
+        <tr><td class="col-rank">39</td><td class="col-model">BMW BMW IX</td><td class="col-val">34</td><td class="col-pct">0.50%</td></tr>
+        <tr><td class="col-rank">40</td><td class="col-model">TESLA TESLA MODEL X</td><td class="col-val">32</td><td class="col-pct">0.47%</td></tr>
+        <tr><td class="col-rank">41</td><td class="col-model">SKODA SKODA ELROQ</td><td class="col-val">32</td><td class="col-pct">0.47%</td></tr>
+        <tr><td class="col-rank">42</td><td class="col-model">PEUGEOT PEUGEOT 208</td><td class="col-val">31</td><td class="col-pct">0.46%</td></tr>
+        <tr><td class="col-rank">43</td><td class="col-model">FIAT FIAT 500</td><td class="col-val">29</td><td class="col-pct">0.43%</td></tr>
+        <tr><td class="col-rank">44</td><td class="col-model">VOLVO VOLVO EX40</td><td class="col-val">28</td><td class="col-pct">0.41%</td></tr>
+        <tr><td class="col-rank">45</td><td class="col-model">PORSCHE PORSCHE TAYCAN</td><td class="col-val">27</td><td class="col-pct">0.40%</td></tr>
+        <tr><td class="col-rank">46</td><td class="col-model">MAXUS MAXUS MAXUS E-DELIVER 3</td><td class="col-val">27</td><td class="col-pct">0.40%</td></tr>
+        <tr><td class="col-rank">47</td><td class="col-model">MERCEDES - BENZ MERCEDES - BENZ EQC</td><td class="col-val">26</td><td class="col-pct">0.38%</td></tr>
+        <tr><td class="col-rank">48</td><td class="col-model">MERCEDES - BENZ MERCEDES - BENZ EVITO</td><td class="col-val">25</td><td class="col-pct">0.37%</td></tr>
+        <tr><td class="col-rank">49</td><td class="col-model">KIA KIA EV3</td><td class="col-val">25</td><td class="col-pct">0.37%</td></tr>
+        <tr><td class="col-rank">50</td><td class="col-model">OPEL OPEL MOKKA</td><td class="col-val">24</td><td class="col-pct">0.35%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- ================================================================= -->
+<!--               TABEL HTML TOP 50 PARC AUTO GENERAL                 -->
+<!-- ================================================================= -->
+<div class="ev-table-wrapper">
+  <div class="ev-table-header">
+    <div class="ev-table-title">TOP 50 - PARC AUTO GENERAL</div>
+    <div class="ev-table-subtitle">Clasament cumulat istoric România (Până în Mai 2026)</div>
+  </div>
+  <div class="ev-table-container">
+    <table class="ev-data-table">
+      <thead>
+        <tr>
+          <th class="col-rank">#</th>
+          <th class="col-model">Model</th>
+          <th class="col-val">Total Unități</th>
+          <th class="col-pct">% Parc Auto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="col-rank">1</td><td class="col-model">DACIA DACIA SPRING</td><td class="col-val">18.973</td><td class="col-pct">28.02%</td></tr>
+        <tr><td class="col-rank">2</td><td class="col-model">TESLA TESLA MODEL 3</td><td class="col-val">7.047</td><td class="col-pct">10.41%</td></tr>
+        <tr><td class="col-rank">3</td><td class="col-model">TESLA TESLA MODEL Y</td><td class="col-val">4.657</td><td class="col-pct">6.88%</td></tr>
+        <tr><td class="col-rank">4</td><td class="col-model">HYUNDAI HYUNDAI KONA</td><td class="col-val">2.972</td><td class="col-pct">4.39%</td></tr>
+        <tr><td class="col-rank">5</td><td class="col-model">RENAULT RENAULT ZOE</td><td class="col-val">2.385</td><td class="col-pct">3.52%</td></tr>
+        <tr><td class="col-rank">6</td><td class="col-model">VOLKSWAGEN VOLKSWAGEN UP</td><td class="col-val">1.722</td><td class="col-pct">2.54%</td></tr>
+        <tr><td class="col-rank">7</td><td class="col-model">VOLKSWAGEN VOLKSWAGEN ID.3</td><td class="col-val">1.658</td><td class="col-pct">2.45%</td></tr>
+        <tr><td class="col-rank">8</td><td class="col-model">RENAULT RENAULT MEGANE E-TECH</td><td class="col-val">1.518</td><td class="col-pct">2.24%</td></tr>
+        <tr><td class="col-rank">9</td><td class="col-model">VOLKSWAGEN VOLKSWAGEN ID.4</td><td class="col-val">1.283</td><td class="col-pct">1.89%</td></tr>
+        <tr><td class="col-rank">10</td><td class="col-model">NISSAN NISSAN LEAF</td><td class="col-val">1.156</td><td class="col-pct">1.71%</td></tr>
+        <tr><td class="col-rank">11</td><td class="col-model">BMW BMW I3</td><td class="col-val">925</td><td class="col-pct">1.37%</td></tr>
+        <tr><td class="col-rank">12</td><td class="col-model">FORD FORD PUMA</td><td class="col-val">765</td><td class="col-pct">1.13%</td></tr>
+        <tr><td class="col-rank">13</td><td class="col-model">MERCEDES - BENZ MERCEDES - BENZ EQA</td><td class="col-val">754</td><td class="col-pct">1.11%</td></tr>
+        <tr><td class="col-rank">14</td><td class="col-model">SKODA SKODA ENYAQ</td><td class="col-val">677</td><td class="col-pct">1.00%</td></tr>
+        <tr><td class="col-rank">15</td><td class="col-model">RENAULT RENAULT KANGOO VAN E-TECH</td><td class="col-val">666</td><td class="col-pct">0.98%</td></tr>
+        <tr><td class="col-rank">16</td><td class="col-model">TESLA TESLA MODEL S</td><td class="col-val">658</td><td class="col-pct">0.97%</td></tr>
+        <tr><td class="col-rank">17</td><td class="col-model">VOLKSWAGEN VOLKSWAGEN GOLF</td><td class="col-val">604</td><td class="col-pct">0.89%</td></tr>
+        <tr><td class="col-rank">18</td><td class="col-model">BYD BYD DOLPHIN SURF</td><td class="col-val">603</td><td class="col-pct">0.89%</td></tr>
+        <tr><td class="col-rank">19</td><td class="col-model">MERCEDES - BENZ MERCEDES - BENZ EQE</td><td class="col-val">564</td><td class="col-pct">0.83%</td></tr>
+        <tr><td class="col-rank">20</td><td class="col-model">FIAT FIAT 500</td><td class="col-val">560</td><td class="col-pct">0.83%</td></tr>
+        <tr><td class="col-rank">21</td><td class="col-model">BMW BMW I4</td><td class="col-val">543</td><td class="col-pct">0.80%</td></tr>
+        <tr><td class="col-rank">22</td><td class="col-model">HYUNDAI HYUNDAI IONIQ 5</td><td class="col-val">538</td><td class="col-pct">0.79%</td></tr>
+        <tr><td class="col-rank">23</td><td class="col-model">AUDI AUDI E-TRON (SUV)</td><td class="col-val">524</td><td class="col-pct">0.77%</td></tr>
+        <tr><td class="col-rank">24</td><td class="col-model">SMART SMART EQ FORTWO</td><td class="col-val">523</td><td class="col-pct">0.77%</td></tr>
+        <tr><td class="col-rank">25</td><td class="col-model">FORD FORD EXPLORER</td><td class="col-val">513</td><td class="col-pct">0.76%</td></tr>
+        <tr><td class="col-rank">26</td><td class="col-model">RENAULT RENAULT RENAULT 5 E-TECH</td><td class="col-val">488</td><td class="col-pct">0.72%</td></tr>
+        <tr><td class="col-rank">27</td><td class="col-model">FORD FORD MUSTANG MACH-E</td><td class="col-val">487</td><td class="col-pct">0.72%</td></tr>
+        <tr><td class="col-rank">28</td><td class="col-model">MINI MINI COOPER SE</td><td class="col-val">486</td><td class="col-pct">0.72%</td></tr>
+        <tr><td class="col-rank">29</td><td class="col-model">HYUNDAI HYUNDAI INSTER</td><td class="col-val">479</td><td class="col-pct">0.71%</td></tr>
+        <tr><td class="col-rank">30</td><td class="col-model">PEUGEOT PEUGEOT 208</td><td class="col-val">477</td><td class="col-pct">0.70%</td></tr>
+        <tr><td class="col-rank">31</td><td class="col-model">FORD FORD TRANSIT</td><td class="col-val">468</td><td class="col-pct">0.69%</td></tr>
+        <tr><td class="col-rank">32</td><td class="col-model">MG MG MG4</td><td class="col-val">459</td><td class="col-pct">0.68%</td></tr>
+        <tr><td class="col-rank">33</td><td class="col-model">VOLVO VOLVO EX30</td><td class="col-val">458</td><td class="col-pct">0.68%</td></tr>
+        <tr><td class="col-rank">34</td><td class="col-model">BMW BMW IX</td><td class="col-val">431</td><td class="col-pct">0.64%</td></tr>
+        <tr><td class="col-rank">35</td><td class="col-model">PEUGEOT PEUGEOT 2008</td><td class="col-val">412</td><td class="col-pct">0.61%</td></tr>
+        <tr><td class="col-rank">36</td><td class="col-model">TESLA TESLA MODEL X</td><td class="col-val">397</td><td class="col-pct">0.59%</td></tr>
+        <tr><td class="col-rank">37</td><td class="col-model">SMART SMART EQ FORFOUR</td><td class="col-val">393</td><td class="col-pct">0.58%</td></tr>
+        <tr><td class="col-rank">38</td><td class="col-model">BYD BYD SEALION 7</td><td class="col-val">383</td><td class="col-pct">0.57%</td></tr>
+        <tr><td class="col-rank">39</td><td class="col-model">LEAPMOTOR LEAPMOTOR T03</td><td class="col-val">381</td><td class="col-pct">0.56%</td></tr>
+        <tr><td class="col-rank">40</td><td class="col-model">MERCEDES - BENZ MERCEDES - BENZ EQS</td><td class="col-val">339</td><td class="col-pct">0.50%</td></tr>
+        <tr><td class="col-rank">41</td><td class="col-model">SKODA SKODA CITIGO</td><td class="col-val">332</td><td class="col-pct">0.49%</td></tr>
+        <tr><td class="col-rank">42</td><td class="col-model">MAZDA MAZDA MX-30</td><td class="col-val">329</td><td class="col-pct">0.49%</td></tr>
+        <tr><td class="col-rank">43</td><td class="col-model">PORSCHE PORSCHE TAYCAN</td><td class="col-val">321</td><td class="col-pct">0.47%</td></tr>
+        <tr><td class="col-rank">44</td><td class="col-model">TOYOTA TOYOTA BZ4X</td><td class="col-val">313</td><td class="col-pct">0.46%</td></tr>
+        <tr><td class="col-rank">45</td><td class="col-model">MERCEDES - BENZ MERCEDES - BENZ EQC</td><td class="col-val">313</td><td class="col-pct">0.46%</td></tr>
+        <tr><td class="col-rank">46</td><td class="col-model">MERCEDES - BENZ MERCEDES - BENZ EQB</td><td class="col-val">305</td><td class="col-pct">0.45%</td></tr>
+        <tr><td class="col-rank">47</td><td class="col-model">FORD FORD CAPRI</td><td class="col-val">297</td><td class="col-pct">0.44%</td></tr>
+        <tr><td class="col-rank">48</td><td class="col-model">KIA KIA NIRO</td><td class="col-val">293</td><td class="col-pct">0.43%</td></tr>
+        <tr><td class="col-rank">49</td><td class="col-model">BMW BMW IX1</td><td class="col-val">287</td><td class="col-pct">0.42%</td></tr>
+        <tr><td class="col-rank">50</td><td class="col-model">MERCEDES - BENZ MERCEDES - BENZ EVITO</td><td class="col-val">277</td><td class="col-pct">0.41%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>

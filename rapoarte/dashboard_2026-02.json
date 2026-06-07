@@ -1,7 +1,7 @@
 {
     "totalAutoReg": 1311,
     "totalUtilReg": 59,
-    "totalRadieri": 49,
+    "totalRadieri": 92,
     "evShare": 0.09925151235517277,
     "usedShare": 0.2934306569343066,
     "yoyGrowth": 28.15715622076707,
@@ -978,52 +978,37 @@
         {
             "marca": "DACIA",
             "model": "SPRING",
-            "volum": 27
+            "volum": 52
         },
         {
             "marca": "RENAULT",
             "model": "RENAULT 5 E-TECH ELECTRIC",
-            "volum": 5
-        },
-        {
-            "marca": "RENAULT",
-            "model": "RENAULT 4 E-TECH ELECTRIC",
-            "volum": 3
-        },
-        {
-            "marca": "RENAULT",
-            "model": "MEGANE E-TECH ELECTRIC",
-            "volum": 2
-        },
-        {
-            "marca": "HYUNDAI",
-            "model": "KONA",
-            "volum": 2
-        },
-        {
-            "marca": "BMW",
-            "model": "IX3",
-            "volum": 2
+            "volum": 13
         },
         {
             "marca": "VOLKSWAGEN",
             "model": "UP !",
+            "volum": 3
+        },
+        {
+            "marca": "BMW I",
+            "model": "I3",
             "volum": 2
         },
         {
-            "marca": "RENAULT",
-            "model": "ZOE",
-            "volum": 1
-        },
-        {
-            "marca": "SKODA",
-            "model": "ENYAQ 80",
-            "volum": 1
+            "marca": "NISSAN",
+            "model": "ARIYA",
+            "volum": 2
         },
         {
             "marca": "TESLA",
-            "model": "MODEL X",
-            "volum": 1
+            "model": "MODEL 3",
+            "volum": 2
+        },
+        {
+            "marca": "BMW I",
+            "model": "",
+            "volum": 2
         },
         {
             "marca": "VOLKSWAGEN",
@@ -1031,13 +1016,78 @@
             "volum": 1
         },
         {
-            "marca": "NISSAN",
-            "model": "LEAF 40KWH",
+            "marca": "VOLKSWAGEN",
+            "model": "ID,4 PRO 4MOTION 210KW",
             "volum": 1
         },
         {
-            "marca": "MAZDA",
-            "model": "MX-30",
+            "marca": "BMW",
+            "model": "I4 EDRIVE40",
+            "volum": 1
+        },
+        {
+            "marca": "BMW",
+            "model": "IX M60",
+            "volum": 1
+        },
+        {
+            "marca": "HYUNDAI",
+            "model": "KONA",
+            "volum": 1
+        },
+        {
+            "marca": "MERCEDES-BENZ",
+            "model": "G 580",
+            "volum": 1
+        },
+        {
+            "marca": "OPEL",
+            "model": "CORSA",
+            "volum": 1
+        },
+        {
+            "marca": "PORSCHE",
+            "model": "TAYCAN 4S",
+            "volum": 1
+        },
+        {
+            "marca": "SKODA",
+            "model": "CITIGO",
+            "volum": 1
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL S",
+            "volum": 1
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL Y",
+            "volum": 1
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "ID,3 PRO 150 KW",
+            "volum": 1
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "ID,4 PRO 150 KW",
+            "volum": 1
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "ID,4 PRO 128 KW",
+            "volum": 1
+        },
+        {
+            "marca": "FIAT",
+            "model": "500",
+            "volum": 1
+        },
+        {
+            "marca": "MERCEDES-BENZ",
+            "model": "EQB 250+",
             "volum": 1
         }
     ],

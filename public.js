@@ -97,10 +97,10 @@ function renderDashboard() {
     // Calculeaza parcul auto national total estimat
     const base2025 = 63986;
     const history2026 = {
-        'JAN': 1411 - 86,
-        'FEB': 1372 - 92,
-        'MAR': 1209 - 188,
-        'APR': 1308 - 49,
+        'JAN': 1410 - 85,
+        'FEB': 1370 - 92,
+        'MAR': 1206 - 186,
+        'APR': 1306 - 49,
         'MAY': 1505 - 103,
         'JUN': 0, 'JUL': 0, 'AUG': 0, 'SEP': 0, 'OCT': 0, 'NOV': 0, 'DEC': 0
     };
@@ -183,7 +183,7 @@ function renderHistoricalCharts() {
     };
     
     const regs2026 = {
-        'JAN': 1411, 'FEB': 1372, 'MAR': 1209, 'APR': 1308, 'MAY': 1505,
+        'JAN': 1410, 'FEB': 1370, 'MAR': 1206, 'APR': 1306, 'MAY': 1505,
         'JUN': null, 'JUL': null, 'AUG': null, 'SEP': null, 'OCT': null, 'NOV': null, 'DEC': null
     };
     
@@ -264,20 +264,20 @@ function renderHistoricalCharts() {
     // 2. Evolutie Anuala 2011 - Prezent (Format Vertical)
     const annualData = [
         { year: 2011, qty: 7 },
-        { year: 2012, qty: 5 },
-        { year: 2013, qty: 50 },
-        { year: 2014, qty: 16 },
-        { year: 2015, qty: 32 },
-        { year: 2016, qty: 104 },
-        { year: 2017, qty: 247 },
-        { year: 2018, qty: 710 },
-        { year: 2019, qty: 1747 },
-        { year: 2020, qty: 3134 },
-        { year: 2021, qty: 6831 },
-        { year: 2022, qty: 12466 },
-        { year: 2023, qty: 16852 },
-        { year: 2024, qty: 12677 },
-        { year: 2025, qty: 14081 }
+        { year: 2012, qty: 12 },
+        { year: 2013, qty: 62 },
+        { year: 2014, qty: 78 },
+        { year: 2015, qty: 110 },
+        { year: 2016, qty: 214 },
+        { year: 2017, qty: 461 },
+        { year: 2018, qty: 1171 },
+        { year: 2019, qty: 2918 },
+        { year: 2020, qty: 6052 },
+        { year: 2021, qty: 12883 },
+        { year: 2022, qty: 25349 },
+        { year: 2023, qty: 40286 },
+        { year: 2024, qty: 51230 },
+        { year: 2025, qty: 63986 }
     ];
     
     // Adaugam 2026 in mod dinamic
@@ -292,10 +292,10 @@ function renderHistoricalCharts() {
     // Calculeaza parcul auto total estimat (similar cu cardul principal)
     const base2025 = 63986;
     const history2026 = {
-        'JAN': 1411 - 86,
-        'FEB': 1372 - 92,
-        'MAR': 1209 - 188,
-        'APR': 1308 - 49,
+        'JAN': 1410 - 85,
+        'FEB': 1370 - 92,
+        'MAR': 1206 - 186,
+        'APR': 1306 - 49,
         'MAY': 1505 - 103,
         'JUN': 0, 'JUL': 0, 'AUG': 0, 'SEP': 0, 'OCT': 0, 'NOV': 0, 'DEC': 0
     };
