@@ -228,21 +228,10 @@ function renderHistoricalCharts() {
             const h25 = ((val25 / scaleMax) * 100).toFixed(1);
             const h26 = val26 !== null ? ((val26 / scaleMax) * 100).toFixed(1) : 0;
             
-            let badgeHTML = '';
-            if (val26 !== null && val26 > 0) {
-                const pct = ((val26 - val25) / val25 * 100).toFixed(1);
-                const sign = pct >= 0 ? '+' : '';
-                const badgeClass = pct >= 0 ? 'positive' : 'negative';
-                badgeHTML = `<span class="growth-badge ${badgeClass}" style="padding: 0.15rem 0.35rem; font-size: 0.65rem; border-radius: 4px; line-height: 1; font-weight: 800;">${sign}${pct}%</span>`;
-            }
-            
             const col = document.createElement('div');
             col.className = 'v-col-group';
             col.innerHTML = `
-                <div class="v-badge-wrapper" style="height: 18px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
-                    ${badgeHTML}
-                </div>
-                <div class="v-bars" style="height: 190px;">
+                <div class="v-bars" style="height: 210px;">
                     ${val26 !== null ? `
                         <div class="v-bar-2026" style="height: ${h26}%;">
                             <span class="v-bar-val-static active-year">${val26.toLocaleString('ro-RO')}</span>
