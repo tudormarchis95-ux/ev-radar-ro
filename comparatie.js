@@ -198,15 +198,26 @@ async function renderComparisonCharts() {
         volumeContainer.appendChild(item);
     });
     
-    // 4. Actualizare Card Statut România & Divizor Lună
+    // 4. Actualizare Card Statut România & Divizor Lună & Hero Section
+    const lunaTradusa = {
+        'JAN': 'Ianuarie', 'FEB': 'Februarie', 'MAR': 'Martie', 'APR': 'Aprilie',
+        'MAY': 'Mai', 'JUN': 'Iunie', 'JUL': 'Iulie', 'AUG': 'August',
+        'SEP': 'Septembrie', 'OCT': 'Octombrie', 'NOV': 'Noiembrie', 'DEC': 'Decembrie'
+    }[lunaNume] || lunaNume;
+
     const dividerMonthName = document.getElementById('divider-month-name');
     if (dividerMonthName) {
-        const lunaTradusa = {
-            'JAN': 'Ianuarie', 'FEB': 'Februarie', 'MAR': 'Martie', 'APR': 'Aprilie',
-            'MAY': 'Mai', 'JUN': 'Iunie', 'JUL': 'Iulie', 'AUG': 'August',
-            'SEP': 'Septembrie', 'OCT': 'Octombrie', 'NOV': 'Noiembrie', 'DEC': 'Decembrie'
-        }[lunaNume] || lunaNume;
         dividerMonthName.innerText = `${lunaTradusa} 2026`;
+    }
+
+    const heroVolumeEl = document.getElementById('val-comp-hero-volume');
+    if (heroVolumeEl) {
+        heroVolumeEl.innerText = roVolume.toLocaleString('ro-RO');
+    }
+    
+    const heroMonthNameEl = document.getElementById('comp-hero-month-name');
+    if (heroMonthNameEl) {
+        heroMonthNameEl.innerText = `${lunaTradusa.toLowerCase()} 2026`;
     }
 
     const roVolEl = document.getElementById('ro-comp-volume');
