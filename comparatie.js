@@ -16,13 +16,13 @@ const euDataByMonth = {
         "RO_fallback": { name: "România", flag: "🇷🇴", volume: 1505, share: 6.83 }
     },
     "JUN": {
-        "NO": { name: "Norvegia", flag: "🇳🇴", volume: 10500, share: 92.1 },
-        "SE": { name: "Suedia", flag: "🇸🇪", volume: 7100, share: 39.4 },
-        "NL": { name: "Olanda", flag: "🇳🇱", volume: 9800, share: 34.2 },
-        "FR": { name: "Franța", flag: "🇫🇷", volume: 27500, share: 19.5 },
-        "UK": { name: "Marea Britanie", flag: "🇬🇧", volume: 29800, share: 18.9 },
-        "DE": { name: "Germania", flag: "🇩🇪", volume: 39500, share: 16.2 },
-        "ES": { name: "Spania", flag: "🇪🇸", volume: 5200, share: 5.8 },
+        "NO": { name: "Norvegia", flag: "🇳🇴", volume: 10500, share: 92.1, isComplete: false },
+        "SE": { name: "Suedia", flag: "🇸🇪", volume: 7100, share: 39.4, isComplete: false },
+        "NL": { name: "Olanda", flag: "🇳🇱", volume: 9800, share: 34.2, isComplete: false },
+        "FR": { name: "Franța", flag: "🇫🇷", volume: 27500, share: 19.5, isComplete: false },
+        "UK": { name: "Marea Britanie", flag: "🇬🇧", volume: 29800, share: 18.9, isComplete: false },
+        "DE": { name: "Germania", flag: "🇩🇪", volume: 39500, share: 16.2, isComplete: false },
+        "ES": { name: "Spania", flag: "🇪🇸", volume: 5200, share: 5.8, isComplete: false },
         "RO_fallback": { name: "România", flag: "🇷🇴", volume: 1850, share: 7.20 }
     },
     "APR": {
@@ -136,22 +136,24 @@ async function renderComparisonCharts() {
     
     // Construim setul complet de date
     const countries = [
-        { key: "NO", name: fallbackData.NO.name, flag: fallbackData.NO.flag, volume: fallbackData.NO.volume, share: fallbackData.NO.share },
-        { key: "SE", name: fallbackData.SE.name, flag: fallbackData.SE.flag, volume: fallbackData.SE.volume, share: fallbackData.SE.share },
-        { key: "NL", name: fallbackData.NL.name, flag: fallbackData.NL.flag, volume: fallbackData.NL.volume, share: fallbackData.NL.share },
-        { key: "FR", name: fallbackData.FR.name, flag: fallbackData.FR.flag, volume: fallbackData.FR.volume, share: fallbackData.FR.share },
-        { key: "UK", name: fallbackData.UK.name, flag: fallbackData.UK.flag, volume: fallbackData.UK.volume, share: fallbackData.UK.share },
-        { key: "DE", name: fallbackData.DE.name, flag: fallbackData.DE.flag, volume: fallbackData.DE.volume, share: fallbackData.DE.share },
-        { key: "ES", name: fallbackData.ES.name, flag: fallbackData.ES.flag, volume: fallbackData.ES.volume, share: fallbackData.ES.share },
-        { key: "RO", name: "România", flag: "🇷🇴", volume: roVolume, share: roShare, highlight: true }
+        { key: "NO", name: fallbackData.NO.name, flag: fallbackData.NO.flag, volume: fallbackData.NO.volume, share: fallbackData.NO.share, isComplete: fallbackData.NO.isComplete !== false },
+        { key: "SE", name: fallbackData.SE.name, flag: fallbackData.SE.flag, volume: fallbackData.SE.volume, share: fallbackData.SE.share, isComplete: fallbackData.SE.isComplete !== false },
+        { key: "NL", name: fallbackData.NL.name, flag: fallbackData.NL.flag, volume: fallbackData.NL.volume, share: fallbackData.NL.share, isComplete: fallbackData.NL.isComplete !== false },
+        { key: "FR", name: fallbackData.FR.name, flag: fallbackData.FR.flag, volume: fallbackData.FR.volume, share: fallbackData.FR.share, isComplete: fallbackData.FR.isComplete !== false },
+        { key: "UK", name: fallbackData.UK.name, flag: fallbackData.UK.flag, volume: fallbackData.UK.volume, share: fallbackData.UK.share, isComplete: fallbackData.UK.isComplete !== false },
+        { key: "DE", name: fallbackData.DE.name, flag: fallbackData.DE.flag, volume: fallbackData.DE.volume, share: fallbackData.DE.share, isComplete: fallbackData.DE.isComplete !== false },
+        { key: "ES", name: fallbackData.ES.name, flag: fallbackData.ES.flag, volume: fallbackData.ES.volume, share: fallbackData.ES.share, isComplete: fallbackData.ES.isComplete !== false },
+        { key: "RO", name: "România", flag: "🇷🇴", volume: roVolume, share: roShare, highlight: true, isComplete: true }
     ];
     
+    const visibleCountries = countries.filter(c => c.isComplete);
+    
     // 2. Clasament după Cotă de Piață (%)
-    const sortedByShare = [...countries].sort((a, b) => b.share - a.share);
+    const sortedByShare = [...visibleCountries].sort((a, b) => b.share - a.share);
     const shareContainer = document.getElementById('market-share-list');
     shareContainer.innerHTML = '';
     
-    const maxShare = Math.max(...countries.map(c => c.share));
+    const maxShare = visibleCountries.length > 0 ? Math.max(...visibleCountries.map(c => c.share)) : 100;
     
     sortedByShare.forEach(c => {
         const item = document.createElement('div');
@@ -174,11 +176,11 @@ async function renderComparisonCharts() {
     });
     
     // 3. Clasament după Volume Absolute (Unități)
-    const sortedByVolume = [...countries].sort((a, b) => b.volume - a.volume);
+    const sortedByVolume = [...visibleCountries].sort((a, b) => b.volume - a.volume);
     const volumeContainer = document.getElementById('volumes-list');
     volumeContainer.innerHTML = '';
     
-    const maxVolume = Math.max(...countries.map(c => c.volume));
+    const maxVolume = visibleCountries.length > 0 ? Math.max(...visibleCountries.map(c => c.volume)) : 1000;
     
     sortedByVolume.forEach(c => {
         const item = document.createElement('div');

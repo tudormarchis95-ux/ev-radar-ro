@@ -277,7 +277,7 @@ function renderHistoricalCharts() {
         { year: 2022, qty: 12466 },
         { year: 2023, qty: 16852 },
         { year: 2024, qty: 12677 },
-        { year: 2025, qty: 15082 }
+        { year: 2025, qty: 14081 }
     ];
     
     // Adaugam 2026 in mod dinamic
