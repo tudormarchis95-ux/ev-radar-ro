@@ -797,6 +797,7 @@ input, textarea, select {
     background: #cbd5e1;
     border-radius: 2px 2px 0 0;
     transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative; /* Asigura pozitionarea corecta a etichetelor */
 }
 
 .v-bar-2026 {
@@ -804,6 +805,7 @@ input, textarea, select {
     background: var(--primary-color);
     border-radius: 2px 2px 0 0;
     transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative; /* Asigura pozitionarea corecta a etichetelor */
 }
 
 .v-bar-2026.highlight {
@@ -815,6 +817,7 @@ input, textarea, select {
     background: linear-gradient(180deg, var(--secondary-color), var(--primary-color));
     border-radius: 2px 2px 0 0;
     transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative; /* Asigura pozitionarea corecta a etichetelor */
 }
 
 .v-bar-annual.highlight {
@@ -834,14 +837,15 @@ input, textarea, select {
 }
 
 .v-bar-val-static {
-    font-size: 0.62rem;
-    font-weight: 700;
+    font-size: 0.6rem;
+    font-weight: 800;
     color: var(--text-muted);
     position: absolute;
     bottom: 100%;
     left: 50%;
-    transform: translateX(-50%);
-    margin-bottom: 4px;
+    transform: translateX(-50%) rotate(-90deg); /* Rotit permanent pentru a evita suprapunerile */
+    transform-origin: bottom center;
+    margin-bottom: 8px;
     white-space: nowrap;
     z-index: 5;
 }
@@ -849,15 +853,6 @@ input, textarea, select {
 .v-bar-val-static.active-year {
     color: var(--primary-color);
     font-weight: 800;
-}
-
-@media (max-width: 600px) {
-    .v-bar-val-static {
-        transform: translateX(-50%) rotate(-90deg);
-        transform-origin: bottom center;
-        margin-bottom: 10px;
-        font-size: 0.58rem;
-    }
 }
 
 

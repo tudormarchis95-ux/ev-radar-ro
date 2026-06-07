@@ -86,23 +86,42 @@ function initComparison() {
     renderComparisonCharts();
 }
 
-function renderComparisonCharts() {
+async function renderComparisonCharts() {
     const select = document.getElementById('comp-month-select');
     const [lunaCode, lunaNume] = select.value.split('|');
     
-    // 1. Obținem datele României din localStorage sau fallback
+    // Asigura formatul YYYY-MM
+    const lunaHyphen = lunaCode.includes('-') ? lunaCode : `${lunaCode.substring(0, 4)}-${lunaCode.substring(4)}`;
+    
+    // 1. Obținem datele României din rapoarte JSON sau local ca fallback
     let roVolume = 0;
     let roShare = 0;
     
-    const localRoData = localStorage.getItem('ev_radar_ro_data_' + lunaNume);
-    if (localRoData) {
-        try {
-            const roData = JSON.parse(localRoData);
+    try {
+        let response = await fetch(`rapoarte/dashboard_${lunaHyphen}.json`);
+        if (!response.ok) {
+            response = await fetch(`rapoarte/dashboard_${lunaCode}.json`);
+        }
+        if (response.ok) {
+            const roData = await response.json();
             roVolume = roData.totalAutoReg + roData.totalUtilReg;
             roShare = roData.evShare * 100; // Convertim în procente
-            console.log(`Loaded Romania's dynamic data for ${lunaNume}: ${roVolume} units, ${roShare.toFixed(2)}% share.`);
-        } catch (e) {
-            console.warn("Eroare la parsarea datelor salvate din localStorage:", e);
+            console.log(`[Comparație] Date încărcate din JSON pentru România în ${lunaNume}: ${roVolume} unități, ${roShare.toFixed(2)}% share.`);
+        }
+    } catch (err) {
+        console.warn("[Comparație] Nu s-a putut încărca JSON-ul static pentru România. Fallback la localStorage...", err);
+    }
+    
+    if (roVolume === 0) {
+        const localRoData = localStorage.getItem('ev_radar_ro_data_' + lunaNume);
+        if (localRoData) {
+            try {
+                const roData = JSON.parse(localRoData);
+                roVolume = roData.totalAutoReg + roData.totalUtilReg;
+                roShare = roData.evShare * 100;
+            } catch (e) {
+                console.warn("Eroare la parsarea datelor din localStorage:", e);
+            }
         }
     }
     
