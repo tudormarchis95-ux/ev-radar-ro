@@ -23,11 +23,18 @@ async function loadMonthData() {
     const select = document.getElementById('public-month-select');
     const [luna, lunaNume] = select.value.split('|');
     
+    // Asigura formatul YYYY-MM (cu cratima) pentru fisierele din folderul rapoarte/
+    const lunaHyphen = luna.includes('-') ? luna : `${luna.substring(0, 4)}-${luna.substring(4)}`;
+    
     try {
         // Incercare 1: Citire din folderul static (pentru cand este publicat pe web)
-        const response = await fetch(`rapoarte/dashboard_${luna}.json`);
+        let response = await fetch(`rapoarte/dashboard_${lunaHyphen}.json`);
         if (!response.ok) {
-            throw new Error(`File not found: ${response.statusText}`);
+            // Incercare cu numele fara cratima
+            response = await fetch(`rapoarte/dashboard_${luna}.json`);
+        }
+        if (!response.ok) {
+            throw new Error(`File not found`);
         }
         const result = await response.json();
         console.log("[Public] Date incarcate din JSON static:", result);
