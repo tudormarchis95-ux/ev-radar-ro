@@ -168,7 +168,7 @@ function renderComparisonCharts() {
             <div class="bar-track">
                 <div class="bar-fill ${highlightClass}" style="width: ${widthPct}%;"></div>
             </div>
-            <div class="bar-value">${c.volume.toLocaleString('ro-RO')} unit.</div>
+            <div class="bar-value">${c.volume.toLocaleString('ro-RO')}</div>
         `;
         volumeContainer.appendChild(item);
     });
