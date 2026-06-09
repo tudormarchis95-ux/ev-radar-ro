@@ -357,7 +357,38 @@ function renderHistoricalCharts() {
                     ${d.year}${d.active ? '*' : ''}
                 </div>
             `;
+            col.id = `annual-col-${d.year}`;
             annualContainer.appendChild(col);
         });
+        
+        // Scroll anual la dreapta (ultimul an, 2026)
+        setTimeout(() => {
+            const container = annualContainer.closest('.v-chart-container');
+            if (container) {
+                container.scrollLeft = container.scrollWidth;
+            }
+        }, 100);
+    }
+
+    // Scroll grafic lunar să centreze luna selectată
+    const compContainer = document.getElementById('monthly-comp-list');
+    if (compContainer) {
+        setTimeout(() => {
+            const container = compContainer.closest('.v-chart-container');
+            if (container) {
+                // Găsește elementul lunii curente
+                const monthCols = compContainer.querySelectorAll('.v-col-group');
+                const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+                const currentIdx = monthsOrder.indexOf(state.data.lunaNume);
+                if (currentIdx !== -1 && monthCols[currentIdx]) {
+                    const targetCol = monthCols[currentIdx];
+                    const containerWidth = container.clientWidth;
+                    const colOffsetLeft = targetCol.offsetLeft;
+                    const colWidth = targetCol.clientWidth;
+                    // Centrează coloana target
+                    container.scrollLeft = colOffsetLeft - (containerWidth / 2) + (colWidth / 2);
+                }
+            }
+        }, 100);
     }
 }
