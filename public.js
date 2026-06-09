@@ -280,15 +280,6 @@ function renderHistoricalCharts() {
         { year: 2025, qty: 63986 }
     ];
     
-    // Adaugam 2026 in mod dinamic
-    let total2026 = 0;
-    monthsOrder.forEach(m => {
-        if (regs2026[m] !== null) {
-            total2026 += regs2026[m];
-        }
-    });
-    annualData.push({ year: 2026, qty: total2026, active: true });
-    
     // Calculeaza parcul auto total estimat (similar cu cardul principal)
     const base2025 = 63986;
     const history2026 = {
@@ -309,6 +300,9 @@ function renderHistoricalCharts() {
         totalFleet += history2026[m];
         if (m === currentLunaNume) break;
     }
+    
+    // Adaugam 2026 in mod dinamic cu valoarea parcului auto total calculat
+    annualData.push({ year: 2026, qty: totalFleet, active: true });
     
     // Actualizam caseta de sumare din card
     const summaryVal = document.getElementById('val-fleet-summary');
