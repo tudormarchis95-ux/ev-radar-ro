@@ -1,9 +1,3 @@
-<!-- 
-  EV Radar România
-  Copyright © 2026 Tudor Marchis & Electromobilitate. Toate drepturile rezervate.
-  Dezvoltat în scopul monitorizării înmatriculărilor de vehicule electrice.
-  Copierea neautorizată a codului sau structurii este strict interzisă.
--->
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -12,30 +6,13 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <title>EV Radar România - Vizualizator Date Publice</title>
+    <title>EV Radar România - Procesator Înmatriculări</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=5">
-    <style>
-        /* Meniu public simplificat */
-        .public-controls {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .public-controls label {
-            font-weight: 700;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
-        }
-    </style>
+    <!-- SheetJS pentru citire Excel direct în browser -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 </head>
 <body>
     <div class="app-container">
@@ -71,43 +48,159 @@
                 </svg>
                 <h1 style="margin: 0; font-size: 2.8rem; font-weight: 800;">EV Radar <span>România</span></h1>
             </div>
-            <p class="subtitle">Statistici Publice Înmatriculări și Radieri Vehicule Electrice (EV)</p>
+            <p class="subtitle">Procesator și Agregator Lunar de Date Înmatriculări și Radieri EV</p>
         </header>
+ 
+         <!-- Meniu Navigare -->
+         <div class="nav-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
+             <div class="nav-links" style="display: flex; gap: 1rem;">
+                 <a href="index.html" class="nav-btn active" style="background: var(--primary-color); border: 1px solid var(--primary-color); color: #ffffff; box-shadow: 0 4px 12px rgba(0, 75, 135, 0.2); font-weight: 600; text-decoration: none; padding: 0.5rem 1.25rem; border-radius: 8px; font-size: 0.9rem;">📊 Dashboard Local</a>
+                 <a href="comparatie.html" class="nav-btn" style="background: #ffffff; border: 1px solid var(--border-color); color: var(--text-color); font-weight: 600; text-decoration: none; padding: 0.5rem 1.25rem; border-radius: 8px; font-size: 0.9rem; transition: all 0.2s;">🇪🇺 Comparație Europeană</a>
+             </div>
+             <div style="display: flex; align-items: center; gap: 0.75rem;">
+                 <label for="public-month-select" style="font-weight: 700; color: var(--primary-color); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;">Lună:</label>
+                 <select id="public-month-select" class="month-select" style="font-size: 0.9rem; padding: 0.4rem 0.8rem;">
+                     <option value="202601|JAN">Ianuarie 2026</option>
+                     <option value="202602|FEB">Februarie 2026</option>
+                     <option value="202603|MAR">Martie 2026</option>
+                     <option value="202604|APR">Aprilie 2026</option>
+                     <option value="202605|MAY" selected>Mai 2026</option>
+                 </select>
+                 <button id="admin-toggle-btn" class="btn secondary-btn" style="padding: 0.4rem 1rem; font-size: 0.9rem; display: flex; align-items: center; gap: 0.25rem;">🔒 Admin</button>
+             </div>
+         </div>
+                     <!-- Sectiunea 1: Configurare Google Sheets -->
+            <section class="config-card admin-only card animate-fade-in">
+                <h2>🔗 Configurare Google Sheets</h2>
+                <p class="section-desc">Lipește adresa URL generată la deploy-ul Apps Script din tabelul tău Google Sheets.</p>
+                <div class="input-group">
+                    <input type="text" id="sheets-url" placeholder="https://script.google.com/macros/s/.../exec" value="">
+                    <button id="save-config-btn" class="btn secondary-btn">Salvează URL</button>
+                </div>
+                <div id="config-status" class="status-msg"></div>
+            </section>
+ 
+             <!-- Sectiunea Noua: Procesare Automata DGPCI -->
+             <section class="auto-download-card admin-only card animate-fade-in" style="margin-bottom: 1.5rem; border-color: rgba(79, 172, 254, 0.3);">
+                 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                     <div>
+                         <h2 style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.25rem;">🤖 Procesare Automată Direct de pe DGPCI</h2>
+                         <p class="section-desc" style="margin-bottom: 0;">Descarcă, dezarhivează și procesează automat fișierele Excel oficiale pentru luna selectată.</p>
+                     </div>
+                     <div style="display: flex; gap: 0.75rem; align-items: center;">
+                         <select id="auto-month-select" class="month-select" style="font-size: 0.95rem; padding: 0.5rem 1rem;">
+                             <option value="2026-05|MAY|mai 2026|202605" selected>Mai 2026</option>
+                             <option value="2026-06|JUN|iunie 2026|202606">Iunie 2026</option>
+                             <option value="2026-07|JUL|iulie 2026|202607">Iulie 2026</option>
+                             <option value="2026-08|AUG|august 2026|202608">August 2026</option>
+                             <option value="2026-09|SEP|septembrie 2026|202609">Septembrie 2026</option>
+                             <option value="2026-10|OCT|octombrie 2026|202610">Octombrie 2026</option>
+                             <option value="2026-11|NOV|noiembrie 2026|202611">Noiembrie 2026</option>
+                             <option value="2026-12|DEC|decembrie 2026|202612">Decembrie 2026</option>
+                             <option value="2026-04|APR|aprilie 2026|202604">Aprilie 2026</option>
+                             <option value="2026-03|MAR|martie 2026|202603">Martie 2026</option>
+                             <option value="2026-02|FEB|februarie 2026|202602">Februarie 2026</option>
+                             <option value="2026-01|JAN|ianuarie 2026|202601">Ianuarie 2026</option>
+                         </select>
+                         <button id="auto-dgpci-btn" class="btn primary-btn" style="box-shadow: 0 4px 14px 0 rgba(79, 172, 254, 0.3);">Obține Date</button>
+                     </div>
+                 </div>
+             </section>
+ 
+             <!-- Sectiunea Noua: Procesare Date Locale (deja descarcate) -->
+             <section class="local-process-card admin-only card animate-fade-in" style="margin-bottom: 2rem; border-color: rgba(16, 185, 129, 0.3);">
+                 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                     <div>
+                         <h2 style="display: flex; align-items: center; gap: 0.5rem; font-size: 1.25rem;">📂 Procesare Date Locale (deja descărcate)</h2>
+                         <p class="section-desc" style="margin-bottom: 0;">Rulează direct procesarea fișierelor Excel din folderul local, fără a le descărca din nou.</p>
+                     </div>
+                     <div style="display: flex; gap: 0.75rem; align-items: center;">
+                         <select id="local-month-select" class="month-select" style="font-size: 0.95rem; padding: 0.5rem 1rem;">
+                             <option value="2026-05|MAY|mai 2026|202605" selected>Mai 2026</option>
+                             <option value="2026-06|JUN|iunie 2026|202606">Iunie 2026</option>
+                             <option value="2026-07|JUL|iulie 2026|202607">Iulie 2026</option>
+                             <option value="2026-08|AUG|august 2026|202608">August 2026</option>
+                             <option value="2026-09|SEP|septembrie 2026|202609">Septembrie 2026</option>
+                             <option value="2026-10|OCT|octombrie 2026|202610">Octombrie 2026</option>
+                             <option value="2026-11|NOV|noiembrie 2026|202611">Noiembrie 2026</option>
+                             <option value="2026-12|DEC|decembrie 2026|202612">Decembrie 2026</option>
+                             <option value="2026-04|APR|aprilie 2026|202604">Aprilie 2026</option>
+                             <option value="2026-03|MAR|martie 2026|202603">Martie 2026</option>
+                             <option value="2026-02|FEB|februarie 2026|202602">Februarie 2026</option>
+                             <option value="2026-01|JAN|ianuarie 2026|202601">Ianuarie 2026</option>
+                         </select>
+                         <button id="local-process-btn" class="btn primary-btn" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.3);">Procesează Local</button>
+                     </div>
+                 </div>
+             </section>
+ 
+            <!-- Sectiunea 2: Upload Files -->
+            <section class="upload-section admin-only grid-3">
+                <div class="upload-card card animate-slide-up" id="drop-zone-auto">
+                    <div class="upload-icon">🚗</div>
+                    <h3>Autoturisme (M1)</h3>
+                    <p>Trage fișierul <code>*_Autoturisme.xlsx</code> sau fă click aici</p>
+                    <input type="file" id="file-auto" accept=".xlsx" class="file-input">
+                    <div class="file-status" id="status-auto">Neîncărcat</div>
+                </div>
+ 
+                <div class="upload-card card animate-slide-up" id="drop-zone-marfuri" style="animation-delay: 0.1s;">
+                    <div class="upload-icon">🚚</div>
+                    <h3>Utilitare (N1)</h3>
+                    <p>Trage fișierul <code>*_Autovehicule_Marfuri.xlsx</code> sau fă click aici</p>
+                    <input type="file" id="file-marfuri" accept=".xlsx" class="file-input">
+                    <div class="file-status" id="status-marfuri">Neîncărcat</div>
+                </div>
+ 
+                <div class="upload-card card animate-slide-up" id="drop-zone-radieri" style="animation-delay: 0.2s;">
+                    <div class="upload-icon">❌</div>
+                    <h3>Radieri</h3>
+                    <p>Trage fișierul <code>*_Radieri_Lunare.xlsx</code> sau fă click aici</p>
+                    <input type="file" id="file-radieri" accept=".xlsx" class="file-input">
+                    <div class="file-status" id="status-radieri">Neîncărcat</div>
+                </div>
+            </section>
+ 
+            <!-- Sectiunea 3: Detectie Luna & Procesare -->
+            <section class="action-card admin-only card animate-fade-in" id="process-control">
+                <div class="action-header">
+                    <div>
+                        <h2>📅 Lună Analizată: 
+                            <span id="detected-month" style="display:none;">-</span>
+                            <select id="manual-month-select" class="month-select">
+                                <option value="2026-01|JAN">Ianuarie 2026</option>
+                                <option value="2026-02|FEB">Februarie 2026</option>
+                                <option value="2026-03|MAR">Martie 2026</option>
+                                <option value="2026-04|APR">Aprilie 2026</option>
+                                <option value="2026-05|MAY" selected>Mai 2026</option>
+                                <option value="2026-06|JUN">Iunie 2026</option>
+                                <option value="2026-07|JUL">Iulie 2026</option>
+                                <option value="2026-08|AUG">August 2026</option>
+                                <option value="2026-09|SEP">Septembrie 2026</option>
+                                <option value="2026-10|OCT">Octombrie 2026</option>
+                                <option value="2026-11|NOV">Noiembrie 2026</option>
+                                <option value="2026-12|DEC">Decembrie 2026</option>
+                            </select>
+                        </h2>
+                        <p id="files-summary">Se așteaptă procesarea datelor brute.</p>
+                    </div>
+                    <button id="process-btn" class="btn primary-btn pulse">Procesează Datele</button>
+                </div>
+            </section>
 
-        <!-- Meniu Navigare Public -->
-        <div class="nav-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
-            <div class="nav-links" style="display: flex; gap: 1rem;">
-                <a href="index.html" class="nav-btn active" style="background: var(--primary-color); border: 1px solid var(--primary-color); color: #ffffff; box-shadow: 0 4px 12px rgba(0, 75, 135, 0.2); font-weight: 600; text-decoration: none; padding: 0.5rem 1.25rem; border-radius: 8px; font-size: 0.9rem;">📊 Dashboard Local</a>
-                <a href="comparatie.html" class="nav-btn" style="background: #ffffff; border: 1px solid var(--border-color); color: var(--text-color); font-weight: 600; text-decoration: none; padding: 0.5rem 1.25rem; border-radius: 8px; font-size: 0.9rem; transition: all 0.2s;">🇪🇺 Comparație Europeană</a>
-            </div>
-            <div style="display: flex; align-items: center; gap: 0.75rem;">
-                <label for="public-month-select" style="font-weight: 700; color: var(--primary-color); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;">Lună:</label>
-                <select id="public-month-select" class="month-select" style="font-size: 0.9rem; padding: 0.4rem 0.8rem;">
-                    <option value="202601|JAN">Ianuarie 2026</option>
-                    <option value="202602|FEB">Februarie 2026</option>
-                    <option value="202603|MAR">Martie 2026</option>
-                    <option value="202604|APR">Aprilie 2026</option>
-                    <option value="202605|MAY" selected>Mai 2026</option>
-                </select>
-            </div>
-        </div>
-
-        <main>
-             <!-- Dashboard Date -->
-             <section class="results-section" id="results-dashboard">
-                 <!-- Parcul Auto Hero -->
+             <!-- Sectiunea 4: Rezultate & Dashboard -->
+             <section class="results-section" id="results-dashboard" style="display: none;">
                  <div class="fleet-hero-card card animate-fade-in" style="margin-bottom: 1.5rem; text-align: center; background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(0, 75, 135, 0.03) 100%); border-color: rgba(0, 75, 135, 0.15);">
                      <span class="stat-label" style="font-size: 1.1rem; letter-spacing: 0.1em; color: var(--primary-color); font-weight: 700;">🚗 PARCUL AUTO NAȚIONAL EV</span>
                      <div class="stat-value" id="val-national-fleet" style="font-size: 4rem; font-weight: 900; color: var(--primary-color); text-shadow: none; margin: 0.5rem 0;">0</div>
                      <p style="color: var(--text-muted); font-size: 0.9rem;">Total vehicule electrice (M1 + N1) înmatriculate în România la finalul lunii <span id="fleet-month-name">-</span></p>
                  </div>
  
-                 <!-- Delimitator Luna -->
+                 <!-- Delimitator cu denumirea lunii -->
                  <div class="month-divider animate-fade-in">
                      <span>Statistici detaliate: <strong id="divider-month-name">-</strong></span>
                  </div>
  
-                 <!-- Stats Grid 1 -->
                  <div class="stats-grid grid-4">
                      <div class="stat-card card">
                          <span class="stat-label">Autoturisme Noi (M1)</span>
@@ -127,7 +220,6 @@
                      </div>
                  </div>
  
-                 <!-- Stats Grid 2 -->
                  <div class="stats-grid grid-3" style="margin-top: 1.5rem;">
                      <div class="stat-card card">
                          <span class="stat-label">Cota EV (Înmatriculări Noi)</span>
@@ -143,7 +235,6 @@
                      </div>
                  </div>
 
-                 <!-- Stats Grid 3: Companii vs PF -->
                  <div class="stats-grid grid-2" style="margin-top: 1.5rem;">
                      <div class="stat-card card" style="border-color: rgba(79, 172, 254, 0.25);">
                          <span class="stat-label">Pondere Companii (Firme)</span>
@@ -200,8 +291,7 @@
                          </p>
                      </div>
                  </div>
- 
-                 <!-- Tables Grid -->
+
                  <div class="stats-grid grid-2" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
                       <!-- Top 10 Marci -->
                       <div class="details-card card">
@@ -221,8 +311,8 @@
                               </table>
                           </div>
                       </div>
- 
-                      <!-- Top 20 Modele -->
+
+                      <!-- Top Modele -->
                       <div class="details-card card">
                           <h3>🏆 Top Modele Înmatriculate</h3>
                           <div class="table-container">
@@ -241,9 +331,123 @@
                               </table>
                           </div>
                       </div>
+                  </div>
+
+                 <!-- Secțiunea: Raport pentru Blog -->
+                 <div class="blog-report-card admin-only card animate-slide-up" style="margin-top: 1.5rem; margin-bottom: 2rem;">
+                     <div class="blog-report-header">
+                         <div>
+                             <h3>📝 Raport Gata de Publicat pe Blog</h3>
+                             <p class="section-desc">Copiază statisticile redactate sau codul HTML direct în editorul blogului tău.</p>
+                         </div>
+                     </div>
+                     
+                     <div class="report-tabs">
+                          <button class="tab-btn active" id="tab-summary">Text Sumar</button>
+                          <button class="tab-btn" id="tab-takeaways">Takeaways AI</button>
+                          <button class="tab-btn" id="tab-html">Cod HTML Tabele & Grafice</button>
+                          <button class="tab-btn" id="tab-cover">Imagine Copertă</button>
+                      </div>
+                      
+                      <div class="tab-content" id="summary-content">
+                          <div class="blog-summary-preview" id="blog-summary-text">
+                              <!-- Text generat din JS -->
+                          </div>
+                      </div>
+                      
+                      <div class="tab-content" id="takeaways-content" style="display: none; padding: 1.5rem;">
+                           <div id="ai-key-setup" style="margin-bottom: 1.5rem; background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+                               <label for="ai-api-key-input" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #fff;">Cheie API Gemini (Google AI Studio):</label>
+                               <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                                   <input type="password" id="ai-api-key-input" placeholder="AIzaSy..." style="flex-grow: 1; padding: 0.5rem; border-radius: 4px; border: 1px solid var(--border-color); background: rgba(10, 15, 26, 0.6); color: #fff; font-family: monospace;">
+                                   <button id="save-api-key-btn" class="btn primary-btn" style="padding: 0.5rem 1rem;">Salvează</button>
+                               </div>
+                               <span style="font-size: 0.75rem; color: #888; margin-top: 0.25rem; display: block;">Obține o cheie gratuită de pe <a href="https://aistudio.google.com/" target="_blank" style="color: var(--secondary-color); text-decoration: underline;">Google AI Studio</a>. Cheia este salvată local în browser.</span>
+                           </div>
+                           
+                           <div id="ai-generation-area" style="display: none; text-align: center; padding: 1rem 0;">
+                               <button id="generate-takeaways-btn" class="btn primary-btn" style="background: linear-gradient(135deg, #4f46e5, #06b6d4); border: none; font-weight: 700; padding: 0.75rem 1.5rem; border-radius: 8px;">✨ Generează Concluzii cu AI (Gemini)</button>
+                           </div>
+
+                           <div id="ai-results-area" style="display: none; margin-top: 1rem;">
+                               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                                   <h4 style="margin: 0; color: #fff;">Concluzii Cheie AI</h4>
+                                   <button id="copy-takeaways-btn" class="btn secondary-btn" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Copiază Concluziile</button>
+                                </div>
+                               <div id="takeaways-output-box" style="background: rgba(10, 15, 26, 0.9); color: #e2e8f0; border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; font-family: inherit; line-height: 1.6; font-size: 0.95rem; min-height: 120px; white-space: pre-wrap; margin-bottom: 1.5rem;"></div>
+
+                               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                                   <h4 style="margin: 0; color: #fff;">Optimizare SEO Blog (Yoast SEO)</h4>
+                                   <button id="copy-seo-btn" class="btn secondary-btn" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Copiază Detaliile SEO</button>
+                                </div>
+                               <div id="seo-output-box" style="background: rgba(10, 15, 26, 0.9); color: #00f2fe; border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; font-family: inherit; line-height: 1.6; font-size: 0.95rem; min-height: 60px; white-space: pre-wrap;"></div>
+                           </div>
+                       </div>
+                       
+                      <div class="tab-content" id="html-content-area" style="display: none;">
+                          <div class="html-section" style="margin-bottom: 1.5rem; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 1.5rem;">
+                              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                  <h4 style="margin: 0; color: #fff; font-size: 1rem; font-weight: 700;">1. Înmatriculări Lunare EV (2025 vs. 2026)</h4>
+                                  <button class="btn secondary-btn copy-section-btn" data-target="textarea-chart-monthly" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Copiază Codul</button>
+                              </div>
+                              <textarea id="textarea-chart-monthly" readonly class="code-textarea" style="width: 100%; height: 180px; background: rgba(10, 15, 26, 0.9); color: #00f2fe; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; font-family: monospace; font-size: 0.85rem; resize: none;"></textarea>
+                          </div>
+
+                          <div class="html-section" style="margin-bottom: 1.5rem; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 1.5rem;">
+                              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                  <h4 style="margin: 0; color: #fff; font-size: 1rem; font-weight: 700;">2. Top 20 Lună Procesată (cu număr curent)</h4>
+                                  <button class="btn secondary-btn copy-section-btn" data-target="textarea-chart-top20" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Copiază Codul</button>
+                              </div>
+                              <textarea id="textarea-chart-top20" readonly class="code-textarea" style="width: 100%; height: 180px; background: rgba(10, 15, 26, 0.9); color: #00f2fe; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; font-family: monospace; font-size: 0.85rem; resize: none;"></textarea>
+                          </div>
+
+                          <div class="html-section" style="margin-bottom: 1.5rem; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 1.5rem;">
+                              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                  <h4 style="margin: 0; color: #fff; font-size: 1rem; font-weight: 700;">3. Evoluție Parc Auto EV (înmatriculări anuale brute)</h4>
+                                  <button class="btn secondary-btn copy-section-btn" data-target="textarea-chart-annual" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Copiază Codul</button>
+                              </div>
+                              <textarea id="textarea-chart-annual" readonly class="code-textarea" style="width: 100%; height: 180px; background: rgba(10, 15, 26, 0.9); color: #00f2fe; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; font-family: monospace; font-size: 0.85rem; resize: none;"></textarea>
+                          </div>
+
+                          <div class="html-section" style="margin-bottom: 1.5rem; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 1.5rem;">
+                              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                  <h4 style="margin: 0; color: #fff; font-size: 1rem; font-weight: 700;">4. Top 50 Modele (YTD - 2026)</h4>
+                                  <button class="btn secondary-btn copy-section-btn" data-target="textarea-table-ytd" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Copiază Codul</button>
+                              </div>
+                              <textarea id="textarea-table-ytd" readonly class="code-textarea" style="width: 100%; height: 180px; background: rgba(10, 15, 26, 0.9); color: #00f2fe; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; font-family: monospace; font-size: 0.85rem; resize: none;"></textarea>
+                          </div>
+
+                          <div class="html-section" style="margin-bottom: 0.5rem;">
+                              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                  <h4 style="margin: 0; color: #fff; font-size: 1rem; font-weight: 700;">5. Top 50 Parc Auto General</h4>
+                                  <button class="btn secondary-btn copy-section-btn" data-target="textarea-table-parc" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Copiază Codul</button>
+                              </div>
+                              <textarea id="textarea-table-parc" readonly class="code-textarea" style="width: 100%; height: 180px; background: rgba(10, 15, 26, 0.9); color: #00f2fe; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; font-family: monospace; font-size: 0.85rem; resize: none;"></textarea>
+                          </div>
+                      </div>
+                      <div class="tab-content" id="cover-content-area" style="display: none; text-align: center; padding: 1.5rem;">
+                          <div style="margin-bottom: 1.5rem; display: flex; justify-content: center; gap: 1rem;">
+                              <button id="download-cover-btn" class="btn primary-btn">📥 Descarcă Imagine Copertă (PNG)</button>
+                          </div>
+                          <div style="background: #ffffff; border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 12px; display: inline-block; box-shadow: 0 4px 20px rgba(0,0,0,0.05); max-width: 100%; overflow: auto;">
+                              <canvas id="blog-cover-canvas" width="1200" height="630" style="width: 600px; height: 315px; border-radius: 8px; border: 1px solid #e2e8f0; display: block; background: #f8fafc;"></canvas>
+                          </div>
+                      </div>
                  </div>
  
-                 <!-- Top Radieri -->
+                 <!-- Controlul Trimitere la Google Sheets -->
+                 <div class="sheets-action admin-only card animate-slide-up" style="margin-bottom: 1.5rem;">
+                     <div class="sheets-info">
+                         <h3>🚀 Acțiuni Google Sheets</h3>
+                         <p>Trimite datele procesate în centralizator sau curăță valorile lunii selectate pentru a le reseta.</p>
+                     </div>
+                     <div class="action-buttons-group" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                         <button id="clear-sheets-btn" class="btn secondary-btn" style="border-color: var(--warning-color); color: var(--warning-color); background: rgba(239, 68, 68, 0.05);">Curăță Luna din Sheets</button>
+                         <button id="send-to-sheets-btn" class="btn primary-btn">Trimite în Google Sheets</button>
+                     </div>
+                 </div>
+ 
+                 <!-- Top Modele Radiate trimis la final ("la coada") -->
                  <div class="details-card card animate-slide-up" style="opacity: 0.8; margin-top: 1.5rem;">
                      <h3 style="color: var(--warning-color);">📉 Top Modele Radiate</h3>
                      <p class="section-desc" style="margin-bottom: 1rem;">Mărcile și modelele EV radiate din circulație în luna selectată.</p>
@@ -264,14 +468,19 @@
                      </div>
                  </div>
              </section>
-         </main>
-         
-         <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); font-size: 0.85rem; font-weight: 500;">
-             <p>© 2026 Tudor Marchis & Electromobilitate. Toate drepturile rezervate.</p>
-             <p style="margin-top: 0.25rem; font-size: 0.75rem; opacity: 0.8;">Date procesate oficial pe baza înregistrărilor DGPCI România.</p>
-         </footer>
-     </div>
-    
-    <script src="public.js?v=20260607_1"></script>
+        </main>
+
+        <!-- Loader modal -->
+        <div id="loader" class="modal">
+            <div class="modal-content">
+                <div class="spinner"></div>
+                <p id="loader-text">Se procesează datele Excel...</p>
+                <div class="progress-bar-container" style="width: 100%; height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; margin-top: 1.5rem; overflow: hidden; border: 1px solid rgba(255,255,255,0.08);">
+                    <div id="loader-progress-bar" style="width: 0%; height: 100%; background: linear-gradient(90deg, var(--secondary-color), var(--primary-color)); box-shadow: 0 0 10px var(--primary-color); transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js?v=20260609_6"></script>
 </body>
 </html>
