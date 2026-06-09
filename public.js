@@ -233,13 +233,13 @@ function renderHistoricalCharts() {
                 const pct = ((val26 - val25) / val25 * 100).toFixed(1);
                 const sign = pct >= 0 ? '+' : '';
                 const badgeClass = pct >= 0 ? 'positive' : 'negative';
-                badgeHTML = `<span class="growth-badge ${badgeClass}" style="padding: 0.15rem 0.35rem; font-size: 0.65rem; border-radius: 4px; line-height: 1; font-weight: 800;">${sign}${pct}%</span>`;
+                badgeHTML = `<span class="growth-badge ${badgeClass}" style="padding: 0.2rem 0.45rem; font-size: 0.78rem; border-radius: 4px; line-height: 1; font-weight: 800;">${sign}${pct}%</span>`;
             }
 
             const col = document.createElement('div');
             col.className = 'v-col-group';
             col.innerHTML = `
-                <div class="v-badge-wrapper" style="height: 18px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
+                <div class="v-badge-wrapper" style="height: 22px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
                     ${badgeHTML}
                 </div>
                 <div class="v-bars" style="height: 190px;">
