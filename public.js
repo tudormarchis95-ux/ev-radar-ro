@@ -311,7 +311,6 @@ function renderHistoricalCharts() {
     history2026[currentLunaNume] = netGrowth;
     
     let totalFleet = base2025;
-    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     for (const m of monthsOrder) {
         totalFleet += history2026[m];
         if (m === currentLunaNume) break;
@@ -372,7 +371,6 @@ function renderHistoricalCharts() {
     }
 
     // Scroll grafic lunar să centreze luna selectată
-    const compContainer = document.getElementById('monthly-comp-list');
     if (compContainer) {
         setTimeout(() => {
             const container = compContainer.closest('.v-chart-container');
