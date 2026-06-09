@@ -311,6 +311,7 @@ function renderHistoricalCharts() {
     history2026[currentLunaNume] = netGrowth;
     
     let totalFleet = base2025;
+    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     for (const m of monthsOrder) {
         totalFleet += history2026[m];
         if (m === currentLunaNume) break;
