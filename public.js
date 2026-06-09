@@ -365,9 +365,9 @@ function renderHistoricalCharts() {
         setTimeout(() => {
             const container = annualContainer.closest('.v-chart-container');
             if (container) {
-                container.scrollLeft = container.scrollWidth;
+                container.scrollLeft = container.scrollWidth - container.clientWidth;
             }
-        }, 100);
+        }, 300);
     }
 
     // Scroll grafic lunar să centreze luna selectată
