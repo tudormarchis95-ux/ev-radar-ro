@@ -178,7 +178,7 @@ input[type="text"]:focus {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 2.5rem 1.5rem;
+    padding: 1.25rem 1rem;
     cursor: pointer;
     position: relative;
     border-style: dashed;
@@ -196,20 +196,20 @@ input[type="text"]:focus {
 }
 
 .upload-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
 }
 
 .upload-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
 }
 
 .upload-card p {
     color: var(--text-muted);
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
+    font-size: 0.72rem;
+    margin-bottom: 0.5rem;
 }
 
 .file-input {
@@ -617,6 +617,8 @@ body.is-admin .upload-section {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
     gap: 1.5rem !important;
+    max-width: 800px !important;
+    margin: 0 auto 2rem !important;
 }
 
 body.is-admin .admin-only.sheets-action {
