@@ -65,6 +65,10 @@ async function loadMonthData() {
 }
 
 function showEmptyDashboard(message) {
+    const dashboard = document.getElementById('results-dashboard');
+    if (dashboard) {
+        dashboard.style.display = 'block';
+    }
     document.getElementById('val-national-fleet').innerText = "-";
     document.getElementById('val-auto-reg').innerText = "-";
     document.getElementById('val-util-reg').innerText = "-";
@@ -85,6 +89,11 @@ function showEmptyDashboard(message) {
 
 function renderDashboard() {
     if (!state.data) return;
+    
+    const dashboard = document.getElementById('results-dashboard');
+    if (dashboard) {
+        dashboard.style.display = 'block';
+    }
     
     const totalEV = state.data.totalAutoReg + state.data.totalUtilReg;
     const netGrowth = totalEV - state.data.totalRadieri;
