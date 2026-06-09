@@ -270,20 +270,20 @@ function renderHistoricalCharts() {
     // 2. Evolutie Anuala 2011 - Prezent (Format Vertical)
     const annualData = [
         { year: 2011, qty: 7 },
-        { year: 2012, qty: 12 },
-        { year: 2013, qty: 62 },
-        { year: 2014, qty: 78 },
-        { year: 2015, qty: 110 },
-        { year: 2016, qty: 214 },
-        { year: 2017, qty: 461 },
-        { year: 2018, qty: 1171 },
-        { year: 2019, qty: 2918 },
-        { year: 2020, qty: 6052 },
-        { year: 2021, qty: 12883 },
-        { year: 2022, qty: 25349 },
-        { year: 2023, qty: 40286 },
-        { year: 2024, qty: 51230 },
-        { year: 2025, qty: 63986 }
+        { year: 2012, qty: 5 },
+        { year: 2013, qty: 50 },
+        { year: 2014, qty: 16 },
+        { year: 2015, qty: 32 },
+        { year: 2016, qty: 104 },
+        { year: 2017, qty: 247 },
+        { year: 2018, qty: 710 },
+        { year: 2019, qty: 1747 },
+        { year: 2020, qty: 3134 },
+        { year: 2021, qty: 6831 },
+        { year: 2022, qty: 12466 },
+        { year: 2023, qty: 16852 },
+        { year: 2024, qty: 12677 },
+        { year: 2025, qty: 12756 }
     ];
     
     // Calculeaza parcul auto total estimat (similar cu cardul principal)
@@ -307,8 +307,8 @@ function renderHistoricalCharts() {
         if (m === currentLunaNume) break;
     }
     
-    // Adaugam 2026 in mod dinamic cu valoarea parcului auto total calculat
-    annualData.push({ year: 2026, qty: totalFleet, active: true });
+    // Adaugam 2026 in mod dinamic cu valoarea inmatricularilor nete din 2026 pana in prezent
+    annualData.push({ year: 2026, qty: totalFleet - base2025, active: true });
     
     // Actualizam caseta de sumare din card
     const summaryVal = document.getElementById('val-fleet-summary');
