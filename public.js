@@ -123,8 +123,14 @@ function renderDashboard() {
     document.getElementById('val-used-share').innerText = `${(state.data.usedShare * 100).toFixed(2)}%`;
     
     const sign = state.data.yoyGrowth >= 0 ? '+' : '';
-    document.getElementById('lbl-yoy-growth').innerText = `Creștere YoY vs ${state.data.lunaNume} 2025`;
-    document.getElementById('val-yoy-growth').innerText = `${sign}${state.data.yoyGrowth.toFixed(2)}%`;
+    document.getElementById('lbl-yoy-growth').innerText = `Evoluție YoY vs ${state.data.lunaNume} 2025`;
+    const yoyValEl = document.getElementById('val-yoy-growth');
+    yoyValEl.innerText = `${sign}${state.data.yoyGrowth.toFixed(2)}%`;
+    if (state.data.yoyGrowth >= 0) {
+        yoyValEl.className = 'stat-value success-value';
+    } else {
+        yoyValEl.className = 'stat-value warning-value';
+    }
     
     // Company / Individual stats
     const firmePct = totalEV > 0 ? (state.data.totalFirme / totalEV) * 100 : 0;
