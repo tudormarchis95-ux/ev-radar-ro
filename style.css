@@ -608,7 +608,7 @@ tr:hover .car-silhouette {
     display: none !important;
 }
 
-body.is-admin .admin-only {
+body.is-admin .admin-only:not(.grid-3):not(.sheets-action) {
     display: block !important;
 }
 
