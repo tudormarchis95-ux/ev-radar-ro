@@ -365,7 +365,7 @@ function renderHistoricalCharts() {
         setTimeout(() => {
             const container = annualContainer.closest('.v-chart-container');
             if (container) {
-                container.scrollLeft = container.scrollWidth - container.clientWidth;
+                container.scrollLeft = 99999;
             }
         }, 300);
     }
