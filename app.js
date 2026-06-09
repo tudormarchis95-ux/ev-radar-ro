@@ -2684,7 +2684,10 @@ function initAiTakeawaysTab() {
                 'JAN': 'Ianuarie', 'FEB': 'Februarie', 'MAR': 'Martie', 'APR': 'Aprilie',
                 'MAY': 'Mai', 'JUN': 'Iunie', 'JUL': 'Iulie', 'AUG': 'August',
                 'SEP': 'Septembrie', 'OCT': 'Octombrie', 'NOV': 'Noiembrie', 'DEC': 'Decembrie'
-                      const prompt = `Ești un analist auto specializat în mașini electrice în România. Iată datele înmatriculărilor de vehicule electrice în România pentru luna ${monthRo} 2026:
+            };
+            const monthRo = monthTranslations[state.data.lunaNume.toUpperCase()] || state.data.lunaNume;
+            
+            const prompt = `Ești un analist auto specializat în mașini electrice în România. Iată datele înmatriculărilor de vehicule electrice în România pentru luna ${monthRo} 2026:
 - Total înmatriculări EV (M1+N1): ${totalEV} (Noi: ${totalNew}, Second-hand/Rulate: ${totalUsed})
 - Evoluție YoY (față de aceeași lună din 2025): ${yoyGrowth >= 0 ? '+' : ''}${yoyGrowth}%
 - Cota de piață a vehiculelor electrice noi din total înmatriculări noi: ${evShare}%
