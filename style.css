@@ -770,8 +770,16 @@ input, textarea, select {
     color: var(--text-color);
 }
 
-/* Stiluri pentru graficele cu bare verticale (Premium Mockup Look) */
 .v-chart-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    margin-top: 1.5rem;
+    padding-bottom: 5px;
+}
+
+#monthly-comp-list, #annual-evolution-list {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -781,7 +789,7 @@ input, textarea, select {
     gap: 0;
     border-bottom: 2px solid #e2e8f0;
     padding-bottom: 10px;
-    margin-top: 1.5rem;
+    width: 100%;
 }
 
 .v-col-group {
