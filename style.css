@@ -612,12 +612,22 @@ body.is-admin .admin-only:not(.grid-3):not(.sheets-action) {
     display: block !important;
 }
 
-body.is-admin .admin-only.grid-3 {
+body.is-admin .admin-only.grid-3,
+body.is-admin .upload-section {
     display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.5rem !important;
 }
 
 body.is-admin .admin-only.sheets-action {
     display: flex !important;
+}
+
+@media (max-width: 768px) {
+    body.is-admin .upload-section,
+    body.is-admin .admin-only.grid-3 {
+        grid-template-columns: 1fr !important;
+    }
 }
 
 /* --- SECURIZARE & PROTECTIE DREPTURI DE AUTOR --- */
