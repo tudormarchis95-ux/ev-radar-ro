@@ -21,6 +21,57 @@ async function initHistoricalSummary() {
     }
 }
 
+function getSelectedPublicMonth() {
+    const yearSelect = document.getElementById('public-year-select');
+    const monthSelect = document.getElementById('public-month-select');
+    if (!yearSelect || !monthSelect) return null;
+    
+    const year = yearSelect.value;
+    const [monthNum, lunaNume] = monthSelect.value.split('|');
+    const lunaCode = `${year}${monthNum}`;
+    return { lunaCode, lunaNume };
+}
+
+function updateMonthSelectOptions() {
+    const yearSelect = document.getElementById('public-year-select');
+    const monthSelect = document.getElementById('public-month-select');
+    if (!yearSelect || !monthSelect) return;
+    
+    const year = yearSelect.value;
+    if (!state.historicalSummary) return;
+    
+    const availableMonths = state.historicalSummary[year] ? Object.keys(state.historicalSummary[year]) : [];
+    
+    let selectedStillAvailable = false;
+    let lastAvailableOpt = null;
+    
+    // Determinam ordinea lunilor pentru a gasi ultima disponibila
+    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    const sortedAvailable = [...availableMonths].sort((a, b) => monthsOrder.indexOf(a) - monthsOrder.indexOf(b));
+    
+    for (let opt of monthSelect.options) {
+        const [monthNum, monthAcronym] = opt.value.split('|');
+        const isAvailable = sortedAvailable.includes(monthAcronym);
+        
+        if (isAvailable) {
+            opt.disabled = false;
+            opt.style.display = 'block';
+            lastAvailableOpt = opt.value;
+            if (monthSelect.value === opt.value) {
+                selectedStillAvailable = true;
+            }
+        } else {
+            opt.disabled = true;
+            opt.style.display = 'none';
+        }
+    }
+    
+    // Daca luna selectata a fost dezactivata, selectam ultima luna disponibila din an
+    if (!selectedStillAvailable && lastAvailableOpt) {
+        monthSelect.value = lastAvailableOpt;
+    }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     await initHistoricalSummary();
     initUI();
@@ -28,28 +79,38 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 function initUI() {
     console.log("%c© 2026 Tudor Marchis & Electromobilitate. Toate drepturile rezervate. EV Radar România.", "color: #004b87; font-weight: bold; font-size: 13px;");
-    const select = document.getElementById('public-month-select');
-    if (!select) return;
+    const yearSelect = document.getElementById('public-year-select');
+    const monthSelect = document.getElementById('public-month-select');
+    if (!yearSelect || !monthSelect) return;
+    
+    // Configuram selectiile initiale in functie de ce avem in historicalSummary
+    updateMonthSelectOptions();
     
     // Incarcam datele pentru selectia initiala
     loadMonthData();
     
-    select.addEventListener('change', () => {
+    yearSelect.addEventListener('change', () => {
+        updateMonthSelectOptions();
+        loadMonthData();
+    });
+    
+    monthSelect.addEventListener('change', () => {
         loadMonthData();
     });
 }
 
 async function loadMonthData() {
-    const select = document.getElementById('public-month-select');
-    const [luna, lunaNume] = select.value.split('|');
+    const selected = getSelectedPublicMonth();
+    if (!selected) return;
+    const { lunaCode, lunaNume } = selected;
     
     // Asigura formatul YYYY-MM (cu cratima) pentru fisierele din folderul rapoarte/
-    const lunaHyphen = luna.includes('-') ? luna : `${luna.substring(0, 4)}-${luna.substring(4)}`;
+    const lunaHyphen = `${lunaCode.substring(0, 4)}-${lunaCode.substring(4)}`;
     
     try {
         let response = await fetch(`rapoarte/dashboard_${lunaHyphen}.json?t=${Date.now()}`);
         if (!response.ok) {
-            response = await fetch(`rapoarte/dashboard_${luna}.json?t=${Date.now()}`);
+            response = await fetch(`rapoarte/dashboard_${lunaCode}.json?t=${Date.now()}`);
         }
         if (!response.ok) {
             throw new Error(`File not found`);
@@ -62,7 +123,9 @@ async function loadMonthData() {
         console.warn("[Public] Nu s-a putut incarca fisierul JSON static. Incerc fallback din localStorage...", err);
         
         // Incercare 2: Citire din localStorage (pentru rulare locala pe file:// sau dev local)
-        const cached = localStorage.getItem('ev_radar_ro_data_' + luna) || localStorage.getItem('ev_radar_ro_data_' + lunaNume);
+        const cached = localStorage.getItem('ev_radar_ro_data_' + lunaCode) || 
+                       localStorage.getItem('ev_radar_ro_data_' + lunaHyphen) ||
+                       localStorage.getItem('ev_radar_ro_data_' + lunaNume);
         if (cached) {
             try {
                 state.data = JSON.parse(cached);

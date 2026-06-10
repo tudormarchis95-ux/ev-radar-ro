@@ -103,87 +103,32 @@
                 <a href="index.html" class="nav-btn active" style="background: var(--primary-color); border: 1px solid var(--primary-color); color: #ffffff; box-shadow: 0 4px 12px rgba(0, 75, 135, 0.2); font-weight: 600; text-decoration: none; padding: 0.5rem 1.25rem; border-radius: 8px; font-size: 0.9rem;">📊 Dashboard</a>
                 <a href="comparatie.html" class="nav-btn" style="background: #ffffff; border: 1px solid var(--border-color); color: var(--text-color); font-weight: 600; text-decoration: none; padding: 0.5rem 1.25rem; border-radius: 8px; font-size: 0.9rem; transition: all 0.2s;">🇪🇺 Comparație Europeană</a>
             </div>
-            <div style="display: flex; align-items: center; gap: 0.75rem;">
-                <label for="public-month-select" style="font-weight: 700; color: var(--primary-color); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;">Lună:</label>
-                <select id="public-month-select" class="month-select" style="font-size: 0.9rem; padding: 0.4rem 0.8rem;">
-                    <!-- 2026 -->
-                    <option value="202605|MAY" selected>Mai 2026</option>
-                    <option value="202604|APR">Aprilie 2026</option>
-                    <option value="202603|MAR">Martie 2026</option>
-                    <option value="202602|FEB">Februarie 2026</option>
-                    <option value="202601|JAN">Ianuarie 2026</option>
-                    <!-- 2025 -->
-                    <option value="202512|DEC">Decembrie 2025</option>
-                    <option value="202511|NOV">Noiembrie 2025</option>
-                    <option value="202510|OCT">Octombrie 2025</option>
-                    <option value="202509|SEP">Septembrie 2025</option>
-                    <option value="202508|AUG">August 2025</option>
-                    <option value="202507|JUL">Iulie 2025</option>
-                    <option value="202506|JUN">Iunie 2025</option>
-                    <option value="202505|MAY">Mai 2025</option>
-                    <option value="202504|APR">Aprilie 2025</option>
-                    <option value="202503|MAR">Martie 2025</option>
-                    <option value="202502|FEB">Februarie 2025</option>
-                    <option value="202501|JAN">Ianuarie 2025</option>
-                    <!-- 2024 -->
-                    <option value="202412|DEC">Decembrie 2024</option>
-                    <option value="202411|NOV">Noiembrie 2024</option>
-                    <option value="202410|OCT">Octombrie 2024</option>
-                    <option value="202409|SEP">Septembrie 2024</option>
-                    <option value="202408|AUG">August 2024</option>
-                    <option value="202407|JUL">Iulie 2024</option>
-                    <option value="202406|JUN">Iunie 2024</option>
-                    <option value="202405|MAY">Mai 2024</option>
-                    <option value="202404|APR">Aprilie 2024</option>
-                    <option value="202403|MAR">Martie 2024</option>
-                    <option value="202402|FEB">Februarie 2024</option>
-                    <option value="202401|JAN">Ianuarie 2024</option>
-                    <!-- 2023 -->
-                    <option value="202312|DEC">Decembrie 2023</option>
-                    <option value="202311|NOV">Noiembrie 2023</option>
-                    <option value="202310|OCT">Octombrie 2023</option>
-                    <option value="202309|SEP">Septembrie 2023</option>
-                    <option value="202308|AUG">August 2023</option>
-                    <option value="202307|JUL">Iulie 2023</option>
-                    <option value="202306|JUN">Iunie 2023</option>
-                    <option value="202305|MAY">Mai 2023</option>
-                    <option value="202304|APR">Aprilie 2023</option>
-                    <option value="202303|MAR">Martie 2023</option>
-                    <option value="202302|FEB">Februarie 2023</option>
-                    <option value="202301|JAN">Ianuarie 2023</option>
-                    <!-- 2022 -->
-                    <option value="202212|DEC">Decembrie 2022</option>
-                    <option value="202211|NOV">Noiembrie 2022</option>
-                    <option value="202210|OCT">Octombrie 2022</option>
-                    <option value="202209|SEP">Septembrie 2022</option>
-                    <option value="202208|AUG">August 2022</option>
-                    <option value="202207|JUL">Iulie 2022</option>
-                    <option value="202206|JUN">Iunie 2022</option>
-                    <option value="202205|MAY">Mai 2022</option>
-                    <option value="202204|APR">Aprilie 2022</option>
-                    <option value="202203|MAR">Martie 2022</option>
-                    <option value="202202|FEB">Februarie 2022</option>
-                    <option value="202201|JAN">Ianuarie 2022</option>
-                    <!-- 2021 -->
-                    <option value="202112|DEC">Decembrie 2021</option>
-                    <option value="202111|NOV">Noiembrie 2021</option>
-                    <option value="202110|OCT">Octombrie 2021</option>
-                    <option value="202109|SEP">Septembrie 2021</option>
-                    <option value="202108|AUG">August 2021</option>
-                    <option value="202107|JUL">Iulie 2021</option>
-                    <option value="202106|JUN">Iunie 2021</option>
-                    <option value="202105|MAY">Mai 2021</option>
-                    <option value="202104|APR">Aprilie 2021</option>
-                    <option value="202103|MAR">Martie 2021</option>
-                    <option value="202102|FEB">Februarie 2021</option>
-                    <option value="202101|JAN">Ianuarie 2021</option>
-                    <!-- 2020 -->
-                    <option value="202012|DEC">Decembrie 2020</option>
-                    <option value="202011|NOV">Noiembrie 2020</option>
-                    <option value="202010|OCT">Octombrie 2020</option>
-                    <option value="202009|SEP">Septembrie 2020</option>
-                    <option value="202008|AUG">August 2020</option>
-                    <option value="202007|JUL">Iulie 2020</option>
+            <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                <label for="public-year-select" style="font-weight: 700; color: var(--primary-color); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;">An:</label>
+                <select id="public-year-select" class="month-select" style="font-size: 0.9rem; padding: 0.4rem 0.6rem; min-width: 80px;">
+                    <option value="2026" selected>2026</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                </select>
+                
+                <label for="public-month-select" style="font-weight: 700; color: var(--primary-color); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-left: 0.5rem;">Lună:</label>
+                <select id="public-month-select" class="month-select" style="font-size: 0.9rem; padding: 0.4rem 0.6rem; min-width: 110px;">
+                    <option value="01|JAN">Ianuarie</option>
+                    <option value="02|FEB">Februarie</option>
+                    <option value="03|MAR">Martie</option>
+                    <option value="04|APR">Aprilie</option>
+                    <option value="05|MAY" selected>Mai</option>
+                    <option value="06|JUN">Iunie</option>
+                    <option value="07|JUL">Iulie</option>
+                    <option value="08|AUG">August</option>
+                    <option value="09|SEP">Septembrie</option>
+                    <option value="10|OCT">Octombrie</option>
+                    <option value="11|NOV">Noiembrie</option>
+                    <option value="12|DEC">Decembrie</option>
                 </select>
             </div>
         </div>
