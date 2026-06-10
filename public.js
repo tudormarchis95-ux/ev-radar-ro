@@ -72,6 +72,43 @@ function updateMonthSelectOptions() {
     }
 }
 
+function animateElementValue(id, endValue, duration = 800) {
+    const element = document.getElementById(id);
+    if (!element) return;
+    
+    const oldText = element.innerText;
+    const isNegative = oldText.includes('-');
+    const digitsOnly = oldText.replace(/[^\d]/g, '');
+    let startValue = parseInt(digitsOnly) || 0;
+    if (isNegative) startValue = -startValue;
+    
+    if (startValue === endValue) {
+        element.innerText = endValue.toLocaleString('ro-RO');
+        return;
+    }
+    
+    const startTime = performance.now();
+    
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // easeOutCubic
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const currentValue = Math.floor(startValue + (endValue - startValue) * ease);
+        
+        element.innerText = currentValue.toLocaleString('ro-RO');
+        
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        } else {
+            element.innerText = endValue.toLocaleString('ro-RO');
+        }
+    }
+    
+    requestAnimationFrame(update);
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     await initHistoricalSummary();
     initUI();
@@ -166,10 +203,10 @@ function renderDashboard() {
     const totalEV = state.data.totalAutoReg + state.data.totalUtilReg;
     const netGrowth = totalEV - state.data.totalRadieri;
     
-    document.getElementById('val-auto-reg').innerText = state.data.totalAutoReg;
-    document.getElementById('val-util-reg').innerText = state.data.totalUtilReg;
-    document.getElementById('val-total-rad').innerText = state.data.totalRadieri;
-    document.getElementById('val-net-growth').innerText = netGrowth;
+    animateElementValue('val-auto-reg', state.data.totalAutoReg);
+    animateElementValue('val-util-reg', state.data.totalUtilReg);
+    animateElementValue('val-total-rad', state.data.totalRadieri);
+    animateElementValue('val-net-growth', netGrowth);
     
     // Calculeaza parcul auto national total estimat dinamic în funcție de an
     const currentYear = state.data && state.data.luna ? parseInt(state.data.luna.split('-')[0]) : 2026;
@@ -215,7 +252,7 @@ function renderDashboard() {
         totalFleet = baseFleetDec2025 - subtractNet;
     }
     
-    document.getElementById('val-national-fleet').innerText = totalFleet.toLocaleString('ro-RO');
+    animateElementValue('val-national-fleet', totalFleet);
     document.getElementById('fleet-month-name').innerText = currentLunaNume + " " + currentYear;
     document.getElementById('divider-month-name').innerText = currentLunaNume + " " + currentYear;
     
@@ -237,9 +274,9 @@ function renderDashboard() {
     const firmePct = totalEV > 0 ? (state.data.totalFirme / totalEV) * 100 : 0;
     const pfPct = totalEV > 0 ? (state.data.totalPf / totalEV) * 100 : 0;
     document.getElementById('val-firme-pct').innerText = `${firmePct.toFixed(2)}%`;
-    document.getElementById('val-firme-qty').innerText = (state.data.totalFirme || 0).toLocaleString('ro-RO');
+    animateElementValue('val-firme-qty', state.data.totalFirme || 0);
     document.getElementById('val-pf-pct').innerText = `${pfPct.toFixed(2)}%`;
-    document.getElementById('val-pf-qty').innerText = (state.data.totalPf || 0).toLocaleString('ro-RO');
+    animateElementValue('val-pf-qty', state.data.totalPf || 0);
     
     // 1. Top 10 Marci
     const brandVolums = {};
