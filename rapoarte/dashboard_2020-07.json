@@ -1,0 +1,201 @@
+{
+    "totalAutoReg": 350,
+    "totalUtilReg": 4,
+    "totalRadieri": 1,
+    "evShare": 0.024469233537243614,
+    "usedShare": 0.03954802259887006,
+    "yoyGrowth": -58.9803012746234,
+    "totalFirme": 177,
+    "totalPf": 177,
+    "inmatriculariModele": [
+        {
+            "marca": "SKODA",
+            "model": "CITIGO",
+            "volum": 152
+        },
+        {
+            "marca": "RENAULT",
+            "model": "ZOE",
+            "volum": 31
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "UP !",
+            "volum": 24
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "UP!",
+            "volum": 19
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL 3",
+            "volum": 14
+        },
+        {
+            "marca": "HYUNDAI",
+            "model": "KONA",
+            "volum": 13
+        },
+        {
+            "marca": "OPEL",
+            "model": "CORSA",
+            "volum": 13
+        },
+        {
+            "marca": "HYUNDAI",
+            "model": "IONIQ",
+            "volum": 13
+        },
+        {
+            "marca": "PEUGEOT",
+            "model": "208",
+            "volum": 11
+        },
+        {
+            "marca": "BMW I",
+            "model": "I3",
+            "volum": 8
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "GOLF",
+            "volum": 8
+        },
+        {
+            "marca": "MERCEDES-BENZ~",
+            "model": "EQC 400 4MATIC",
+            "volum": 5
+        },
+        {
+            "marca": "SMART",
+            "model": "EQ FORTWO COUPE",
+            "volum": 5
+        },
+        {
+            "marca": "NISSAN",
+            "model": "LEAF 40KWH",
+            "volum": 4
+        },
+        {
+            "marca": "KIA",
+            "model": "NIRO",
+            "volum": 3
+        },
+        {
+            "marca": "PORSCHE",
+            "model": "TAYCAN 4S",
+            "volum": 3
+        },
+        {
+            "marca": "PEUGEOT",
+            "model": "2008",
+            "volum": 2
+        },
+        {
+            "marca": "BMW",
+            "model": "I3",
+            "volum": 2
+        },
+        {
+            "marca": "AUDI",
+            "model": "E-TRON 55",
+            "volum": 2
+        },
+        {
+            "marca": "BMW I",
+            "model": "I3S",
+            "volum": 2
+        },
+        {
+            "marca": "JAGUAR",
+            "model": "JAGUAR I-PACE",
+            "volum": 2
+        },
+        {
+            "marca": "MINI",
+            "model": "COOPER SE",
+            "volum": 2
+        },
+        {
+            "marca": "NISSAN",
+            "model": "LEAF 62KWH",
+            "volum": 2
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL X",
+            "volum": 2
+        },
+        {
+            "marca": "NISSAN",
+            "model": "LEAF",
+            "volum": 1
+        },
+        {
+            "marca": "PORSCHE",
+            "model": "TAYCAN TURBO",
+            "volum": 1
+        },
+        {
+            "marca": "SMART",
+            "model": "EQ FORFOUR",
+            "volum": 1
+        },
+        {
+            "marca": "TESLA MOTORS",
+            "model": "MODEL 3",
+            "volum": 1
+        },
+        {
+            "marca": "TESLA MOTORS",
+            "model": "MODEL S",
+            "volum": 1
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL S",
+            "volum": 1
+        },
+        {
+            "marca": "KIA",
+            "model": "SOUL",
+            "volum": 1
+        },
+        {
+            "marca": "THINK",
+            "model": "TH!NK CITY",
+            "volum": 1
+        },
+        {
+            "marca": "RENAULT",
+            "model": "KANGOO EXPRESS Z,E",
+            "volum": 1
+        },
+        {
+            "marca": "RENAULT",
+            "model": "KANGOO EXPRESS Z,E,",
+            "volum": 1
+        },
+        {
+            "marca": "PIAGGIO",
+            "model": "PORTER",
+            "volum": 1
+        },
+        {
+            "marca": "NISSAN",
+            "model": "E-NV200",
+            "volum": 1
+        }
+    ],
+    "radieriModele": [
+        {
+            "marca": "NISSAN",
+            "model": "LEAF 40KWH",
+            "volum": 1
+        }
+    ],
+    "luna": "2020-07",
+    "lunaNume": "JUL"
+}

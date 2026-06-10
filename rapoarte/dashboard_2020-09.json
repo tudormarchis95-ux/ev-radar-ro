@@ -1,0 +1,191 @@
+{
+    "totalAutoReg": 261,
+    "totalUtilReg": 2,
+    "totalRadieri": 23,
+    "evShare": 0.021103896103896104,
+    "usedShare": 0.060836501901140684,
+    "yoyGrowth": -69.52491309385863,
+    "totalFirme": 131,
+    "totalPf": 132,
+    "inmatriculariModele": [
+        {
+            "marca": "HYUNDAI",
+            "model": "KONA",
+            "volum": 36
+        },
+        {
+            "marca": "SKODA",
+            "model": "CITIGO",
+            "volum": 36
+        },
+        {
+            "marca": "RENAULT",
+            "model": "ZOE",
+            "volum": 35
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "UP!",
+            "volum": 19
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "GOLF",
+            "volum": 18
+        },
+        {
+            "marca": "PEUGEOT",
+            "model": "208",
+            "volum": 15
+        },
+        {
+            "marca": "SMART",
+            "model": "EQ FORFOUR",
+            "volum": 15
+        },
+        {
+            "marca": "SMART",
+            "model": "EQ FORTWO COUPE",
+            "volum": 12
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "UP !",
+            "volum": 7
+        },
+        {
+            "marca": "NISSAN",
+            "model": "LEAF 40KWH",
+            "volum": 7
+        },
+        {
+            "marca": "OPEL",
+            "model": "CORSA",
+            "volum": 7
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL 3",
+            "volum": 6
+        },
+        {
+            "marca": "MERCEDES-BENZ~",
+            "model": "EQC 400 4MATIC",
+            "volum": 5
+        },
+        {
+            "marca": "PEUGEOT",
+            "model": "2008",
+            "volum": 5
+        },
+        {
+            "marca": "BMW I",
+            "model": "I3",
+            "volum": 4
+        },
+        {
+            "marca": "HYUNDAI",
+            "model": "IONIQ",
+            "volum": 4
+        },
+        {
+            "marca": "BMW",
+            "model": "I3",
+            "volum": 3
+        },
+        {
+            "marca": "BMW I",
+            "model": "I3S",
+            "volum": 3
+        },
+        {
+            "marca": "JAGUAR",
+            "model": "JAGUAR I-PACE",
+            "volum": 3
+        },
+        {
+            "marca": "MINI",
+            "model": "COOPER SE",
+            "volum": 3
+        },
+        {
+            "marca": "NISSAN",
+            "model": "LEAF 62KWH",
+            "volum": 3
+        },
+        {
+            "marca": "PORSCHE",
+            "model": "TAYCAN 4S",
+            "volum": 3
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL S",
+            "volum": 3
+        },
+        {
+            "marca": "MERCEDES-BENZ",
+            "model": "B 250 E",
+            "volum": 2
+        },
+        {
+            "marca": "RENAULT",
+            "model": "KANGOO EXPRESS Z,E,",
+            "volum": 2
+        },
+        {
+            "marca": "NISSAN",
+            "model": "LEAF",
+            "volum": 1
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL X",
+            "volum": 1
+        },
+        {
+            "marca": "AUDI",
+            "model": "E-TRON SPORTBACK 50",
+            "volum": 1
+        },
+        {
+            "marca": "PORSCHE",
+            "model": "TAYCAN TURBO",
+            "volum": 1
+        },
+        {
+            "marca": "TESLA MOTORS",
+            "model": "MODEL S",
+            "volum": 1
+        },
+        {
+            "marca": "BMW I",
+            "model": "",
+            "volum": 1
+        },
+        {
+            "marca": "HONDA",
+            "model": "HONDA E",
+            "volum": 1
+        }
+    ],
+    "radieriModele": [
+        {
+            "marca": "RENAULT",
+            "model": "ZOE",
+            "volum": 20
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "GOLF",
+            "volum": 2
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "UP!",
+            "volum": 1
+        }
+    ],
+    "luna": "2020-09",
+    "lunaNume": "SEP"
+}

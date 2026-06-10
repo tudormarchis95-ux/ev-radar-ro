@@ -5,10 +5,24 @@
 
 // Starea vizualizatorului public
 const state = {
-    data: null
+    data: null,
+    historicalSummary: null
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+async function initHistoricalSummary() {
+    try {
+        const response = await fetch(`rapoarte/historical_summary.json?t=${Date.now()}`);
+        if (response.ok) {
+            state.historicalSummary = await response.json();
+            console.log("Historical summary loaded successfully!");
+        }
+    } catch (err) {
+        console.warn("Could not load historical summary from server:", err);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    await initHistoricalSummary();
     initUI();
 });
 
@@ -65,10 +79,6 @@ async function loadMonthData() {
 }
 
 function showEmptyDashboard(message) {
-    const dashboard = document.getElementById('results-dashboard');
-    if (dashboard) {
-        dashboard.style.display = 'block';
-    }
     document.getElementById('val-national-fleet').innerText = "-";
     document.getElementById('val-auto-reg').innerText = "-";
     document.getElementById('val-util-reg').innerText = "-";
@@ -90,11 +100,6 @@ function showEmptyDashboard(message) {
 function renderDashboard() {
     if (!state.data) return;
     
-    const dashboard = document.getElementById('results-dashboard');
-    if (dashboard) {
-        dashboard.style.display = 'block';
-    }
-    
     const totalEV = state.data.totalAutoReg + state.data.totalUtilReg;
     const netGrowth = totalEV - state.data.totalRadieri;
     
@@ -103,29 +108,53 @@ function renderDashboard() {
     document.getElementById('val-total-rad').innerText = state.data.totalRadieri;
     document.getElementById('val-net-growth').innerText = netGrowth;
     
-    // Calculeaza parcul auto national total estimat
-    const base2025 = 63986;
-    const history2026 = {
-        'JAN': 1410 - 85,
-        'FEB': 1370 - 92,
-        'MAR': 1206 - 186,
-        'APR': 1306 - 49,
-        'MAY': 1505 - 103,
-        'JUN': 0, 'JUL': 0, 'AUG': 0, 'SEP': 0, 'OCT': 0, 'NOV': 0, 'DEC': 0
-    };
-    
-    history2026[state.data.lunaNume] = netGrowth;
-    
+    // Calculeaza parcul auto national total estimat dinamic în funcție de an
+    const currentYear = state.data && state.data.luna ? parseInt(state.data.luna.split('-')[0]) : 2026;
+    const currentLunaNume = state.data.lunaNume || 'MAY';
+    const baseFleetDec2025 = 63986;
+    let totalFleet = baseFleetDec2025;
     const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-    let totalFleet = base2025;
-    for (const m of monthsOrder) {
-        totalFleet += history2026[m];
-        if (m === state.data.lunaNume) break;
+
+    if (currentYear === 2026) {
+        const history2026 = {
+            'JAN': 1411 - 86,
+            'FEB': 1372 - 92,
+            'MAR': 1209 - 188,
+            'APR': 1308 - 49,
+            'MAY': 1505 - 103,
+            'JUN': 0, 'JUL': 0, 'AUG': 0, 'SEP': 0, 'OCT': 0, 'NOV': 0, 'DEC': 0
+        };
+        history2026[currentLunaNume] = netGrowth;
+        let cumulativeNet = 0;
+        for (const m of monthsOrder) {
+            cumulativeNet += history2026[m];
+            if (m === currentLunaNume) break;
+        }
+        totalFleet = baseFleetDec2025 + cumulativeNet;
+    } else if (currentYear < 2026) {
+        let subtractNet = 0;
+        for (let y = 2025; y >= currentYear; y--) {
+            for (let mIdx = 11; mIdx >= 0; mIdx--) {
+                const m = monthsOrder[mIdx];
+                if (y === currentYear && mIdx <= monthsOrder.indexOf(currentLunaNume)) {
+                    break;
+                }
+                let mReg = 0;
+                let mRad = 0;
+                if (state.historicalSummary && state.historicalSummary[String(y)] && state.historicalSummary[String(y)][m]) {
+                    const item = state.historicalSummary[String(y)][m];
+                    mReg = item.totalAutoReg + item.totalUtilReg;
+                    mRad = item.totalRadieri;
+                }
+                subtractNet += (mReg - mRad);
+            }
+        }
+        totalFleet = baseFleetDec2025 - subtractNet;
     }
     
     document.getElementById('val-national-fleet').innerText = totalFleet.toLocaleString('ro-RO');
-    document.getElementById('fleet-month-name').innerText = state.data.lunaNume + " 2026";
-    document.getElementById('divider-month-name').innerText = state.data.lunaNume + " 2026";
+    document.getElementById('fleet-month-name').innerText = currentLunaNume + " " + currentYear;
+    document.getElementById('divider-month-name').innerText = currentLunaNume + " " + currentYear;
     
     // Advanced stats
     document.getElementById('val-ev-share').innerText = `${(state.data.evShare * 100).toFixed(2)}%`;
@@ -198,7 +227,7 @@ function renderHistoricalCharts() {
     };
     
     const regs2026 = {
-        'JAN': 1410, 'FEB': 1370, 'MAR': 1206, 'APR': 1306, 'MAY': 1505,
+        'JAN': 1411, 'FEB': 1372, 'MAR': 1209, 'APR': 1308, 'MAY': 1505,
         'JUN': null, 'JUL': null, 'AUG': null, 'SEP': null, 'OCT': null, 'NOV': null, 'DEC': null
     };
     
@@ -276,61 +305,121 @@ function renderHistoricalCharts() {
         });
     }
     
-    // 2. Evolutie Anuala 2011 - Prezent (Format Vertical)
-    const annualData = [
-        { year: 2011, qty: 7 },
-        { year: 2012, qty: 5 },
-        { year: 2013, qty: 50 },
-        { year: 2014, qty: 16 },
-        { year: 2015, qty: 32 },
-        { year: 2016, qty: 104 },
-        { year: 2017, qty: 247 },
-        { year: 2018, qty: 710 },
-        { year: 2019, qty: 1747 },
-        { year: 2020, qty: 3134 },
-        { year: 2021, qty: 6831 },
-        { year: 2022, qty: 12466 },
-        { year: 2023, qty: 16852 },
-        { year: 2024, qty: 12677 },
-        { year: 2025, qty: 12756 }
-    ];
+    // 2. Evolutie Anuala 2011 - Prezent
+    const baseFleetDec2025 = 63986;
+    const annualData = [];
+    const currentYear = state.data && state.data.luna ? parseInt(state.data.luna.split('-')[0]) : 2026;
     
-    // Calculeaza parcul auto total estimat (similar cu cardul principal)
-    const base2025 = 63986;
-    const history2026 = {
-        'JAN': 1410 - 85,
-        'FEB': 1370 - 92,
-        'MAR': 1206 - 186,
-        'APR': 1306 - 49,
-        'MAY': 1505 - 103,
-        'JUN': 0, 'JUL': 0, 'AUG': 0, 'SEP': 0, 'OCT': 0, 'NOV': 0, 'DEC': 0
+    // Obținem anii și îi filtrăm pentru a nu include ani mai mari decât cel selectat
+    let years = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
+    if (state.historicalSummary) {
+        Object.keys(state.historicalSummary).forEach(y => {
+            const yi = parseInt(y);
+            if (!years.includes(yi)) {
+                years.push(yi);
+            }
+        });
+        years.sort((a, b) => a - b);
+    }
+    years = years.filter(y => y < currentYear);
+    
+    const annualQtyMap = {
+        2011: 7, 2012: 5, 2013: 50, 2014: 16, 2015: 32, 2016: 104, 2017: 247, 2018: 710, 2019: 1747,
+        2020: 3134, 2021: 6831, 2022: 12466, 2023: 16852, 2024: 12677, 2025: 12756
     };
+
+    years.forEach(y => {
+        if (y < 2020) {
+            annualData.push({ year: y, qty: annualQtyMap[y] || 0 });
+            return;
+        }
+        
+        let yearTotalReg = 0;
+        if (state.historicalSummary && state.historicalSummary[String(y)]) {
+            const yData = state.historicalSummary[String(y)];
+            Object.keys(yData).forEach(m => {
+                const item = yData[m];
+                yearTotalReg += (item.totalAutoReg + item.totalUtilReg - item.totalRadieri);
+            });
+        }
+        
+        const qty = yearTotalReg > 0 ? yearTotalReg : (annualQtyMap[y] || 0);
+        
+        if (y !== currentYear) {
+            annualData.push({ year: y, qty: qty });
+        }
+    });
+
+    let currentYearCumulativeReg = 0;
+    let currentYearCumulativeNet = 0;
     
-    // Calculam netGrowth din datele curente ale lunii selectate
-    const netGrowth = (state.data.totalAutoReg + state.data.totalUtilReg) - state.data.totalRadieri;
-    history2026[currentLunaNume] = netGrowth;
-    
-    let totalFleet = base2025;
     for (const m of monthsOrder) {
-        totalFleet += history2026[m];
+        let mReg = 0;
+        let mRad = 0;
+        
+        if (state.historicalSummary && state.historicalSummary[String(currentYear)] && state.historicalSummary[String(currentYear)][m]) {
+            const item = state.historicalSummary[String(currentYear)][m];
+            mReg = item.totalAutoReg + item.totalUtilReg;
+            mRad = item.totalRadieri;
+        }
+        
+        if (m === currentLunaNume) {
+            mReg = state.data.totalAutoReg + state.data.totalUtilReg;
+            mRad = state.data.totalRadieri;
+        }
+        
+        currentYearCumulativeReg += (mReg - mRad);
+        currentYearCumulativeNet += (mReg - mRad);
+        
         if (m === currentLunaNume) break;
     }
     
-    // Adaugam 2026 in mod dinamic cu valoarea inmatricularilor nete din 2026 pana in prezent
-    annualData.push({ year: 2026, qty: totalFleet - base2025, active: true });
+    annualData.push({ year: currentYear, qty: currentYearCumulativeReg, active: true });
+
+    let totalFleet = baseFleetDec2025;
     
-    // Actualizam caseta de sumare din card
+    if (currentYear === 2026) {
+        totalFleet = baseFleetDec2025 + currentYearCumulativeNet;
+    } else if (currentYear < 2026) {
+        let subtractNet = 0;
+        const default2025Auto = {
+            'JAN': 1402, 'FEB': 1000, 'MAR': 595, 'APR': 583, 'MAY': 814, 'JUN': 761,
+            'JUL': 897, 'AUG': 1278, 'SEP': 1100, 'OCT': 1486, 'NOV': 1478, 'DEC': 1797
+        };
+        for (let y = 2025; y >= currentYear; y--) {
+            for (let mIdx = 11; mIdx >= 0; mIdx--) {
+                const m = monthsOrder[mIdx];
+                if (y === currentYear && mIdx <= monthsOrder.indexOf(currentLunaNume)) {
+                    break;
+                }
+                
+                let mReg = 0;
+                let mRad = 0;
+                if (state.historicalSummary && state.historicalSummary[String(y)] && state.historicalSummary[String(y)][m]) {
+                    const item = state.historicalSummary[String(y)][m];
+                    mReg = item.totalAutoReg + item.totalUtilReg;
+                    mRad = item.totalRadieri;
+                } else if (y === 2025) {
+                    mReg = default2025Auto[m] || 0;
+                    mRad = Math.round(mReg * 0.08);
+                }
+                subtractNet += (mReg - mRad);
+            }
+        }
+        totalFleet = baseFleetDec2025 - subtractNet;
+    }
+
     const summaryVal = document.getElementById('val-fleet-summary');
     if (summaryVal) {
         summaryVal.innerText = totalFleet.toLocaleString('ro-RO');
     }
     const summaryTitle = document.getElementById('annual-summary-title');
     if (summaryTitle) {
-        summaryTitle.innerText = `TOTAL PARC AUTO (${currentLunaNume} '26)`;
+        summaryTitle.innerText = `TOTAL PARC AUTO (${currentLunaNume} '${String(currentYear).substring(2)})`;
     }
     const captionEl = document.getElementById('annual-chart-caption');
     if (captionEl) {
-        captionEl.innerHTML = `* Date aferente anului 2026 sunt în curs de actualizare (${monthsOrder[0].toLowerCase()} – ${currentLunaNume.toLowerCase()}).`;
+        captionEl.innerHTML = `* Datele aferente anului ${currentYear} sunt în curs de actualizare (ian – ${currentLunaNume.toLowerCase()}).`;
     }
     
     const annualContainer = document.getElementById('annual-evolution-list');
@@ -357,37 +446,7 @@ function renderHistoricalCharts() {
                     ${d.year}${d.active ? '*' : ''}
                 </div>
             `;
-            col.id = `annual-col-${d.year}`;
             annualContainer.appendChild(col);
         });
-        
-        // Scroll anual la dreapta (ultimul an, 2026)
-        setTimeout(() => {
-            const container = annualContainer.closest('.v-chart-container');
-            if (container) {
-                container.scrollLeft = 99999;
-            }
-        }, 300);
-    }
-
-    // Scroll grafic lunar să centreze luna selectată
-    if (compContainer) {
-        setTimeout(() => {
-            const container = compContainer.closest('.v-chart-container');
-            if (container) {
-                // Găsește elementul lunii curente
-                const monthCols = compContainer.querySelectorAll('.v-col-group');
-                const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-                const currentIdx = monthsOrder.indexOf(state.data.lunaNume);
-                if (currentIdx !== -1 && monthCols[currentIdx]) {
-                    const targetCol = monthCols[currentIdx];
-                    const containerWidth = container.clientWidth;
-                    const colOffsetLeft = targetCol.offsetLeft;
-                    const colWidth = targetCol.clientWidth;
-                    // Centrează coloana target
-                    container.scrollLeft = colOffsetLeft - (containerWidth / 2) + (colWidth / 2);
-                }
-            }
-        }, 100);
     }
 }

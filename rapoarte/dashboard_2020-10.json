@@ -1,0 +1,206 @@
+{
+    "totalAutoReg": 386,
+    "totalUtilReg": 5,
+    "totalRadieri": 1,
+    "evShare": 0.027928396345539626,
+    "usedShare": 0.03836317135549872,
+    "yoyGrowth": -54.692931633835464,
+    "totalFirme": 269,
+    "totalPf": 122,
+    "inmatriculariModele": [
+        {
+            "marca": "RENAULT",
+            "model": "ZOE",
+            "volum": 132
+        },
+        {
+            "marca": "HYUNDAI",
+            "model": "KONA",
+            "volum": 33
+        },
+        {
+            "marca": "SKODA",
+            "model": "CITIGO",
+            "volum": 25
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "ID,3 PRO 150 KW",
+            "volum": 24
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "GOLF",
+            "volum": 23
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "UP!",
+            "volum": 21
+        },
+        {
+            "marca": "OPEL",
+            "model": "CORSA",
+            "volum": 12
+        },
+        {
+            "marca": "NISSAN",
+            "model": "LEAF 40KWH",
+            "volum": 11
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL 3",
+            "volum": 10
+        },
+        {
+            "marca": "BMW I",
+            "model": "I3",
+            "volum": 10
+        },
+        {
+            "marca": "MERCEDES-BENZ~",
+            "model": "EQC 400 4MATIC",
+            "volum": 10
+        },
+        {
+            "marca": "MINI",
+            "model": "COOPER SE",
+            "volum": 9
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "UP !",
+            "volum": 9
+        },
+        {
+            "marca": "PEUGEOT",
+            "model": "2008",
+            "volum": 7
+        },
+        {
+            "marca": "HYUNDAI",
+            "model": "IONIQ",
+            "volum": 6
+        },
+        {
+            "marca": "MAZDA",
+            "model": "MX-30",
+            "volum": 6
+        },
+        {
+            "marca": "PEUGEOT",
+            "model": "208",
+            "volum": 5
+        },
+        {
+            "marca": "KIA",
+            "model": "NIRO",
+            "volum": 4
+        },
+        {
+            "marca": "NISSAN",
+            "model": "LEAF 62KWH",
+            "volum": 4
+        },
+        {
+            "marca": "SMART",
+            "model": "EQ FORFOUR",
+            "volum": 4
+        },
+        {
+            "marca": "JAGUAR",
+            "model": "JAGUAR I-PACE",
+            "volum": 3
+        },
+        {
+            "marca": "PORSCHE",
+            "model": "TAYCAN 4S",
+            "volum": 3
+        },
+        {
+            "marca": "SMART",
+            "model": "EQ FORTWO COUPE",
+            "volum": 3
+        },
+        {
+            "marca": "BMW",
+            "model": "I3",
+            "volum": 2
+        },
+        {
+            "marca": "AUDI",
+            "model": "E-TRON SPORTBACK 55",
+            "volum": 2
+        },
+        {
+            "marca": "AUDI",
+            "model": "AUDI E-TRON",
+            "volum": 2
+        },
+        {
+            "marca": "BMW I",
+            "model": "I3S",
+            "volum": 1
+        },
+        {
+            "marca": "PORSCHE",
+            "model": "TAYCAN TURBO",
+            "volum": 1
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL S",
+            "volum": 1
+        },
+        {
+            "marca": "RENAULT",
+            "model": "FLUENCE Z,E,",
+            "volum": 1
+        },
+        {
+            "marca": "NISSAN",
+            "model": "NISSAN LEAF 40KWH",
+            "volum": 1
+        },
+        {
+            "marca": "HONDA",
+            "model": "HONDA E",
+            "volum": 1
+        },
+        {
+            "marca": "PEUGEOT",
+            "model": "PARTNER",
+            "volum": 1
+        },
+        {
+            "marca": "RENAULT",
+            "model": "KANGOO EXPRESS Z,E,",
+            "volum": 1
+        },
+        {
+            "marca": "NISSAN",
+            "model": "E-NV200",
+            "volum": 1
+        },
+        {
+            "marca": "NISSAN-VOLTIA",
+            "model": "VOLTIA VAN",
+            "volum": 1
+        },
+        {
+            "marca": "RENAULT",
+            "model": "KANGOO EXPRESS Z,E",
+            "volum": 1
+        }
+    ],
+    "radieriModele": [
+        {
+            "marca": "TESLA",
+            "model": "MODEL S",
+            "volum": 1
+        }
+    ],
+    "luna": "2020-10",
+    "lunaNume": "OCT"
+}

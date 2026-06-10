@@ -1087,6 +1087,7 @@ function computeYtdAndParcData(selectedMonthNume, currentRawInmatriculari) {
 // Starea aplicației
 const state = {
     sheetsUrl: localStorage.getItem('ev_radar_sheets_url') || '',
+    historicalSummary: null,
     files: {
         auto: null,
         marfuri: null,
@@ -1112,8 +1113,21 @@ const luniNumeMap = {
     '07': 'JUL', '08': 'AUG', '09': 'SEP', '10': 'OCT', '11': 'NOV', '12': 'DEC'
 };
 
+async function initHistoricalSummary() {
+    try {
+        const response = await fetch(`rapoarte/historical_summary.json?t=${Date.now()}`);
+        if (response.ok) {
+            state.historicalSummary = await response.json();
+            console.log("Historical summary loaded successfully!");
+        }
+    } catch (err) {
+        console.warn("Could not load historical summary from server:", err);
+    }
+}
+
 // Initializare interfata
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    await initHistoricalSummary();
     initUI();
     setupAdminAuth();
     setupPublicMonthSelect();
@@ -1144,31 +1158,44 @@ function initUI() {
                 renderDashboard();
                 
                 // Set values in selects
-                const autoSelect = document.getElementById('auto-month-select');
-                if (autoSelect) {
-                    for (let opt of autoSelect.options) {
-                        if (opt.value.startsWith(lastMonthCode + '|')) {
-                            autoSelect.value = opt.value;
-                            break;
+                if (lastMonthCode && lastMonthCode.includes('-')) {
+                    const [y, m] = lastMonthCode.split('-');
+                    const autoYearSelect = document.getElementById('auto-year-select');
+                    const autoMonthSelect = document.getElementById('auto-month-select');
+                    if (autoYearSelect && autoMonthSelect) {
+                        autoYearSelect.value = y;
+                        for (let opt of autoMonthSelect.options) {
+                            if (opt.value.startsWith(m + '|')) {
+                                autoMonthSelect.value = opt.value;
+                                break;
+                            }
+                        }
+                    }
+                    const localYearSelect = document.getElementById('local-year-select');
+                    const localMonthSelect = document.getElementById('local-month-select');
+                    if (localYearSelect && localMonthSelect) {
+                        localYearSelect.value = y;
+                        for (let opt of localMonthSelect.options) {
+                            if (opt.value.startsWith(m + '|')) {
+                                localMonthSelect.value = opt.value;
+                                break;
+                            }
                         }
                     }
                 }
-                const localSelect = document.getElementById('local-month-select');
-                if (localSelect) {
-                    for (let opt of localSelect.options) {
-                        if (opt.value.startsWith(lastMonthCode + '|')) {
-                            localSelect.value = opt.value;
-                            break;
-                        }
-                    }
-                }
-                const publicSelect = document.getElementById('public-month-select');
-                if (publicSelect) {
-                    for (let opt of publicSelect.options) {
-                        const cleanCode = lastMonthCode.replace('-', '');
-                        if (opt.value.startsWith(lastMonthCode + '|') || opt.value.startsWith(cleanCode + '|')) {
-                            publicSelect.value = opt.value;
-                            break;
+                const publicYearSelect = document.getElementById('public-year-select');
+                const publicMonthSelect = document.getElementById('public-month-select');
+                if (publicYearSelect && publicMonthSelect) {
+                    const cleanCode = lastMonthCode.replace('-', '');
+                    if (cleanCode.length >= 6) {
+                        const yearPart = cleanCode.substring(0, 4);
+                        const monthPart = cleanCode.substring(4);
+                        publicYearSelect.value = yearPart;
+                        for (let opt of publicMonthSelect.options) {
+                            if (opt.value.startsWith(monthPart + '|')) {
+                                publicMonthSelect.value = opt.value;
+                                break;
+                            }
                         }
                     }
                 }
@@ -1222,18 +1249,72 @@ function setupAdminAuth() {
     });
 }
 
-function setupPublicMonthSelect() {
-    const select = document.getElementById('public-month-select');
-    if (!select) return;
+function getSelectedPublicMonth() {
+    const yearSelect = document.getElementById('public-year-select');
+    const monthSelect = document.getElementById('public-month-select');
+    if (!yearSelect || !monthSelect) return null;
+    
+    const year = yearSelect.value;
+    const [monthNum, lunaNume] = monthSelect.value.split('|');
+    const lunaCode = `${year}${monthNum}`;
+    return { lunaCode, lunaNume };
+}
 
-    // Asculta schimbarile de luna pentru utilizatorii publici
-    select.addEventListener('change', async () => {
-        const val = select.value;
-        if (!val) return;
+function updateMonthSelectOptions() {
+    const yearSelect = document.getElementById('public-year-select');
+    const monthSelect = document.getElementById('public-month-select');
+    if (!yearSelect || !monthSelect) return;
+    
+    const year = yearSelect.value;
+    if (!state.historicalSummary) return;
+    
+    const availableMonths = state.historicalSummary[year] ? Object.keys(state.historicalSummary[year]) : [];
+    
+    let selectedStillAvailable = false;
+    let lastAvailableOpt = null;
+    
+    // Determinam ordinea lunilor pentru a gasi ultima disponibila
+    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    const sortedAvailable = [...availableMonths].sort((a, b) => monthsOrder.indexOf(a) - monthsOrder.indexOf(b));
+    
+    for (let opt of monthSelect.options) {
+        const [monthNum, monthAcronym] = opt.value.split('|');
+        const isAvailable = sortedAvailable.includes(monthAcronym);
         
-        const [lunaCode, lunaNume] = val.split('|');
-        const lunaHyphen = lunaCode.includes('-') ? lunaCode : `${lunaCode.substring(0, 4)}-${lunaCode.substring(4)}`;
-        const lunaNoHyphen = lunaCode.replace('-', '');
+        if (isAvailable) {
+            opt.disabled = false;
+            opt.style.display = 'block';
+            lastAvailableOpt = opt.value;
+            if (monthSelect.value === opt.value) {
+                selectedStillAvailable = true;
+            }
+        } else {
+            opt.disabled = true;
+            opt.style.display = 'none';
+        }
+    }
+    
+    // Daca luna selectata a fost dezactivata, selectam ultima luna disponibila din an
+    if (!selectedStillAvailable && lastAvailableOpt) {
+        monthSelect.value = lastAvailableOpt;
+    }
+}
+
+function setupPublicMonthSelect() {
+    const yearSelect = document.getElementById('public-year-select');
+    const monthSelect = document.getElementById('public-month-select');
+    if (!yearSelect || !monthSelect) return;
+
+    const handler = async () => {
+        const selected = getSelectedPublicMonth();
+        if (!selected) return;
+        
+        const { lunaCode, lunaNume } = selected;
+        const lunaHyphen = `${lunaCode.substring(0, 4)}-${lunaCode.substring(4)}`;
+        const lunaNoHyphen = lunaCode;
+        
+        // Salvează ultima lună vizualizată în cache
+        localStorage.setItem('ev_radar_ro_last_month_code', lunaHyphen);
         
         // 1. Incercare: Citire fisier JSON de pe server cu cache busting
         try {
@@ -1274,14 +1355,21 @@ function setupPublicMonthSelect() {
                 alert(`Nu s-au putut încărca datele pentru luna ${lunaNume}.`);
             }
         } else {
-            alert(`Nu există date procesate pentru luna ${lunaNume}.`);
+            alert(`Nu există date procesate pentru luna ${lunaNume} din anul ${yearSelect.value}.`);
         }
-    });
+    };
 
-    // Trigger initial change event to load the default selected month if no cached data exists
-    if (!localStorage.getItem('ev_radar_ro_last_month_code')) {
-        select.dispatchEvent(new Event('change'));
-    }
+    yearSelect.addEventListener('change', () => {
+        updateMonthSelectOptions();
+        handler();
+    });
+    monthSelect.addEventListener('change', handler);
+
+    // Initializare selectie luni la incarcarea istoricului
+    updateMonthSelectOptions();
+
+    // Trigger initial load (always load from server or cache on startup)
+    handler();
 }
 
 function setupConfig() {
@@ -1629,31 +1717,53 @@ function renderDashboard() {
     document.getElementById('val-total-rad').innerText = state.data.totalRadieri;
     document.getElementById('val-net-growth').innerText = netGrowth;
     
-    // Calculeaza parcul auto national total estimat
-    const base2025 = 63986;
-    const history2026 = {
-        'JAN': 1410 - 85,
-        'FEB': 1370 - 92,
-        'MAR': 1206 - 186,
-        'APR': 1306 - 49,
-        'MAY': 1505 - 103,
-        'JUN': 0, 'JUL': 0, 'AUG': 0, 'SEP': 0, 'OCT': 0, 'NOV': 0, 'DEC': 0
-    };
-    
-    // Suprascriem luna selectată cu datele procesate curent
-    history2026[state.data.lunaNume] = netGrowth;
-    
-    // Insumam istoricul pana la luna curenta
+    // Calculeaza parcul auto national total estimat dinamic în funcție de an
+    const currentYear = state.data && state.data.luna ? parseInt(state.data.luna.split('-')[0]) : 2026;
+    const currentLunaNume = state.data.lunaNume || 'MAY';
+    const baseFleetDec2025 = 63986;
+    let totalFleet = baseFleetDec2025;
     const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-    let totalFleet = base2025;
-    for (const m of monthsOrder) {
-        totalFleet += history2026[m];
-        if (m === state.data.lunaNume) break;
+
+    if (currentYear === 2026) {
+        const history2026 = {
+            'JAN': 1411 - 86,
+            'FEB': 1372 - 92,
+            'MAR': 1209 - 188,
+            'APR': 1308 - 49,
+            'MAY': 1505 - 103,
+            'JUN': 0, 'JUL': 0, 'AUG': 0, 'SEP': 0, 'OCT': 0, 'NOV': 0, 'DEC': 0
+        };
+        history2026[currentLunaNume] = netGrowth;
+        let cumulativeNet = 0;
+        for (const m of monthsOrder) {
+            cumulativeNet += history2026[m];
+            if (m === currentLunaNume) break;
+        }
+        totalFleet = baseFleetDec2025 + cumulativeNet;
+    } else if (currentYear < 2026) {
+        let subtractNet = 0;
+        for (let y = 2025; y >= currentYear; y--) {
+            for (let mIdx = 11; mIdx >= 0; mIdx--) {
+                const m = monthsOrder[mIdx];
+                if (y === currentYear && mIdx <= monthsOrder.indexOf(currentLunaNume)) {
+                    break;
+                }
+                let mReg = 0;
+                let mRad = 0;
+                if (state.historicalSummary && state.historicalSummary[String(y)] && state.historicalSummary[String(y)][m]) {
+                    const item = state.historicalSummary[String(y)][m];
+                    mReg = item.totalAutoReg + item.totalUtilReg;
+                    mRad = item.totalRadieri;
+                }
+                subtractNet += (mReg - mRad);
+            }
+        }
+        totalFleet = baseFleetDec2025 - subtractNet;
     }
     
     document.getElementById('val-national-fleet').innerText = totalFleet.toLocaleString('ro-RO');
-    document.getElementById('fleet-month-name').innerText = state.data.lunaNume + " 2026";
-    document.getElementById('divider-month-name').innerText = state.data.lunaNume + " 2026";
+    document.getElementById('fleet-month-name').innerText = currentLunaNume + " " + currentYear;
+    document.getElementById('divider-month-name').innerText = currentLunaNume + " " + currentYear;
     
     // Dashboard advanced stats
     document.getElementById('val-ev-share').innerText = `${(state.data.evShare * 100).toFixed(2)}%`;
@@ -1791,7 +1901,7 @@ function generateBlogReportTexts() {
     };
     
     const regs2026 = {
-        'JAN': 1410, 'FEB': 1370, 'MAR': 1206, 'APR': 1306, 'MAY': 1505,
+        'JAN': 1411, 'FEB': 1372, 'MAR': 1209, 'APR': 1308, 'MAY': 1505,
         'JUN': null, 'JUL': null, 'AUG': null, 'SEP': null, 'OCT': null, 'NOV': null, 'DEC': null
     };
     
@@ -2117,15 +2227,15 @@ ${monthlyBarsHtml}  </div>
 
     const base2025 = 63986;
     const history2026 = {
-        'JAN': 1410 - 85,
-        'FEB': 1370 - 92,
-        'MAR': 1206 - 186,
-        'APR': 1306 - 49,
-        'MAY': 1505 - 103,
-        'JUN': 0, 'JUL': 0, 'AUG': 0, 'SEP': 0, 'OCT': 0, 'NOV': 0, 'DEC': 0
-    };
+            'JAN': 1411 - 86,
+            'FEB': 1372 - 92,
+            'MAR': 1209 - 188,
+            'APR': 1308 - 49,
+            'MAY': 1505 - 103,
+            'JUN': 0, 'JUL': 0, 'AUG': 0, 'SEP': 0, 'OCT': 0, 'NOV': 0, 'DEC': 0
+        };
     
-    const netGrowth = (state.data.totalAutoReg + state.data.totalUtilReg) - state.data.totalRadieri;
+    const netGrowth = state.data.totalAutoReg + state.data.totalUtilReg - state.data.totalRadieri;
     history2026[currentLunaNume] = netGrowth;
     
     let totalFleet = base2025;
@@ -2882,7 +2992,7 @@ function drawBlogCoverCanvas() {
     const totalEV = state.data.totalAutoReg + state.data.totalUtilReg;
     const base2025 = 63986;
     const history2026 = {
-        'JAN': 1325, 'FEB': 1278, 'MAR': 1020, 'APR': 1257, 'MAY': 1402,
+        'JAN': 1325, 'FEB': 1280, 'MAR': 1021, 'APR': 1259, 'MAY': 1402,
         'JUN': 0, 'JUL': 0, 'AUG': 0, 'SEP': 0, 'OCT': 0, 'NOV': 0, 'DEC': 0
     };
     
@@ -2891,7 +3001,7 @@ function drawBlogCoverCanvas() {
     let totalFleet = base2025;
     for (const m of monthsOrder) {
         if (m === state.data.lunaNume) {
-            totalFleet += (totalEV - state.data.totalRadieri);
+            totalFleet += (state.data.totalAutoReg + state.data.totalUtilReg - state.data.totalRadieri);
             break;
         }
         totalFleet += history2026[m];
@@ -3066,11 +3176,33 @@ function setupSendBtn() {
     });
 }
 
+const roMonthsMap = {
+    '01': 'ianuarie', '02': 'februarie', '03': 'martie', '04': 'aprilie',
+    '05': 'mai', '06': 'iunie', '07': 'iulie', '08': 'august',
+    '09': 'septembrie', '10': 'octombrie', '11': 'noiembrie', '12': 'decembrie'
+};
+
+function getSelectedProcessPeriod(prefix) {
+    const yearSelect = document.getElementById(`${prefix}-year-select`);
+    const monthSelect = document.getElementById(`${prefix}-month-select`);
+    if (!yearSelect || !monthSelect) return null;
+    
+    const year = yearSelect.value;
+    const [monthNum, lunaNume] = monthSelect.value.split('|');
+    const luna = `${year}-${monthNum}`;
+    const monthName = `${roMonthsMap[monthNum]} ${year}`;
+    const code = `${year}${monthNum}`;
+    
+    return { luna, lunaNume, monthName, code };
+}
+
 function setupAutoDgpciBtn() {
     const btn = document.getElementById('auto-dgpci-btn');
+    if (!btn) return;
     btn.addEventListener('click', async () => {
-        const select = document.getElementById('auto-month-select');
-        const [luna, lunaNume, monthName, code] = select.value.split('|');
+        const period = getSelectedProcessPeriod('auto');
+        if (!period) return;
+        const { luna, lunaNume, monthName, code } = period;
         
         // Verificam daca datele sunt deja in cache
         const cached = localStorage.getItem('ev_radar_ro_data_' + luna);
@@ -3154,8 +3286,9 @@ function setupLocalProcessBtn() {
     const btn = document.getElementById('local-process-btn');
     if (!btn) return;
     btn.addEventListener('click', async () => {
-        const select = document.getElementById('local-month-select');
-        const [luna, lunaNume, monthName, code] = select.value.split('|');
+        const period = getSelectedProcessPeriod('local');
+        if (!period) return;
+        const { luna, lunaNume, monthName, code } = period;
         
         // Verificam daca datele sunt deja in cache
         const cached = localStorage.getItem('ev_radar_ro_data_' + luna);
@@ -3294,60 +3427,104 @@ function hideLoader() {
 }
 
 function renderHistoricalCharts() {
-    // 1. Date lunare 2025 vs 2026 (Inmatriculari brute BEV)
-    const regs2025 = {
+    // 1. Determinam anul selectat si cel precedent
+    const currentYear = state.data && state.data.luna ? parseInt(state.data.luna.split('-')[0]) : 2026;
+    const prevYear = currentYear - 1;
+
+    // Actualizam titlul si legenda pe dashboard
+    const compTitleEl = document.getElementById('monthly-comp-title');
+    if (compTitleEl) {
+        compTitleEl.innerText = `Înmatriculări lunare EV (${prevYear} vs. ${currentYear})`;
+    }
+    const legendCurrEl = document.getElementById('lbl-legend-curr');
+    if (legendCurrEl) {
+        legendCurrEl.innerText = String(currentYear);
+    }
+    const legendPrevEl = document.getElementById('lbl-legend-prev');
+    if (legendPrevEl) {
+        legendPrevEl.innerText = String(prevYear);
+    }
+
+    // Gasim datele lunare din historicalSummary pentru prevYear si currentYear
+    const regsPrevYear = {
+        'JAN': 0, 'FEB': 0, 'MAR': 0, 'APR': 0, 'MAY': 0, 'JUN': 0,
+        'JUL': 0, 'AUG': 0, 'SEP': 0, 'OCT': 0, 'NOV': 0, 'DEC': 0
+    };
+    const regsCurrentYear = {
+        'JAN': null, 'FEB': null, 'MAR': null, 'APR': null, 'MAY': null, 'JUN': null,
+        'JUL': null, 'AUG': null, 'SEP': null, 'OCT': null, 'NOV': null, 'DEC': null
+    };
+
+    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+
+    // Fallback static doar pentru 2025/2026 daca nu exista historicalSummary
+    const default2025 = {
         'JAN': 1639, 'FEB': 1069, 'MAR': 628, 'APR': 612, 'MAY': 863, 'JUN': 807,
         'JUL': 976, 'AUG': 1335, 'SEP': 1158, 'OCT': 1562, 'NOV': 1552, 'DEC': 1880
     };
-    
-    const regs2026 = {
-        'JAN': 1410, 'FEB': 1370, 'MAR': 1206, 'APR': 1306, 'MAY': 1505,
+    const default2026 = {
+        'JAN': 1411, 'FEB': 1372, 'MAR': 1209, 'APR': 1308, 'MAY': 1505,
         'JUN': null, 'JUL': null, 'AUG': null, 'SEP': null, 'OCT': null, 'NOV': null, 'DEC': null
     };
-    
+
+    monthsOrder.forEach(m => {
+        if (prevYear === 2025) {
+            regsPrevYear[m] = default2025[m];
+        }
+        if (currentYear === 2026) {
+            regsCurrentYear[m] = default2026[m];
+        }
+
+        if (state.historicalSummary) {
+            const prevYearStr = String(prevYear);
+            if (state.historicalSummary[prevYearStr] && state.historicalSummary[prevYearStr][m]) {
+                const item = state.historicalSummary[prevYearStr][m];
+                regsPrevYear[m] = item.totalAutoReg + item.totalUtilReg;
+            }
+            const currYearStr = String(currentYear);
+            if (state.historicalSummary[currYearStr] && state.historicalSummary[currYearStr][m]) {
+                const item = state.historicalSummary[currYearStr][m];
+                regsCurrentYear[m] = item.totalAutoReg + item.totalUtilReg;
+            }
+        }
+    });
+
     // Suprascriem luna selectata in mod dinamic cu datele actuale incarcate
     const currentLunaNume = state.data.lunaNume;
     const currentRegs = state.data.totalAutoReg + state.data.totalUtilReg;
-    if (regs2026.hasOwnProperty(currentLunaNume)) {
-        regs2026[currentLunaNume] = currentRegs;
+    if (regsCurrentYear.hasOwnProperty(currentLunaNume)) {
+        regsCurrentYear[currentLunaNume] = currentRegs;
     }
     
-    // De asemenea, daca suntem pe o luna ulterioara, sa stergem valorile din lunile viitoare
-    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    // Daca suntem pe o luna din anul curent, sa stergem valorile din lunile viitoare
     const currentIdx = monthsOrder.indexOf(currentLunaNume);
     if (currentIdx !== -1) {
         for (let i = currentIdx + 1; i < monthsOrder.length; i++) {
-            regs2026[monthsOrder[i]] = null;
+            regsCurrentYear[monthsOrder[i]] = null;
         }
     }
-    
-    // Generam badge-urile de crestere procentuala (acum sunt incluse in coloane)
-    const badgesContainer = document.getElementById('growth-badges-container');
-    if (badgesContainer) {
-        badgesContainer.innerHTML = '';
-    }
-    
-    // Generam graficul comparativ 2025 vs 2026 (Format Vertical Mockup)
+
+    // Generam graficul comparativ
     const compContainer = document.getElementById('monthly-comp-list');
     if (compContainer) {
         compContainer.innerHTML = '';
         
-        // Gasim valoarea maxima pentru scalare (adaugam un buffer de 15% pentru a incapea etichetele de deasupra)
+        // Gasim valoarea maxima pentru scalare
         let maxVal = 0;
         monthsOrder.forEach(m => {
-            if (regs2025[m] > maxVal) maxVal = regs2025[m];
-            if (regs2026[m] !== null && regs2026[m] > maxVal) maxVal = regs2026[m];
+            if (regsPrevYear[m] > maxVal) maxVal = regsPrevYear[m];
+            if (regsCurrentYear[m] !== null && regsCurrentYear[m] > maxVal) maxVal = regsCurrentYear[m];
         });
-        const scaleMax = maxVal * 1.15;
+        const scaleMax = maxVal > 0 ? maxVal * 1.15 : 100;
         
         monthsOrder.forEach(m => {
-            const val25 = regs2025[m];
-            const val26 = regs2026[m];
+            const val25 = regsPrevYear[m];
+            const val26 = regsCurrentYear[m];
             
             const h25 = ((val25 / scaleMax) * 100).toFixed(1);
             const h26 = val26 !== null ? ((val26 / scaleMax) * 100).toFixed(1) : 0;
             let badgeHTML = '';
-            if (val26 !== null && val26 > 0) {
+            if (val26 !== null && val26 > 0 && val25 > 0) {
                 const pct = ((val26 - val25) / val25 * 100).toFixed(1);
                 const sign = pct >= 0 ? '+' : '';
                 const badgeClass = pct >= 0 ? 'positive' : 'negative';
@@ -3378,72 +3555,131 @@ function renderHistoricalCharts() {
             compContainer.appendChild(col);
         });
     }
+
+    // 2. Evolutie Anuala 2011 - Prezent
+    const baseFleetDec2025 = 63986;
+    const annualData = [];
     
-    // 2. Evolutie Anuala 2011 - Prezent (Format Vertical)
-    const annualData = [
-        { year: 2011, qty: 7 },
-        { year: 2012, qty: 5 },
-        { year: 2013, qty: 50 },
-        { year: 2014, qty: 16 },
-        { year: 2015, qty: 32 },
-        { year: 2016, qty: 104 },
-        { year: 2017, qty: 247 },
-        { year: 2018, qty: 710 },
-        { year: 2019, qty: 1747 },
-        { year: 2020, qty: 3134 },
-        { year: 2021, qty: 6831 },
-        { year: 2022, qty: 12466 },
-        { year: 2023, qty: 16852 },
-        { year: 2024, qty: 12677 },
-        { year: 2025, qty: 12756 }
-    ];
+    // Obținem anii și îi filtrăm pentru a nu include ani mai mari decât cel selectat
+    let years = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
+    if (state.historicalSummary) {
+        Object.keys(state.historicalSummary).forEach(y => {
+            const yi = parseInt(y);
+            if (!years.includes(yi)) {
+                years.push(yi);
+            }
+        });
+        years.sort((a, b) => a - b);
+    }
+    years = years.filter(y => y < currentYear);
     
-    // Calculeaza parcul auto total estimat (similar cu cardul principal)
-    const base2025 = 63986;
-    const history2026 = {
-        'JAN': 1410 - 85,
-        'FEB': 1370 - 92,
-        'MAR': 1206 - 186,
-        'APR': 1306 - 49,
-        'MAY': 1505 - 103,
-        'JUN': 0, 'JUL': 0, 'AUG': 0, 'SEP': 0, 'OCT': 0, 'NOV': 0, 'DEC': 0
+    const annualQtyMap = {
+        2011: 7, 2012: 5, 2013: 50, 2014: 16, 2015: 32, 2016: 104, 2017: 247, 2018: 710, 2019: 1747,
+        2020: 3134, 2021: 6831, 2022: 12466, 2023: 16852, 2024: 12677, 2025: 12756
     };
+
+    years.forEach(y => {
+        if (y < 2020) {
+            annualData.push({ year: y, qty: annualQtyMap[y] || 0 });
+            return;
+        }
+        
+        let yearTotalReg = 0;
+        if (state.historicalSummary && state.historicalSummary[String(y)]) {
+            const yData = state.historicalSummary[String(y)];
+            Object.keys(yData).forEach(m => {
+                const item = yData[m];
+                yearTotalReg += (item.totalAutoReg + item.totalUtilReg - item.totalRadieri);
+            });
+        }
+        
+        const qty = yearTotalReg > 0 ? yearTotalReg : (annualQtyMap[y] || 0);
+        
+        if (y !== currentYear) {
+            annualData.push({ year: y, qty: qty });
+        }
+    });
+
+    let currentYearCumulativeReg = 0;
+    let currentYearCumulativeNet = 0;
     
-    // Calculam netGrowth din datele curente ale lunii selectate
-    const netGrowth = (state.data.totalAutoReg + state.data.totalUtilReg) - state.data.totalRadieri;
-    history2026[currentLunaNume] = netGrowth;
-    
-    let totalFleet = base2025;
     for (const m of monthsOrder) {
-        totalFleet += history2026[m];
+        let mReg = 0;
+        let mRad = 0;
+        
+        if (state.historicalSummary && state.historicalSummary[String(currentYear)] && state.historicalSummary[String(currentYear)][m]) {
+            const item = state.historicalSummary[String(currentYear)][m];
+            mReg = item.totalAutoReg + item.totalUtilReg;
+            mRad = item.totalRadieri;
+        }
+        
+        if (m === currentLunaNume) {
+            mReg = state.data.totalAutoReg + state.data.totalUtilReg;
+            mRad = state.data.totalRadieri;
+        }
+        
+        currentYearCumulativeReg += (mReg - mRad);
+        currentYearCumulativeNet += (mReg - mRad);
+        
         if (m === currentLunaNume) break;
     }
     
-    // Adaugam 2026 in mod dinamic cu valoarea inmatricularilor nete din 2026 pana in prezent
-    annualData.push({ year: 2026, qty: totalFleet - base2025, active: true });
+    annualData.push({ year: currentYear, qty: currentYearCumulativeReg, active: true });
+
+    let totalFleet = baseFleetDec2025;
     
-    // Actualizam caseta de sumare din card
+    if (currentYear === 2026) {
+        totalFleet = baseFleetDec2025 + currentYearCumulativeNet;
+    } else if (currentYear < 2026) {
+        let subtractNet = 0;
+        for (let y = 2025; y >= currentYear; y--) {
+            for (let mIdx = 11; mIdx >= 0; mIdx--) {
+                const m = monthsOrder[mIdx];
+                if (y === currentYear && mIdx <= monthsOrder.indexOf(currentLunaNume)) {
+                    break;
+                }
+                
+                let mReg = 0;
+                let mRad = 0;
+                if (state.historicalSummary && state.historicalSummary[String(y)] && state.historicalSummary[String(y)][m]) {
+                    const item = state.historicalSummary[String(y)][m];
+                    mReg = item.totalAutoReg + item.totalUtilReg;
+                    mRad = item.totalRadieri;
+                } else if (y === 2025) {
+                    // Default values for 2025 passenger registration if summary missing
+                    const default2025Auto = {
+                        'JAN': 1402, 'FEB': 1000, 'MAR': 595, 'APR': 583, 'MAY': 814, 'JUN': 761,
+                        'JUL': 897, 'AUG': 1278, 'SEP': 1100, 'OCT': 1486, 'NOV': 1478, 'DEC': 1797
+                    };
+                    mReg = default2025Auto[m] || 0;
+                    mRad = Math.round(mReg * 0.08);
+                }
+                subtractNet += (mReg - mRad);
+            }
+        }
+        totalFleet = baseFleetDec2025 - subtractNet;
+    }
+
     const summaryVal = document.getElementById('val-fleet-summary');
     if (summaryVal) {
         summaryVal.innerText = totalFleet.toLocaleString('ro-RO');
     }
     const summaryTitle = document.getElementById('annual-summary-title');
     if (summaryTitle) {
-        summaryTitle.innerText = `TOTAL PARC AUTO (${currentLunaNume} '26)`;
+        summaryTitle.innerText = `TOTAL PARC AUTO (${currentLunaNume} '${String(currentYear).substring(2)})`;
     }
     const captionEl = document.getElementById('annual-chart-caption');
     if (captionEl) {
-        captionEl.innerHTML = `* Date aferente anului 2026 sunt în curs de actualizare (${monthsOrder[0].toLowerCase()} – ${currentLunaNume.toLowerCase()}).`;
+        captionEl.innerHTML = `* Datele aferente anului ${currentYear} sunt în curs de actualizare (ian – ${currentLunaNume.toLowerCase()}).`;
     }
-    
+
     const annualContainer = document.getElementById('annual-evolution-list');
     if (annualContainer) {
         annualContainer.innerHTML = '';
         
         const maxQty = Math.max(...annualData.map(d => d.qty));
-        const scaleMaxQty = maxQty * 1.15; // buffer de 15% pentru etichete
+        const scaleMaxQty = maxQty > 0 ? maxQty * 1.15 : 100;
         
-        // Afisam in ordine cronologica normala (stanga la dreapta)
         annualData.forEach(d => {
             const heightPct = ((d.qty / scaleMaxQty) * 100).toFixed(1);
             const is2026Class = d.active ? 'highlight' : '';
@@ -3460,7 +3696,32 @@ function renderHistoricalCharts() {
                     ${d.year}${d.active ? '*' : ''}
                 </div>
             `;
+            col.id = `annual-col-${d.year}`;
             annualContainer.appendChild(col);
         });
+        
+        setTimeout(() => {
+            const container = annualContainer.closest('.v-chart-container');
+            if (container) {
+                container.scrollLeft = 99999;
+            }
+        }, 300);
+    }
+
+    if (compContainer) {
+        setTimeout(() => {
+            const container = compContainer.closest('.v-chart-container');
+            if (container) {
+                const monthCols = compContainer.querySelectorAll('.v-col-group');
+                const currentIdx = monthsOrder.indexOf(state.data.lunaNume);
+                if (currentIdx !== -1 && monthCols[currentIdx]) {
+                    const targetCol = monthCols[currentIdx];
+                    const containerWidth = container.clientWidth;
+                    const colOffsetLeft = targetCol.offsetLeft;
+                    const colWidth = targetCol.clientWidth;
+                    container.scrollLeft = colOffsetLeft - (containerWidth / 2) + (colWidth / 2);
+                }
+            }
+        }, 100);
     }
 }

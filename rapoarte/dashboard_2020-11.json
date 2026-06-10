@@ -1,0 +1,231 @@
+{
+    "totalAutoReg": 341,
+    "totalUtilReg": 25,
+    "totalRadieri": 6,
+    "evShare": 0.02470768374164811,
+    "usedShare": 0.030054644808743168,
+    "yoyGrowth": -57.58980301274623,
+    "totalFirme": 269,
+    "totalPf": 97,
+    "inmatriculariModele": [
+        {
+            "marca": "RENAULT",
+            "model": "ZOE",
+            "volum": 87
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "ID,3 PRO 150 KW",
+            "volum": 78
+        },
+        {
+            "marca": "HYUNDAI",
+            "model": "KONA",
+            "volum": 24
+        },
+        {
+            "marca": "RENAULT",
+            "model": "KANGOO EXPRESS Z,E,",
+            "volum": 16
+        },
+        {
+            "marca": "SKODA",
+            "model": "CITIGO",
+            "volum": 15
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "GOLF",
+            "volum": 15
+        },
+        {
+            "marca": "KIA",
+            "model": "NIRO",
+            "volum": 11
+        },
+        {
+            "marca": "MAZDA",
+            "model": "MX-30",
+            "volum": 10
+        },
+        {
+            "marca": "BMW I",
+            "model": "I3",
+            "volum": 9
+        },
+        {
+            "marca": "NISSAN",
+            "model": "LEAF 40KWH",
+            "volum": 8
+        },
+        {
+            "marca": "OPEL",
+            "model": "CORSA",
+            "volum": 8
+        },
+        {
+            "marca": "NISSAN",
+            "model": "E-NV200",
+            "volum": 8
+        },
+        {
+            "marca": "PEUGEOT",
+            "model": "2008",
+            "volum": 6
+        },
+        {
+            "marca": "MERCEDES-BENZ~",
+            "model": "EQC 400 4MATIC",
+            "volum": 6
+        },
+        {
+            "marca": "SMART",
+            "model": "EQ FORFOUR",
+            "volum": 6
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL 3",
+            "volum": 5
+        },
+        {
+            "marca": "BMW I",
+            "model": "I3S",
+            "volum": 5
+        },
+        {
+            "marca": "HYUNDAI",
+            "model": "IONIQ",
+            "volum": 5
+        },
+        {
+            "marca": "JAGUAR",
+            "model": "JAGUAR I-PACE",
+            "volum": 5
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "UP!",
+            "volum": 5
+        },
+        {
+            "marca": "PEUGEOT",
+            "model": "208",
+            "volum": 4
+        },
+        {
+            "marca": "MINI",
+            "model": "COOPER SE",
+            "volum": 3
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "UP !",
+            "volum": 3
+        },
+        {
+            "marca": "AUDI",
+            "model": "E-TRON SPORTBACK 50",
+            "volum": 3
+        },
+        {
+            "marca": "NISSAN",
+            "model": "LEAF 62KWH",
+            "volum": 3
+        },
+        {
+            "marca": "SMART",
+            "model": "EQ FORTWO COUPE",
+            "volum": 3
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL S",
+            "volum": 2
+        },
+        {
+            "marca": "NISSAN",
+            "model": "LEAF",
+            "volum": 2
+        },
+        {
+            "marca": "AUDI",
+            "model": "AUDI E-TRON",
+            "volum": 1
+        },
+        {
+            "marca": "RENAULT",
+            "model": "FLUENCE Z,E,",
+            "volum": 1
+        },
+        {
+            "marca": "BLUECAR",
+            "model": "BLUECAR",
+            "volum": 1
+        },
+        {
+            "marca": "JAC",
+            "model": "IEV7S",
+            "volum": 1
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL X",
+            "volum": 1
+        },
+        {
+            "marca": "TESLA MOTORS",
+            "model": "MODEL S",
+            "volum": 1
+        },
+        {
+            "marca": "AUDI",
+            "model": "E-TRON SPORTBACK 55",
+            "volum": 1
+        },
+        {
+            "marca": "MERCEDES-BENZ",
+            "model": "EQC 400 4MATIC",
+            "volum": 1
+        },
+        {
+            "marca": "PORSCHE",
+            "model": "TAYCAN 4S",
+            "volum": 1
+        },
+        {
+            "marca": "NISSAN",
+            "model": "LEAF 30KWH",
+            "volum": 1
+        },
+        {
+            "marca": "CITROEN",
+            "model": "BERLINGO",
+            "volum": 1
+        }
+    ],
+    "radieriModele": [
+        {
+            "marca": "MAZDA",
+            "model": "MX-30",
+            "volum": 3
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "GOLF",
+            "volum": 1
+        },
+        {
+            "marca": "RENAULT",
+            "model": "KANGOO EXPRESS Z,E,",
+            "volum": 1
+        },
+        {
+            "marca": "NISSAN",
+            "model": "LEAF",
+            "volum": 1
+        }
+    ],
+    "luna": "2020-11",
+    "lunaNume": "NOV"
+}
