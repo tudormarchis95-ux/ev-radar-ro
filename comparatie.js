@@ -3,6 +3,111 @@
   Cod de analiză comparativă BEV protejat intelectual.
 */
 
+// Starea comparativului public
+const state = {
+    historicalSummary: null
+};
+
+async function initHistoricalSummary() {
+    try {
+        const response = await fetch(`rapoarte/historical_summary.json?t=${Date.now()}`);
+        if (response.ok) {
+            state.historicalSummary = await response.json();
+            console.log("Historical summary loaded successfully!");
+        }
+    } catch (err) {
+        console.warn("Could not load historical summary from server:", err);
+    }
+}
+
+function getSelectedPublicMonth() {
+    const yearSelect = document.getElementById('public-year-select');
+    const monthSelect = document.getElementById('public-month-select');
+    if (!yearSelect || !monthSelect) return null;
+    
+    const year = yearSelect.value;
+    const [monthNum, lunaNume] = monthSelect.value.split('|');
+    const lunaCode = `${year}${monthNum}`;
+    return { lunaCode, lunaNume };
+}
+
+function updateMonthSelectOptions() {
+    const yearSelect = document.getElementById('public-year-select');
+    const monthSelect = document.getElementById('public-month-select');
+    if (!yearSelect || !monthSelect) return;
+    
+    const year = yearSelect.value;
+    if (!state.historicalSummary) return;
+    
+    const availableMonths = state.historicalSummary[year] ? Object.keys(state.historicalSummary[year]) : [];
+    
+    let selectedStillAvailable = false;
+    let lastAvailableOpt = null;
+    
+    // Determinam ordinea lunilor pentru a gasi ultima disponibila
+    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    const sortedAvailable = [...availableMonths].sort((a, b) => monthsOrder.indexOf(a) - monthsOrder.indexOf(b));
+    
+    for (let opt of monthSelect.options) {
+        const [monthNum, monthAcronym] = opt.value.split('|');
+        const isAvailable = sortedAvailable.includes(monthAcronym);
+        
+        if (isAvailable) {
+            opt.disabled = false;
+            opt.style.display = 'block';
+            lastAvailableOpt = opt.value;
+            if (monthSelect.value === opt.value) {
+                selectedStillAvailable = true;
+            }
+        } else {
+            opt.disabled = true;
+            opt.style.display = 'none';
+        }
+    }
+    
+    // Daca luna selectata a fost dezactivata, selectam ultima luna disponibila din an
+    if (!selectedStillAvailable && lastAvailableOpt) {
+        monthSelect.value = lastAvailableOpt;
+    }
+}
+
+function animateElementValue(id, endValue, duration = 800) {
+    const element = document.getElementById(id);
+    if (!element) return;
+    
+    const oldText = element.innerText;
+    const isNegative = oldText.includes('-');
+    const digitsOnly = oldText.replace(/[^\d]/g, '');
+    let startValue = parseInt(digitsOnly) || 0;
+    if (isNegative) startValue = -startValue;
+    
+    if (startValue === endValue) {
+        element.innerText = endValue.toLocaleString('ro-RO');
+        return;
+    }
+    
+    const startTime = performance.now();
+    
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // easeOutCubic
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const currentValue = Math.floor(startValue + (endValue - startValue) * ease);
+        
+        element.innerText = currentValue.toLocaleString('ro-RO');
+        
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        } else {
+            element.innerText = endValue.toLocaleString('ro-RO');
+        }
+    }
+    
+    requestAnimationFrame(update);
+}
+
 // Date predefinite pentru alte tari europene (Mai 2026 ca referinta)
 const euDataByMonth = {
     "MAY": {
@@ -73,25 +178,37 @@ monthsList.forEach(m => {
     euDataByMonth[m] = JSON.parse(JSON.stringify(euDataByMonth["JUN"]));
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    await initHistoricalSummary();
     initComparison();
 });
 
 function initComparison() {
     console.log("%c© 2026 Tudor Marchis & Electromobilitate. Toate drepturile rezervate. EV Radar România.", "color: #004b87; font-weight: bold; font-size: 13px;");
-    const select = document.getElementById('comp-month-select');
-    select.addEventListener('change', () => {
+    const yearSelect = document.getElementById('public-year-select');
+    const monthSelect = document.getElementById('public-month-select');
+    if (!yearSelect || !monthSelect) return;
+    
+    updateMonthSelectOptions();
+    renderComparisonCharts();
+    
+    yearSelect.addEventListener('change', () => {
+        updateMonthSelectOptions();
         renderComparisonCharts();
     });
-    renderComparisonCharts();
+    
+    monthSelect.addEventListener('change', () => {
+        renderComparisonCharts();
+    });
 }
 
 async function renderComparisonCharts() {
-    const select = document.getElementById('comp-month-select');
-    const [lunaCode, lunaNume] = select.value.split('|');
+    const selected = getSelectedPublicMonth();
+    if (!selected) return;
+    const { lunaCode, lunaNume } = selected;
     
     // Asigura formatul YYYY-MM
-    const lunaHyphen = lunaCode.includes('-') ? lunaCode : `${lunaCode.substring(0, 4)}-${lunaCode.substring(4)}`;
+    const lunaHyphen = `${lunaCode.substring(0, 4)}-${lunaCode.substring(4)}`;
     
     // 1. Obținem datele României din rapoarte JSON sau local ca fallback
     let roVolume = 0;
@@ -209,24 +326,22 @@ async function renderComparisonCharts() {
         'SEP': 'Septembrie', 'OCT': 'Octombrie', 'NOV': 'Noiembrie', 'DEC': 'Decembrie'
     }[lunaNume] || lunaNume;
 
+    const selectedYear = selected.lunaCode.substring(0, 4);
+
     const dividerMonthName = document.getElementById('divider-month-name');
     if (dividerMonthName) {
-        dividerMonthName.innerText = `${lunaTradusa} 2026`;
+        dividerMonthName.innerText = `${lunaTradusa} ${selectedYear}`;
     }
 
-    const heroVolumeEl = document.getElementById('val-comp-hero-volume');
-    if (heroVolumeEl) {
-        heroVolumeEl.innerText = roVolume.toLocaleString('ro-RO');
-    }
+    animateElementValue('val-comp-hero-volume', roVolume);
     
     const heroMonthNameEl = document.getElementById('comp-hero-month-name');
     if (heroMonthNameEl) {
-        heroMonthNameEl.innerText = `${lunaTradusa.toLowerCase()} 2026`;
+        heroMonthNameEl.innerText = `${lunaTradusa.toLowerCase()} ${selectedYear}`;
     }
 
-    const roVolEl = document.getElementById('ro-comp-volume');
+    animateElementValue('ro-comp-volume', roVolume);
     const roShareEl = document.getElementById('ro-comp-share');
-    if (roVolEl) roVolEl.innerText = roVolume.toLocaleString('ro-RO');
     if (roShareEl) roShareEl.innerText = `${roShare.toFixed(2)}%`;
 
     const roStatusText = document.getElementById('ro-adoption-status');
