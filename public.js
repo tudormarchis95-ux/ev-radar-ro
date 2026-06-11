@@ -502,7 +502,13 @@ function renderHistoricalCharts() {
             const yData = state.historicalSummary[String(y)];
             Object.keys(yData).forEach(m => {
                 const item = yData[m];
-                yearTotalReg += (item.totalAutoReg + item.totalUtilReg - item.totalRadieri);
+                // Pana in 2024 inclusiv: brut (fara radieri) - metodologie istorica
+                // Din 2025: net (minus radieri) - metodologie noua cu DGPCI complet
+                if (y <= 2024) {
+                    yearTotalReg += (item.totalAutoReg + item.totalUtilReg);
+                } else {
+                    yearTotalReg += (item.totalAutoReg + item.totalUtilReg - item.totalRadieri);
+                }
             });
         }
         
@@ -512,6 +518,7 @@ function renderHistoricalCharts() {
             annualData.push({ year: y, qty: qty });
         }
     });
+
 
     let currentYearCumulativeReg = 0;
     let currentYearCumulativeNet = 0;
