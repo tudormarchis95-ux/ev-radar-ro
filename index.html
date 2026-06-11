@@ -214,9 +214,11 @@
                              </div>
                          </div>
 
-                         <div class="v-chart-container" id="monthly-comp-list">
-                             <!-- Generat din JS -->
-                         </div>
+                         <div class="v-chart-scroll-wrapper">
+                              <div class="v-chart-container" id="monthly-comp-list">
+                                  <!-- Generat din JS -->
+                              </div>
+                          </div>
                      </div>
 
                      <!-- Card 2: Evolutie Anuala 2011 - Prezent -->
@@ -232,9 +234,11 @@
                              </div>
                          </div>
 
-                         <div class="v-chart-container" id="annual-evolution-list">
-                             <!-- Generat din JS -->
-                         </div>
+                         <div class="v-chart-scroll-wrapper">
+                              <div class="v-chart-container" id="annual-evolution-list">
+                                  <!-- Generat din JS -->
+                              </div>
+                          </div>
                          
                          <p style="font-size: 0.75rem; color: #94a3b8; font-style: italic; margin-top: 1rem;" id="annual-chart-caption">
                              * Date aferente anului 2026 sunt în curs de actualizare.
@@ -281,6 +285,7 @@
                                   </tbody>
                               </table>
                           </div>
+                      </div>
                   </div>
  
                   <!-- Tables Grid 2 (Top 50 YTD & Parc Auto General) -->
@@ -327,17 +332,17 @@
                   </div>
  
                  <!-- Top Radieri -->
-                 <div class="details-card card animate-slide-up" style="opacity: 0.8; margin-top: 1.5rem;">
+                 <div class="details-card card animate-slide-up radieri-card" style="margin-top: 1.5rem;">
                      <h3 style="color: var(--warning-color);">📉 Top Modele Radiate</h3>
                      <p class="section-desc" style="margin-bottom: 1rem;">Mărcile și modelele EV radiate din circulație în luna selectată.</p>
                      <div class="table-container">
-                         <table>
+                         <table class="radieri-table">
                              <thead>
                                  <tr>
-                                     <th style="width: 60px; text-align: center; color: var(--warning-color);">Nr.</th>
-                                     <th>Marcă</th>
-                                     <th>Model</th>
-                                     <th>Volum</th>
+                                     <th class="col-nr" style="color: var(--warning-color);">Nr.</th>
+                                     <th class="col-marca">Marcă</th>
+                                     <th class="col-model">Model</th>
+                                     <th class="col-volum">Volum</th>
                                  </tr>
                              </thead>
                              <tbody id="top-rad-tbody">

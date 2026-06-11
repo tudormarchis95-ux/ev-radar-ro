@@ -463,7 +463,8 @@ function renderHistoricalCharts() {
             compContainer.appendChild(col);
         });
         setTimeout(() => {
-            compContainer.scrollLeft = compContainer.scrollWidth;
+            const scrollEl = compContainer.parentElement || compContainer;
+            scrollEl.scrollLeft = scrollEl.scrollWidth;
         }, 150);
     }
     
@@ -611,7 +612,8 @@ function renderHistoricalCharts() {
             annualContainer.appendChild(col);
         });
         setTimeout(() => {
-            annualContainer.scrollLeft = annualContainer.scrollWidth;
+            const scrollEl = annualContainer.parentElement || annualContainer;
+            scrollEl.scrollLeft = scrollEl.scrollWidth;
         }, 150);
     }
 }

@@ -373,6 +373,41 @@ tbody tr:hover {
     background: rgba(0, 75, 135, 0.02);
 }
 
+/* Tabel radieri \u2014 stiluri dedicate */
+.radieri-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    table-layout: fixed;
+}
+.radieri-table .col-nr {
+    width: 55px;
+    text-align: center;
+}
+.radieri-table .col-marca {
+    width: 28%;
+}
+.radieri-table .col-model {
+    width: auto;
+}
+.radieri-table .col-volum {
+    width: 70px;
+    text-align: right;
+}
+.radieri-table th {
+    color: var(--warning-color);
+    font-weight: 600;
+    border-bottom: 2px solid rgba(245, 158, 11, 0.3);
+}
+.radieri-table td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.radieri-card {
+    opacity: 1 !important;
+}
+
+
 /* Sheets action alert */
 .sheets-action {
     display: flex;
@@ -770,13 +805,19 @@ input, textarea, select {
     color: var(--text-color);
 }
 
-.v-chart-container {
+/* Scroll wrapper (exterior) — gestioneaza overflow-x pe mobil */
+.v-chart-scroll-wrapper {
     width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    position: relative;
+    touch-action: pan-x;
+    padding-bottom: 8px;
     margin-top: 1.5rem;
-    padding-bottom: 5px;
+}
+
+/* Chart container (interior) — nu mai are overflow propriu */
+.v-chart-container {
+    position: relative;
 }
 
 #monthly-comp-list, #annual-evolution-list {
@@ -988,25 +1029,28 @@ input, textarea, select {
     }
 
     /* Monthly & Annual Charts scroll & heights on mobile */
-    .v-chart-container {
+    .v-chart-scroll-wrapper {
         overflow-x: auto !important;
         -webkit-overflow-scrolling: touch !important;
         touch-action: pan-x !important;
         padding-bottom: 8px !important;
-        display: block !important;
         width: 100% !important;
+    }
+    .v-chart-container {
+        /* nu are overflow, inner-ul se intinde liber */
+        display: block !important;
     }
     #monthly-comp-list {
         display: flex !important;
         align-items: flex-end !important;
-        min-width: 640px !important;
+        min-width: 660px !important;
         height: 220px !important;
         padding-top: 15px;
     }
     #annual-evolution-list {
         display: flex !important;
         align-items: flex-end !important;
-        min-width: 780px !important;
+        min-width: 820px !important;
         height: 220px !important;
         padding-top: 15px;
     }
@@ -1055,6 +1099,22 @@ input, textarea, select {
     table th:nth-child(4), table td:nth-child(4) {
         width: 50px !important;
         text-align: right;
+    }
+
+    /* Tabel Radieri — coloane dedicate mobile */
+    .radieri-table .col-nr {
+        width: 28px !important;
+        text-align: center !important;
+    }
+    .radieri-table .col-marca {
+        width: 30% !important;
+    }
+    .radieri-table .col-model {
+        width: 45% !important;
+    }
+    .radieri-table .col-volum {
+        width: 40px !important;
+        text-align: right !important;
     }
 
     /* European comparison dashboard list horizontal progress bars on mobile */
