@@ -315,6 +315,65 @@ function renderDashboard() {
         radTbody.appendChild(tr);
     });
 
+    // 4. Top 50 YTD & Parc Auto General (doar pentru anul 2026)
+    const formatModelName = (brand, model) => {
+        const b = (brand || "").trim();
+        const m = (model || "").trim();
+        if (m.toUpperCase().startsWith(b.toUpperCase())) {
+            return m;
+        }
+        return `${b} ${m}`;
+    };
+
+    const top50Grid = document.getElementById('top50-tables-grid');
+    if (top50Grid) {
+        if (currentYear === 2026) {
+            // Calculăm datele pentru YTD și Parc
+            const results = computeYtdAndParcData(currentLunaNume, state.data.inmatriculariModele);
+            const modelsData = results.models;
+            const totals = results.totals;
+            
+            const specificData = modelsData.filter(d => d.brand !== "Alte Modele");
+            
+            const top50Ytd = [...specificData].sort((a, b) => b.ytd - a.ytd).slice(0, 50);
+            const top50Parc = [...specificData].sort((a, b) => b.parc - a.parc).slice(0, 50);
+            
+            // Render Top 50 YTD
+            const ytdTbody = document.getElementById('top-50-ytd-tbody');
+            if (ytdTbody) {
+                ytdTbody.innerHTML = '';
+                top50Ytd.forEach((item, idx) => {
+                    const sharePct = totals.ytd > 0 ? (item.ytd / totals.ytd * 100).toFixed(2) : '0.00';
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td>
+                                    <td>${formatModelName(item.brand, item.model)}</td>
+                                    <td><strong>${item.ytd.toLocaleString('ro-RO')}</strong></td>
+                                    <td>${sharePct}%</td>`;
+                    ytdTbody.appendChild(tr);
+                });
+            }
+            
+            // Render Top 50 Parc
+            const parcTbody = document.getElementById('top-50-parc-tbody');
+            if (parcTbody) {
+                parcTbody.innerHTML = '';
+                top50Parc.forEach((item, idx) => {
+                    const sharePct = totals.parc > 0 ? (item.parc / totals.parc * 100).toFixed(2) : '0.00';
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td>
+                                    <td>${formatModelName(item.brand, item.model)}</td>
+                                    <td><strong>${item.parc.toLocaleString('ro-RO')}</strong></td>
+                                    <td>${sharePct}%</td>`;
+                    parcTbody.appendChild(tr);
+                });
+            }
+            
+            top50Grid.style.display = 'grid';
+        } else {
+            top50Grid.style.display = 'none';
+        }
+    }
+
     // Rulare grafice istorice
     renderHistoricalCharts();
 }
@@ -403,6 +462,9 @@ function renderHistoricalCharts() {
             `;
             compContainer.appendChild(col);
         });
+        setTimeout(() => {
+            compContainer.scrollLeft = compContainer.scrollWidth;
+        }, 150);
     }
     
     // 2. Evolutie Anuala 2011 - Prezent
@@ -548,5 +610,1096 @@ function renderHistoricalCharts() {
             `;
             annualContainer.appendChild(col);
         });
+        setTimeout(() => {
+            annualContainer.scrollLeft = annualContainer.scrollWidth;
+        }, 150);
     }
+}
+
+
+const modelHistoryBase = [
+    {
+        "brand": "DACIA",
+        "model": "DACIA SPRING",
+        "start": 18672,
+        "history": {
+            "JAN": 68,
+            "FEB": 86,
+            "MAR": 61,
+            "APR": 56
+        }
+    },
+    {
+        "brand": "TESLA",
+        "model": "TESLA MODEL 3",
+        "start": 6230,
+        "history": {
+            "JAN": 176,
+            "FEB": 152,
+            "MAR": 146,
+            "APR": 165
+        }
+    },
+    {
+        "brand": "TESLA",
+        "model": "TESLA MODEL Y",
+        "start": 3971,
+        "history": {
+            "JAN": 171,
+            "FEB": 160,
+            "MAR": 107,
+            "APR": 114
+        }
+    },
+    {
+        "brand": "HYUNDAI",
+        "model": "HYUNDAI KONA",
+        "start": 2730,
+        "history": {
+            "JAN": 38,
+            "FEB": 44,
+            "MAR": 47,
+            "APR": 57
+        }
+    },
+    {
+        "brand": "RENAULT",
+        "model": "RENAULT ZOE",
+        "start": 2259,
+        "history": {
+            "JAN": 19,
+            "FEB": 11,
+            "MAR": 28,
+            "APR": 27
+        }
+    },
+    {
+        "brand": "VOLKSWAGEN",
+        "model": "VOLKSWAGEN UP",
+        "start": 1717,
+        "history": {
+            "JAN": 0,
+            "FEB": 1,
+            "MAR": 1,
+            "APR": 2
+        }
+    },
+    {
+        "brand": "VOLKSWAGEN",
+        "model": "VOLKSWAGEN ID.3",
+        "start": 1584,
+        "history": {
+            "JAN": 18,
+            "FEB": 14,
+            "MAR": 12,
+            "APR": 14
+        }
+    },
+    {
+        "brand": "RENAULT",
+        "model": "RENAULT MEGANE E-TECH",
+        "start": 1476,
+        "history": {
+            "JAN": 6,
+            "FEB": 17,
+            "MAR": 6,
+            "APR": 6
+        }
+    },
+    {
+        "brand": "VOLKSWAGEN",
+        "model": "VOLKSWAGEN ID.4",
+        "start": 1124,
+        "history": {
+            "JAN": 38,
+            "FEB": 31,
+            "MAR": 35,
+            "APR": 24
+        }
+    },
+    {
+        "brand": "NISSAN",
+        "model": "NISSAN LEAF",
+        "start": 1092,
+        "history": {
+            "JAN": 12,
+            "FEB": 15,
+            "MAR": 8,
+            "APR": 18
+        }
+    },
+    {
+        "brand": "BMW",
+        "model": "BMW I3",
+        "start": 915,
+        "history": {
+            "JAN": 3,
+            "FEB": 2,
+            "MAR": 2,
+            "APR": 2
+        }
+    },
+    {
+        "brand": "MERCEDES - BENZ",
+        "model": "MERCEDES - BENZ EQA",
+        "start": 691,
+        "history": {
+            "JAN": 14,
+            "FEB": 21,
+            "MAR": 8,
+            "APR": 11
+        }
+    },
+    {
+        "brand": "RENAULT",
+        "model": "RENAULT KANGOO VAN E-TECH",
+        "start": 656,
+        "history": {
+            "JAN": 14,
+            "FEB": 3,
+            "MAR": 7,
+            "APR": 3
+        }
+    },
+    {
+        "brand": "SKODA",
+        "model": "SKODA ENYAQ",
+        "start": 635,
+        "history": {
+            "JAN": 3,
+            "FEB": 8,
+            "MAR": 14,
+            "APR": 11
+        }
+    },
+    {
+        "brand": "VOLKSWAGEN",
+        "model": "VOLKSWAGEN GOLF",
+        "start": 583,
+        "history": {
+            "JAN": 2,
+            "FEB": 5,
+            "MAR": 0,
+            "APR": 10
+        }
+    },
+    {
+        "brand": "TESLA",
+        "model": "TESLA MODEL S",
+        "start": 579,
+        "history": {
+            "JAN": 17,
+            "FEB": 10,
+            "MAR": 24,
+            "APR": 13
+        }
+    },
+    {
+        "brand": "FIAT",
+        "model": "FIAT 500",
+        "start": 531,
+        "history": {
+            "JAN": 10,
+            "FEB": 7,
+            "MAR": 3,
+            "APR": 8
+        }
+    },
+    {
+        "brand": "SMART",
+        "model": "SMART EQ FORTWO",
+        "start": 511,
+        "history": {
+            "JAN": 5,
+            "FEB": 3,
+            "MAR": 2,
+            "APR": 4
+        }
+    },
+    {
+        "brand": "MERCEDES - BENZ",
+        "model": "MERCEDES - BENZ EQE",
+        "start": 507,
+        "history": {
+            "JAN": 1,
+            "FEB": 8,
+            "MAR": 8,
+            "APR": 14
+        }
+    },
+    {
+        "brand": "FORD",
+        "model": "FORD PUMA",
+        "start": 502,
+        "history": {
+            "JAN": 60,
+            "FEB": 57,
+            "MAR": 63,
+            "APR": 38
+        }
+    },
+    {
+        "brand": "HYUNDAI",
+        "model": "HYUNDAI IONIQ 5",
+        "start": 493,
+        "history": {
+            "JAN": 7,
+            "FEB": 13,
+            "MAR": 10,
+            "APR": 5
+        }
+    },
+    {
+        "brand": "BMW",
+        "model": "BMW I4",
+        "start": 483,
+        "history": {
+            "JAN": 13,
+            "FEB": 10,
+            "MAR": 16,
+            "APR": 13
+        }
+    },
+    {
+        "brand": "MINI",
+        "model": "MINI COOPER SE",
+        "start": 473,
+        "history": {
+            "JAN": 0,
+            "FEB": 3,
+            "MAR": 7,
+            "APR": 3
+        }
+    },
+    {
+        "brand": "PEUGEOT",
+        "model": "PEUGEOT 208",
+        "start": 446,
+        "history": {
+            "JAN": 12,
+            "FEB": 5,
+            "MAR": 4,
+            "APR": 8
+        }
+    },
+    {
+        "brand": "AUDI",
+        "model": "AUDI E-TRON (SUV)",
+        "start": 439,
+        "history": {
+            "JAN": 16,
+            "FEB": 14,
+            "MAR": 15,
+            "APR": 23
+        }
+    },
+    {
+        "brand": "FORD",
+        "model": "FORD MUSTANG MACH-E",
+        "start": 432,
+        "history": {
+            "JAN": 6,
+            "FEB": 10,
+            "MAR": 10,
+            "APR": 9
+        }
+    },
+    {
+        "brand": "FORD",
+        "model": "FORD TRANSIT",
+        "start": 416,
+        "history": {
+            "JAN": 6,
+            "FEB": 14,
+            "MAR": 13,
+            "APR": 22
+        }
+    },
+    {
+        "brand": "BMW",
+        "model": "BMW IX",
+        "start": 397,
+        "history": {
+            "JAN": 5,
+            "FEB": 6,
+            "MAR": 2,
+            "APR": 11
+        }
+    },
+    {
+        "brand": "HYUNDAI",
+        "model": "HYUNDAI INSTER",
+        "start": 391,
+        "history": {
+            "JAN": 27,
+            "FEB": 26,
+            "MAR": 11,
+            "APR": 12
+        }
+    },
+    {
+        "brand": "SMART",
+        "model": "SMART EQ FORFOUR",
+        "start": 384,
+        "history": {
+            "JAN": 4,
+            "FEB": 1,
+            "MAR": 2,
+            "APR": 2
+        }
+    },
+    {
+        "brand": "FORD",
+        "model": "FORD EXPLORER",
+        "start": 377,
+        "history": {
+            "JAN": 33,
+            "FEB": 26,
+            "MAR": 31,
+            "APR": 19
+        }
+    },
+    {
+        "brand": "VOLVO",
+        "model": "VOLVO EX30",
+        "start": 373,
+        "history": {
+            "JAN": 22,
+            "FEB": 18,
+            "MAR": 19,
+            "APR": 7
+        }
+    },
+    {
+        "brand": "TESLA",
+        "model": "TESLA MODEL X",
+        "start": 365,
+        "history": {
+            "JAN": 5,
+            "FEB": 6,
+            "MAR": 8,
+            "APR": 5
+        }
+    },
+    {
+        "brand": "PEUGEOT",
+        "model": "PEUGEOT 2008",
+        "start": 362,
+        "history": {
+            "JAN": 18,
+            "FEB": 12,
+            "MAR": 11,
+            "APR": 6
+        }
+    },
+    {
+        "brand": "RENAULT",
+        "model": "RENAULT RENAULT 5 E-TECH",
+        "start": 349,
+        "history": {
+            "JAN": 36,
+            "FEB": 28,
+            "MAR": 24,
+            "APR": 22
+        }
+    },
+    {
+        "brand": "SKODA",
+        "model": "SKODA CITIGO",
+        "start": 330,
+        "history": {
+            "JAN": 0,
+            "FEB": 0,
+            "MAR": 0,
+            "APR": 1
+        }
+    },
+    {
+        "brand": "MERCEDES - BENZ",
+        "model": "MERCEDES - BENZ EQS",
+        "start": 324,
+        "history": {
+            "JAN": 4,
+            "FEB": 2,
+            "MAR": 3,
+            "APR": 3
+        }
+    },
+    {
+        "brand": "MAZDA",
+        "model": "MAZDA MX-30",
+        "start": 306,
+        "history": {
+            "JAN": 4,
+            "FEB": 3,
+            "MAR": 5,
+            "APR": 3
+        }
+    },
+    {
+        "brand": "MG",
+        "model": "MG MG4",
+        "start": 302,
+        "history": {
+            "JAN": 45,
+            "FEB": 54,
+            "MAR": 17,
+            "APR": 20
+        }
+    },
+    {
+        "brand": "LEAPMOTOR",
+        "model": "LEAPMOTOR T03",
+        "start": 299,
+        "history": {
+            "JAN": 39,
+            "FEB": 26,
+            "MAR": 10,
+            "APR": 5
+        }
+    },
+    {
+        "brand": "MERCEDES - BENZ",
+        "model": "MERCEDES - BENZ EQB",
+        "start": 297,
+        "history": {
+            "JAN": 2,
+            "FEB": 2,
+            "MAR": 1,
+            "APR": 1
+        }
+    },
+    {
+        "brand": "PORSCHE",
+        "model": "PORSCHE TAYCAN",
+        "start": 294,
+        "history": {
+            "JAN": 2,
+            "FEB": 7,
+            "MAR": 4,
+            "APR": 7
+        }
+    },
+    {
+        "brand": "TOYOTA",
+        "model": "TOYOTA BZ4X",
+        "start": 294,
+        "history": {
+            "JAN": 4,
+            "FEB": 4,
+            "MAR": 2,
+            "APR": 4
+        }
+    },
+    {
+        "brand": "MERCEDES - BENZ",
+        "model": "MERCEDES - BENZ EQC",
+        "start": 287,
+        "history": {
+            "JAN": 6,
+            "FEB": 5,
+            "MAR": 4,
+            "APR": 4
+        }
+    },
+    {
+        "brand": "MERCEDES - BENZ",
+        "model": "MERCEDES - BENZ EVITO",
+        "start": 252,
+        "history": {
+            "JAN": 3,
+            "FEB": 6,
+            "MAR": 3,
+            "APR": 7
+        }
+    },
+    {
+        "brand": "BMW",
+        "model": "BMW IX1",
+        "start": 246,
+        "history": {
+            "JAN": 8,
+            "FEB": 9,
+            "MAR": 7,
+            "APR": 10
+        }
+    },
+    {
+        "brand": "FORD",
+        "model": "FORD CAPRI",
+        "start": 243,
+        "history": {
+            "JAN": 11,
+            "FEB": 11,
+            "MAR": 13,
+            "APR": 7
+        }
+    },
+    {
+        "brand": "OPEL",
+        "model": "OPEL CORSA",
+        "start": 241,
+        "history": {
+            "JAN": 3,
+            "FEB": 5,
+            "MAR": 1,
+            "APR": 3
+        }
+    },
+    {
+        "brand": "KIA",
+        "model": "KIA NIRO",
+        "start": 232,
+        "history": {
+            "JAN": 3,
+            "FEB": 9,
+            "MAR": 10,
+            "APR": 17
+        }
+    },
+    {
+        "brand": "HYUNDAI",
+        "model": "HYUNDAI IONIQ",
+        "start": 223,
+        "history": {
+            "JAN": 3,
+            "FEB": 4,
+            "MAR": 1,
+            "APR": 5
+        }
+    },
+    {
+        "brand": "BYD",
+        "model": "BYD DOLPHIN SURF",
+        "start": 220,
+        "history": {
+            "JAN": 112,
+            "FEB": 100,
+            "MAR": 57,
+            "APR": 57
+        }
+    },
+    {
+        "brand": "VOLVO",
+        "model": "VOLVO EX40",
+        "start": 217,
+        "history": {
+            "JAN": 2,
+            "FEB": 4,
+            "MAR": 4,
+            "APR": 8
+        }
+    },
+    {
+        "brand": "BMW",
+        "model": "BMW IX3",
+        "start": 214,
+        "history": {
+            "JAN": 6,
+            "FEB": 3,
+            "MAR": 5,
+            "APR": 3
+        }
+    },
+    {
+        "brand": "VOLKSWAGEN",
+        "model": "VOLKSWAGEN ID.5",
+        "start": 209,
+        "history": {
+            "JAN": 1,
+            "FEB": 2,
+            "MAR": 2,
+            "APR": 3
+        }
+    },
+    {
+        "brand": "AUDI",
+        "model": "AUDI Q4 E-TRON",
+        "start": 202,
+        "history": {
+            "JAN": 6,
+            "FEB": 7,
+            "MAR": 5,
+            "APR": 7
+        }
+    },
+    {
+        "brand": "MG",
+        "model": "MG ZS",
+        "start": 199,
+        "history": {
+            "JAN": 12,
+            "FEB": 12,
+            "MAR": 14,
+            "APR": 16
+        }
+    },
+    {
+        "brand": "JAGUAR",
+        "model": "JAGUAR I-PACE",
+        "start": 186,
+        "history": {
+            "JAN": 2,
+            "FEB": 0,
+            "MAR": 3,
+            "APR": 1
+        }
+    },
+    {
+        "brand": "MAXUS",
+        "model": "MAXUS MAXUS E-DELIVER 3",
+        "start": 178,
+        "history": {
+            "JAN": 1,
+            "FEB": 13,
+            "MAR": 1,
+            "APR": 8
+        }
+    },
+    {
+        "brand": "HYUNDAI",
+        "model": "HYUNDAI IONIQ 6",
+        "start": 167,
+        "history": {
+            "JAN": 4,
+            "FEB": 3,
+            "MAR": 4,
+            "APR": 5
+        }
+    },
+    {
+        "brand": "CITROEN",
+        "model": "CITROEN E-C4",
+        "start": 163,
+        "history": {
+            "JAN": 1,
+            "FEB": 1,
+            "MAR": 0,
+            "APR": 0
+        }
+    },
+    {
+        "brand": "KIA",
+        "model": "KIA EV6",
+        "start": 151,
+        "history": {
+            "JAN": 1,
+            "FEB": 3,
+            "MAR": 3,
+            "APR": 2
+        }
+    },
+    {
+        "brand": "RENAULT",
+        "model": "RENAULT SCENIC E-TECH",
+        "start": 143,
+        "history": {
+            "JAN": 2,
+            "FEB": 2,
+            "MAR": 2,
+            "APR": 6
+        }
+    },
+    {
+        "brand": "TOYOTA",
+        "model": "TOYOTA PROACE CITY",
+        "start": 133,
+        "history": {
+            "JAN": 0,
+            "FEB": 0,
+            "MAR": 0,
+            "APR": 1
+        }
+    },
+    {
+        "brand": "OPEL",
+        "model": "OPEL MOKKA",
+        "start": 127,
+        "history": {
+            "JAN": 4,
+            "FEB": 1,
+            "MAR": 1,
+            "APR": 17
+        }
+    },
+    {
+        "brand": "NISSAN",
+        "model": "NISSAN E-NV200",
+        "start": 121,
+        "history": {
+            "JAN": 0,
+            "FEB": 1,
+            "MAR": 4,
+            "APR": 6
+        }
+    },
+    {
+        "brand": "KIA",
+        "model": "KIA SOUL",
+        "start": 114,
+        "history": {
+            "JAN": 0,
+            "FEB": 0,
+            "MAR": 3,
+            "APR": 4
+        }
+    },
+    {
+        "brand": "BYD",
+        "model": "BYD SEALION 7",
+        "start": 111,
+        "history": {
+            "JAN": 23,
+            "FEB": 32,
+            "MAR": 54,
+            "APR": 70
+        }
+    },
+    {
+        "brand": "BMW",
+        "model": "BMW I7",
+        "start": 100,
+        "history": {
+            "JAN": 3,
+            "FEB": 2,
+            "MAR": 1,
+            "APR": 2
+        }
+    },
+    {
+        "brand": "NISSAN",
+        "model": "NISSAN ARIYA",
+        "start": 92,
+        "history": {
+            "JAN": 0,
+            "FEB": 0,
+            "MAR": 0,
+            "APR": 0
+        }
+    },
+    {
+        "brand": "VOLVO",
+        "model": "VOLVO EC40",
+        "start": 92,
+        "history": {
+            "JAN": 1,
+            "FEB": 2,
+            "MAR": 1,
+            "APR": 1
+        }
+    },
+    {
+        "brand": "SKODA",
+        "model": "SKODA ELROQ",
+        "start": 55,
+        "history": {
+            "JAN": 4,
+            "FEB": 12,
+            "MAR": 5,
+            "APR": 5
+        }
+    },
+    {
+        "brand": "CITROEN",
+        "model": "CITROEN E-C3",
+        "start": 58,
+        "history": {
+            "JAN": 2,
+            "FEB": 4,
+            "MAR": 1,
+            "APR": 1
+        }
+    },
+    {
+        "brand": "RENAULT",
+        "model": "RENAULT 4 E-TECH",
+        "start": 41,
+        "history": {
+            "JAN": 2,
+            "FEB": 7,
+            "MAR": 4,
+            "APR": 6
+        }
+    },
+    {
+        "brand": "KIA",
+        "model": "KIA EV3",
+        "start": 53,
+        "history": {
+            "JAN": 7,
+            "FEB": 8,
+            "MAR": 1,
+            "APR": 3
+        }
+    },
+    {
+        "brand": "AUDI",
+        "model": "AUDI Q6 E-TRON",
+        "start": 39,
+        "history": {
+            "JAN": 3,
+            "FEB": 1,
+            "MAR": 0,
+            "APR": 2
+        }
+    },
+    {
+        "brand": "VOLKSWAGEN",
+        "model": "VOLKSWAGEN ID.7",
+        "start": 90,
+        "history": {
+            "JAN": 3,
+            "FEB": 6,
+            "MAR": 4,
+            "APR": 1
+        }
+    },
+    {
+        "brand": "BYD",
+        "model": "BYD ATTO 2",
+        "start": 51,
+        "history": {
+            "JAN": 25,
+            "FEB": 24,
+            "MAR": 29,
+            "APR": 26
+        }
+    },
+    {
+        "brand": "BYD",
+        "model": "BYD SEAL",
+        "start": 55,
+        "history": {
+            "JAN": 8,
+            "FEB": 10,
+            "MAR": 16,
+            "APR": 11
+        }
+    },
+    {
+        "brand": "BYD",
+        "model": "BYD SEAL U",
+        "start": 25,
+        "history": {
+            "JAN": 2,
+            "FEB": 2,
+            "MAR": 5,
+            "APR": 11
+        }
+    },
+    {
+        "brand": "BMW",
+        "model": "BMW IX3 Neue Klasse",
+        "start": 0,
+        "history": {
+            "JAN": 3,
+            "FEB": 3,
+            "MAR": 2,
+            "APR": 14
+        }
+    },
+    {
+        "brand": "Alte Modele",
+        "model": "Alte Modele",
+        "start": 0,
+        "history": {
+            "JAN": 0,
+            "FEB": 0,
+            "MAR": 0,
+            "APR": 0
+        }
+    }
+];
+
+// Normalizare marca
+function normalizeazaMarca(marca) {
+    if (!marca) return "";
+    let m = marca.toString().toUpperCase().trim().replace(/,/g, ".").replace(/-/g, " ").replace(/\s+/g, " ");
+    if (m.includes("MERCEDES")) return "MERCEDES BENZ";
+    if (m.includes("VW") || m.includes("VOLKSWAGEN")) return "VOLKSWAGEN";
+    if (m.includes("BMW")) return "BMW";
+    if (m.includes("TESLA")) return "TESLA";
+    return m;
+}
+
+// Aplica reguli specifice
+function aplicaReguliSpecifice(marca, model) {
+    const m = marca;
+    if (!model) return "";
+    let mod = model.toString().toUpperCase().trim().replace(/,/g, ".").replace(/-/g, " ").replace(/\s+/g, " ");
+    
+    // 1. AUDI
+    if (m === "AUDI") {
+        if (mod.includes("Q4")) return "AUDI Q4 E-TRON";
+        if (mod.includes("Q6")) return "AUDI Q6 E-TRON";
+        if (mod.includes("E TRON") || mod.includes("ETRON")) {
+            if (!mod.includes("GT") && !mod.includes("Q8") && !mod.includes("A6")) {
+                return "AUDI E-TRON (SUV)";
+            }
+        }
+    }
+    
+    // 2. BMW iX3 Neue Klasse
+    if (m === "BMW" && mod.includes("IX3 50 XDRIVE")) {
+        return "BMW IX3 NEUE KLASSE";
+    }
+    
+    // 3. MERCEDES
+    if (m === "MERCEDES BENZ") {
+        if (mod.includes("EQE")) return "MERCEDES BENZ EQE";
+        if (mod.includes("EQA")) return "MERCEDES BENZ EQA";
+        if (mod.includes("EQB")) return "MERCEDES BENZ EQB";
+        if (mod.includes("EQS")) return "MERCEDES BENZ EQS";
+        if (mod.includes("EQC")) return "MERCEDES BENZ EQC";
+        if (mod.includes("EVITO")) return "MERCEDES BENZ EVITO";
+        if (mod.includes("ESPRINTER")) return "MERCEDES BENZ ESPRINTER";
+    }
+    
+    // 4. VW
+    if (m === "VOLKSWAGEN") {
+        if (mod.includes("ID 4") || mod.includes("ID.4")) return "VOLKSWAGEN ID.4";
+        if (mod.includes("ID 3") || mod.includes("ID.3")) return "VOLKSWAGEN ID.3";
+        if (mod.includes("ID 5") || mod.includes("ID.5")) return "VOLKSWAGEN ID.5";
+        if (mod.includes("ID 7") || mod.includes("ID.7")) return "VOLKSWAGEN ID.7";
+        if (mod.includes("UP")) return "VOLKSWAGEN UP";
+    }
+    
+    // 5. MG4
+    if (m === "MG" && mod.includes("MG4")) return "MG MG4";
+    
+    // 6. Maxus
+    if (m === "MAXUS") {
+        if (mod.includes("DELIVER 3")) return "MAXUS MAXUS E-DELIVER 3";
+        if (mod.includes("DELIVER 9")) return "MAXUS MAXUS EDELIVER 9";
+    }
+    
+    // 7. Renault
+    if (m === "RENAULT") {
+        if (mod.includes("RENAULT 5") || mod === "5" || mod.includes("5 E TECH")) return "RENAULT RENAULT 5 E-TECH";
+        if (mod.includes("RENAULT 4") || mod === "4" || mod.includes("4 E TECH")) return "RENAULT RENAULT 4 E-TECH";
+    }
+    
+    // 8. Toyota
+    if (m === "TOYOTA") {
+        if (mod.includes("PROACE CITY")) return "TOYOTA PROACE CITY";
+        if (mod.includes("BZ4X") || mod.includes("BZ 4X")) return "TOYOTA BZ4X";
+    }
+    
+    // 9. KIA
+    if (m === "KIA" && (mod.includes("EV6") || mod.includes("EV 6"))) return "KIA EV6";
+    
+    // 10. VOLVO
+    if (m === "VOLVO") {
+        if (mod.includes("XC40") || mod.includes("EX40")) return "VOLVO EX40";
+        if (mod.includes("C40") || mod.includes("EC40")) return "VOLVO EC40";
+    }
+    
+    // 11. HYUNDAI
+    if (m === "HYUNDAI") {
+        if (mod.includes("IONIQ 5") || mod.includes("IONIQ5")) return "HYUNDAI IONIQ 5";
+        if (mod.includes("IONIQ 6") || mod.includes("IONIQ6")) return "HYUNDAI IONIQ 6";
+        if (mod.includes("IONIQ")) return "HYUNDAI IONIQ";
+    }
+    
+    // 12. TESLA
+    if (m === "TESLA") {
+        if (mod.includes("MODEL 3") || mod.includes("MODEL3")) return "TESLA MODEL 3";
+        if (mod.includes("MODEL Y") || mod.includes("MODELY")) return "TESLA MODEL Y";
+        if (mod.includes("MODEL S") || mod.includes("MODELS")) return "TESLA MODEL S";
+        if (mod.includes("MODEL X") || mod.includes("MODELX")) return "TESLA MODEL X";
+    }
+    
+    return mod;
+}
+
+// Calculeaza cumulat YTD si Parc
+function computeYtdAndParcData(selectedMonthNume, currentRawInmatriculari) {
+    const data = JSON.parse(JSON.stringify(modelHistoryBase));
+    
+    data.forEach(item => {
+        item.current_monthly = 0;
+    });
+    
+    const grupateBrute = {};
+    currentRawInmatriculari.forEach(item => {
+        const marcaNorm = normalizeazaMarca(item.marca);
+        const modelNorm = aplicaReguliSpecifice(marcaNorm, item.model);
+        const key = marcaNorm + "|" + modelNorm;
+        grupateBrute[key] = (grupateBrute[key] || 0) + item.volum;
+    });
+    
+    let alteModeleVolum = 0;
+    
+    for (const key in grupateBrute) {
+        const parts = key.split('|');
+        const marcaBrut = parts[0];
+        const modelBrut = parts[1];
+        const volum = grupateBrute[key];
+        let identificat = false;
+        
+        const fullBrutName = marcaBrut + " " + modelBrut;
+        const wordsBrut = fullBrutName.split(" ");
+        
+        for (let i = 0; i < data.length - 1; i++) {
+            const itemExcel = data[i];
+            const mExcelNorm = normalizeazaMarca(itemExcel.brand);
+            const modExcelNorm = itemExcel.model.toString().toUpperCase().trim().replace(/,/g, ".").replace(/-/g, " ").replace(/\s+/g, " ");
+            
+            if (mExcelNorm === marcaBrut) {
+                const wordsExcel = modExcelNorm.split(" ");
+                let isSubset = true;
+                for (let k = 0; k < wordsExcel.length; k++) {
+                    if (wordsExcel[k] && !wordsBrut.includes(wordsExcel[k])) {
+                        isSubset = false;
+                        break;
+                    }
+                }
+                
+                if (isSubset) {
+                    itemExcel.current_monthly += volum;
+                    identificat = true;
+                    break;
+                }
+            }
+        }
+        
+        if (!identificat) {
+            alteModeleVolum += volum;
+        }
+    }
+    
+    const alteModeleItem = data[data.length - 1];
+    alteModeleItem.current_monthly = alteModeleVolum;
+    
+    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    const currentMonthIdx = Math.max(0, monthsOrder.indexOf((selectedMonthNume || "").toUpperCase().trim()));
+    
+    let totalMonthlySum = 0;
+    let totalYtdSum = 0;
+    let totalParcSum = 0;
+    
+    data.forEach(item => {
+        item.history[selectedMonthNume] = item.current_monthly;
+        
+        let ytdSum = 0;
+        for (let i = 0; i <= currentMonthIdx; i++) {
+            ytdSum += (item.history[monthsOrder[i]] || 0);
+        }
+        
+        item.ytd = ytdSum;
+        item.parc = item.start + ytdSum;
+        
+        totalMonthlySum += item.current_monthly;
+        totalYtdSum += item.ytd;
+        totalParcSum += item.parc;
+    });
+    
+    return {
+        models: data,
+        totals: {
+            monthly: totalMonthlySum,
+            ytd: totalYtdSum,
+            parc: totalParcSum
+        }
+    };
 }
