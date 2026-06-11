@@ -464,7 +464,27 @@ function renderHistoricalCharts() {
         });
         setTimeout(() => {
             const scrollEl = compContainer.parentElement || compContainer;
-            scrollEl.scrollLeft = scrollEl.scrollWidth;
+            // Gasim ultima coloana cu date 2026 (ultima luna cu val26 !== null)
+            const cols = compContainer.querySelectorAll('.v-col-group');
+            let lastFilledCol = null;
+            let lastFilledIdx = -1;
+            monthsOrder.forEach((m, idx) => {
+                if (regs2026[m] !== null) {
+                    lastFilledCol = cols[idx];
+                    lastFilledIdx = idx;
+                }
+            });
+            if (lastFilledCol) {
+                // Centram coloana in viewport
+                const colLeft = lastFilledCol.offsetLeft;
+                const colWidth = lastFilledCol.offsetWidth;
+                const wrapperWidth = scrollEl.clientWidth;
+                const targetScroll = colLeft - (wrapperWidth / 2) + (colWidth / 2);
+                scrollEl.scrollLeft = Math.max(0, targetScroll);
+            } else {
+                // Fallback: scroll la dreapta
+                scrollEl.scrollLeft = scrollEl.scrollWidth;
+            }
         }, 150);
     }
     
