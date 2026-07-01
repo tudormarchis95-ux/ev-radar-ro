@@ -120,7 +120,36 @@ function initUI() {
     const monthSelect = document.getElementById('public-month-select');
     if (!yearSelect || !monthSelect) return;
     
-    // Configuram selectiile initiale in functie de ce avem in historicalSummary
+    // Selectam automat cel mai recent an si cea mai recenta luna disponibila din historical_summary
+    if (state.historicalSummary) {
+        const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+        
+        // Gasim cel mai recent an disponibil
+        const availableYears = Object.keys(state.historicalSummary).sort((a, b) => Number(b) - Number(a));
+        const latestYear = availableYears[0];
+        if (latestYear) {
+            yearSelect.value = latestYear;
+        }
+        
+        // Gasim cea mai recenta luna disponibila din acel an
+        const yearData = state.historicalSummary[yearSelect.value] || {};
+        const availableMonths = Object.keys(yearData);
+        const sortedMonths = availableMonths.sort((a, b) => monthsOrder.indexOf(a) - monthsOrder.indexOf(b));
+        const latestMonth = sortedMonths[sortedMonths.length - 1]; // ultima luna disponibila
+        
+        if (latestMonth) {
+            // Gasim optiunea din dropdown care corespunde lunii
+            for (let opt of monthSelect.options) {
+                const [, monthAcronym] = opt.value.split('|');
+                if (monthAcronym === latestMonth) {
+                    monthSelect.value = opt.value;
+                    break;
+                }
+            }
+        }
+    }
+    
+    // Actualizam optiunile disponibile (disable lunile fara date)
     updateMonthSelectOptions();
     
     // Incarcam datele pentru selectia initiala
