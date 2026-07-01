@@ -189,6 +189,28 @@ function initComparison() {
     const monthSelect = document.getElementById('public-month-select');
     if (!yearSelect || !monthSelect) return;
     
+    // Auto-select latest year and month from historicalSummary if available
+    if (state.historicalSummary) {
+        const availableYears = Object.keys(state.historicalSummary).map(Number).sort((a,b) => b-a);
+        if (availableYears.length > 0) {
+            const latestYear = availableYears[0];
+            yearSelect.value = latestYear.toString();
+            
+            const months = state.historicalSummary[latestYear];
+            const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+            const availableMonths = Object.keys(months).sort((a, b) => monthsOrder.indexOf(a) - monthsOrder.indexOf(b));
+            if (availableMonths.length > 0) {
+                const latestMonthStr = availableMonths[availableMonths.length - 1];
+                for (let opt of monthSelect.options) {
+                    if (opt.value.includes(latestMonthStr)) {
+                        monthSelect.value = opt.value;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    
     updateMonthSelectOptions();
     renderComparisonCharts();
     
