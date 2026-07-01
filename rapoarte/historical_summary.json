@@ -1,371 +1,376 @@
 {
-  "2020": {
-    "JUL": {
-      "totalAutoReg": 350,
-      "totalUtilReg": 4,
-      "totalRadieri": 1
+    "2020": {
+        "JUL": {
+            "totalAutoReg": 350,
+            "totalUtilReg": 4,
+            "totalRadieri": 1
+        },
+        "AUG": {
+            "totalAutoReg": 238,
+            "totalUtilReg": 3,
+            "totalRadieri": 0
+        },
+        "SEP": {
+            "totalAutoReg": 261,
+            "totalUtilReg": 2,
+            "totalRadieri": 23
+        },
+        "OCT": {
+            "totalAutoReg": 386,
+            "totalUtilReg": 5,
+            "totalRadieri": 1
+        },
+        "NOV": {
+            "totalAutoReg": 341,
+            "totalUtilReg": 25,
+            "totalRadieri": 6
+        },
+        "DEC": {
+            "totalAutoReg": 758,
+            "totalUtilReg": 29,
+            "totalRadieri": 5
+        }
     },
-    "AUG": {
-      "totalAutoReg": 238,
-      "totalUtilReg": 3,
-      "totalRadieri": 0
+    "2021": {
+        "JAN": {
+            "totalAutoReg": 187,
+            "totalUtilReg": 2,
+            "totalRadieri": 20
+        },
+        "FEB": {
+            "totalAutoReg": 157,
+            "totalUtilReg": 2,
+            "totalRadieri": 4
+        },
+        "MAR": {
+            "totalAutoReg": 159,
+            "totalUtilReg": 9,
+            "totalRadieri": 12
+        },
+        "APR": {
+            "totalAutoReg": 118,
+            "totalUtilReg": 6,
+            "totalRadieri": 14
+        },
+        "MAY": {
+            "totalAutoReg": 114,
+            "totalUtilReg": 5,
+            "totalRadieri": 7
+        },
+        "JUN": {
+            "totalAutoReg": 308,
+            "totalUtilReg": 1,
+            "totalRadieri": 7
+        },
+        "JUL": {
+            "totalAutoReg": 337,
+            "totalUtilReg": 8,
+            "totalRadieri": 8
+        },
+        "AUG": {
+            "totalAutoReg": 429,
+            "totalUtilReg": 2,
+            "totalRadieri": 4
+        },
+        "SEP": {
+            "totalAutoReg": 381,
+            "totalUtilReg": 10,
+            "totalRadieri": 6
+        },
+        "OCT": {
+            "totalAutoReg": 766,
+            "totalUtilReg": 17,
+            "totalRadieri": 13
+        },
+        "NOV": {
+            "totalAutoReg": 1710,
+            "totalUtilReg": 4,
+            "totalRadieri": 16
+        },
+        "DEC": {
+            "totalAutoReg": 2074,
+            "totalUtilReg": 24,
+            "totalRadieri": 8
+        }
     },
-    "SEP": {
-      "totalAutoReg": 261,
-      "totalUtilReg": 2,
-      "totalRadieri": 23
+    "2022": {
+        "JAN": {
+            "totalAutoReg": 602,
+            "totalUtilReg": 28,
+            "totalRadieri": 26
+        },
+        "FEB": {
+            "totalAutoReg": 523,
+            "totalUtilReg": 13,
+            "totalRadieri": 19
+        },
+        "MAR": {
+            "totalAutoReg": 1104,
+            "totalUtilReg": 6,
+            "totalRadieri": 9
+        },
+        "APR": {
+            "totalAutoReg": 872,
+            "totalUtilReg": 11,
+            "totalRadieri": 7
+        },
+        "MAY": {
+            "totalAutoReg": 739,
+            "totalUtilReg": 10,
+            "totalRadieri": 23
+        },
+        "JUN": {
+            "totalAutoReg": 918,
+            "totalUtilReg": 30,
+            "totalRadieri": 14
+        },
+        "JUL": {
+            "totalAutoReg": 1140,
+            "totalUtilReg": 31,
+            "totalRadieri": 12
+        },
+        "AUG": {
+            "totalAutoReg": 957,
+            "totalUtilReg": 17,
+            "totalRadieri": 10
+        },
+        "SEP": {
+            "totalAutoReg": 1355,
+            "totalUtilReg": 17,
+            "totalRadieri": 18
+        },
+        "OCT": {
+            "totalAutoReg": 827,
+            "totalUtilReg": 15,
+            "totalRadieri": 19
+        },
+        "NOV": {
+            "totalAutoReg": 904,
+            "totalUtilReg": 10,
+            "totalRadieri": 29
+        },
+        "DEC": {
+            "totalAutoReg": 2324,
+            "totalUtilReg": 10,
+            "totalRadieri": 24
+        }
     },
-    "OCT": {
-      "totalAutoReg": 386,
-      "totalUtilReg": 5,
-      "totalRadieri": 1
+    "2023": {
+        "JAN": {
+            "totalAutoReg": 1117,
+            "totalUtilReg": 15,
+            "totalRadieri": 80
+        },
+        "FEB": {
+            "totalAutoReg": 1095,
+            "totalUtilReg": 20,
+            "totalRadieri": 125
+        },
+        "MAR": {
+            "totalAutoReg": 1103,
+            "totalUtilReg": 34,
+            "totalRadieri": 107
+        },
+        "APR": {
+            "totalAutoReg": 925,
+            "totalUtilReg": 36,
+            "totalRadieri": 59
+        },
+        "MAY": {
+            "totalAutoReg": 1487,
+            "totalUtilReg": 31,
+            "totalRadieri": 82
+        },
+        "JUN": {
+            "totalAutoReg": 1648,
+            "totalUtilReg": 27,
+            "totalRadieri": 144
+        },
+        "JUL": {
+            "totalAutoReg": 2086,
+            "totalUtilReg": 48,
+            "totalRadieri": 298
+        },
+        "AUG": {
+            "totalAutoReg": 1708,
+            "totalUtilReg": 44,
+            "totalRadieri": 76
+        },
+        "SEP": {
+            "totalAutoReg": 1223,
+            "totalUtilReg": 61,
+            "totalRadieri": 97
+        },
+        "OCT": {
+            "totalAutoReg": 1241,
+            "totalUtilReg": 62,
+            "totalRadieri": 174
+        },
+        "NOV": {
+            "totalAutoReg": 1310,
+            "totalUtilReg": 66,
+            "totalRadieri": 137
+        },
+        "DEC": {
+            "totalAutoReg": 1370,
+            "totalUtilReg": 82,
+            "totalRadieri": 166
+        }
     },
-    "NOV": {
-      "totalAutoReg": 341,
-      "totalUtilReg": 25,
-      "totalRadieri": 6
+    "2024": {
+        "JAN": {
+            "totalAutoReg": 1742,
+            "totalUtilReg": 86,
+            "totalRadieri": 122
+        },
+        "FEB": {
+            "totalAutoReg": 1221,
+            "totalUtilReg": 81,
+            "totalRadieri": 136
+        },
+        "MAR": {
+            "totalAutoReg": 808,
+            "totalUtilReg": 45,
+            "totalRadieri": 161
+        },
+        "APR": {
+            "totalAutoReg": 915,
+            "totalUtilReg": 60,
+            "totalRadieri": 131
+        },
+        "MAY": {
+            "totalAutoReg": 897,
+            "totalUtilReg": 46,
+            "totalRadieri": 186
+        },
+        "JUN": {
+            "totalAutoReg": 1040,
+            "totalUtilReg": 47,
+            "totalRadieri": 182
+        },
+        "JUL": {
+            "totalAutoReg": 872,
+            "totalUtilReg": 87,
+            "totalRadieri": 114
+        },
+        "AUG": {
+            "totalAutoReg": 677,
+            "totalUtilReg": 28,
+            "totalRadieri": 183
+        },
+        "SEP": {
+            "totalAutoReg": 720,
+            "totalUtilReg": 23,
+            "totalRadieri": 120
+        },
+        "OCT": {
+            "totalAutoReg": 805,
+            "totalUtilReg": 59,
+            "totalRadieri": 107
+        },
+        "NOV": {
+            "totalAutoReg": 706,
+            "totalUtilReg": 19,
+            "totalRadieri": 181
+        },
+        "DEC": {
+            "totalAutoReg": 1622,
+            "totalUtilReg": 56,
+            "totalRadieri": 116
+        }
     },
-    "DEC": {
-      "totalAutoReg": 758,
-      "totalUtilReg": 29,
-      "totalRadieri": 5
+    "2025": {
+        "JAN": {
+            "totalAutoReg": 1402,
+            "totalUtilReg": 237,
+            "totalRadieri": 94
+        },
+        "FEB": {
+            "totalAutoReg": 1000,
+            "totalUtilReg": 69,
+            "totalRadieri": 141
+        },
+        "MAR": {
+            "totalAutoReg": 595,
+            "totalUtilReg": 32,
+            "totalRadieri": 156
+        },
+        "APR": {
+            "totalAutoReg": 583,
+            "totalUtilReg": 28,
+            "totalRadieri": 193
+        },
+        "MAY": {
+            "totalAutoReg": 814,
+            "totalUtilReg": 49,
+            "totalRadieri": 99
+        },
+        "JUN": {
+            "totalAutoReg": 761,
+            "totalUtilReg": 41,
+            "totalRadieri": 108
+        },
+        "JUL": {
+            "totalAutoReg": 897,
+            "totalUtilReg": 75,
+            "totalRadieri": 105
+        },
+        "AUG": {
+            "totalAutoReg": 1278,
+            "totalUtilReg": 47,
+            "totalRadieri": 50
+        },
+        "SEP": {
+            "totalAutoReg": 1100,
+            "totalUtilReg": 56,
+            "totalRadieri": 141
+        },
+        "OCT": {
+            "totalAutoReg": 1486,
+            "totalUtilReg": 76,
+            "totalRadieri": 98
+        },
+        "NOV": {
+            "totalAutoReg": 1478,
+            "totalUtilReg": 74,
+            "totalRadieri": 86
+        },
+        "DEC": {
+            "totalAutoReg": 1797,
+            "totalUtilReg": 79,
+            "totalRadieri": 72
+        }
+    },
+    "2026": {
+        "JAN": {
+            "totalAutoReg": 1343,
+            "totalUtilReg": 68,
+            "totalRadieri": 86
+        },
+        "FEB": {
+            "totalAutoReg": 1313,
+            "totalUtilReg": 59,
+            "totalRadieri": 92
+        },
+        "MAR": {
+            "totalAutoReg": 1163,
+            "totalUtilReg": 46,
+            "totalRadieri": 188
+        },
+        "APR": {
+            "totalAutoReg": 1235,
+            "totalUtilReg": 73,
+            "totalRadieri": 49
+        },
+        "MAY": {
+            "totalAutoReg": 1435,
+            "totalUtilReg": 70,
+            "totalRadieri": 103
+        },
+        "JUN": {
+            "totalAutoReg": 2126,
+            "totalUtilReg": 130,
+            "totalRadieri": 167
+        }
     }
-  },
-  "2021": {
-    "JAN": {
-      "totalAutoReg": 187,
-      "totalUtilReg": 2,
-      "totalRadieri": 20
-    },
-    "FEB": {
-      "totalAutoReg": 157,
-      "totalUtilReg": 2,
-      "totalRadieri": 4
-    },
-    "MAR": {
-      "totalAutoReg": 159,
-      "totalUtilReg": 9,
-      "totalRadieri": 12
-    },
-    "APR": {
-      "totalAutoReg": 118,
-      "totalUtilReg": 6,
-      "totalRadieri": 14
-    },
-    "MAY": {
-      "totalAutoReg": 114,
-      "totalUtilReg": 5,
-      "totalRadieri": 7
-    },
-    "JUN": {
-      "totalAutoReg": 308,
-      "totalUtilReg": 1,
-      "totalRadieri": 7
-    },
-    "JUL": {
-      "totalAutoReg": 337,
-      "totalUtilReg": 8,
-      "totalRadieri": 8
-    },
-    "AUG": {
-      "totalAutoReg": 429,
-      "totalUtilReg": 2,
-      "totalRadieri": 4
-    },
-    "SEP": {
-      "totalAutoReg": 381,
-      "totalUtilReg": 10,
-      "totalRadieri": 6
-    },
-    "OCT": {
-      "totalAutoReg": 766,
-      "totalUtilReg": 17,
-      "totalRadieri": 13
-    },
-    "NOV": {
-      "totalAutoReg": 1710,
-      "totalUtilReg": 4,
-      "totalRadieri": 16
-    },
-    "DEC": {
-      "totalAutoReg": 2074,
-      "totalUtilReg": 24,
-      "totalRadieri": 8
-    }
-  },
-  "2022": {
-    "JAN": {
-      "totalAutoReg": 602,
-      "totalUtilReg": 28,
-      "totalRadieri": 26
-    },
-    "FEB": {
-      "totalAutoReg": 523,
-      "totalUtilReg": 13,
-      "totalRadieri": 19
-    },
-    "MAR": {
-      "totalAutoReg": 1104,
-      "totalUtilReg": 6,
-      "totalRadieri": 9
-    },
-    "APR": {
-      "totalAutoReg": 872,
-      "totalUtilReg": 11,
-      "totalRadieri": 7
-    },
-    "MAY": {
-      "totalAutoReg": 739,
-      "totalUtilReg": 10,
-      "totalRadieri": 23
-    },
-    "JUN": {
-      "totalAutoReg": 918,
-      "totalUtilReg": 30,
-      "totalRadieri": 14
-    },
-    "JUL": {
-      "totalAutoReg": 1140,
-      "totalUtilReg": 31,
-      "totalRadieri": 12
-    },
-    "AUG": {
-      "totalAutoReg": 957,
-      "totalUtilReg": 17,
-      "totalRadieri": 10
-    },
-    "SEP": {
-      "totalAutoReg": 1355,
-      "totalUtilReg": 17,
-      "totalRadieri": 18
-    },
-    "OCT": {
-      "totalAutoReg": 827,
-      "totalUtilReg": 15,
-      "totalRadieri": 19
-    },
-    "NOV": {
-      "totalAutoReg": 904,
-      "totalUtilReg": 10,
-      "totalRadieri": 29
-    },
-    "DEC": {
-      "totalAutoReg": 2324,
-      "totalUtilReg": 10,
-      "totalRadieri": 24
-    }
-  },
-  "2023": {
-    "JAN": {
-      "totalAutoReg": 1117,
-      "totalUtilReg": 15,
-      "totalRadieri": 80
-    },
-    "FEB": {
-      "totalAutoReg": 1095,
-      "totalUtilReg": 20,
-      "totalRadieri": 125
-    },
-    "MAR": {
-      "totalAutoReg": 1103,
-      "totalUtilReg": 34,
-      "totalRadieri": 107
-    },
-    "APR": {
-      "totalAutoReg": 925,
-      "totalUtilReg": 36,
-      "totalRadieri": 59
-    },
-    "MAY": {
-      "totalAutoReg": 1487,
-      "totalUtilReg": 31,
-      "totalRadieri": 82
-    },
-    "JUN": {
-      "totalAutoReg": 1648,
-      "totalUtilReg": 27,
-      "totalRadieri": 144
-    },
-    "JUL": {
-      "totalAutoReg": 2086,
-      "totalUtilReg": 48,
-      "totalRadieri": 298
-    },
-    "AUG": {
-      "totalAutoReg": 1708,
-      "totalUtilReg": 44,
-      "totalRadieri": 76
-    },
-    "SEP": {
-      "totalAutoReg": 1223,
-      "totalUtilReg": 61,
-      "totalRadieri": 97
-    },
-    "OCT": {
-      "totalAutoReg": 1241,
-      "totalUtilReg": 62,
-      "totalRadieri": 174
-    },
-    "NOV": {
-      "totalAutoReg": 1310,
-      "totalUtilReg": 66,
-      "totalRadieri": 137
-    },
-    "DEC": {
-      "totalAutoReg": 1370,
-      "totalUtilReg": 82,
-      "totalRadieri": 166
-    }
-  },
-  "2024": {
-    "JAN": {
-      "totalAutoReg": 1742,
-      "totalUtilReg": 86,
-      "totalRadieri": 122
-    },
-    "FEB": {
-      "totalAutoReg": 1221,
-      "totalUtilReg": 81,
-      "totalRadieri": 136
-    },
-    "MAR": {
-      "totalAutoReg": 808,
-      "totalUtilReg": 45,
-      "totalRadieri": 161
-    },
-    "APR": {
-      "totalAutoReg": 915,
-      "totalUtilReg": 60,
-      "totalRadieri": 131
-    },
-    "MAY": {
-      "totalAutoReg": 897,
-      "totalUtilReg": 46,
-      "totalRadieri": 186
-    },
-    "JUN": {
-      "totalAutoReg": 1040,
-      "totalUtilReg": 47,
-      "totalRadieri": 182
-    },
-    "JUL": {
-      "totalAutoReg": 872,
-      "totalUtilReg": 87,
-      "totalRadieri": 114
-    },
-    "AUG": {
-      "totalAutoReg": 677,
-      "totalUtilReg": 28,
-      "totalRadieri": 183
-    },
-    "SEP": {
-      "totalAutoReg": 720,
-      "totalUtilReg": 23,
-      "totalRadieri": 120
-    },
-    "OCT": {
-      "totalAutoReg": 805,
-      "totalUtilReg": 59,
-      "totalRadieri": 107
-    },
-    "NOV": {
-      "totalAutoReg": 706,
-      "totalUtilReg": 19,
-      "totalRadieri": 181
-    },
-    "DEC": {
-      "totalAutoReg": 1622,
-      "totalUtilReg": 56,
-      "totalRadieri": 116
-    }
-  },
-  "2025": {
-    "JAN": {
-      "totalAutoReg": 1402,
-      "totalUtilReg": 237,
-      "totalRadieri": 94
-    },
-    "FEB": {
-      "totalAutoReg": 1000,
-      "totalUtilReg": 69,
-      "totalRadieri": 141
-    },
-    "MAR": {
-      "totalAutoReg": 595,
-      "totalUtilReg": 32,
-      "totalRadieri": 156
-    },
-    "APR": {
-      "totalAutoReg": 583,
-      "totalUtilReg": 28,
-      "totalRadieri": 193
-    },
-    "MAY": {
-      "totalAutoReg": 814,
-      "totalUtilReg": 49,
-      "totalRadieri": 99
-    },
-    "JUN": {
-      "totalAutoReg": 761,
-      "totalUtilReg": 41,
-      "totalRadieri": 108
-    },
-    "JUL": {
-      "totalAutoReg": 897,
-      "totalUtilReg": 75,
-      "totalRadieri": 105
-    },
-    "AUG": {
-      "totalAutoReg": 1278,
-      "totalUtilReg": 47,
-      "totalRadieri": 50
-    },
-    "SEP": {
-      "totalAutoReg": 1100,
-      "totalUtilReg": 56,
-      "totalRadieri": 141
-    },
-    "OCT": {
-      "totalAutoReg": 1486,
-      "totalUtilReg": 76,
-      "totalRadieri": 98
-    },
-    "NOV": {
-      "totalAutoReg": 1478,
-      "totalUtilReg": 74,
-      "totalRadieri": 86
-    },
-    "DEC": {
-      "totalAutoReg": 1797,
-      "totalUtilReg": 79,
-      "totalRadieri": 72
-    }
-  },
-  "2026": {
-    "JAN": {
-      "totalAutoReg": 1343,
-      "totalUtilReg": 68,
-      "totalRadieri": 86
-    },
-    "FEB": {
-      "totalAutoReg": 1313,
-      "totalUtilReg": 59,
-      "totalRadieri": 92
-    },
-    "MAR": {
-      "totalAutoReg": 1163,
-      "totalUtilReg": 46,
-      "totalRadieri": 188
-    },
-    "APR": {
-      "totalAutoReg": 1235,
-      "totalUtilReg": 73,
-      "totalRadieri": 49
-    },
-    "MAY": {
-      "totalAutoReg": 1435,
-      "totalUtilReg": 70,
-      "totalRadieri": 103
-    }
-  }
 }
