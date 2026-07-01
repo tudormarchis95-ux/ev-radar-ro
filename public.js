@@ -327,12 +327,24 @@ function renderDashboard() {
     });
     
     // 2. Top 20 Modele
+    const stripBrandFromModel = (brand, model) => {
+        if (!model) return "";
+        if (!brand) return model;
+        const b = brand.toString().trim().toUpperCase();
+        let m = model.toString().trim().toUpperCase();
+        if (m.startsWith(b)) {
+            m = m.substring(b.length).trim();
+        }
+        return m;
+    };
+
     const regTbody = document.getElementById('top-models-tbody');
     regTbody.innerHTML = '';
     state.data.inmatriculariModele.slice(0, 20).forEach((item, idx) => {
         const tr = document.createElement('tr');
         const marcaDisplay = normalizeazaMarcaDisplay(item.marca);
-        tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${marcaDisplay}</td><td>${item.model}</td><td><strong>${item.volum}</strong></td>`;
+        const modelDisplay = stripBrandFromModel(marcaDisplay, item.model);
+        tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${marcaDisplay}</td><td>${modelDisplay}</td><td><strong>${item.volum}</strong></td>`;
         regTbody.appendChild(tr);
     });
     
@@ -342,7 +354,8 @@ function renderDashboard() {
     state.data.radieriModele.slice(0, 20).forEach((item, idx) => {
         const tr = document.createElement('tr');
         const marcaRadDisplay = normalizeazaMarcaDisplay(item.marca);
-        tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${marcaRadDisplay}</td><td>${item.model}</td><td><strong>${item.volum}</strong></td>`;
+        const modelDisplay = stripBrandFromModel(marcaRadDisplay, item.model);
+        tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${marcaRadDisplay}</td><td>${modelDisplay}</td><td><strong>${item.volum}</strong></td>`;
         radTbody.appendChild(tr);
     });
 
