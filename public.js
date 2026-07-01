@@ -307,10 +307,10 @@ function renderDashboard() {
     document.getElementById('val-pf-pct').innerText = `${pfPct.toFixed(2)}%`;
     animateElementValue('val-pf-qty', state.data.totalPf || 0);
     
-    // 1. Top 10 Marci
+    // 1. Top 10 Marci (cu normalizare pentru a uni duplicatele din datele DGPCI)
     const brandVolums = {};
     state.data.inmatriculariModele.forEach(item => {
-        const brand = item.marca || 'Necunoscută';
+        const brand = normalizeazaMarcaDisplay(item.marca || 'Necunoscută');
         brandVolums[brand] = (brandVolums[brand] || 0) + item.volum;
     });
     const topBrands = Object.keys(brandVolums).map(brand => ({
@@ -331,7 +331,8 @@ function renderDashboard() {
     regTbody.innerHTML = '';
     state.data.inmatriculariModele.slice(0, 20).forEach((item, idx) => {
         const tr = document.createElement('tr');
-        tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${item.marca}</td><td>${item.model}</td><td><strong>${item.volum}</strong></td>`;
+        const marcaDisplay = normalizeazaMarcaDisplay(item.marca);
+        tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${marcaDisplay}</td><td>${item.model}</td><td><strong>${item.volum}</strong></td>`;
         regTbody.appendChild(tr);
     });
     
@@ -340,7 +341,8 @@ function renderDashboard() {
     radTbody.innerHTML = '';
     state.data.radieriModele.slice(0, 20).forEach((item, idx) => {
         const tr = document.createElement('tr');
-        tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${item.marca}</td><td>${item.model}</td><td><strong>${item.volum}</strong></td>`;
+        const marcaRadDisplay = normalizeazaMarcaDisplay(item.marca);
+        tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${marcaRadDisplay}</td><td>${item.model}</td><td><strong>${item.volum}</strong></td>`;
         radTbody.appendChild(tr);
     });
 
@@ -1569,15 +1571,48 @@ const modelHistoryBase = [
     }
 ];
 
-// Normalizare marca
-function normalizeazaMarca(marca) {
+// Normalizare marca pentru afisare (sincronizata cu proceseaza_ev.py)
+function normalizeazaMarcaDisplay(marca) {
     if (!marca) return "";
-    let m = marca.toString().toUpperCase().trim().replace(/,/g, ".").replace(/-/g, " ").replace(/\s+/g, " ");
-    if (m.includes("MERCEDES")) return "MERCEDES BENZ";
-    if (m.includes("VW") || m.includes("VOLKSWAGEN")) return "VOLKSWAGEN";
-    if (m.includes("BMW")) return "BMW";
+    let m = marca.toString().toUpperCase().trim().replace(/\s+/g, " ");
+
+    // VOLKSWAGEN
+    if (m.includes("VOLKSWAGEN") || m === "VW" || m === "VOLKSVAGEN" || m === "VOLSKWAGEN") return "VOLKSWAGEN";
+    // MERCEDES-BENZ
+    if (m.includes("MERCEDES")) return "MERCEDES-BENZ";
+    // BMW
+    if (m.startsWith("BMW")) return "BMW";
+    // TESLA
     if (m.includes("TESLA")) return "TESLA";
+    // RENAULT
+    if (m.startsWith("RENAULT")) return "RENAULT";
+    // HYUNDAI
+    if (m.includes("HYUNDAI") || m === "HYUNDAY") return "HYUNDAI";
+    // DS
+    if (m === "DS AUTOMOBILES" || m === "DS") return "DS";
+    // MG
+    if (m.startsWith("MG")) return "MG";
+    // ALFA ROMEO
+    if (m.includes("ALFA") && m.includes("ROMEO")) return "ALFA ROMEO";
+    // FARIZON
+    if (m.includes("FARIZON")) return "FARIZON";
+    // FORD
+    if (m.startsWith("FORD")) return "FORD";
+    // SSANGYONG / KG MOBILITY (rebrand)
+    if (m === "SSANGYONG" || m === "KG MOBILITY") return "SSANGYONG / KG MOBILITY";
+    // NISSAN
+    if (m.startsWith("NISSAN")) return "NISSAN";
+    // LUCID
+    if (m.includes("LUCID")) return "LUCID";
+    // LAMBORGHINI
+    if (m.includes("LAMBORGHINI")) return "LAMBORGHINI";
+
     return m;
+}
+
+// Normalizare marca (varianta legacy folosita de comparatie.js)
+function normalizeazaMarca(marca) {
+    return normalizeazaMarcaDisplay(marca);
 }
 
 // Aplica reguli specifice
