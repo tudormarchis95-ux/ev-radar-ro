@@ -3,374 +3,518 @@
         "JUL": {
             "totalAutoReg": 350,
             "totalUtilReg": 4,
-            "totalRadieri": 1
+            "totalRadieri": 1,
+            "evShare": 0.024469233537243614,
+            "usedShare": 0.03954802259887006
         },
         "AUG": {
             "totalAutoReg": 238,
             "totalUtilReg": 3,
-            "totalRadieri": 0
+            "totalRadieri": 0,
+            "evShare": 0.018411405295315684,
+            "usedShare": 0.06224066390041494
         },
         "SEP": {
             "totalAutoReg": 261,
             "totalUtilReg": 2,
-            "totalRadieri": 23
+            "totalRadieri": 23,
+            "evShare": 0.021103896103896104,
+            "usedShare": 0.060836501901140684
         },
         "OCT": {
             "totalAutoReg": 386,
             "totalUtilReg": 5,
-            "totalRadieri": 1
+            "totalRadieri": 1,
+            "evShare": 0.027928396345539626,
+            "usedShare": 0.03836317135549872
         },
         "NOV": {
             "totalAutoReg": 341,
             "totalUtilReg": 25,
-            "totalRadieri": 6
+            "totalRadieri": 6,
+            "evShare": 0.02470768374164811,
+            "usedShare": 0.030054644808743168
         },
         "DEC": {
             "totalAutoReg": 758,
             "totalUtilReg": 29,
-            "totalRadieri": 5
+            "totalRadieri": 5,
+            "evShare": 0.0432224485177642,
+            "usedShare": 0.029224904701397714
         }
     },
     "2021": {
         "JAN": {
             "totalAutoReg": 187,
             "totalUtilReg": 2,
-            "totalRadieri": 20
+            "totalRadieri": 20,
+            "evShare": 0.023636622525986046,
+            "usedShare": 0.12169312169312169
         },
         "FEB": {
             "totalAutoReg": 157,
             "totalUtilReg": 2,
-            "totalRadieri": 4
+            "totalRadieri": 4,
+            "evShare": 0.0175617205395775,
+            "usedShare": 0.1320754716981132
         },
         "MAR": {
             "totalAutoReg": 159,
             "totalUtilReg": 9,
-            "totalRadieri": 12
+            "totalRadieri": 12,
+            "evShare": 0.01388418557399255,
+            "usedShare": 0.26785714285714285
         },
         "APR": {
             "totalAutoReg": 118,
             "totalUtilReg": 6,
-            "totalRadieri": 14
+            "totalRadieri": 14,
+            "evShare": 0.0110912343470483,
+            "usedShare": 0.25
         },
         "MAY": {
             "totalAutoReg": 114,
             "totalUtilReg": 5,
-            "totalRadieri": 7
+            "totalRadieri": 7,
+            "evShare": 0.010184391080617496,
+            "usedShare": 0.20168067226890757
         },
         "JUN": {
             "totalAutoReg": 308,
             "totalUtilReg": 1,
-            "totalRadieri": 7
+            "totalRadieri": 7,
+            "evShare": 0.02115008279391841,
+            "usedShare": 0.09061488673139159
         },
         "JUL": {
             "totalAutoReg": 337,
             "totalUtilReg": 8,
-            "totalRadieri": 8
+            "totalRadieri": 8,
+            "evShare": 0.018604374702805515,
+            "usedShare": 0.0927536231884058
         },
         "AUG": {
             "totalAutoReg": 429,
             "totalUtilReg": 2,
-            "totalRadieri": 4
+            "totalRadieri": 4,
+            "evShare": 0.022722121486854034,
+            "usedShare": 0.06960556844547564
         },
         "SEP": {
             "totalAutoReg": 381,
             "totalUtilReg": 10,
-            "totalRadieri": 6
+            "totalRadieri": 6,
+            "evShare": 0.03417533432392273,
+            "usedShare": 0.11764705882352941
         },
         "OCT": {
             "totalAutoReg": 766,
             "totalUtilReg": 17,
-            "totalRadieri": 13
+            "totalRadieri": 13,
+            "evShare": 0.06930415263748597,
+            "usedShare": 0.05363984674329502
         },
         "NOV": {
             "totalAutoReg": 1710,
             "totalUtilReg": 4,
-            "totalRadieri": 16
+            "totalRadieri": 16,
+            "evShare": 0.13308348616537757,
+            "usedShare": 0.026254375729288213
         },
         "DEC": {
             "totalAutoReg": 2074,
             "totalUtilReg": 24,
-            "totalRadieri": 8
+            "totalRadieri": 8,
+            "evShare": 0.15563114134542705,
+            "usedShare": 0.018589132507149667
         }
     },
     "2022": {
         "JAN": {
             "totalAutoReg": 602,
             "totalUtilReg": 28,
-            "totalRadieri": 26
+            "totalRadieri": 26,
+            "evShare": 0.058852523659305996,
+            "usedShare": 0.05238095238095238
         },
         "FEB": {
             "totalAutoReg": 523,
             "totalUtilReg": 13,
-            "totalRadieri": 19
+            "totalRadieri": 19,
+            "evShare": 0.05224583813213276,
+            "usedShare": 0.06902985074626866
         },
         "MAR": {
             "totalAutoReg": 1104,
             "totalUtilReg": 6,
-            "totalRadieri": 9
+            "totalRadieri": 9,
+            "evShare": 0.08779960053262317,
+            "usedShare": 0.04954954954954955
         },
         "APR": {
             "totalAutoReg": 872,
             "totalUtilReg": 11,
-            "totalRadieri": 7
+            "totalRadieri": 7,
+            "evShare": 0.08983578405066009,
+            "usedShare": 0.052095130237825596
         },
         "MAY": {
             "totalAutoReg": 739,
             "totalUtilReg": 10,
-            "totalRadieri": 23
+            "totalRadieri": 23,
+            "evShare": 0.06255585344057193,
+            "usedShare": 0.06542056074766354
         },
         "JUN": {
             "totalAutoReg": 918,
             "totalUtilReg": 30,
-            "totalRadieri": 14
+            "totalRadieri": 14,
+            "evShare": 0.06958846403110823,
+            "usedShare": 0.0938818565400844
         },
         "JUL": {
             "totalAutoReg": 1140,
             "totalUtilReg": 31,
-            "totalRadieri": 12
+            "totalRadieri": 12,
+            "evShare": 0.08269662921348314,
+            "usedShare": 0.05721605465414176
         },
         "AUG": {
             "totalAutoReg": 957,
             "totalUtilReg": 17,
-            "totalRadieri": 10
+            "totalRadieri": 10,
+            "evShare": 0.0674571028794462,
+            "usedShare": 0.059548254620123205
         },
         "SEP": {
             "totalAutoReg": 1355,
             "totalUtilReg": 17,
-            "totalRadieri": 18
+            "totalRadieri": 18,
+            "evShare": 0.09948370193419126,
+            "usedShare": 0.05903790087463557
         },
         "OCT": {
             "totalAutoReg": 827,
             "totalUtilReg": 15,
-            "totalRadieri": 19
+            "totalRadieri": 19,
+            "evShare": 0.07001044932079414,
+            "usedShare": 0.04513064133016627
         },
         "NOV": {
             "totalAutoReg": 904,
             "totalUtilReg": 10,
-            "totalRadieri": 29
+            "totalRadieri": 29,
+            "evShare": 0.07187133523203217,
+            "usedShare": 0.061269146608315096
         },
         "DEC": {
             "totalAutoReg": 2324,
             "totalUtilReg": 10,
-            "totalRadieri": 24
+            "totalRadieri": 24,
+            "evShare": 0.16745956232159848,
+            "usedShare": 0.01970865467009426
         }
     },
     "2023": {
         "JAN": {
             "totalAutoReg": 1117,
             "totalUtilReg": 15,
-            "totalRadieri": 80
+            "totalRadieri": 80,
+            "evShare": 0.08215554379865467,
+            "usedShare": 0.03975265017667844
         },
         "FEB": {
             "totalAutoReg": 1095,
             "totalUtilReg": 20,
-            "totalRadieri": 125
+            "totalRadieri": 125,
+            "evShare": 0.07748591497768346,
+            "usedShare": 0.05022421524663677
         },
         "MAR": {
             "totalAutoReg": 1103,
             "totalUtilReg": 34,
-            "totalRadieri": 107
+            "totalRadieri": 107,
+            "evShare": 0.07901805700641695,
+            "usedShare": 0.06860158311345646
         },
         "APR": {
             "totalAutoReg": 925,
             "totalUtilReg": 36,
-            "totalRadieri": 59
+            "totalRadieri": 59,
+            "evShare": 0.08429798356982823,
+            "usedShare": 0.060353798126951096
         },
         "MAY": {
             "totalAutoReg": 1487,
             "totalUtilReg": 31,
-            "totalRadieri": 82
+            "totalRadieri": 82,
+            "evShare": 0.09724495362793235,
+            "usedShare": 0.06060606060606061
         },
         "JUN": {
             "totalAutoReg": 1648,
             "totalUtilReg": 27,
-            "totalRadieri": 144
+            "totalRadieri": 144,
+            "evShare": 0.11322624018116198,
+            "usedShare": 0.04477611940298507
         },
         "JUL": {
             "totalAutoReg": 2086,
             "totalUtilReg": 48,
-            "totalRadieri": 298
+            "totalRadieri": 298,
+            "evShare": 0.1400644763015296,
+            "usedShare": 0.04311152764761012
         },
         "AUG": {
             "totalAutoReg": 1708,
             "totalUtilReg": 44,
-            "totalRadieri": 76
+            "totalRadieri": 76,
+            "evShare": 0.1178622668579627,
+            "usedShare": 0.062214611872146115
         },
         "SEP": {
             "totalAutoReg": 1223,
             "totalUtilReg": 61,
-            "totalRadieri": 97
+            "totalRadieri": 97,
+            "evShare": 0.10321750321750321,
+            "usedShare": 0.0630841121495327
         },
         "OCT": {
             "totalAutoReg": 1241,
             "totalUtilReg": 62,
-            "totalRadieri": 174
+            "totalRadieri": 174,
+            "evShare": 0.09470907928388747,
+            "usedShare": 0.09056024558710668
         },
         "NOV": {
             "totalAutoReg": 1310,
             "totalUtilReg": 66,
-            "totalRadieri": 137
+            "totalRadieri": 137,
+            "evShare": 0.10254105727592124,
+            "usedShare": 0.08793604651162791
         },
         "DEC": {
             "totalAutoReg": 1370,
             "totalUtilReg": 82,
-            "totalRadieri": 166
+            "totalRadieri": 166,
+            "evShare": 0.10706114398422091,
+            "usedShare": 0.06542699724517906
         }
     },
     "2024": {
         "JAN": {
             "totalAutoReg": 1742,
             "totalUtilReg": 86,
-            "totalRadieri": 122
+            "totalRadieri": 122,
+            "evShare": 0.1208291921056368,
+            "usedShare": 0.06892778993435449
         },
         "FEB": {
             "totalAutoReg": 1221,
             "totalUtilReg": 81,
-            "totalRadieri": 136
+            "totalRadieri": 136,
+            "evShare": 0.0922882427307206,
+            "usedShare": 0.10291858678955453
         },
         "MAR": {
             "totalAutoReg": 808,
             "totalUtilReg": 45,
-            "totalRadieri": 161
+            "totalRadieri": 161,
+            "evShare": 0.06700183699120178,
+            "usedShare": 0.18757327080890973
         },
         "APR": {
             "totalAutoReg": 915,
             "totalUtilReg": 60,
-            "totalRadieri": 131
+            "totalRadieri": 131,
+            "evShare": 0.05326942827798699,
+            "usedShare": 0.20205128205128206
         },
         "MAY": {
             "totalAutoReg": 897,
             "totalUtilReg": 46,
-            "totalRadieri": 186
+            "totalRadieri": 186,
+            "evShare": 0.04676046346654055,
+            "usedShare": 0.16118769883351008
         },
         "JUN": {
             "totalAutoReg": 1040,
             "totalUtilReg": 47,
-            "totalRadieri": 182
+            "totalRadieri": 182,
+            "evShare": 0.03834682573498083,
+            "usedShare": 0.17203311867525298
         },
         "JUL": {
             "totalAutoReg": 872,
             "totalUtilReg": 87,
-            "totalRadieri": 114
+            "totalRadieri": 114,
+            "evShare": 0.0495383767396996,
+            "usedShare": 0.2502606882168926
         },
         "AUG": {
             "totalAutoReg": 677,
             "totalUtilReg": 28,
-            "totalRadieri": 183
+            "totalRadieri": 183,
+            "evShare": 0.047422111938240974,
+            "usedShare": 0.2680851063829787
         },
         "SEP": {
             "totalAutoReg": 720,
             "totalUtilReg": 23,
-            "totalRadieri": 120
+            "totalRadieri": 120,
+            "evShare": 0.05273357813137495,
+            "usedShare": 0.3041722745625841
         },
         "OCT": {
             "totalAutoReg": 805,
             "totalUtilReg": 59,
-            "totalRadieri": 107
+            "totalRadieri": 107,
+            "evShare": 0.04858044164037855,
+            "usedShare": 0.28703703703703703
         },
         "NOV": {
             "totalAutoReg": 706,
             "totalUtilReg": 19,
-            "totalRadieri": 181
+            "totalRadieri": 181,
+            "evShare": 0.0451107509454349,
+            "usedShare": 0.30896551724137933
         },
         "DEC": {
             "totalAutoReg": 1622,
             "totalUtilReg": 56,
-            "totalRadieri": 116
+            "totalRadieri": 116,
+            "evShare": 0.08744561839651958,
+            "usedShare": 0.16150178784266986
         }
     },
     "2025": {
         "JAN": {
             "totalAutoReg": 1402,
             "totalUtilReg": 237,
-            "totalRadieri": 94
+            "totalRadieri": 94,
+            "evShare": 0.10940936223688344,
+            "usedShare": 0.150091519219036
         },
         "FEB": {
             "totalAutoReg": 1000,
             "totalUtilReg": 69,
-            "totalRadieri": 141
+            "totalRadieri": 141,
+            "evShare": 0.05837185614667398,
+            "usedShare": 0.3030869971936389
         },
         "MAR": {
             "totalAutoReg": 595,
             "totalUtilReg": 32,
-            "totalRadieri": 156
+            "totalRadieri": 156,
+            "evShare": 0.026359600443951164,
+            "usedShare": 0.5454545454545454
         },
         "APR": {
             "totalAutoReg": 583,
             "totalUtilReg": 28,
-            "totalRadieri": 193
+            "totalRadieri": 193,
+            "evShare": 0.02086765513454146,
+            "usedShare": 0.6268412438625205
         },
         "MAY": {
             "totalAutoReg": 814,
             "totalUtilReg": 49,
-            "totalRadieri": 99
+            "totalRadieri": 99,
+            "evShare": 0.03953185955786736,
+            "usedShare": 0.4716106604866744
         },
         "JUN": {
             "totalAutoReg": 761,
             "totalUtilReg": 41,
-            "totalRadieri": 108
+            "totalRadieri": 108,
+            "evShare": 0.03536595708591298,
+            "usedShare": 0.4800498753117207
         },
         "JUL": {
             "totalAutoReg": 897,
             "totalUtilReg": 75,
-            "totalRadieri": 105
+            "totalRadieri": 105,
+            "evShare": 0.03296206253180302,
+            "usedShare": 0.4002057613168724
         },
         "AUG": {
             "totalAutoReg": 1278,
             "totalUtilReg": 47,
-            "totalRadieri": 50
+            "totalRadieri": 50,
+            "evShare": 0.06137995629097721,
+            "usedShare": 0.2581132075471698
         },
         "SEP": {
             "totalAutoReg": 1100,
             "totalUtilReg": 56,
-            "totalRadieri": 141
+            "totalRadieri": 141,
+            "evShare": 0.05835426207711627,
+            "usedShare": 0.3166089965397924
         },
         "OCT": {
             "totalAutoReg": 1486,
             "totalUtilReg": 76,
-            "totalRadieri": 98
+            "totalRadieri": 98,
+            "evShare": 0.07753722218226282,
+            "usedShare": 0.30985915492957744
         },
         "NOV": {
             "totalAutoReg": 1478,
             "totalUtilReg": 74,
-            "totalRadieri": 86
+            "totalRadieri": 86,
+            "evShare": 0.07381615598885793,
+            "usedShare": 0.28286082474226804
         },
         "DEC": {
             "totalAutoReg": 1797,
             "totalUtilReg": 79,
-            "totalRadieri": 72
+            "totalRadieri": 72,
+            "evShare": 0.06182549045309564,
+            "usedShare": 0.2457356076759062
         }
     },
     "2026": {
         "JAN": {
             "totalAutoReg": 1343,
             "totalUtilReg": 68,
-            "totalRadieri": 86
+            "totalRadieri": 86,
+            "evShare": 0.11847851068719835,
+            "usedShare": 0.26879432624113475
         },
         "FEB": {
             "totalAutoReg": 1313,
             "totalUtilReg": 59,
-            "totalRadieri": 92
+            "totalRadieri": 92,
+            "evShare": 0.09925151235517277,
+            "usedShare": 0.2934306569343066
         },
         "MAR": {
             "totalAutoReg": 1163,
             "totalUtilReg": 46,
-            "totalRadieri": 188
+            "totalRadieri": 188,
+            "evShare": 0.060985213054510455,
+            "usedShare": 0.42205638474295193
         },
         "APR": {
             "totalAutoReg": 1235,
             "totalUtilReg": 73,
-            "totalRadieri": 49
+            "totalRadieri": 49,
+            "evShare": 0.05980627388252022,
+            "usedShare": 0.48468606431852984
         },
         "MAY": {
             "totalAutoReg": 1435,
             "totalUtilReg": 70,
-            "totalRadieri": 103
+            "totalRadieri": 103,
+            "evShare": 0.06830713521520862,
+            "usedShare": 0.4485049833887043
         },
         "JUN": {
             "totalAutoReg": 2126,
             "totalUtilReg": 130,
-            "totalRadieri": 167
+            "totalRadieri": 167,
+            "evShare": 0.09058553386911596,
+            "usedShare": 0.300531914893617
         }
     }
 }
