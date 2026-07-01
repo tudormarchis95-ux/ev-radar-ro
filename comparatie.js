@@ -121,13 +121,13 @@ const euDataByMonth = {
         "RO_fallback": { name: "România", flag: "🇷🇴", volume: 1505, share: 6.83 }
     },
     "JUN": {
-        "NO": { name: "Norvegia", flag: "🇳🇴", volume: 10500, share: 92.1, isComplete: false },
-        "SE": { name: "Suedia", flag: "🇸🇪", volume: 7100, share: 39.4, isComplete: false },
-        "NL": { name: "Olanda", flag: "🇳🇱", volume: 9800, share: 34.2, isComplete: false },
-        "FR": { name: "Franța", flag: "🇫🇷", volume: 27500, share: 19.5, isComplete: false },
-        "UK": { name: "Marea Britanie", flag: "🇬🇧", volume: 29800, share: 18.9, isComplete: false },
-        "DE": { name: "Germania", flag: "🇩🇪", volume: 39500, share: 16.2, isComplete: false },
-        "ES": { name: "Spania", flag: "🇪🇸", volume: 5200, share: 5.8, isComplete: false },
+        "NO": { name: "Norvegia", flag: "🇳🇴", volume: 10500, share: 92.1 },
+        "SE": { name: "Suedia", flag: "🇸🇪", volume: 7100, share: 39.4 },
+        "NL": { name: "Olanda", flag: "🇳🇱", volume: 9800, share: 34.2 },
+        "FR": { name: "Franța", flag: "🇫🇷", volume: 27500, share: 19.5 },
+        "UK": { name: "Marea Britanie", flag: "🇬🇧", volume: 29800, share: 18.9 },
+        "DE": { name: "Germania", flag: "🇩🇪", volume: 39500, share: 16.2 },
+        "ES": { name: "Spania", flag: "🇪🇸", volume: 5200, share: 5.8 },
         "RO_fallback": { name: "România", flag: "🇷🇴", volume: 1850, share: 7.20 }
     },
     "APR": {
