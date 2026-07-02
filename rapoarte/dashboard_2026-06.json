@@ -4,14 +4,14 @@
     "totalRadieri": 167,
     "evShare": 0.09058553386911596,
     "usedShare": 0.300531914893617,
-    "yoyGrowth": 179.5539033457249,
+    "yoyGrowth": 161.41367323290845,
     "totalFirme": 1451,
     "totalPf": 804,
     "inmatriculariModele": [
         {
             "marca": "TESLA",
             "model": "MODEL 3",
-            "volum": 492
+            "volum": 493
         },
         {
             "marca": "TESLA",
@@ -69,7 +69,7 @@
             "volum": 28
         },
         {
-            "marca": "VOLKSWAGEN, VW",
+            "marca": "VOLKSWAGEN",
             "model": "ID,4 PRO 210KW",
             "volum": 25
         },
@@ -77,6 +77,11 @@
             "marca": "MERCEDES-BENZ",
             "model": "CLA 250+",
             "volum": 23
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL S",
+            "volum": 22
         },
         {
             "marca": "MAXUS",
@@ -119,6 +124,11 @@
             "volum": 15
         },
         {
+            "marca": "VOLKSWAGEN",
+            "model": "ID,3 PRO 150 KW",
+            "volum": 14
+        },
+        {
             "marca": "FORD",
             "model": "MUSTANG MACH-E",
             "volum": 14
@@ -129,29 +139,19 @@
             "volum": 14
         },
         {
-            "marca": "TESLA",
-            "model": "MODEL S",
-            "volum": 13
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "ID,3 PRO 150 KW",
-            "volum": 13
-        },
-        {
             "marca": "HYUNDAI",
             "model": "IONIQ5",
+            "volum": 13
+        },
+        {
+            "marca": "SSANGYONG / KG MOBILITY",
+            "model": "TORRES EVX",
             "volum": 13
         },
         {
             "marca": "CADILLAC",
             "model": "LYRIQ",
             "volum": 13
-        },
-        {
-            "marca": "SSANGYONG",
-            "model": "TORRES EVX",
-            "volum": 11
         },
         {
             "marca": "FORD",
@@ -172,11 +172,6 @@
             "marca": "ZEEKR",
             "model": "7X",
             "volum": 10
-        },
-        {
-            "marca": "TESLA MOTORS",
-            "model": "MODEL S",
-            "volum": 9
         },
         {
             "marca": "MINI",
@@ -201,6 +196,21 @@
         {
             "marca": "MG",
             "model": "MG4 ELECTRIC",
+            "volum": 8
+        },
+        {
+            "marca": "MERCEDES-BENZ",
+            "model": "EQA 250+",
+            "volum": 8
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL X",
+            "volum": 8
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "ID,3 PRO S 150 KW",
             "volum": 8
         },
         {
@@ -231,11 +241,6 @@
         {
             "marca": "BMW",
             "model": "I4 XDRIVE40",
-            "volum": 7
-        },
-        {
-            "marca": "TESLA",
-            "model": "MODEL X",
             "volum": 7
         },
         {
@@ -281,11 +286,6 @@
         {
             "marca": "FIAT",
             "model": "500",
-            "volum": 6
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "EQA 250+",
             "volum": 6
         },
         {
@@ -339,8 +339,8 @@
             "volum": 5
         },
         {
-            "marca": "VOLKSWAGEN, VW",
-            "model": "ID,3 PRO S 150 KW",
+            "marca": "MERCEDES-BENZ",
+            "model": "EQA 250",
             "volum": 5
         },
         {
@@ -379,13 +379,8 @@
             "volum": 4
         },
         {
-            "marca": "KG MOBILITY",
+            "marca": "SSANGYONG / KG MOBILITY",
             "model": "KG MOBILITY TORRES EVX",
-            "volum": 4
-        },
-        {
-            "marca": "MERCEDES - BENZ",
-            "model": "EQA 250",
             "volum": 4
         },
         {
@@ -429,7 +424,7 @@
             "volum": 3
         },
         {
-            "marca": "VOLKSWAGEN, VW",
+            "marca": "VOLKSWAGEN",
             "model": "ID,3 PURE 125 KW",
             "volum": 3
         },
@@ -490,6 +485,11 @@
         },
         {
             "marca": "MERCEDES-BENZ",
+            "model": "EQC 400 4MATIC",
+            "volum": 3
+        },
+        {
+            "marca": "MERCEDES-BENZ",
             "model": "CLA 350 4MATIC",
             "volum": 3
         },
@@ -504,13 +504,8 @@
             "volum": 3
         },
         {
-            "marca": "VOLKSWAGEN, VW",
-            "model": "ID,7 PRO",
-            "volum": 3
-        },
-        {
             "marca": "VOLKSWAGEN",
-            "model": "ID,3 PRO S 150 KW",
+            "model": "ID,7 PRO",
             "volum": 3
         },
         {
@@ -549,18 +544,23 @@
             "volum": 2
         },
         {
+            "marca": "VOLKSWAGEN",
+            "model": "ID,7 PRO S",
+            "volum": 2
+        },
+        {
             "marca": "BMW",
             "model": "IX3",
             "volum": 2
         },
         {
-            "marca": "MERCEDES - BENZ",
-            "model": "EQA 250+",
+            "marca": "FORD",
+            "model": "TOURNEO COURIER",
             "volum": 2
         },
         {
-            "marca": "FORD",
-            "model": "TOURNEO COURIER",
+            "marca": "SSANGYONG / KG MOBILITY",
+            "model": "KG MOBILITY TORRRES EVX",
             "volum": 2
         },
         {
@@ -645,11 +645,6 @@
         },
         {
             "marca": "MERCEDES-BENZ",
-            "model": "EQC 400 4MATIC",
-            "volum": 2
-        },
-        {
-            "marca": "MERCEDES-BENZ",
             "model": "EQE 350+",
             "volum": 2
         },
@@ -674,7 +669,7 @@
             "volum": 2
         },
         {
-            "marca": "VOLKSWAGEN, VW",
+            "marca": "VOLKSWAGEN",
             "model": "ID,4 PURE 125KW",
             "volum": 2
         },
@@ -734,8 +729,8 @@
             "volum": 2
         },
         {
-            "marca": "KG MOBILITY",
-            "model": "TORRES EVX",
+            "marca": "MERCEDES-BENZ",
+            "model": "EQB 300 4MATIC",
             "volum": 2
         },
         {
@@ -779,18 +774,13 @@
             "volum": 2
         },
         {
-            "marca": "NISSAN-VOLTIA",
+            "marca": "NISSAN",
             "model": "NISSAN VOLTIA",
             "volum": 2
         },
         {
             "marca": "BMW",
             "model": "I7 M70 XDRIVE",
-            "volum": 1
-        },
-        {
-            "marca": "VOLKSWAGEN, VW",
-            "model": "ID,7 PRO S",
             "volum": 1
         },
         {
@@ -801,11 +791,6 @@
         {
             "marca": "HONDA",
             "model": "E:NY1",
-            "volum": 1
-        },
-        {
-            "marca": "KG MOBILITY",
-            "model": "KG MOBILITY TORRRES EVX",
             "volum": 1
         },
         {
@@ -864,7 +849,7 @@
             "volum": 1
         },
         {
-            "marca": "BMW I",
+            "marca": "BMW",
             "model": "I3S",
             "volum": 1
         },
@@ -886,11 +871,6 @@
         {
             "marca": "KIA",
             "model": "EV5",
-            "volum": 1
-        },
-        {
-            "marca": "MERCEDES BENZ",
-            "model": "EQC 400 4MATIC",
             "volum": 1
         },
         {
@@ -959,11 +939,6 @@
             "volum": 1
         },
         {
-            "marca": "TESLA MOTORS",
-            "model": "MODEL 3",
-            "volum": 1
-        },
-        {
             "marca": "AUDI",
             "model": "Q4 SPORTBACK 45 E-TRON",
             "volum": 1
@@ -991,11 +966,6 @@
         {
             "marca": "RENAULT",
             "model": "TWINGO",
-            "volum": 1
-        },
-        {
-            "marca": "TESLA MOTORS",
-            "model": "MODEL X",
             "volum": 1
         },
         {
@@ -1029,18 +999,8 @@
             "volum": 1
         },
         {
-            "marca": "SSANGYONG",
-            "model": "KG MOBILITY TORRRES EVX",
-            "volum": 1
-        },
-        {
             "marca": "VOLKSWAGEN",
             "model": "ID,3 PRO  150 KW",
-            "volum": 1
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "EQB 300 4MATIC",
             "volum": 1
         },
         {
@@ -1070,22 +1030,12 @@
         },
         {
             "marca": "VOLKSWAGEN",
-            "model": "ID,7 PRO S",
-            "volum": 1
-        },
-        {
-            "marca": "VOLKSWAGEN",
             "model": "ID,BUZZ GTX LR 250 KW",
             "volum": 1
         },
         {
             "marca": "CUPRA",
             "model": "BORN 150 KW 58/62 KWH",
-            "volum": 1
-        },
-        {
-            "marca": "MERCEDES - BENZ",
-            "model": "EQB 300 4MATIC",
             "volum": 1
         },
         {
@@ -1119,12 +1069,12 @@
             "volum": 1
         },
         {
-            "marca": "SSANGYONG",
+            "marca": "SSANGYONG / KG MOBILITY",
             "model": "TORRRES EVX",
             "volum": 1
         },
         {
-            "marca": "FORD-CNG-TECHNIK",
+            "marca": "FORD",
             "model": "FOCUS ELECTRIC",
             "volum": 1
         },
@@ -1144,11 +1094,6 @@
             "volum": 1
         },
         {
-            "marca": "VOLKSWAGEN, VW",
-            "model": "ID,3 PRO 150 KW",
-            "volum": 1
-        },
-        {
             "marca": "BMW",
             "model": "I4 M50",
             "volum": 1
@@ -1156,11 +1101,6 @@
         {
             "marca": "MERCEDES-BENZ",
             "model": "AMG EQE 43 4MATIC",
-            "volum": 1
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "EQA 250",
             "volum": 1
         },
         {
@@ -1234,7 +1174,7 @@
             "volum": 1
         },
         {
-            "marca": "KG MOBILITY",
+            "marca": "SSANGYONG / KG MOBILITY",
             "model": "KG MOBILITY MUSSO EV",
             "volum": 1
         },
