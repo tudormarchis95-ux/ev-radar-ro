@@ -546,7 +546,7 @@ function renderHistoricalCharts() {
     // 2. Evolutie Anuala 2011 - Prezent
     const baseFleetDec2025 = 63986;
     const annualData = [];
-    const currentYear = state.data && state.data.luna ? parseInt(state.data.luna.split('-')[0]) : 2026;
+    // currentYear e definit deja la începutul funcției
     
     // Obținem anii și îi filtrăm pentru a nu include ani mai mari decât cel selectat
     let years = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
