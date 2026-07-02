@@ -423,26 +423,37 @@ function renderDashboard() {
 }
 
 function renderHistoricalCharts() {
-    // 1. Date lunare 2025 vs 2026 (Inmatriculari brute BEV)
-    const regs2025 = {
-        'JAN': 1639, 'FEB': 1069, 'MAR': 628, 'APR': 612, 'MAY': 863, 'JUN': 807,
-        'JUL': 976, 'AUG': 1335, 'SEP': 1158, 'OCT': 1562, 'NOV': 1552, 'DEC': 1880
-    };
+    // 1. Înmatriculări Lunare EV
+    const currentYear = state.data && state.data.luna ? parseInt(state.data.luna.split('-')[0]) : 2026;
+    const currentLunaNume = state.data.lunaNume || 'MAY';
+    const regs2025 = {};
+    const regs2026 = {};
+    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     
-    const regs2026 = {
-        'JAN': 1411, 'FEB': 1372, 'MAR': 1209, 'APR': 1308, 'MAY': 1505,
-        'JUN': null, 'JUL': null, 'AUG': null, 'SEP': null, 'OCT': null, 'NOV': null, 'DEC': null
-    };
+    monthsOrder.forEach(m => {
+        regs2025[m] = 0;
+        regs2026[m] = null;
+        
+        if (state.historicalSummary) {
+            const prevYearStr = String(currentYear - 1);
+            if (state.historicalSummary[prevYearStr] && state.historicalSummary[prevYearStr][m]) {
+                const item = state.historicalSummary[prevYearStr][m];
+                regs2025[m] = item.totalAutoReg + item.totalUtilReg;
+            }
+            const currYearStr = String(currentYear);
+            if (state.historicalSummary[currYearStr] && state.historicalSummary[currYearStr][m]) {
+                const item = state.historicalSummary[currYearStr][m];
+                regs2026[m] = item.totalAutoReg + item.totalUtilReg;
+            }
+        }
+    });
     
-    // Suprascriem luna selectata in mod dinamic cu datele actuale incarcate
-    const currentLunaNume = state.data.lunaNume;
-    const currentRegs = state.data.totalAutoReg + state.data.totalUtilReg;
-    if (regs2026.hasOwnProperty(currentLunaNume)) {
-        regs2026[currentLunaNume] = currentRegs;
+    // Suprascriem luna curenta din state-ul principal
+    if (state.data) {
+        regs2026[currentLunaNume] = state.data.totalAutoReg + state.data.totalUtilReg;
     }
     
-    // De asemenea, daca suntem pe o luna ulterioara, sa stergem valorile din lunile viitoare
-    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    // Stergem lunile viitoare in anul curent
     const currentIdx = monthsOrder.indexOf(currentLunaNume);
     if (currentIdx !== -1) {
         for (let i = currentIdx + 1; i < monthsOrder.length; i++) {
