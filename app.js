@@ -1,1089 +1,3 @@
-const modelHistoryBase = [
-    {
-        "brand": "DACIA",
-        "model": "DACIA SPRING",
-        "start": 18672,
-        "history": {
-            "JAN": 68,
-            "FEB": 86,
-            "MAR": 61,
-            "APR": 56
-        }
-    },
-    {
-        "brand": "TESLA",
-        "model": "TESLA MODEL 3",
-        "start": 6230,
-        "history": {
-            "JAN": 176,
-            "FEB": 152,
-            "MAR": 146,
-            "APR": 165
-        }
-    },
-    {
-        "brand": "TESLA",
-        "model": "TESLA MODEL Y",
-        "start": 3971,
-        "history": {
-            "JAN": 171,
-            "FEB": 160,
-            "MAR": 107,
-            "APR": 114
-        }
-    },
-    {
-        "brand": "HYUNDAI",
-        "model": "HYUNDAI KONA",
-        "start": 2730,
-        "history": {
-            "JAN": 38,
-            "FEB": 44,
-            "MAR": 47,
-            "APR": 57
-        }
-    },
-    {
-        "brand": "RENAULT",
-        "model": "RENAULT ZOE",
-        "start": 2259,
-        "history": {
-            "JAN": 19,
-            "FEB": 11,
-            "MAR": 28,
-            "APR": 27
-        }
-    },
-    {
-        "brand": "VOLKSWAGEN",
-        "model": "VOLKSWAGEN UP",
-        "start": 1717,
-        "history": {
-            "JAN": 0,
-            "FEB": 1,
-            "MAR": 1,
-            "APR": 2
-        }
-    },
-    {
-        "brand": "VOLKSWAGEN",
-        "model": "VOLKSWAGEN ID.3",
-        "start": 1584,
-        "history": {
-            "JAN": 18,
-            "FEB": 14,
-            "MAR": 12,
-            "APR": 14
-        }
-    },
-    {
-        "brand": "RENAULT",
-        "model": "RENAULT MEGANE E-TECH",
-        "start": 1476,
-        "history": {
-            "JAN": 6,
-            "FEB": 17,
-            "MAR": 6,
-            "APR": 6
-        }
-    },
-    {
-        "brand": "VOLKSWAGEN",
-        "model": "VOLKSWAGEN ID.4",
-        "start": 1124,
-        "history": {
-            "JAN": 38,
-            "FEB": 31,
-            "MAR": 35,
-            "APR": 24
-        }
-    },
-    {
-        "brand": "NISSAN",
-        "model": "NISSAN LEAF",
-        "start": 1092,
-        "history": {
-            "JAN": 12,
-            "FEB": 15,
-            "MAR": 8,
-            "APR": 18
-        }
-    },
-    {
-        "brand": "BMW",
-        "model": "BMW I3",
-        "start": 915,
-        "history": {
-            "JAN": 3,
-            "FEB": 2,
-            "MAR": 2,
-            "APR": 2
-        }
-    },
-    {
-        "brand": "MERCEDES - BENZ",
-        "model": "MERCEDES - BENZ EQA",
-        "start": 691,
-        "history": {
-            "JAN": 14,
-            "FEB": 21,
-            "MAR": 8,
-            "APR": 11
-        }
-    },
-    {
-        "brand": "RENAULT",
-        "model": "RENAULT KANGOO VAN E-TECH",
-        "start": 656,
-        "history": {
-            "JAN": 14,
-            "FEB": 3,
-            "MAR": 7,
-            "APR": 3
-        }
-    },
-    {
-        "brand": "SKODA",
-        "model": "SKODA ENYAQ",
-        "start": 635,
-        "history": {
-            "JAN": 3,
-            "FEB": 8,
-            "MAR": 14,
-            "APR": 11
-        }
-    },
-    {
-        "brand": "VOLKSWAGEN",
-        "model": "VOLKSWAGEN GOLF",
-        "start": 583,
-        "history": {
-            "JAN": 2,
-            "FEB": 5,
-            "MAR": 0,
-            "APR": 10
-        }
-    },
-    {
-        "brand": "TESLA",
-        "model": "TESLA MODEL S",
-        "start": 579,
-        "history": {
-            "JAN": 17,
-            "FEB": 10,
-            "MAR": 24,
-            "APR": 13
-        }
-    },
-    {
-        "brand": "FIAT",
-        "model": "FIAT 500",
-        "start": 531,
-        "history": {
-            "JAN": 10,
-            "FEB": 7,
-            "MAR": 3,
-            "APR": 8
-        }
-    },
-    {
-        "brand": "SMART",
-        "model": "SMART EQ FORTWO",
-        "start": 511,
-        "history": {
-            "JAN": 5,
-            "FEB": 3,
-            "MAR": 2,
-            "APR": 4
-        }
-    },
-    {
-        "brand": "MERCEDES - BENZ",
-        "model": "MERCEDES - BENZ EQE",
-        "start": 507,
-        "history": {
-            "JAN": 1,
-            "FEB": 8,
-            "MAR": 8,
-            "APR": 14
-        }
-    },
-    {
-        "brand": "FORD",
-        "model": "FORD PUMA",
-        "start": 502,
-        "history": {
-            "JAN": 60,
-            "FEB": 57,
-            "MAR": 63,
-            "APR": 38
-        }
-    },
-    {
-        "brand": "HYUNDAI",
-        "model": "HYUNDAI IONIQ 5",
-        "start": 493,
-        "history": {
-            "JAN": 7,
-            "FEB": 13,
-            "MAR": 10,
-            "APR": 5
-        }
-    },
-    {
-        "brand": "BMW",
-        "model": "BMW I4",
-        "start": 483,
-        "history": {
-            "JAN": 13,
-            "FEB": 10,
-            "MAR": 16,
-            "APR": 13
-        }
-    },
-    {
-        "brand": "MINI",
-        "model": "MINI COOPER SE",
-        "start": 473,
-        "history": {
-            "JAN": 0,
-            "FEB": 3,
-            "MAR": 7,
-            "APR": 3
-        }
-    },
-    {
-        "brand": "PEUGEOT",
-        "model": "PEUGEOT 208",
-        "start": 446,
-        "history": {
-            "JAN": 12,
-            "FEB": 5,
-            "MAR": 4,
-            "APR": 8
-        }
-    },
-    {
-        "brand": "AUDI",
-        "model": "AUDI E-TRON (SUV)",
-        "start": 439,
-        "history": {
-            "JAN": 16,
-            "FEB": 14,
-            "MAR": 15,
-            "APR": 23
-        }
-    },
-    {
-        "brand": "FORD",
-        "model": "FORD MUSTANG MACH-E",
-        "start": 432,
-        "history": {
-            "JAN": 6,
-            "FEB": 10,
-            "MAR": 10,
-            "APR": 9
-        }
-    },
-    {
-        "brand": "FORD",
-        "model": "FORD TRANSIT",
-        "start": 416,
-        "history": {
-            "JAN": 6,
-            "FEB": 14,
-            "MAR": 13,
-            "APR": 22
-        }
-    },
-    {
-        "brand": "BMW",
-        "model": "BMW IX",
-        "start": 397,
-        "history": {
-            "JAN": 5,
-            "FEB": 6,
-            "MAR": 2,
-            "APR": 11
-        }
-    },
-    {
-        "brand": "HYUNDAI",
-        "model": "HYUNDAI INSTER",
-        "start": 391,
-        "history": {
-            "JAN": 27,
-            "FEB": 26,
-            "MAR": 11,
-            "APR": 12
-        }
-    },
-    {
-        "brand": "SMART",
-        "model": "SMART EQ FORFOUR",
-        "start": 384,
-        "history": {
-            "JAN": 4,
-            "FEB": 1,
-            "MAR": 2,
-            "APR": 2
-        }
-    },
-    {
-        "brand": "FORD",
-        "model": "FORD EXPLORER",
-        "start": 377,
-        "history": {
-            "JAN": 33,
-            "FEB": 26,
-            "MAR": 31,
-            "APR": 19
-        }
-    },
-    {
-        "brand": "VOLVO",
-        "model": "VOLVO EX30",
-        "start": 373,
-        "history": {
-            "JAN": 22,
-            "FEB": 18,
-            "MAR": 19,
-            "APR": 7
-        }
-    },
-    {
-        "brand": "TESLA",
-        "model": "TESLA MODEL X",
-        "start": 365,
-        "history": {
-            "JAN": 5,
-            "FEB": 6,
-            "MAR": 8,
-            "APR": 5
-        }
-    },
-    {
-        "brand": "PEUGEOT",
-        "model": "PEUGEOT 2008",
-        "start": 362,
-        "history": {
-            "JAN": 18,
-            "FEB": 12,
-            "MAR": 11,
-            "APR": 6
-        }
-    },
-    {
-        "brand": "RENAULT",
-        "model": "RENAULT RENAULT 5 E-TECH",
-        "start": 349,
-        "history": {
-            "JAN": 36,
-            "FEB": 28,
-            "MAR": 24,
-            "APR": 22
-        }
-    },
-    {
-        "brand": "SKODA",
-        "model": "SKODA CITIGO",
-        "start": 330,
-        "history": {
-            "JAN": 0,
-            "FEB": 0,
-            "MAR": 0,
-            "APR": 1
-        }
-    },
-    {
-        "brand": "MERCEDES - BENZ",
-        "model": "MERCEDES - BENZ EQS",
-        "start": 324,
-        "history": {
-            "JAN": 4,
-            "FEB": 2,
-            "MAR": 3,
-            "APR": 3
-        }
-    },
-    {
-        "brand": "MAZDA",
-        "model": "MAZDA MX-30",
-        "start": 306,
-        "history": {
-            "JAN": 4,
-            "FEB": 3,
-            "MAR": 5,
-            "APR": 3
-        }
-    },
-    {
-        "brand": "MG",
-        "model": "MG MG4",
-        "start": 302,
-        "history": {
-            "JAN": 45,
-            "FEB": 54,
-            "MAR": 17,
-            "APR": 20
-        }
-    },
-    {
-        "brand": "LEAPMOTOR",
-        "model": "LEAPMOTOR T03",
-        "start": 299,
-        "history": {
-            "JAN": 39,
-            "FEB": 26,
-            "MAR": 10,
-            "APR": 5
-        }
-    },
-    {
-        "brand": "MERCEDES - BENZ",
-        "model": "MERCEDES - BENZ EQB",
-        "start": 297,
-        "history": {
-            "JAN": 2,
-            "FEB": 2,
-            "MAR": 1,
-            "APR": 1
-        }
-    },
-    {
-        "brand": "PORSCHE",
-        "model": "PORSCHE TAYCAN",
-        "start": 294,
-        "history": {
-            "JAN": 2,
-            "FEB": 7,
-            "MAR": 4,
-            "APR": 7
-        }
-    },
-    {
-        "brand": "TOYOTA",
-        "model": "TOYOTA BZ4X",
-        "start": 294,
-        "history": {
-            "JAN": 4,
-            "FEB": 4,
-            "MAR": 2,
-            "APR": 4
-        }
-    },
-    {
-        "brand": "MERCEDES - BENZ",
-        "model": "MERCEDES - BENZ EQC",
-        "start": 287,
-        "history": {
-            "JAN": 6,
-            "FEB": 5,
-            "MAR": 4,
-            "APR": 4
-        }
-    },
-    {
-        "brand": "MERCEDES - BENZ",
-        "model": "MERCEDES - BENZ EVITO",
-        "start": 252,
-        "history": {
-            "JAN": 3,
-            "FEB": 6,
-            "MAR": 3,
-            "APR": 7
-        }
-    },
-    {
-        "brand": "BMW",
-        "model": "BMW IX1",
-        "start": 246,
-        "history": {
-            "JAN": 8,
-            "FEB": 9,
-            "MAR": 7,
-            "APR": 10
-        }
-    },
-    {
-        "brand": "FORD",
-        "model": "FORD CAPRI",
-        "start": 243,
-        "history": {
-            "JAN": 11,
-            "FEB": 11,
-            "MAR": 13,
-            "APR": 7
-        }
-    },
-    {
-        "brand": "OPEL",
-        "model": "OPEL CORSA",
-        "start": 241,
-        "history": {
-            "JAN": 3,
-            "FEB": 5,
-            "MAR": 1,
-            "APR": 3
-        }
-    },
-    {
-        "brand": "KIA",
-        "model": "KIA NIRO",
-        "start": 232,
-        "history": {
-            "JAN": 3,
-            "FEB": 9,
-            "MAR": 10,
-            "APR": 17
-        }
-    },
-    {
-        "brand": "HYUNDAI",
-        "model": "HYUNDAI IONIQ",
-        "start": 223,
-        "history": {
-            "JAN": 3,
-            "FEB": 4,
-            "MAR": 1,
-            "APR": 5
-        }
-    },
-    {
-        "brand": "BYD",
-        "model": "BYD DOLPHIN SURF",
-        "start": 220,
-        "history": {
-            "JAN": 112,
-            "FEB": 100,
-            "MAR": 57,
-            "APR": 57
-        }
-    },
-    {
-        "brand": "VOLVO",
-        "model": "VOLVO EX40",
-        "start": 217,
-        "history": {
-            "JAN": 2,
-            "FEB": 4,
-            "MAR": 4,
-            "APR": 8
-        }
-    },
-    {
-        "brand": "BMW",
-        "model": "BMW IX3",
-        "start": 214,
-        "history": {
-            "JAN": 6,
-            "FEB": 3,
-            "MAR": 5,
-            "APR": 3
-        }
-    },
-    {
-        "brand": "VOLKSWAGEN",
-        "model": "VOLKSWAGEN ID.5",
-        "start": 209,
-        "history": {
-            "JAN": 1,
-            "FEB": 2,
-            "MAR": 2,
-            "APR": 3
-        }
-    },
-    {
-        "brand": "AUDI",
-        "model": "AUDI Q4 E-TRON",
-        "start": 202,
-        "history": {
-            "JAN": 6,
-            "FEB": 7,
-            "MAR": 5,
-            "APR": 7
-        }
-    },
-    {
-        "brand": "MG",
-        "model": "MG ZS",
-        "start": 199,
-        "history": {
-            "JAN": 12,
-            "FEB": 12,
-            "MAR": 14,
-            "APR": 16
-        }
-    },
-    {
-        "brand": "JAGUAR",
-        "model": "JAGUAR I-PACE",
-        "start": 186,
-        "history": {
-            "JAN": 2,
-            "FEB": 0,
-            "MAR": 3,
-            "APR": 1
-        }
-    },
-    {
-        "brand": "MAXUS",
-        "model": "MAXUS MAXUS E-DELIVER 3",
-        "start": 178,
-        "history": {
-            "JAN": 1,
-            "FEB": 13,
-            "MAR": 1,
-            "APR": 8
-        }
-    },
-    {
-        "brand": "HYUNDAI",
-        "model": "HYUNDAI IONIQ 6",
-        "start": 167,
-        "history": {
-            "JAN": 4,
-            "FEB": 3,
-            "MAR": 4,
-            "APR": 5
-        }
-    },
-    {
-        "brand": "CITROEN",
-        "model": "CITROEN E-C4",
-        "start": 163,
-        "history": {
-            "JAN": 1,
-            "FEB": 1,
-            "MAR": 0,
-            "APR": 0
-        }
-    },
-    {
-        "brand": "KIA",
-        "model": "KIA EV6",
-        "start": 151,
-        "history": {
-            "JAN": 1,
-            "FEB": 3,
-            "MAR": 3,
-            "APR": 2
-        }
-    },
-    {
-        "brand": "RENAULT",
-        "model": "RENAULT SCENIC E-TECH",
-        "start": 143,
-        "history": {
-            "JAN": 2,
-            "FEB": 2,
-            "MAR": 2,
-            "APR": 6
-        }
-    },
-    {
-        "brand": "TOYOTA",
-        "model": "TOYOTA PROACE CITY",
-        "start": 133,
-        "history": {
-            "JAN": 0,
-            "FEB": 0,
-            "MAR": 0,
-            "APR": 1
-        }
-    },
-    {
-        "brand": "OPEL",
-        "model": "OPEL MOKKA",
-        "start": 127,
-        "history": {
-            "JAN": 4,
-            "FEB": 1,
-            "MAR": 1,
-            "APR": 17
-        }
-    },
-    {
-        "brand": "NISSAN",
-        "model": "NISSAN E-NV200",
-        "start": 121,
-        "history": {
-            "JAN": 0,
-            "FEB": 1,
-            "MAR": 4,
-            "APR": 6
-        }
-    },
-    {
-        "brand": "KIA",
-        "model": "KIA SOUL",
-        "start": 114,
-        "history": {
-            "JAN": 0,
-            "FEB": 0,
-            "MAR": 3,
-            "APR": 4
-        }
-    },
-    {
-        "brand": "BYD",
-        "model": "BYD SEALION 7",
-        "start": 111,
-        "history": {
-            "JAN": 23,
-            "FEB": 32,
-            "MAR": 54,
-            "APR": 70
-        }
-    },
-    {
-        "brand": "BMW",
-        "model": "BMW I7",
-        "start": 100,
-        "history": {
-            "JAN": 3,
-            "FEB": 2,
-            "MAR": 1,
-            "APR": 2
-        }
-    },
-    {
-        "brand": "NISSAN",
-        "model": "NISSAN ARIYA",
-        "start": 92,
-        "history": {
-            "JAN": 0,
-            "FEB": 0,
-            "MAR": 0,
-            "APR": 0
-        }
-    },
-    {
-        "brand": "VOLVO",
-        "model": "VOLVO EC40",
-        "start": 92,
-        "history": {
-            "JAN": 1,
-            "FEB": 2,
-            "MAR": 1,
-            "APR": 1
-        }
-    },
-    {
-        "brand": "SKODA",
-        "model": "SKODA ELROQ",
-        "start": 55,
-        "history": {
-            "JAN": 4,
-            "FEB": 12,
-            "MAR": 5,
-            "APR": 5
-        }
-    },
-    {
-        "brand": "CITROEN",
-        "model": "CITROEN E-C3",
-        "start": 58,
-        "history": {
-            "JAN": 2,
-            "FEB": 4,
-            "MAR": 1,
-            "APR": 1
-        }
-    },
-    {
-        "brand": "RENAULT",
-        "model": "RENAULT 4 E-TECH",
-        "start": 41,
-        "history": {
-            "JAN": 2,
-            "FEB": 7,
-            "MAR": 4,
-            "APR": 6
-        }
-    },
-    {
-        "brand": "KIA",
-        "model": "KIA EV3",
-        "start": 53,
-        "history": {
-            "JAN": 7,
-            "FEB": 8,
-            "MAR": 1,
-            "APR": 3
-        }
-    },
-    {
-        "brand": "AUDI",
-        "model": "AUDI Q6 E-TRON",
-        "start": 39,
-        "history": {
-            "JAN": 3,
-            "FEB": 1,
-            "MAR": 0,
-            "APR": 2
-        }
-    },
-    {
-        "brand": "VOLKSWAGEN",
-        "model": "VOLKSWAGEN ID.7",
-        "start": 90,
-        "history": {
-            "JAN": 3,
-            "FEB": 6,
-            "MAR": 4,
-            "APR": 1
-        }
-    },
-    {
-        "brand": "BYD",
-        "model": "BYD ATTO 2",
-        "start": 51,
-        "history": {
-            "JAN": 25,
-            "FEB": 24,
-            "MAR": 29,
-            "APR": 26
-        }
-    },
-    {
-        "brand": "BYD",
-        "model": "BYD SEAL",
-        "start": 55,
-        "history": {
-            "JAN": 8,
-            "FEB": 10,
-            "MAR": 16,
-            "APR": 11
-        }
-    },
-    {
-        "brand": "BYD",
-        "model": "BYD SEAL U",
-        "start": 25,
-        "history": {
-            "JAN": 2,
-            "FEB": 2,
-            "MAR": 5,
-            "APR": 11
-        }
-    },
-    {
-        "brand": "BMW",
-        "model": "BMW IX3 Neue Klasse",
-        "start": 0,
-        "history": {
-            "JAN": 3,
-            "FEB": 3,
-            "MAR": 2,
-            "APR": 14
-        }
-    },
-    {
-        "brand": "Alte Modele",
-        "model": "Alte Modele",
-        "start": 0,
-        "history": {
-            "JAN": 0,
-            "FEB": 0,
-            "MAR": 0,
-            "APR": 0
-        }
-    }
-];
-
-// Normalizare marca
-function normalizeazaMarca(marca) {
-    if (!marca) return "";
-    let m = marca.toString().toUpperCase().trim().replace(/,/g, ".").replace(/-/g, " ").replace(/\s+/g, " ");
-    if (m.includes("MERCEDES")) return "MERCEDES BENZ";
-    if (m.includes("VW") || m.includes("VOLKSWAGEN")) return "VOLKSWAGEN";
-    if (m.includes("BMW")) return "BMW";
-    if (m.includes("TESLA")) return "TESLA";
-    return m;
-}
-
-// Aplica reguli specifice
-function aplicaReguliSpecifice(marca, model) {
-    const m = marca;
-    if (!model) return "";
-    let mod = model.toString().toUpperCase().trim().replace(/,/g, ".").replace(/-/g, " ").replace(/\s+/g, " ");
-    
-    // 1. AUDI
-    if (m === "AUDI") {
-        if (mod.includes("Q4")) return "AUDI Q4 E-TRON";
-        if (mod.includes("Q6")) return "AUDI Q6 E-TRON";
-        if (mod.includes("E TRON") || mod.includes("ETRON")) {
-            if (!mod.includes("GT") && !mod.includes("Q8") && !mod.includes("A6")) {
-                return "AUDI E-TRON (SUV)";
-            }
-        }
-    }
-    
-    // 2. BMW iX3 Neue Klasse
-    if (m === "BMW" && mod.includes("IX3 50 XDRIVE")) {
-        return "BMW IX3 NEUE KLASSE";
-    }
-    
-    // 3. MERCEDES
-    if (m === "MERCEDES BENZ") {
-        if (mod.includes("EQE")) return "MERCEDES BENZ EQE";
-        if (mod.includes("EQA")) return "MERCEDES BENZ EQA";
-        if (mod.includes("EQB")) return "MERCEDES BENZ EQB";
-        if (mod.includes("EQS")) return "MERCEDES BENZ EQS";
-        if (mod.includes("EQC")) return "MERCEDES BENZ EQC";
-        if (mod.includes("EVITO")) return "MERCEDES BENZ EVITO";
-        if (mod.includes("ESPRINTER")) return "MERCEDES BENZ ESPRINTER";
-    }
-    
-    // 4. VW
-    if (m === "VOLKSWAGEN") {
-        if (mod.includes("ID 4") || mod.includes("ID.4")) return "VOLKSWAGEN ID.4";
-        if (mod.includes("ID 3") || mod.includes("ID.3")) return "VOLKSWAGEN ID.3";
-        if (mod.includes("ID 5") || mod.includes("ID.5")) return "VOLKSWAGEN ID.5";
-        if (mod.includes("ID 7") || mod.includes("ID.7")) return "VOLKSWAGEN ID.7";
-        if (mod.includes("UP")) return "VOLKSWAGEN UP";
-    }
-    
-    // 5. MG4
-    if (m === "MG" && mod.includes("MG4")) return "MG MG4";
-    
-    // 6. Maxus
-    if (m === "MAXUS") {
-        if (mod.includes("DELIVER 3")) return "MAXUS MAXUS E-DELIVER 3";
-        if (mod.includes("DELIVER 9")) return "MAXUS MAXUS EDELIVER 9";
-    }
-    
-    // 7. Renault
-    if (m === "RENAULT") {
-        if (mod.includes("RENAULT 5") || mod === "5" || mod.includes("5 E TECH")) return "RENAULT RENAULT 5 E-TECH";
-        if (mod.includes("RENAULT 4") || mod === "4" || mod.includes("4 E TECH")) return "RENAULT RENAULT 4 E-TECH";
-    }
-    
-    // 8. Toyota
-    if (m === "TOYOTA") {
-        if (mod.includes("PROACE CITY")) return "TOYOTA PROACE CITY";
-        if (mod.includes("BZ4X") || mod.includes("BZ 4X")) return "TOYOTA BZ4X";
-    }
-    
-    // 9. KIA
-    if (m === "KIA" && (mod.includes("EV6") || mod.includes("EV 6"))) return "KIA EV6";
-    
-    // 10. VOLVO
-    if (m === "VOLVO") {
-        if (mod.includes("XC40") || mod.includes("EX40")) return "VOLVO EX40";
-        if (mod.includes("C40") || mod.includes("EC40")) return "VOLVO EC40";
-    }
-    
-    // 11. HYUNDAI
-    if (m === "HYUNDAI") {
-        if (mod.includes("IONIQ 5") || mod.includes("IONIQ5")) return "HYUNDAI IONIQ 5";
-        if (mod.includes("IONIQ 6") || mod.includes("IONIQ6")) return "HYUNDAI IONIQ 6";
-        if (mod.includes("IONIQ")) return "HYUNDAI IONIQ";
-    }
-    
-    // 12. TESLA
-    if (m === "TESLA") {
-        if (mod.includes("MODEL 3") || mod.includes("MODEL3")) return "TESLA MODEL 3";
-        if (mod.includes("MODEL Y") || mod.includes("MODELY")) return "TESLA MODEL Y";
-        if (mod.includes("MODEL S") || mod.includes("MODELS")) return "TESLA MODEL S";
-        if (mod.includes("MODEL X") || mod.includes("MODELX")) return "TESLA MODEL X";
-    }
-    
-    return mod;
-}
-
-// Calculeaza cumulat YTD si Parc
-function computeYtdAndParcData(selectedMonthNume, currentRawInmatriculari) {
-    const data = JSON.parse(JSON.stringify(modelHistoryBase));
-    
-    data.forEach(item => {
-        item.current_monthly = 0;
-    });
-    
-    const grupateBrute = {};
-    currentRawInmatriculari.forEach(item => {
-        const marcaNorm = normalizeazaMarca(item.marca);
-        const modelNorm = aplicaReguliSpecifice(marcaNorm, item.model);
-        const key = marcaNorm + "|" + modelNorm;
-        grupateBrute[key] = (grupateBrute[key] || 0) + item.volum;
-    });
-    
-    let alteModeleVolum = 0;
-    
-    for (const key in grupateBrute) {
-        const parts = key.split('|');
-        const marcaBrut = parts[0];
-        const modelBrut = parts[1];
-        const volum = grupateBrute[key];
-        let identificat = false;
-        
-        const fullBrutName = marcaBrut + " " + modelBrut;
-        const wordsBrut = fullBrutName.split(" ");
-        
-        for (let i = 0; i < data.length - 1; i++) {
-            const itemExcel = data[i];
-            const mExcelNorm = normalizeazaMarca(itemExcel.brand);
-            const modExcelNorm = itemExcel.model.toString().toUpperCase().trim().replace(/,/g, ".").replace(/-/g, " ").replace(/\s+/g, " ");
-            
-            if (mExcelNorm === marcaBrut) {
-                const wordsExcel = modExcelNorm.split(" ");
-                let isSubset = true;
-                for (let k = 0; k < wordsExcel.length; k++) {
-                    if (wordsExcel[k] && !wordsBrut.includes(wordsExcel[k])) {
-                        isSubset = false;
-                        break;
-                    }
-                }
-                
-                if (isSubset) {
-                    itemExcel.current_monthly += volum;
-                    identificat = true;
-                    break;
-                }
-            }
-        }
-        
-        if (!identificat) {
-            alteModeleVolum += volum;
-        }
-    }
-    
-    const alteModeleItem = data[data.length - 1];
-    alteModeleItem.current_monthly = alteModeleVolum;
-    
-    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-    const currentMonthIdx = Math.max(0, monthsOrder.indexOf((selectedMonthNume || "").toUpperCase().trim()));
-    
-    let totalMonthlySum = 0;
-    let totalYtdSum = 0;
-    let totalParcSum = 0;
-    
-    data.forEach(item => {
-        item.history[selectedMonthNume] = item.current_monthly;
-        
-        let ytdSum = 0;
-        for (let i = 0; i <= currentMonthIdx; i++) {
-            ytdSum += (item.history[monthsOrder[i]] || 0);
-        }
-        
-        item.ytd = ytdSum;
-        item.parc = item.start + ytdSum;
-        
-        totalMonthlySum += item.current_monthly;
-        totalYtdSum += item.ytd;
-        totalParcSum += item.parc;
-    });
-    
-    return {
-        models: data,
-        totals: {
-            monthly: totalMonthlySum,
-            ytd: totalYtdSum,
-            parc: totalParcSum
-        }
-    };
-}
 // Starea aplicației
 const state = {
     sheetsUrl: localStorage.getItem('ev_radar_sheets_url') || '',
@@ -1122,6 +36,16 @@ async function initHistoricalSummary() {
         }
     } catch (err) {
         console.warn("Could not load historical summary from server:", err);
+    }
+
+    try {
+        const response = await fetch(`rapoarte/historical_models.json?t=${Date.now()}`);
+        if (response.ok) {
+            state.historicalModels = await response.json();
+            console.log("Historical models loaded successfully!");
+        }
+    } catch (err) {
+        console.warn("Could not load historical models from server:", err);
     }
 }
 
@@ -1367,6 +291,33 @@ function setupPublicMonthSelect() {
 
     // Initializare selectie luni la incarcarea istoricului
     updateMonthSelectOptions();
+
+    // Auto-select cea mai recenta luna disponibila din historicalSummary
+    if (state.historicalSummary) {
+        const monthsOrder = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+        const availableYears = Object.keys(state.historicalSummary).sort((a,b) => Number(b)-Number(a));
+        const latestYear = availableYears[0];
+        
+        if (latestYear) {
+            yearSelect.value = latestYear;
+            updateMonthSelectOptions(); // Re-populam in caz ca s-a schimbat anul
+            
+            const yearData = state.historicalSummary[latestYear] || {};
+            const availableMonths = Object.keys(yearData);
+            const sortedMonths = availableMonths.sort((a,b) => monthsOrder.indexOf(a) - monthsOrder.indexOf(b));
+            const latestMonth = sortedMonths[sortedMonths.length - 1];
+            
+            if (latestMonth) {
+                for (let opt of monthSelect.options) {
+                    const parts = opt.value.split('|');
+                    if (parts.length > 1 && parts[1] === latestMonth) {
+                        monthSelect.value = opt.value;
+                        break;
+                    }
+                }
+            }
+        }
+    }
 
     // Trigger initial load (always load from server or cache on startup)
     handler();
@@ -1647,12 +598,18 @@ async function processAllFiles() {
     state.data.evShare = totalNewAllFuels > 0 ? (totalNewEv / totalNewAllFuels) : 0;
     state.data.usedShare = totalEV > 0 ? (state.data.totalUsedEv / totalEV) : 0;
     
-    const val2025Map = {
-        'JAN': 1639, 'FEB': 1069, 'MAR': 628, 'APR': 612, 'MAY': 863, 'JUN': 807,
-        'JUL': 976, 'AUG': 1335, 'SEP': 1158, 'OCT': 1562, 'NOV': 1552, 'DEC': 1880
-    };
-    const val_2025 = val2025Map[state.data.lunaNume] || 863;
-    state.data.yoyGrowth = ((totalEV - val_2025) / val_2025) * 100;
+    const prevYearStr = String(parseInt(state.data.luna.split('-')[0]) - 1);
+    let val_prev_year = 0;
+    if (state.historicalSummary && state.historicalSummary[prevYearStr] && state.historicalSummary[prevYearStr][state.data.lunaNume]) {
+        const item = state.historicalSummary[prevYearStr][state.data.lunaNume];
+        val_prev_year = item.totalAutoReg + item.totalUtilReg;
+    }
+    
+    if (val_prev_year > 0) {
+        state.data.yoyGrowth = ((totalEV - val_prev_year) / val_prev_year) * 100;
+    } else {
+        state.data.yoyGrowth = 0;
+    }
 }
 
 // Citeste un fisier Excel si returneaza randurile ca array 2D
@@ -1701,6 +658,38 @@ function readExcelRows(file, sheetName) {
     });
 }
 
+function animateElementValue(id, endValue, duration = 800) {
+    const element = document.getElementById(id);
+    if (!element) return;
+    
+    const oldText = element.innerText;
+    const isNegative = oldText.includes('-');
+    const digitsOnly = oldText.replace(/[^\d]/g, '');
+    let startValue = parseInt(digitsOnly) || 0;
+    if (isNegative) startValue = -startValue;
+    
+    if (startValue === endValue) {
+        element.innerText = endValue.toLocaleString('ro-RO');
+        return;
+    }
+    
+    const startTime = performance.now();
+    
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+        const currentValue = Math.floor(startValue + (endValue - startValue) * ease);
+        element.innerText = currentValue.toLocaleString('ro-RO');
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        } else {
+            element.innerText = endValue.toLocaleString('ro-RO');
+        }
+    }
+    requestAnimationFrame(update);
+}
+
 function renderDashboard() {
     const totalEV = state.data.totalAutoReg + state.data.totalUtilReg;
     const netGrowth = totalEV - state.data.totalRadieri;
@@ -1712,10 +701,10 @@ function renderDashboard() {
         localStorage.setItem('ev_radar_ro_last_month_code', state.data.luna);
     }
     
-    document.getElementById('val-auto-reg').innerText = state.data.totalAutoReg;
-    document.getElementById('val-util-reg').innerText = state.data.totalUtilReg;
-    document.getElementById('val-total-rad').innerText = state.data.totalRadieri;
-    document.getElementById('val-net-growth').innerText = netGrowth;
+    animateElementValue('val-auto-reg', state.data.totalAutoReg);
+    animateElementValue('val-util-reg', state.data.totalUtilReg);
+    animateElementValue('val-total-rad', state.data.totalRadieri);
+    animateElementValue('val-net-growth', netGrowth);
     
     // Calculeaza parcul auto national total estimat dinamic în funcție de an
     const currentYear = state.data && state.data.luna ? parseInt(state.data.luna.split('-')[0]) : 2026;
@@ -1761,18 +750,31 @@ function renderDashboard() {
         totalFleet = baseFleetDec2025 - subtractNet;
     }
     
-    document.getElementById('val-national-fleet').innerText = totalFleet.toLocaleString('ro-RO');
+    animateElementValue('val-national-fleet', totalFleet);
     document.getElementById('fleet-month-name').innerText = currentLunaNume + " " + currentYear;
     document.getElementById('divider-month-name').innerText = currentLunaNume + " " + currentYear;
     
     // Dashboard advanced stats
     document.getElementById('val-ev-share').innerText = `${(state.data.evShare * 100).toFixed(2)}%`;
     document.getElementById('val-used-share').innerText = `${(state.data.usedShare * 100).toFixed(2)}%`;
+    const totalUsedEvVal = state.data.totalUsedEv !== undefined ? state.data.totalUsedEv : Math.round((state.data.totalAutoReg + state.data.totalUtilReg) * (state.data.usedShare || 0));
+    animateElementValue('val-used-qty', totalUsedEvVal);
     
-    const sign = state.data.yoyGrowth >= 0 ? '+' : '';
-    document.getElementById('lbl-yoy-growth').innerText = `Evoluție YoY vs ${state.data.lunaNume} 2025`;
+    let dynamicYoy = state.data.yoyGrowth;
+    const prevYearStr = String(parseInt(state.data.luna.split('-')[0]) - 1);
+    if (state.historicalSummary && state.historicalSummary[prevYearStr] && state.historicalSummary[prevYearStr][state.data.lunaNume]) {
+        const item = state.historicalSummary[prevYearStr][state.data.lunaNume];
+        const val_prev_year = item.totalAutoReg + item.totalUtilReg;
+        if (val_prev_year > 0) {
+            dynamicYoy = ((totalEV - val_prev_year) / val_prev_year) * 100;
+        }
+    }
+    state.data.yoyGrowth = dynamicYoy; // Update the state so it propagates to export texts
+
+    const sign = dynamicYoy >= 0 ? '+' : '';
+    document.getElementById('lbl-yoy-growth').innerText = `Evoluție YoY vs ${state.data.lunaNume} ${prevYearStr}`;
     const yoyValEl = document.getElementById('val-yoy-growth');
-    yoyValEl.innerText = `${sign}${state.data.yoyGrowth.toFixed(2)}%`;
+    yoyValEl.innerText = `${sign}${dynamicYoy.toFixed(2)}%`;
     if (state.data.yoyGrowth >= 0) {
         yoyValEl.className = 'stat-value success-value';
     } else {
@@ -1783,14 +785,48 @@ function renderDashboard() {
     const firmePct = totalEV > 0 ? (state.data.totalFirme / totalEV) * 100 : 0;
     const pfPct = totalEV > 0 ? (state.data.totalPf / totalEV) * 100 : 0;
     document.getElementById('val-firme-pct').innerText = `${firmePct.toFixed(2)}%`;
-    document.getElementById('val-firme-qty').innerText = (state.data.totalFirme || 0).toLocaleString('ro-RO');
+    animateElementValue('val-firme-qty', state.data.totalFirme || 0);
     document.getElementById('val-pf-pct').innerText = `${pfPct.toFixed(2)}%`;
-    document.getElementById('val-pf-qty').innerText = (state.data.totalPf || 0).toLocaleString('ro-RO');
+    animateElementValue('val-pf-qty', state.data.totalPf || 0);
     
+    // Functii ajutatoare pentru display
+    const stripBrandFromModel = (brand, model) => {
+        if (!model) return "";
+        if (!brand) return model;
+        const b = brand.toString().trim().toUpperCase();
+        let m = model.toString().trim().toUpperCase();
+        if (m.startsWith(b)) {
+            m = m.substring(b.length).trim();
+        }
+        return m;
+    };
+
+    function normalizeazaMarcaDisplay(marca) {
+        if (!marca) return "";
+        let m = marca.toString().toUpperCase().trim().replace(/\s+/g, " ");
+
+        if (m.includes("VOLKSWAGEN") || m === "VW" || m === "VOLKSVAGEN" || m === "VOLSKWAGEN") return "VOLKSWAGEN";
+        if (m.includes("MERCEDES")) return "MERCEDES-BENZ";
+        if (m.startsWith("BMW")) return "BMW";
+        if (m.includes("TESLA")) return "TESLA";
+        if (m.startsWith("RENAULT")) return "RENAULT";
+        if (m.includes("HYUNDAI") || m === "HYUNDAY") return "HYUNDAI";
+        if (m === "DS AUTOMOBILES" || m === "DS") return "DS";
+        if (m.startsWith("MG")) return "MG";
+        if (m.includes("ALFA") && m.includes("ROMEO")) return "ALFA ROMEO";
+        if (m.includes("FARIZON")) return "FARIZON";
+        if (m.startsWith("FORD")) return "FORD";
+        if (m === "SSANGYONG" || m === "KG MOBILITY") return "SSANGYONG / KG MOBILITY";
+        if (m.startsWith("NISSAN")) return "NISSAN";
+        if (m.includes("LUCID")) return "LUCID";
+        if (m.includes("LAMBORGHINI")) return "LAMBORGHINI";
+        return m;
+    }
+
     // Top Marci (Branduri)
     const brandVolums = {};
     state.data.inmatriculariModele.forEach(item => {
-        const brand = item.marca || 'Necunoscută';
+        const brand = normalizeazaMarcaDisplay(item.marca || 'Necunoscută');
         brandVolums[brand] = (brandVolums[brand] || 0) + item.volum;
     });
     const topBrands = Object.keys(brandVolums).map(brand => ({
@@ -1813,7 +849,9 @@ function renderDashboard() {
     regTbody.innerHTML = '';
     state.data.inmatriculariModele.slice(0, 20).forEach((item, idx) => {
         const tr = document.createElement('tr');
-        tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${item.marca}</td><td>${item.model}</td><td><strong>${item.volum}</strong></td>`;
+        const marcaDisplay = normalizeazaMarcaDisplay(item.marca);
+        const modelDisplay = stripBrandFromModel(marcaDisplay, item.model);
+        tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${marcaDisplay}</td><td>${modelDisplay}</td><td><strong>${item.volum}</strong></td>`;
         regTbody.appendChild(tr);
     });
     
@@ -1822,9 +860,68 @@ function renderDashboard() {
     radTbody.innerHTML = '';
     state.data.radieriModele.slice(0, 20).forEach((item, idx) => {
         const tr = document.createElement('tr');
-        tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${item.marca}</td><td>${item.model}</td><td><strong>${item.volum}</strong></td>`;
+        const marcaRadDisplay = normalizeazaMarcaDisplay(item.marca);
+        const modelRadDisplay = stripBrandFromModel(marcaRadDisplay, item.model);
+        tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${marcaRadDisplay}</td><td>${modelRadDisplay}</td><td><strong>${item.volum}</strong></td>`;
         radTbody.appendChild(tr);
     });
+    
+    // Top 50 YTD și Parc Auto (dacă e anul curent 2026)
+    const top50Grid = document.getElementById('top50-tables-grid');
+    if (top50Grid) {
+        if (currentYear === 2026) {
+            const modelsData = state.historicalModels && state.historicalModels[state.data.luna] ? state.historicalModels[state.data.luna] : {ytd: [], parc: []};
+            const top50Ytd  = modelsData.ytd.slice(0, 50);
+            const top50Parc = modelsData.parc.slice(0, 50);
+            
+            const totalYtd = top50Ytd.reduce((sum, item) => sum + item.ytd, 0);
+            const totalParc = top50Parc.reduce((sum, item) => sum + item.parc, 0);
+            
+            // Render Top 50 YTD
+            const ytdTbody = document.getElementById('top-50-ytd-tbody');
+            if (ytdTbody) {
+                ytdTbody.innerHTML = '';
+                top50Ytd.forEach((item, idx) => {
+                    const sharePct = totalYtd > 0 ? (item.ytd / totalYtd * 100).toFixed(2) : '0.00';
+                    const tr = document.createElement('tr');
+                    
+                    const mBrand = normalizeazaMarcaDisplay(item.brand);
+                    const mModel = stripBrandFromModel(mBrand, item.model);
+                    const modelNameStr = `${mBrand} ${mModel}`;
+                    
+                    tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx+1}</td>
+                                    <td>${modelNameStr}</td>
+                                    <td style="text-align: right;"><strong>${item.ytd.toLocaleString('ro-RO')}</strong></td>
+                                    <td style="text-align: right;">${sharePct}%</td>`;
+                    ytdTbody.appendChild(tr);
+                });
+            }
+            
+            // Render Top 50 Parc
+            const parcTbody = document.getElementById('top-50-parc-tbody');
+            if (parcTbody) {
+                parcTbody.innerHTML = '';
+                top50Parc.forEach((item, idx) => {
+                    const sharePct = totalParc > 0 ? (item.parc / totalParc * 100).toFixed(2) : '0.00';
+                    const tr = document.createElement('tr');
+                    
+                    const mBrand = normalizeazaMarcaDisplay(item.brand);
+                    const mModel = stripBrandFromModel(mBrand, item.model);
+                    const modelNameStr = `${mBrand} ${mModel}`;
+                    
+                    tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx+1}</td>
+                                    <td>${modelNameStr}</td>
+                                    <td style="text-align: right;"><strong>${item.parc.toLocaleString('ro-RO')}</strong></td>
+                                    <td style="text-align: right;">${sharePct}%</td>`;
+                    parcTbody.appendChild(tr);
+                });
+            }
+            
+            top50Grid.style.display = 'grid';
+        } else {
+            top50Grid.style.display = 'none';
+        }
+    }
     
     // Render blog report texts
     generateBlogReportTexts();
@@ -1840,6 +937,9 @@ function renderDashboard() {
 // Generează textele și codurile HTML pentru secțiunea de blog
 
 function generateBlogReportTexts() {
+    if (!state.data) return;
+    const currentYear = state.data.luna ? parseInt(state.data.luna.split('-')[0]) : 2026;
+    const prevYearStr = String(currentYear - 1);
     const totalEV = state.data.totalAutoReg + state.data.totalUtilReg;
     const totalUsedEv = state.data.totalUsedEv !== undefined ? state.data.totalUsedEv : Math.round(totalEV * (state.data.usedShare || 0));
     const totalNewEv = totalEV - totalUsedEv;
@@ -1871,39 +971,49 @@ function generateBlogReportTexts() {
     `;
     document.getElementById('blog-summary-text').innerHTML = summaryHtml;
     
-    // 2. Calculăm datele pentru YTD și Parc
-    const results = computeYtdAndParcData(state.data.lunaNume, state.data.inmatriculariModele);
-    const modelsData = results.models;
-    const totals = results.totals;
+    // 2. Preluam datele din historicalModels
+    const modelsData = state.historicalModels && state.historicalModels[state.data.luna] ? state.historicalModels[state.data.luna] : {ytd: [], parc: []};
     
-    // Excludem 'Alte Modele' din topuri
-    const specificData = modelsData.filter(d => d.brand !== "Alte Modele");
-    
-    // Top 20 monthly
-    const top20Monthly = [...specificData].sort((a, b) => (b.current_monthly || 0) - (a.current_monthly || 0)).slice(0, 20);
+    // Top 20 monthly (folosim direct din inmatriculariModele curente)
+    const top20Monthly = [...state.data.inmatriculariModele]
+        .filter(d => d.marca !== "Alte Modele")
+        .sort((a, b) => b.volum - a.volum).slice(0, 20);
     
     // Top 20 YTD
-    const top20Ytd = [...specificData].sort((a, b) => b.ytd - a.ytd).slice(0, 20);
+    const top20Ytd = modelsData.ytd.slice(0, 20);
     
     // Top 20 Parc
-    const top20Parc = [...specificData].sort((a, b) => b.parc - a.parc).slice(0, 20);
+    const top20Parc = modelsData.parc.slice(0, 20);
     
     // Top 50 YTD
-    const top50Ytd = [...specificData].sort((a, b) => b.ytd - a.ytd).slice(0, 50);
+    const top50Ytd = modelsData.ytd.slice(0, 50);
+    const totalYtd = top50Ytd.reduce((sum, item) => sum + item.ytd, 0);
     
     // Top 50 Parc
-    const top50Parc = [...specificData].sort((a, b) => b.parc - a.parc).slice(0, 50);
+    const top50Parc = modelsData.parc.slice(0, 50);
+    const totalParc = top50Parc.reduce((sum, item) => sum + item.parc, 0);
     
-    // 1. Înmatriculări Lunare EV (2025 vs. 2026)
-    const regs2025 = {
-        'JAN': 1639, 'FEB': 1069, 'MAR': 628, 'APR': 612, 'MAY': 863, 'JUN': 807,
-        'JUL': 976, 'AUG': 1335, 'SEP': 1158, 'OCT': 1562, 'NOV': 1552, 'DEC': 1880
-    };
+    // 1. Înmatriculări Lunare EV
+    const regs2025 = {};
+    const regs2026 = {};
+    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     
-    const regs2026 = {
-        'JAN': 1411, 'FEB': 1372, 'MAR': 1209, 'APR': 1308, 'MAY': 1505,
-        'JUN': null, 'JUL': null, 'AUG': null, 'SEP': null, 'OCT': null, 'NOV': null, 'DEC': null
-    };
+    monthsOrder.forEach(m => {
+        regs2025[m] = 0;
+        regs2026[m] = null;
+        
+        if (state.historicalSummary) {
+            if (state.historicalSummary[prevYearStr] && state.historicalSummary[prevYearStr][m]) {
+                const item = state.historicalSummary[prevYearStr][m];
+                regs2025[m] = item.totalAutoReg + item.totalUtilReg;
+            }
+            const currYearStr = String(currentYear);
+            if (state.historicalSummary[currYearStr] && state.historicalSummary[currYearStr][m]) {
+                const item = state.historicalSummary[currYearStr][m];
+                regs2026[m] = item.totalAutoReg + item.totalUtilReg;
+            }
+        }
+    });
     
     const currentLunaNume = state.data.lunaNume;
     const currentRegs = state.data.totalAutoReg + state.data.totalUtilReg;
@@ -1911,7 +1021,6 @@ function generateBlogReportTexts() {
         regs2026[currentLunaNume] = currentRegs;
     }
     
-    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     const currentIdx = monthsOrder.indexOf(currentLunaNume);
     if (currentIdx !== -1) {
         for (let i = currentIdx + 1; i < monthsOrder.length; i++) {
@@ -2122,11 +1231,11 @@ function generateBlogReportTexts() {
   <div class="ev-legend">
     <div class="ev-legend-item">
       <div class="ev-legend-color" style="background: #004b87;"></div>
-      <span>2026</span>
+      <span>${currentYear}</span>
     </div>
     <div class="ev-legend-item">
       <div class="ev-legend-color" style="background: #4299e1;"></div>
-      <span>2025</span>
+      <span>${prevYearStr}</span>
     </div>
   </div>
   <div class="ev-v-chart">
@@ -2196,55 +1305,22 @@ ${monthlyBarsHtml}  </div>
     }
   </style>
   <div class="ev-chart-title">Top 20 ${monthRo}</div>
-  <div class="ev-chart-subtitle">Înmatriculări mașini electrice România (2026)</div>\n`;
+  <div class="ev-chart-subtitle">Înmatriculări mașini electrice România (${currentYear})</div>\n`;
 
-    const maxMonthlyVal = top20Monthly.length > 0 ? top20Monthly[0].current_monthly : 1;
+    const maxMonthlyVal = top20Monthly.length > 0 ? top20Monthly[0].volum : 1;
     top20Monthly.forEach((item, idx) => {
-        const widthPct = (item.current_monthly / maxMonthlyVal * 100).toFixed(1);
+        const widthPct = (item.volum / maxMonthlyVal * 100).toFixed(1);
         const barClass = idx < 3 ? "top-3" : "";
-        codeHtmlTop20 += `  <div class="ev-bar-row"><div class="ev-label">${idx + 1}. ${formatModelName(item.brand, item.model)}</div><div class="ev-bar-wrapper"><div class="ev-bar ${barClass}" style="width: ${widthPct}%;"></div><span class="ev-value">${item.current_monthly}</span></div></div>\n`;
+        codeHtmlTop20 += `  <div class="ev-bar-row"><div class="ev-label">${idx + 1}. ${formatModelName(item.marca, item.model)}</div><div class="ev-bar-wrapper"><div class="ev-bar ${barClass}" style="width: ${widthPct}%;"></div><span class="ev-value">${item.volum}</span></div></div>\n`;
     });
     codeHtmlTop20 += `</div>`;
 
     // 3. Evoluție Parc Auto EV (înmatriculări anuale brute)
-    const annualData = [
-        { year: 2011, qty: 7 },
-        { year: 2012, qty: 5 },
-        { year: 2013, qty: 50 },
-        { year: 2014, qty: 16 },
-        { year: 2015, qty: 32 },
-        { year: 2016, qty: 104 },
-        { year: 2017, qty: 247 },
-        { year: 2018, qty: 710 },
-        { year: 2019, qty: 1747 },
-        { year: 2020, qty: 3134 },
-        { year: 2021, qty: 6831 },
-        { year: 2022, qty: 12466 },
-        { year: 2023, qty: 16852 },
-        { year: 2024, qty: 12677 },
-        { year: 2025, qty: 12756 }
-    ];
-
+    const annualData = state.computedAnnualData || [];
+    const totalFleet = state.computedTotalFleet || 63986;
     const base2025 = 63986;
-    const history2026 = {
-            'JAN': 1411 - 86,
-            'FEB': 1372 - 92,
-            'MAR': 1209 - 188,
-            'APR': 1308 - 49,
-            'MAY': 1505 - 103,
-            'JUN': 0, 'JUL': 0, 'AUG': 0, 'SEP': 0, 'OCT': 0, 'NOV': 0, 'DEC': 0
-        };
     
-    const netGrowth = state.data.totalAutoReg + state.data.totalUtilReg - state.data.totalRadieri;
-    history2026[currentLunaNume] = netGrowth;
-    
-    let totalFleet = base2025;
-    for (const m of monthsOrder) {
-        totalFleet += history2026[m];
-        if (m === currentLunaNume) break;
-    }
-    
-    const finalAnnualData = [...annualData, { year: 2026, qty: totalFleet - base2025, active: true }];
+    const finalAnnualData = [...annualData, { year: currentYear, qty: totalFleet - base2025, active: true }];
     const maxQty = Math.max(...finalAnnualData.map(d => d.qty));
     const scaleMaxQty = maxQty * 1.15;
 
@@ -2508,7 +1584,7 @@ ${annualBarsHtml}  </div>
       <tbody>\n`;
       
     top50Ytd.forEach((item, idx) => {
-        const sharePct = totals.ytd > 0 ? (item.ytd / totals.ytd * 100).toFixed(2) : '0.00';
+        const sharePct = totalYtd > 0 ? (item.ytd / totalYtd * 100).toFixed(2) : '0.00';
         codeHtmlTableYtd += `        <tr><td class="col-rank">${idx+1}</td><td class="col-model">${formatModelName(item.brand, item.model)}</td><td class="col-val">${item.ytd}</td><td class="col-pct">${sharePct}%</td></tr>\n`;
     });
     codeHtmlTableYtd += `      </tbody>
@@ -2606,7 +1682,7 @@ ${annualBarsHtml}  </div>
       <tbody>\n`;
       
     top50Parc.forEach((item, idx) => {
-        const sharePct = totals.parc > 0 ? (item.parc / totals.parc * 100).toFixed(2) : '0.00';
+        const sharePct = totalParc > 0 ? (item.parc / totalParc * 100).toFixed(2) : '0.00';
         const formattedVal = item.parc.toLocaleString('ro-RO');
         codeHtmlTableParc += `        <tr><td class="col-rank">${idx+1}</td><td class="col-model">${formatModelName(item.brand, item.model)}</td><td class="col-val">${formattedVal}</td><td class="col-pct">${sharePct}%</td></tr>\n`;
     });
@@ -2772,8 +1848,7 @@ function initAiTakeawaysTab() {
             const totalRadieri = state.data.totalRadieri;
             
             // Calculăm datele pentru prompt
-            const results = computeYtdAndParcData(state.data.lunaNume, state.data.inmatriculariModele);
-            const specificData = results.models.filter(d => d.brand !== "Alte Modele");
+            const modelsData = state.historicalModels && state.historicalModels[state.data.luna] ? state.historicalModels[state.data.luna] : {ytd: [], parc: []};
             
             const formatModel = (brand, model) => {
                 const b = (brand || "").trim();
@@ -2781,13 +1856,13 @@ function initAiTakeawaysTab() {
                 return m.toUpperCase().startsWith(b.toUpperCase()) ? m : `${b} ${m}`;
             };
             
-            const top5Monthly = [...specificData].sort((a, b) => (b.current_monthly || 0) - (a.current_monthly || 0)).slice(0, 5)
-                .map((m, idx) => `${idx+1}. ${formatModel(m.brand, m.model)}: ${m.current_monthly} unități`).join('\n');
+            const top5Monthly = [...state.data.inmatriculariModele].filter(d => d.marca !== "Alte Modele").sort((a, b) => b.volum - a.volum).slice(0, 5)
+                .map((m, idx) => `${idx+1}. ${formatModel(m.marca, m.model)}: ${m.volum} unități`).join('\n');
                 
-            const top5Ytd = [...specificData].sort((a, b) => b.ytd - a.ytd).slice(0, 5)
+            const top5Ytd = modelsData.ytd.slice(0, 5)
                 .map((m, idx) => `${idx+1}. ${formatModel(m.brand, m.model)}: ${m.ytd} unități`).join('\n');
                 
-            const top5Parc = [...specificData].sort((a, b) => b.parc - a.parc).slice(0, 5)
+            const top5Parc = modelsData.parc.slice(0, 5)
                 .map((m, idx) => `${idx+1}. ${formatModel(m.brand, m.model)}: ${m.parc} unități`).join('\n');
                 
             const monthTranslations = {
@@ -3457,23 +2532,8 @@ function renderHistoricalCharts() {
 
     const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 
-    // Fallback static doar pentru 2025/2026 daca nu exista historicalSummary
-    const default2025 = {
-        'JAN': 1639, 'FEB': 1069, 'MAR': 628, 'APR': 612, 'MAY': 863, 'JUN': 807,
-        'JUL': 976, 'AUG': 1335, 'SEP': 1158, 'OCT': 1562, 'NOV': 1552, 'DEC': 1880
-    };
-    const default2026 = {
-        'JAN': 1411, 'FEB': 1372, 'MAR': 1209, 'APR': 1308, 'MAY': 1505,
-        'JUN': null, 'JUL': null, 'AUG': null, 'SEP': null, 'OCT': null, 'NOV': null, 'DEC': null
-    };
-
     monthsOrder.forEach(m => {
-        if (prevYear === 2025) {
-            regsPrevYear[m] = default2025[m];
-        }
-        if (currentYear === 2026) {
-            regsCurrentYear[m] = default2026[m];
-        }
+        // No hardcoded fallback — data comes exclusively from historical_summary.json
 
         if (state.historicalSummary) {
             const prevYearStr = String(prevYear);
@@ -3589,7 +2649,11 @@ function renderHistoricalCharts() {
             const yData = state.historicalSummary[String(y)];
             Object.keys(yData).forEach(m => {
                 const item = yData[m];
-                yearTotalReg += (item.totalAutoReg + item.totalUtilReg - item.totalRadieri);
+                if (y <= 2024) {
+                    yearTotalReg += (item.totalAutoReg + item.totalUtilReg);
+                } else {
+                    yearTotalReg += (item.totalAutoReg + item.totalUtilReg - item.totalRadieri);
+                }
             });
         }
         
@@ -3599,6 +2663,8 @@ function renderHistoricalCharts() {
             annualData.push({ year: y, qty: qty });
         }
     });
+    
+    state.computedAnnualData = annualData;
 
     let currentYearCumulativeReg = 0;
     let currentYearCumulativeNet = 0;
@@ -3645,20 +2711,15 @@ function renderHistoricalCharts() {
                     const item = state.historicalSummary[String(y)][m];
                     mReg = item.totalAutoReg + item.totalUtilReg;
                     mRad = item.totalRadieri;
-                } else if (y === 2025) {
-                    // Default values for 2025 passenger registration if summary missing
-                    const default2025Auto = {
-                        'JAN': 1402, 'FEB': 1000, 'MAR': 595, 'APR': 583, 'MAY': 814, 'JUN': 761,
-                        'JUL': 897, 'AUG': 1278, 'SEP': 1100, 'OCT': 1486, 'NOV': 1478, 'DEC': 1797
-                    };
-                    mReg = default2025Auto[m] || 0;
-                    mRad = Math.round(mReg * 0.08);
+                } else {
                 }
                 subtractNet += (mReg - mRad);
             }
         }
         totalFleet = baseFleetDec2025 - subtractNet;
     }
+    
+    state.computedTotalFleet = totalFleet;
 
     const summaryVal = document.getElementById('val-fleet-summary');
     if (summaryVal) {
@@ -3724,4 +2785,82 @@ function renderHistoricalCharts() {
             }
         }, 100);
     }
+    
+    // Call the newly created EV Share Trend Chart function
+    renderEvShareTrendChart();
+}
+
+function renderEvShareTrendChart() {
+    const container = document.getElementById('ev-share-trend-list');
+    if (!container || !state.historicalSummary) return;
+    
+    container.innerHTML = '';
+    const currentYear = state.data && state.data.luna ? parseInt(state.data.luna.split('-')[0]) : 2026;
+    const prevYear = currentYear - 1;
+    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    
+    // We will plot prevYear and currentYear evShare if available
+    let maxVal = 0;
+    const prevYearShares = {};
+    const currYearShares = {};
+    
+    monthsOrder.forEach(m => {
+        let share25 = 0;
+        let share26 = null;
+        if (state.historicalSummary[String(prevYear)] && state.historicalSummary[String(prevYear)][m]) {
+            share25 = state.historicalSummary[String(prevYear)][m].evShare || 0;
+        }
+        if (state.historicalSummary[String(currentYear)] && state.historicalSummary[String(currentYear)][m]) {
+            share26 = state.historicalSummary[String(currentYear)][m].evShare;
+        }
+        
+        // Suprapunem luna curenta din state.data.evShare in mod activ
+        if (m === state.data.lunaNume) {
+            share26 = state.data.evShare;
+        }
+        
+        // Daca e luna viitoare in anul curent, setam pe null
+        const currentIdx = monthsOrder.indexOf(state.data.lunaNume);
+        if (monthsOrder.indexOf(m) > currentIdx) {
+            share26 = null;
+        }
+        
+        prevYearShares[m] = share25;
+        currYearShares[m] = share26;
+        
+        if (share25 > maxVal) maxVal = share25;
+        if (share26 !== null && share26 > maxVal) maxVal = share26;
+    });
+    
+    const scaleMax = maxVal > 0 ? maxVal * 1.2 : 0.2; // 20% minim
+
+    monthsOrder.forEach(m => {
+        const val25 = prevYearShares[m];
+        const val26 = currYearShares[m];
+        
+        const h25 = ((val25 / scaleMax) * 100).toFixed(1);
+        const h26 = val26 !== null ? ((val26 / scaleMax) * 100).toFixed(1) : 0;
+        
+        const lbl25 = (val25 * 100).toFixed(1) + '%';
+        const lbl26 = val26 !== null ? (val26 * 100).toFixed(1) + '%' : '';
+
+        const col = document.createElement('div');
+        col.className = 'v-col-group';
+        col.innerHTML = `
+            <div class="v-bars" style="height: 190px;">
+                ${val26 !== null ? `
+                    <div class="v-bar-2026" style="height: ${h26}%; background: rgba(16, 185, 129, 0.9);">
+                        <span class="v-bar-val-static active-year">${lbl26}</span>
+                    </div>
+                ` : ''}
+                <div class="v-bar-2025" style="height: ${h25}%;">
+                    <span class="v-bar-val-static">${lbl25}</span>
+                </div>
+            </div>
+            <div class="v-col-lbl">
+                ${m}<br><span class="v-col-lbl-year">${val26 !== null ? currentYear : prevYear}</span>
+            </div>
+        `;
+        container.appendChild(col);
+    });
 }
