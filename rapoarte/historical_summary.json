@@ -515,6 +515,13 @@
             "totalRadieri": 167,
             "evShare": 0.09058553386911596,
             "usedShare": 0.300531914893617
+        },
+        "JUL": {
+            "totalAutoReg": 1400,
+            "totalUtilReg": 124,
+            "totalRadieri": 169,
+            "evShare": 0.07033711405166981,
+            "usedShare": 0.4140419947506562
         }
     }
 }
