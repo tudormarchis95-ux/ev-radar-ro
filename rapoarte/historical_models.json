@@ -117571,7 +117571,7 @@
             {
                 "brand": "TESLA",
                 "model": "MODEL 3",
-                "ytd": 1430
+                "ytd": 1431
             },
             {
                 "brand": "TESLA",
@@ -117654,6 +117654,11 @@
                 "ytd": 113
             },
             {
+                "brand": "TESLA",
+                "model": "MODEL S",
+                "ytd": 111
+            },
+            {
                 "brand": "HYUNDAI",
                 "model": "INSTER",
                 "ytd": 109
@@ -117662,11 +117667,6 @@
                 "brand": "VOLVO",
                 "model": "EX30",
                 "ytd": 109
-            },
-            {
-                "brand": "TESLA",
-                "model": "MODEL S",
-                "ytd": 108
             },
             {
                 "brand": "BYD",
@@ -117751,7 +117751,7 @@
             {
                 "brand": "TESLA",
                 "model": "MODEL X",
-                "ytd": 49
+                "ytd": 50
             },
             {
                 "brand": "ZEEKR",
@@ -117824,6 +117824,11 @@
                 "ytd": 36
             },
             {
+                "brand": "SSANGYONG / KG MOBILITY",
+                "model": "TORRES EVX",
+                "ytd": 35
+            },
+            {
                 "brand": "AUDI",
                 "model": "Q4 E-TRON",
                 "ytd": 35
@@ -117864,8 +117869,8 @@
                 "ytd": 33
             },
             {
-                "brand": "SSANGYONG / KG MOBILITY",
-                "model": "TORRES EVX",
+                "brand": "MERCEDES-BENZ",
+                "model": "EQC 400 4MATIC",
                 "ytd": 32
             },
             {
@@ -117879,6 +117884,11 @@
                 "ytd": 32
             },
             {
+                "brand": "VOLKSWAGEN",
+                "model": "ID,4 PRO 210KW",
+                "ytd": 32
+            },
+            {
                 "brand": "MAXUS",
                 "model": "MAXUS E-DELIVER 3",
                 "ytd": 32
@@ -117887,11 +117897,6 @@
                 "brand": "BMW",
                 "model": "IX3 50 XDRIVE",
                 "ytd": 32
-            },
-            {
-                "brand": "MERCEDES-BENZ",
-                "model": "EQC 400 4MATIC",
-                "ytd": 31
             },
             {
                 "brand": "OPEL",
@@ -117935,11 +117940,6 @@
             },
             {
                 "brand": "VOLKSWAGEN",
-                "model": "ID,4 PRO 210KW",
-                "ytd": 25
-            },
-            {
-                "brand": "VOLKSWAGEN",
                 "model": "ID,3 PRO 150 KW",
                 "ytd": 25
             },
@@ -117961,6 +117961,11 @@
             {
                 "brand": "FORD",
                 "model": "TOURNEO COURIER",
+                "ytd": 22
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EQA 250",
                 "ytd": 22
             },
             {
@@ -118056,11 +118061,6 @@
             {
                 "brand": "RENAULT",
                 "model": "KANGOO EXPRESS Z.E.",
-                "ytd": 17
-            },
-            {
-                "brand": "MERCEDES-BENZ",
-                "model": "EQA 250",
                 "ytd": 17
             },
             {
@@ -118204,6 +118204,11 @@
                 "ytd": 11
             },
             {
+                "brand": "BMW",
+                "model": "I3",
+                "ytd": 11
+            },
+            {
                 "brand": "AUDI",
                 "model": "Q6 E-TRON",
                 "ytd": 11
@@ -118259,11 +118264,6 @@
                 "ytd": 11
             },
             {
-                "brand": "BMW",
-                "model": "I3",
-                "ytd": 10
-            },
-            {
                 "brand": "VOLKSWAGEN",
                 "model": "ID.5",
                 "ytd": 10
@@ -118271,6 +118271,16 @@
             {
                 "brand": "KIA",
                 "model": "SOUL EV",
+                "ytd": 10
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ID,3 PRO S 150 KW",
+                "ytd": 10
+            },
+            {
+                "brand": "SSANGYONG / KG MOBILITY",
+                "model": "KG MOBILITY TORRES EVX",
                 "ytd": 10
             },
             {
@@ -118311,11 +118321,6 @@
             {
                 "brand": "MAXUS",
                 "model": "E-DELIVER 9",
-                "ytd": 9
-            },
-            {
-                "brand": "VOLKSWAGEN",
-                "model": "ID,3 PRO S 150 KW",
                 "ytd": 9
             },
             {
@@ -118389,13 +118394,13 @@
                 "ytd": 7
             },
             {
-                "brand": "VOLKSWAGEN, VW",
-                "model": "ID,4 PRO 210KW",
-                "ytd": 7
-            },
-            {
                 "brand": "AUDI",
                 "model": "A6 E-TRON",
+                "ytd": 6
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EQB 300 4MATIC",
                 "ytd": 6
             },
             {
@@ -118454,6 +118459,11 @@
                 "ytd": 6
             },
             {
+                "brand": "FARIZON",
+                "model": "V6E",
+                "ytd": 6
+            },
+            {
                 "brand": "POLESTAR",
                 "model": "POLESTAR 4",
                 "ytd": 6
@@ -118484,18 +118494,8 @@
                 "ytd": 6
             },
             {
-                "brand": "KG MOBILITY",
-                "model": "KG MOBILITY TORRES EVX",
-                "ytd": 6
-            },
-            {
                 "brand": "MERCEDES-BENZ",
                 "model": "EVITO TOURER",
-                "ytd": 5
-            },
-            {
-                "brand": "MERCEDES-BENZ",
-                "model": "EQB 300 4MATIC",
                 "ytd": 5
             },
             {
@@ -118549,6 +118549,11 @@
                 "ytd": 5
             },
             {
+                "brand": "VOLKSWAGEN",
+                "model": "ID,3 PURE 125 KW",
+                "ytd": 5
+            },
+            {
                 "brand": "BMW",
                 "model": "I5 EDRIVE40",
                 "ytd": 5
@@ -118567,6 +118572,11 @@
                 "brand": "MG",
                 "model": "MG MARVEL R ELECTRIC",
                 "ytd": 5
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EQS 450+",
+                "ytd": 4
             },
             {
                 "brand": "GEELY",
@@ -118649,11 +118659,6 @@
                 "ytd": 4
             },
             {
-                "brand": "SSANGYONG / KG MOBILITY",
-                "model": "KG MOBILITY TORRES EVX",
-                "ytd": 4
-            },
-            {
                 "brand": "KING LONG",
                 "model": "E-CARGO 10",
                 "ytd": 4
@@ -118676,6 +118681,11 @@
             {
                 "brand": "VOLVO",
                 "model": "XC40",
+                "ytd": 4
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ID,7 PRO S",
                 "ytd": 4
             },
             {
@@ -118704,28 +118714,13 @@
                 "ytd": 4
             },
             {
-                "brand": "MERCEDES - BENZ",
-                "model": "EQA 250",
-                "ytd": 4
-            },
-            {
                 "brand": "XPENG",
                 "model": "G9",
                 "ytd": 4
             },
             {
-                "brand": "FARIZON AUTO",
-                "model": "V6E",
-                "ytd": 4
-            },
-            {
                 "brand": "CENNTRO",
                 "model": "LOGISTAR",
-                "ytd": 3
-            },
-            {
-                "brand": "MERCEDES-BENZ",
-                "model": "EQS 450+",
                 "ytd": 3
             },
             {
@@ -118850,11 +118845,6 @@
             },
             {
                 "brand": "VOLKSWAGEN",
-                "model": "ID,3 PURE 125 KW",
-                "ytd": 3
-            },
-            {
-                "brand": "VOLKSWAGEN",
                 "model": "ID,5 PRO 128 KW",
                 "ytd": 3
             },
@@ -118904,6 +118894,11 @@
                 "ytd": 3
             },
             {
+                "brand": "NISSAN",
+                "model": "NISSAN VOLTIA",
+                "ytd": 3
+            },
+            {
                 "brand": "BMW",
                 "model": "I5 M60 XDRIVE",
                 "ytd": 3
@@ -118924,11 +118919,6 @@
                 "ytd": 3
             },
             {
-                "brand": "TESLA MOTORS",
-                "model": "MODEL S",
-                "ytd": 3
-            },
-            {
                 "brand": "MG",
                 "model": "MG 4 EV URBAN",
                 "ytd": 3
@@ -118936,11 +118926,6 @@
             {
                 "brand": "NISSAN",
                 "model": "LEAF 62KWH",
-                "ytd": 3
-            },
-            {
-                "brand": "SSANGYONG",
-                "model": "TORRES EVX",
                 "ytd": 3
             },
             {
@@ -119089,11 +119074,6 @@
                 "ytd": 2
             },
             {
-                "brand": "FARIZON",
-                "model": "V6E",
-                "ytd": 2
-            },
-            {
                 "brand": "MERCEDES-BENZ",
                 "model": "CLA 200",
                 "ytd": 2
@@ -119106,11 +119086,6 @@
             {
                 "brand": "BYD",
                 "model": "ATTO 3 EVO",
-                "ytd": 2
-            },
-            {
-                "brand": "VOLKSWAGEN",
-                "model": "ID,7 PRO S",
                 "ytd": 2
             },
             {
@@ -119154,11 +119129,6 @@
                 "ytd": 2
             },
             {
-                "brand": "NISSAN",
-                "model": "NISSAN VOLTIA",
-                "ytd": 2
-            },
-            {
                 "brand": "AUDI",
                 "model": "Q4 SPORTBACK 50 E-TRON",
                 "ytd": 2
@@ -119199,6 +119169,11 @@
                 "ytd": 2
             },
             {
+                "brand": "SSANGYONG / KG MOBILITY",
+                "model": "KG MOBILITY MUSSO EV",
+                "ytd": 2
+            },
+            {
                 "brand": "BMW",
                 "model": "IX M60",
                 "ytd": 2
@@ -119211,16 +119186,6 @@
             {
                 "brand": "NISSAN",
                 "model": "LEAF 40KWH",
-                "ytd": 2
-            },
-            {
-                "brand": "VOLKSWAGEN, VW",
-                "model": "ID,3 PURE 125 KW",
-                "ytd": 2
-            },
-            {
-                "brand": "VOLKSWAGEN, VW",
-                "model": "ID,7 PRO S",
                 "ytd": 2
             },
             {
@@ -119609,11 +119574,6 @@
                 "ytd": 1
             },
             {
-                "brand": "SSANGYONG / KG MOBILITY",
-                "model": "KG MOBILITY MUSSO EV",
-                "ytd": 1
-            },
-            {
                 "brand": "OPEL",
                 "model": "VIVARO-B ELEKTROBLITZ",
                 "ytd": 1
@@ -119624,7 +119584,7 @@
                 "ytd": 1
             },
             {
-                "brand": "TESLA MOTORS",
+                "brand": "TESLA",
                 "model": "MODELS",
                 "ytd": 1
             },
@@ -119644,11 +119604,6 @@
                 "ytd": 1
             },
             {
-                "brand": "MERCEDES - BENZ",
-                "model": "EQS 450+",
-                "ytd": 1
-            },
-            {
                 "brand": "MERCEDES-BENZ",
                 "model": "MAYBACH EQS 680",
                 "ytd": 1
@@ -119659,7 +119614,7 @@
                 "ytd": 1
             },
             {
-                "brand": "ALFA  ROMEO",
+                "brand": "ALFA ROMEO",
                 "model": "ALFA ROMEO JUNIOR",
                 "ytd": 1
             },
@@ -119709,23 +119664,8 @@
                 "ytd": 1
             },
             {
-                "brand": "BMW I",
-                "model": "I3",
-                "ytd": 1
-            },
-            {
                 "brand": "KIA",
                 "model": "E-NIRO",
-                "ytd": 1
-            },
-            {
-                "brand": "MERCEDES BENZ",
-                "model": "EQC 400 4MATIC",
-                "ytd": 1
-            },
-            {
-                "brand": "TESLA MOTORS",
-                "model": "MODEL 3",
                 "ytd": 1
             },
             {
@@ -119759,11 +119699,6 @@
                 "ytd": 1
             },
             {
-                "brand": "MERCEDES BENZ",
-                "model": "EQA 250",
-                "ytd": 1
-            },
-            {
                 "brand": "NISSAN",
                 "model": "NISSAN ARIYA",
                 "ytd": 1
@@ -119779,23 +119714,8 @@
                 "ytd": 1
             },
             {
-                "brand": "MERCEDES - BENZ",
-                "model": "EQB 300 4MATIC",
-                "ytd": 1
-            },
-            {
-                "brand": "TESLA MOTORS",
-                "model": "MODEL X",
-                "ytd": 1
-            },
-            {
                 "brand": "TOYOTA",
                 "model": "TOYOTA BZ4X TOURING",
-                "ytd": 1
-            },
-            {
-                "brand": "VOLKSWAGEN, VW",
-                "model": "ID,3 PRO S 150 KW",
                 "ytd": 1
             },
             {
@@ -119839,11 +119759,6 @@
                 "ytd": 1
             },
             {
-                "brand": "KG MOBILITY",
-                "model": "KG MOBILITY MUSSO EV",
-                "ytd": 1
-            },
-            {
                 "brand": "TOYOTA",
                 "model": "PROACE CITY ELECTRIC",
                 "ytd": 1
@@ -119861,11 +119776,6 @@
             {
                 "brand": "TOYOTA",
                 "model": "TOYOTA HILUX",
-                "ytd": 1
-            },
-            {
-                "brand": "NISSAN-VOLTIA",
-                "model": "NISSAN VOLTIA",
                 "ytd": 1
             },
             {
@@ -119893,7 +119803,7 @@
             {
                 "brand": "TESLA",
                 "model": "MODEL 3",
-                "parc": 7679
+                "parc": 7680
             },
             {
                 "brand": "TESLA",
@@ -119943,7 +119853,7 @@
             {
                 "brand": "BMW",
                 "model": "I3",
-                "parc": 1128
+                "parc": 1129
             },
             {
                 "brand": "RENAULT",
@@ -119988,7 +119898,7 @@
             {
                 "brand": "TESLA",
                 "model": "MODEL S",
-                "parc": 790
+                "parc": 793
             },
             {
                 "brand": "RENAULT",
@@ -120083,7 +119993,7 @@
             {
                 "brand": "TESLA",
                 "model": "MODEL X",
-                "parc": 430
+                "parc": 431
             },
             {
                 "brand": "VOLKSWAGEN",
@@ -120126,6 +120036,11 @@
                 "parc": 336
             },
             {
+                "brand": "MERCEDES-BENZ",
+                "model": "EQA 250",
+                "parc": 331
+            },
+            {
                 "brand": "JAGUAR",
                 "model": "I PACE",
                 "parc": 330
@@ -120134,11 +120049,6 @@
                 "brand": "SKODA",
                 "model": "CITIGO",
                 "parc": 327
-            },
-            {
-                "brand": "MERCEDES-BENZ",
-                "model": "EQA 250",
-                "parc": 326
             },
             {
                 "brand": "MERCEDES-BENZ",
@@ -120168,7 +120078,7 @@
             {
                 "brand": "MERCEDES-BENZ",
                 "model": "EQC 400 4MATIC",
-                "parc": 299
+                "parc": 300
             },
             {
                 "brand": "MERCEDES-BENZ",
@@ -120233,7 +120143,7 @@
             {
                 "brand": "MERCEDES-BENZ",
                 "model": "EQB 300 4MATIC",
-                "parc": 205
+                "parc": 206
             },
             {
                 "brand": "RENAULT",
@@ -120418,7 +120328,7 @@
             {
                 "brand": "SSANGYONG / KG MOBILITY",
                 "model": "TORRES EVX",
-                "parc": 77
+                "parc": 80
             },
             {
                 "brand": "SUDA",
@@ -120511,14 +120421,14 @@
                 "parc": 53
             },
             {
-                "brand": "RENAULT",
-                "model": "RENAULT 5 E-TECH ELECTRIC",
+                "brand": "MERCEDES-BENZ",
+                "model": "EQS 450+",
                 "parc": 53
             },
             {
-                "brand": "MERCEDES-BENZ",
-                "model": "EQS 450+",
-                "parc": 52
+                "brand": "RENAULT",
+                "model": "RENAULT 5 E-TECH ELECTRIC",
+                "parc": 53
             },
             {
                 "brand": "CITROEN",
@@ -120666,6 +120576,11 @@
                 "parc": 32
             },
             {
+                "brand": "VOLKSWAGEN",
+                "model": "ID,4 PRO 210KW",
+                "parc": 32
+            },
+            {
                 "brand": "MAXUS",
                 "model": "MAXUS E-DELIVER 3",
                 "parc": 32
@@ -120748,11 +120663,6 @@
             {
                 "brand": "RENAULT",
                 "model": "FLUENCE Z.E.",
-                "parc": 25
-            },
-            {
-                "brand": "VOLKSWAGEN",
-                "model": "ID,4 PRO 210KW",
                 "parc": 25
             },
             {
@@ -120961,6 +120871,11 @@
                 "parc": 14
             },
             {
+                "brand": "FARIZON",
+                "model": "V6E",
+                "parc": 14
+            },
+            {
                 "brand": "KIA",
                 "model": "PV5",
                 "parc": 14
@@ -121066,8 +120981,13 @@
                 "parc": 10
             },
             {
-                "brand": "FARIZON",
-                "model": "V6E",
+                "brand": "VOLKSWAGEN",
+                "model": "ID,3 PRO S 150 KW",
+                "parc": 10
+            },
+            {
+                "brand": "SSANGYONG / KG MOBILITY",
+                "model": "KG MOBILITY TORRES EVX",
                 "parc": 10
             },
             {
@@ -121088,11 +121008,6 @@
             {
                 "brand": "RENAULT",
                 "model": "TRAFIC E-TECH",
-                "parc": 9
-            },
-            {
-                "brand": "VOLKSWAGEN",
-                "model": "ID,3 PRO S 150 KW",
                 "parc": 9
             },
             {
@@ -121206,11 +121121,6 @@
                 "parc": 7
             },
             {
-                "brand": "VOLKSWAGEN, VW",
-                "model": "ID,4 PRO 210KW",
-                "parc": 7
-            },
-            {
                 "brand": "BMW",
                 "model": "",
                 "parc": 6
@@ -121276,11 +121186,6 @@
                 "parc": 6
             },
             {
-                "brand": "KG MOBILITY",
-                "model": "KG MOBILITY TORRES EVX",
-                "parc": 6
-            },
-            {
                 "brand": "THINK",
                 "model": "CITY",
                 "parc": 5
@@ -121313,6 +121218,11 @@
             {
                 "brand": "AUDI",
                 "model": "Q6 SUV E-TRON QUATTRO",
+                "parc": 5
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ID,3 PURE 125 KW",
                 "parc": 5
             },
             {
@@ -121396,11 +121306,6 @@
                 "parc": 4
             },
             {
-                "brand": "SSANGYONG / KG MOBILITY",
-                "model": "KG MOBILITY TORRES EVX",
-                "parc": 4
-            },
-            {
                 "brand": "KING LONG",
                 "model": "E-CARGO 10",
                 "parc": 4
@@ -121426,6 +121331,11 @@
                 "parc": 4
             },
             {
+                "brand": "VOLKSWAGEN",
+                "model": "ID,7 PRO S",
+                "parc": 4
+            },
+            {
                 "brand": "SKODA",
                 "model": "ENYAQ 60",
                 "parc": 4
@@ -121448,16 +121358,6 @@
             {
                 "brand": "SKODA",
                 "model": "ENYAQ 85",
-                "parc": 4
-            },
-            {
-                "brand": "MERCEDES - BENZ",
-                "model": "EQA 250",
-                "parc": 4
-            },
-            {
-                "brand": "FARIZON AUTO",
-                "model": "V6E",
                 "parc": 4
             },
             {
@@ -121552,11 +121452,6 @@
             },
             {
                 "brand": "VOLKSWAGEN",
-                "model": "ID,3 PURE 125 KW",
-                "parc": 3
-            },
-            {
-                "brand": "VOLKSWAGEN",
                 "model": "ID,5 PRO 128 KW",
                 "parc": 3
             },
@@ -121601,6 +121496,11 @@
                 "parc": 3
             },
             {
+                "brand": "NISSAN",
+                "model": "NISSAN VOLTIA",
+                "parc": 3
+            },
+            {
                 "brand": "BMW",
                 "model": "I5 M60 XDRIVE",
                 "parc": 3
@@ -121623,11 +121523,6 @@
             {
                 "brand": "NISSAN",
                 "model": "LEAF 62KWH",
-                "parc": 3
-            },
-            {
-                "brand": "SSANGYONG",
-                "model": "TORRES EVX",
                 "parc": 3
             },
             {
@@ -121776,11 +121671,6 @@
                 "parc": 2
             },
             {
-                "brand": "VOLKSWAGEN",
-                "model": "ID,7 PRO S",
-                "parc": 2
-            },
-            {
                 "brand": "SSANGYONG / KG MOBILITY",
                 "model": "KG MOBILITY TORRRES EVX",
                 "parc": 2
@@ -121813,11 +121703,6 @@
             {
                 "brand": "KING LONG",
                 "model": "E-CARGO 7",
-                "parc": 2
-            },
-            {
-                "brand": "NISSAN",
-                "model": "NISSAN VOLTIA",
                 "parc": 2
             },
             {
@@ -121856,8 +121741,8 @@
                 "parc": 2
             },
             {
-                "brand": "TESLA MOTORS",
-                "model": "MODEL S",
+                "brand": "SSANGYONG / KG MOBILITY",
+                "model": "KG MOBILITY MUSSO EV",
                 "parc": 2
             },
             {
@@ -121873,16 +121758,6 @@
             {
                 "brand": "NISSAN",
                 "model": "LEAF 40KWH",
-                "parc": 2
-            },
-            {
-                "brand": "VOLKSWAGEN, VW",
-                "model": "ID,3 PURE 125 KW",
-                "parc": 2
-            },
-            {
-                "brand": "VOLKSWAGEN, VW",
-                "model": "ID,7 PRO S",
                 "parc": 2
             },
             {
@@ -122471,11 +122346,6 @@
                 "parc": 1
             },
             {
-                "brand": "SSANGYONG / KG MOBILITY",
-                "model": "KG MOBILITY MUSSO EV",
-                "parc": 1
-            },
-            {
                 "brand": "OPEL",
                 "model": "VIVARO-B ELEKTROBLITZ",
                 "parc": 1
@@ -122486,17 +122356,12 @@
                 "parc": 1
             },
             {
-                "brand": "TESLA MOTORS",
+                "brand": "TESLA",
                 "model": "MODELS",
                 "parc": 1
             },
             {
-                "brand": "MERCEDES - BENZ",
-                "model": "EQS 450+",
-                "parc": 1
-            },
-            {
-                "brand": "ALFA  ROMEO",
+                "brand": "ALFA ROMEO",
                 "model": "ALFA ROMEO JUNIOR",
                 "parc": 1
             },
@@ -122546,16 +122411,6 @@
                 "parc": 1
             },
             {
-                "brand": "MERCEDES BENZ",
-                "model": "EQC 400 4MATIC",
-                "parc": 1
-            },
-            {
-                "brand": "TESLA MOTORS",
-                "model": "MODEL 3",
-                "parc": 1
-            },
-            {
                 "brand": "TOYOTA",
                 "model": "PROACE CITY VERSO ELECTRIC",
                 "parc": 1
@@ -122581,11 +122436,6 @@
                 "parc": 1
             },
             {
-                "brand": "MERCEDES BENZ",
-                "model": "EQA 250",
-                "parc": 1
-            },
-            {
                 "brand": "NISSAN",
                 "model": "NISSAN ARIYA",
                 "parc": 1
@@ -122596,23 +122446,8 @@
                 "parc": 1
             },
             {
-                "brand": "MERCEDES - BENZ",
-                "model": "EQB 300 4MATIC",
-                "parc": 1
-            },
-            {
-                "brand": "TESLA MOTORS",
-                "model": "MODEL X",
-                "parc": 1
-            },
-            {
                 "brand": "TOYOTA",
                 "model": "TOYOTA BZ4X TOURING",
-                "parc": 1
-            },
-            {
-                "brand": "VOLKSWAGEN, VW",
-                "model": "ID,3 PRO S 150 KW",
                 "parc": 1
             },
             {
@@ -122651,11 +122486,6 @@
                 "parc": 1
             },
             {
-                "brand": "KG MOBILITY",
-                "model": "KG MOBILITY MUSSO EV",
-                "parc": 1
-            },
-            {
                 "brand": "TOYOTA",
                 "model": "PROACE CITY ELECTRIC",
                 "parc": 1
@@ -122673,11 +122503,6 @@
             {
                 "brand": "TOYOTA",
                 "model": "TOYOTA HILUX",
-                "parc": 1
-            },
-            {
-                "brand": "NISSAN-VOLTIA",
-                "model": "NISSAN VOLTIA",
                 "parc": 1
             },
             {
