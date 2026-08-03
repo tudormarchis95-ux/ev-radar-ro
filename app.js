@@ -2068,21 +2068,50 @@ function drawBlogCoverCanvas() {
     
     // Fetch values first
     const totalEV = state.data.totalAutoReg + state.data.totalUtilReg;
-    const base2025 = 63986;
-    const history2026 = {
-        'JAN': 1325, 'FEB': 1280, 'MAR': 1021, 'APR': 1259, 'MAY': 1402,
-        'JUN': 0, 'JUL': 0, 'AUG': 0, 'SEP': 0, 'OCT': 0, 'NOV': 0, 'DEC': 0
-    };
-    
-    // We can sum YTD total fleet
+    const baseFleetDec2025 = 63986;
+    let totalFleet = baseFleetDec2025;
     const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-    let totalFleet = base2025;
-    for (const m of monthsOrder) {
-        if (m === state.data.lunaNume) {
-            totalFleet += (state.data.totalAutoReg + state.data.totalUtilReg - state.data.totalRadieri);
-            break;
+    const currentLunaNume = state.data.lunaNume || 'MAY';
+    const netGrowth = state.data.totalAutoReg + state.data.totalUtilReg - state.data.totalRadieri;
+
+    if (parseInt(currentYear) >= 2026) {
+        let addNet = 0;
+        for (let y = 2026; y <= parseInt(currentYear); y++) {
+            for (let mIdx = 0; mIdx < 12; mIdx++) {
+                const m = monthsOrder[mIdx];
+                if (y === parseInt(currentYear) && mIdx >= monthsOrder.indexOf(currentLunaNume)) {
+                    break;
+                }
+                let mReg = 0;
+                let mRad = 0;
+                if (state.historicalSummary && state.historicalSummary[String(y)] && state.historicalSummary[String(y)][m]) {
+                    const item = state.historicalSummary[String(y)][m];
+                    mReg = item.totalAutoReg + item.totalUtilReg;
+                    mRad = item.totalRadieri;
+                }
+                addNet += (mReg - mRad);
+            }
         }
-        totalFleet += history2026[m];
+        totalFleet = baseFleetDec2025 + addNet + netGrowth;
+    } else if (parseInt(currentYear) < 2026) {
+        let subtractNet = 0;
+        for (let y = 2025; y >= parseInt(currentYear); y--) {
+            for (let mIdx = 11; mIdx >= 0; mIdx--) {
+                const m = monthsOrder[mIdx];
+                if (y === parseInt(currentYear) && mIdx <= monthsOrder.indexOf(currentLunaNume)) {
+                    break;
+                }
+                let mReg = 0;
+                let mRad = 0;
+                if (state.historicalSummary && state.historicalSummary[String(y)] && state.historicalSummary[String(y)][m]) {
+                    const item = state.historicalSummary[String(y)][m];
+                    mReg = item.totalAutoReg + item.totalUtilReg;
+                    mRad = item.totalRadieri;
+                }
+                subtractNet += (mReg - mRad);
+            }
+        }
+        totalFleet = baseFleetDec2025 - subtractNet;
     }
 
     // DRAW THE RADAR SCREEN BACKGROUND SCENE
