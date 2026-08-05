@@ -27,6 +27,55 @@ const luniNumeMap = {
     '07': 'JUL', '08': 'AUG', '09': 'SEP', '10': 'OCT', '11': 'NOV', '12': 'DEC'
 };
 
+function calculateDynamicTotalFleet(dataState, historicalSummary) {
+    const baseFleetDec2025 = 63986;
+    let totalFleet = baseFleetDec2025;
+    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    const currentLunaNume = dataState.lunaNume || 'MAY';
+    const currentYear = dataState.luna ? dataState.luna.substring(0, 4) : '2026';
+    const netGrowth = dataState.totalAutoReg + dataState.totalUtilReg - dataState.totalRadieri;
+
+    if (parseInt(currentYear) >= 2026) {
+        let addNet = 0;
+        for (let y = 2026; y <= parseInt(currentYear); y++) {
+            for (let mIdx = 0; mIdx < 12; mIdx++) {
+                const m = monthsOrder[mIdx];
+                if (y === parseInt(currentYear) && mIdx >= monthsOrder.indexOf(currentLunaNume)) {
+                    break;
+                }
+                let mReg = 0;
+                let mRad = 0;
+                if (historicalSummary && historicalSummary[String(y)] && historicalSummary[String(y)][m]) {
+                    const item = historicalSummary[String(y)][m];
+                    mReg = item.totalAutoReg + item.totalUtilReg;
+                    mRad = item.totalRadieri;
+                }
+                addNet += (mReg - mRad);
+            }
+        }
+        return baseFleetDec2025 + addNet + netGrowth;
+    } else {
+        let subtractNet = 0;
+        for (let y = 2025; y >= parseInt(currentYear); y--) {
+            for (let mIdx = 11; mIdx >= 0; mIdx--) {
+                const m = monthsOrder[mIdx];
+                if (y === parseInt(currentYear) && mIdx <= monthsOrder.indexOf(currentLunaNume)) {
+                    break;
+                }
+                let mReg = 0;
+                let mRad = 0;
+                if (historicalSummary && historicalSummary[String(y)] && historicalSummary[String(y)][m]) {
+                    const item = historicalSummary[String(y)][m];
+                    mReg = item.totalAutoReg + item.totalUtilReg;
+                    mRad = item.totalRadieri;
+                }
+                subtractNet += (mReg - mRad);
+            }
+        }
+        return baseFleetDec2025 - subtractNet;
+    }
+}
+
 async function initHistoricalSummary() {
     try {
         const response = await fetch(`rapoarte/historical_summary.json?t=${Date.now()}`);
@@ -709,49 +758,7 @@ function renderDashboard() {
     // Calculeaza parcul auto national total estimat dinamic în funcție de an
     const currentYear = state.data && state.data.luna ? parseInt(state.data.luna.split('-')[0]) : 2026;
     const currentLunaNume = state.data.lunaNume || 'MAY';
-    const baseFleetDec2025 = 63986;
-    let totalFleet = baseFleetDec2025;
-    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-
-    if (currentYear >= 2026) {
-        let addNet = 0;
-        for (let y = 2026; y <= currentYear; y++) {
-            for (let mIdx = 0; mIdx < 12; mIdx++) {
-                const m = monthsOrder[mIdx];
-                if (y === currentYear && mIdx >= monthsOrder.indexOf(currentLunaNume)) {
-                    break;
-                }
-                let mReg = 0;
-                let mRad = 0;
-                if (state.historicalSummary && state.historicalSummary[String(y)] && state.historicalSummary[String(y)][m]) {
-                    const item = state.historicalSummary[String(y)][m];
-                    mReg = item.totalAutoReg + item.totalUtilReg;
-                    mRad = item.totalRadieri;
-                }
-                addNet += (mReg - mRad);
-            }
-        }
-        totalFleet = baseFleetDec2025 + addNet + netGrowth;
-    } else if (currentYear < 2026) {
-        let subtractNet = 0;
-        for (let y = 2025; y >= currentYear; y--) {
-            for (let mIdx = 11; mIdx >= 0; mIdx--) {
-                const m = monthsOrder[mIdx];
-                if (y === currentYear && mIdx <= monthsOrder.indexOf(currentLunaNume)) {
-                    break;
-                }
-                let mReg = 0;
-                let mRad = 0;
-                if (state.historicalSummary && state.historicalSummary[String(y)] && state.historicalSummary[String(y)][m]) {
-                    const item = state.historicalSummary[String(y)][m];
-                    mReg = item.totalAutoReg + item.totalUtilReg;
-                    mRad = item.totalRadieri;
-                }
-                subtractNet += (mReg - mRad);
-            }
-        }
-        totalFleet = baseFleetDec2025 - subtractNet;
-    }
+    let totalFleet = calculateDynamicTotalFleet(state.data, state.historicalSummary);
     
     animateElementValue('val-national-fleet', totalFleet);
     document.getElementById('fleet-month-name').innerText = currentLunaNume + " " + currentYear;
@@ -2068,51 +2075,7 @@ function drawBlogCoverCanvas() {
     
     // Fetch values first
     const totalEV = state.data.totalAutoReg + state.data.totalUtilReg;
-    const baseFleetDec2025 = 63986;
-    let totalFleet = baseFleetDec2025;
-    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-    const currentLunaNume = state.data.lunaNume || 'MAY';
-    const netGrowth = state.data.totalAutoReg + state.data.totalUtilReg - state.data.totalRadieri;
-
-    if (parseInt(currentYear) >= 2026) {
-        let addNet = 0;
-        for (let y = 2026; y <= parseInt(currentYear); y++) {
-            for (let mIdx = 0; mIdx < 12; mIdx++) {
-                const m = monthsOrder[mIdx];
-                if (y === parseInt(currentYear) && mIdx >= monthsOrder.indexOf(currentLunaNume)) {
-                    break;
-                }
-                let mReg = 0;
-                let mRad = 0;
-                if (state.historicalSummary && state.historicalSummary[String(y)] && state.historicalSummary[String(y)][m]) {
-                    const item = state.historicalSummary[String(y)][m];
-                    mReg = item.totalAutoReg + item.totalUtilReg;
-                    mRad = item.totalRadieri;
-                }
-                addNet += (mReg - mRad);
-            }
-        }
-        totalFleet = baseFleetDec2025 + addNet + netGrowth;
-    } else if (parseInt(currentYear) < 2026) {
-        let subtractNet = 0;
-        for (let y = 2025; y >= parseInt(currentYear); y--) {
-            for (let mIdx = 11; mIdx >= 0; mIdx--) {
-                const m = monthsOrder[mIdx];
-                if (y === parseInt(currentYear) && mIdx <= monthsOrder.indexOf(currentLunaNume)) {
-                    break;
-                }
-                let mReg = 0;
-                let mRad = 0;
-                if (state.historicalSummary && state.historicalSummary[String(y)] && state.historicalSummary[String(y)][m]) {
-                    const item = state.historicalSummary[String(y)][m];
-                    mReg = item.totalAutoReg + item.totalUtilReg;
-                    mRad = item.totalRadieri;
-                }
-                subtractNet += (mReg - mRad);
-            }
-        }
-        totalFleet = baseFleetDec2025 - subtractNet;
-    }
+    let totalFleet = calculateDynamicTotalFleet(state.data, state.historicalSummary);
 
     // DRAW THE RADAR SCREEN BACKGROUND SCENE
     const centerX = 600;
@@ -2724,32 +2687,7 @@ function renderHistoricalCharts() {
     
     annualData.push({ year: currentYear, qty: currentYearCumulativeReg, active: true });
 
-    let totalFleet = baseFleetDec2025;
-    
-    if (currentYear === 2026) {
-        totalFleet = baseFleetDec2025 + currentYearCumulativeNet;
-    } else if (currentYear < 2026) {
-        let subtractNet = 0;
-        for (let y = 2025; y >= currentYear; y--) {
-            for (let mIdx = 11; mIdx >= 0; mIdx--) {
-                const m = monthsOrder[mIdx];
-                if (y === currentYear && mIdx <= monthsOrder.indexOf(currentLunaNume)) {
-                    break;
-                }
-                
-                let mReg = 0;
-                let mRad = 0;
-                if (state.historicalSummary && state.historicalSummary[String(y)] && state.historicalSummary[String(y)][m]) {
-                    const item = state.historicalSummary[String(y)][m];
-                    mReg = item.totalAutoReg + item.totalUtilReg;
-                    mRad = item.totalRadieri;
-                } else {
-                }
-                subtractNet += (mReg - mRad);
-            }
-        }
-        totalFleet = baseFleetDec2025 - subtractNet;
-    }
+    let totalFleet = calculateDynamicTotalFleet(state.data, state.historicalSummary);
     
     state.computedTotalFleet = totalFleet;
 

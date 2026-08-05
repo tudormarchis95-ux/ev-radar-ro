@@ -6,8 +6,58 @@
 // Starea vizualizatorului public
 const state = {
     data: null,
-    historicalSummary: null
+    historicalSummary: null,
+    historicalModels: null
 };
+
+function calculateDynamicTotalFleet(dataState, historicalSummary) {
+    const baseFleetDec2025 = 63986;
+    let totalFleet = baseFleetDec2025;
+    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    const currentLunaNume = dataState.lunaNume || 'MAY';
+    const currentYear = dataState.luna ? dataState.luna.substring(0, 4) : '2026';
+    const netGrowth = dataState.totalAutoReg + dataState.totalUtilReg - dataState.totalRadieri;
+
+    if (parseInt(currentYear) >= 2026) {
+        let addNet = 0;
+        for (let y = 2026; y <= parseInt(currentYear); y++) {
+            for (let mIdx = 0; mIdx < 12; mIdx++) {
+                const m = monthsOrder[mIdx];
+                if (y === parseInt(currentYear) && mIdx >= monthsOrder.indexOf(currentLunaNume)) {
+                    break;
+                }
+                let mReg = 0;
+                let mRad = 0;
+                if (historicalSummary && historicalSummary[String(y)] && historicalSummary[String(y)][m]) {
+                    const item = historicalSummary[String(y)][m];
+                    mReg = item.totalAutoReg + item.totalUtilReg;
+                    mRad = item.totalRadieri;
+                }
+                addNet += (mReg - mRad);
+            }
+        }
+        return baseFleetDec2025 + addNet + netGrowth;
+    } else {
+        let subtractNet = 0;
+        for (let y = 2025; y >= parseInt(currentYear); y--) {
+            for (let mIdx = 11; mIdx >= 0; mIdx--) {
+                const m = monthsOrder[mIdx];
+                if (y === parseInt(currentYear) && mIdx <= monthsOrder.indexOf(currentLunaNume)) {
+                    break;
+                }
+                let mReg = 0;
+                let mRad = 0;
+                if (historicalSummary && historicalSummary[String(y)] && historicalSummary[String(y)][m]) {
+                    const item = historicalSummary[String(y)][m];
+                    mReg = item.totalAutoReg + item.totalUtilReg;
+                    mRad = item.totalRadieri;
+                }
+                subtractNet += (mReg - mRad);
+            }
+        }
+        return baseFleetDec2025 - subtractNet;
+    }
+}
 
 async function initHistoricalSummary() {
     try {
@@ -18,6 +68,16 @@ async function initHistoricalSummary() {
         }
     } catch (err) {
         console.warn("Could not load historical summary from server:", err);
+    }
+
+    try {
+        const response = await fetch(`rapoarte/historical_models.json?t=${Date.now()}`);
+        if (response.ok) {
+            state.historicalModels = await response.json();
+            console.log("Historical models loaded successfully!");
+        }
+    } catch (err) {
+        console.warn("Could not load historical models from server:", err);
     }
 }
 
@@ -240,49 +300,7 @@ function renderDashboard() {
     // Calculeaza parcul auto national total estimat dinamic în funcție de an
     const currentYear = state.data && state.data.luna ? parseInt(state.data.luna.split('-')[0]) : 2026;
     const currentLunaNume = state.data.lunaNume || 'MAY';
-    const baseFleetDec2025 = 63986;
-    let totalFleet = baseFleetDec2025;
-    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-
-    if (currentYear >= 2026) {
-        let addNet = 0;
-        for (let y = 2026; y <= currentYear; y++) {
-            for (let mIdx = 0; mIdx < 12; mIdx++) {
-                const m = monthsOrder[mIdx];
-                if (y === currentYear && mIdx >= monthsOrder.indexOf(currentLunaNume)) {
-                    break;
-                }
-                let mReg = 0;
-                let mRad = 0;
-                if (state.historicalSummary && state.historicalSummary[String(y)] && state.historicalSummary[String(y)][m]) {
-                    const item = state.historicalSummary[String(y)][m];
-                    mReg = item.totalAutoReg + item.totalUtilReg;
-                    mRad = item.totalRadieri;
-                }
-                addNet += (mReg - mRad);
-            }
-        }
-        totalFleet = baseFleetDec2025 + addNet + netGrowth;
-    } else if (currentYear < 2026) {
-        let subtractNet = 0;
-        for (let y = 2025; y >= currentYear; y--) {
-            for (let mIdx = 11; mIdx >= 0; mIdx--) {
-                const m = monthsOrder[mIdx];
-                if (y === currentYear && mIdx <= monthsOrder.indexOf(currentLunaNume)) {
-                    break;
-                }
-                let mReg = 0;
-                let mRad = 0;
-                if (state.historicalSummary && state.historicalSummary[String(y)] && state.historicalSummary[String(y)][m]) {
-                    const item = state.historicalSummary[String(y)][m];
-                    mReg = item.totalAutoReg + item.totalUtilReg;
-                    mRad = item.totalRadieri;
-                }
-                subtractNet += (mReg - mRad);
-            }
-        }
-        totalFleet = baseFleetDec2025 - subtractNet;
-    }
+    let totalFleet = calculateDynamicTotalFleet(state.data, state.historicalSummary);
     
     animateElementValue('val-national-fleet', totalFleet);
     document.getElementById('fleet-month-name').innerText = currentLunaNume + " " + currentYear;
@@ -375,25 +393,27 @@ function renderDashboard() {
     const top50Grid = document.getElementById('top50-tables-grid');
     if (top50Grid) {
         if (currentYear === 2026) {
-            // Calculăm datele pentru YTD și Parc
-            const results = computeYtdAndParcData(currentLunaNume, state.data.inmatriculariModele);
-            const modelsData = results.models;
-            const totals = results.totals;
+            const modelsData = state.historicalModels && state.historicalModels[state.data.luna] ? state.historicalModels[state.data.luna] : {ytd: [], parc: []};
+            const top50Ytd  = modelsData.ytd.slice(0, 50);
+            const top50Parc = modelsData.parc.slice(0, 50);
             
-            const specificData = modelsData.filter(d => d.brand !== "Alte Modele");
-            
-            const top50Ytd = [...specificData].sort((a, b) => b.ytd - a.ytd).slice(0, 50);
-            const top50Parc = [...specificData].sort((a, b) => b.parc - a.parc).slice(0, 50);
+            const totalYtd = top50Ytd.reduce((sum, item) => sum + item.ytd, 0);
+            const totalParc = top50Parc.reduce((sum, item) => sum + item.parc, 0);
             
             // Render Top 50 YTD
             const ytdTbody = document.getElementById('top-50-ytd-tbody');
             if (ytdTbody) {
                 ytdTbody.innerHTML = '';
                 top50Ytd.forEach((item, idx) => {
-                    const sharePct = totals.ytd > 0 ? (item.ytd / totals.ytd * 100).toFixed(2) : '0.00';
+                    const sharePct = totalYtd > 0 ? (item.ytd / totalYtd * 100).toFixed(2) : '0.00';
                     const tr = document.createElement('tr');
+                    
+                    const mBrand = normalizeazaMarcaDisplay(item.brand);
+                    const mModel = stripBrandFromModel(mBrand, item.model);
+                    const modelNameStr = `${mBrand} ${mModel}`;
+                    
                     tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td>
-                                    <td>${formatModelName(item.brand, item.model)}</td>
+                                    <td>${modelNameStr}</td>
                                     <td><strong>${item.ytd.toLocaleString('ro-RO')}</strong></td>
                                     <td>${sharePct}%</td>`;
                     ytdTbody.appendChild(tr);
@@ -405,10 +425,15 @@ function renderDashboard() {
             if (parcTbody) {
                 parcTbody.innerHTML = '';
                 top50Parc.forEach((item, idx) => {
-                    const sharePct = totals.parc > 0 ? (item.parc / totals.parc * 100).toFixed(2) : '0.00';
+                    const sharePct = totalParc > 0 ? (item.parc / totalParc * 100).toFixed(2) : '0.00';
                     const tr = document.createElement('tr');
+                    
+                    const mBrand = normalizeazaMarcaDisplay(item.brand);
+                    const mModel = stripBrandFromModel(mBrand, item.model);
+                    const modelNameStr = `${mBrand} ${mModel}`;
+                    
                     tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td>
-                                    <td>${formatModelName(item.brand, item.model)}</td>
+                                    <td>${modelNameStr}</td>
                                     <td><strong>${item.parc.toLocaleString('ro-RO')}</strong></td>
                                     <td>${sharePct}%</td>`;
                     parcTbody.appendChild(tr);
@@ -624,38 +649,7 @@ function renderHistoricalCharts() {
     
     annualData.push({ year: currentYear, qty: currentYearCumulativeReg, active: true });
 
-    let totalFleet = baseFleetDec2025;
-    
-    if (currentYear === 2026) {
-        totalFleet = baseFleetDec2025 + currentYearCumulativeNet;
-    } else if (currentYear < 2026) {
-        let subtractNet = 0;
-        const default2025Auto = {
-            'JAN': 1402, 'FEB': 1000, 'MAR': 595, 'APR': 583, 'MAY': 814, 'JUN': 761,
-            'JUL': 897, 'AUG': 1278, 'SEP': 1100, 'OCT': 1486, 'NOV': 1478, 'DEC': 1797
-        };
-        for (let y = 2025; y >= currentYear; y--) {
-            for (let mIdx = 11; mIdx >= 0; mIdx--) {
-                const m = monthsOrder[mIdx];
-                if (y === currentYear && mIdx <= monthsOrder.indexOf(currentLunaNume)) {
-                    break;
-                }
-                
-                let mReg = 0;
-                let mRad = 0;
-                if (state.historicalSummary && state.historicalSummary[String(y)] && state.historicalSummary[String(y)][m]) {
-                    const item = state.historicalSummary[String(y)][m];
-                    mReg = item.totalAutoReg + item.totalUtilReg;
-                    mRad = item.totalRadieri;
-                } else if (y === 2025) {
-                    mReg = default2025Auto[m] || 0;
-                    mRad = Math.round(mReg * 0.08);
-                }
-                subtractNet += (mReg - mRad);
-            }
-        }
-        totalFleet = baseFleetDec2025 - subtractNet;
-    }
+    let totalFleet = calculateDynamicTotalFleet(state.data, state.historicalSummary);
 
     const summaryVal = document.getElementById('val-fleet-summary');
     if (summaryVal) {
@@ -1730,96 +1724,4 @@ function aplicaReguliSpecifice(marca, model) {
     }
     
     return mod;
-}
-
-// Calculeaza cumulat YTD si Parc
-function computeYtdAndParcData(selectedMonthNume, currentRawInmatriculari) {
-    const data = JSON.parse(JSON.stringify(modelHistoryBase));
-    
-    data.forEach(item => {
-        item.current_monthly = 0;
-    });
-    
-    const grupateBrute = {};
-    currentRawInmatriculari.forEach(item => {
-        const marcaNorm = normalizeazaMarca(item.marca);
-        const modelNorm = aplicaReguliSpecifice(marcaNorm, item.model);
-        const key = marcaNorm + "|" + modelNorm;
-        grupateBrute[key] = (grupateBrute[key] || 0) + item.volum;
-    });
-    
-    let alteModeleVolum = 0;
-    
-    for (const key in grupateBrute) {
-        const parts = key.split('|');
-        const marcaBrut = parts[0];
-        const modelBrut = parts[1];
-        const volum = grupateBrute[key];
-        let identificat = false;
-        
-        const fullBrutName = marcaBrut + " " + modelBrut;
-        const wordsBrut = fullBrutName.split(" ");
-        
-        for (let i = 0; i < data.length - 1; i++) {
-            const itemExcel = data[i];
-            const mExcelNorm = normalizeazaMarca(itemExcel.brand);
-            const modExcelNorm = itemExcel.model.toString().toUpperCase().trim().replace(/,/g, ".").replace(/-/g, " ").replace(/\s+/g, " ");
-            
-            if (mExcelNorm === marcaBrut) {
-                const wordsExcel = modExcelNorm.split(" ");
-                let isSubset = true;
-                for (let k = 0; k < wordsExcel.length; k++) {
-                    if (wordsExcel[k] && !wordsBrut.includes(wordsExcel[k])) {
-                        isSubset = false;
-                        break;
-                    }
-                }
-                
-                if (isSubset) {
-                    itemExcel.current_monthly += volum;
-                    identificat = true;
-                    break;
-                }
-            }
-        }
-        
-        if (!identificat) {
-            alteModeleVolum += volum;
-        }
-    }
-    
-    const alteModeleItem = data[data.length - 1];
-    alteModeleItem.current_monthly = alteModeleVolum;
-    
-    const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-    const currentMonthIdx = Math.max(0, monthsOrder.indexOf((selectedMonthNume || "").toUpperCase().trim()));
-    
-    let totalMonthlySum = 0;
-    let totalYtdSum = 0;
-    let totalParcSum = 0;
-    
-    data.forEach(item => {
-        item.history[selectedMonthNume] = item.current_monthly;
-        
-        let ytdSum = 0;
-        for (let i = 0; i <= currentMonthIdx; i++) {
-            ytdSum += (item.history[monthsOrder[i]] || 0);
-        }
-        
-        item.ytd = ytdSum;
-        item.parc = item.start + ytdSum;
-        
-        totalMonthlySum += item.current_monthly;
-        totalYtdSum += item.ytd;
-        totalParcSum += item.parc;
-    });
-    
-    return {
-        models: data,
-        totals: {
-            monthly: totalMonthlySum,
-            ytd: totalYtdSum,
-            parc: totalParcSum
-        }
-    };
 }
