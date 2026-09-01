@@ -522,6 +522,13 @@
             "totalRadieri": 169,
             "evShare": 0.07033711405166981,
             "usedShare": 0.4140419947506562
+        },
+        "AUG": {
+            "totalAutoReg": 1162,
+            "totalUtilReg": 116,
+            "totalRadieri": 44,
+            "evShare": 0.0689139975721356,
+            "usedShare": 0.4225352112676056
         }
     }
 }
