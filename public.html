@@ -145,7 +145,7 @@
                  <div class="fleet-hero-card card animate-fade-in" style="margin-bottom: 1.5rem; text-align: center; background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(0, 75, 135, 0.03) 100%); border-color: rgba(0, 75, 135, 0.15);">
                      <span class="stat-label" style="font-size: 1.1rem; letter-spacing: 0.1em; color: var(--primary-color); font-weight: 700;">🚗 PARCUL AUTO NAȚIONAL EV</span>
                      <div class="stat-value" id="val-national-fleet" style="font-size: 4rem; font-weight: 900; color: var(--primary-color); text-shadow: none; margin: 0.5rem 0;">0</div>
-                     <p style="color: var(--text-muted); font-size: 0.9rem;">Total vehicule electrice (M1 + N1) înmatriculate în România la finalul lunii <span id="fleet-month-name">-</span></p>
+                     <p style="color: var(--text-muted); font-size: 0.9rem;">Total autoturisme și autoutilitare electrice înmatriculate în România la finalul lunii <span id="fleet-month-name">-</span></p>
                  </div>
  
                  <!-- Delimitator Luna -->
@@ -156,12 +156,14 @@
                  <!-- Stats Grid 1 -->
                  <div class="stats-grid grid-4">
                      <div class="stat-card card">
-                         <span class="stat-label">Autoturisme Noi (M1)</span>
+                         <span class="stat-label">Autoturisme EV înmatriculate</span>
                          <div class="stat-value" id="val-auto-reg">0</div>
+                         <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.25rem;">noi + importuri rulate</p>
                      </div>
                      <div class="stat-card card">
-                         <span class="stat-label">Utilitare Noi (N1)</span>
+                         <span class="stat-label">Autoutilitare EV înmatriculate</span>
                          <div class="stat-value" id="val-util-reg">0</div>
+                         <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.25rem;">noi + importuri rulate</p>
                      </div>
                      <div class="stat-card card">
                          <span class="stat-label">Total Radieri EV</span>
@@ -230,8 +232,8 @@
                      <div class="details-card card">
                          <div style="display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
                              <div>
-                                 <h3 style="font-size: 1.6rem; font-weight: 800; color: #004b87; margin-bottom: 0.25rem;">Evoluție Parc Auto EV</h3>
-                                 <p class="section-desc" style="margin-bottom: 0;">Istoric înmatriculări România (2011 – 2026)</p>
+                                 <h3 style="font-size: 1.6rem; font-weight: 800; color: #004b87; margin-bottom: 0.25rem;">Înmatriculări anuale EV</h3>
+                                 <p class="section-desc" style="margin-bottom: 0;">Înmatriculări brute, noi + rulate (2011 – prezent)</p>
                              </div>
                              <div class="annual-summary-box">
                                  <span class="annual-summary-title" id="annual-summary-title">TOTAL PARC AUTO (APR '26)</span>
@@ -365,6 +367,6 @@
          </footer>
      </div>
     
-    <script src="public.js?v=20260901_173802"></script>
+    <script src="public.js?v=20260903_4"></script>
 </body>
 </html>

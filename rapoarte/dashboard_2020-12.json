@@ -15,28 +15,23 @@
         },
         {
             "marca": "VOLKSWAGEN",
-            "model": "ID,3 PRO 150 KW",
+            "model": "ID.3",
             "volum": 251
         },
         {
             "marca": "RENAULT",
-            "model": "KANGOO EXPRESS Z,E,",
+            "model": "KANGOO EXPRESS Z.E.",
             "volum": 24
         },
         {
-            "marca": "MAZDA",
-            "model": "MX-30",
-            "volum": 21
-        },
-        {
             "marca": "MERCEDES-BENZ",
-            "model": "EQC 400 4MATIC",
-            "volum": 16
+            "model": "EQC",
+            "volum": 23
         },
         {
-            "marca": "PEUGEOT",
-            "model": "208",
-            "volum": 13
+            "marca": "MAZDA",
+            "model": "MX 30",
+            "volum": 21
         },
         {
             "marca": "HYUNDAI",
@@ -44,14 +39,29 @@
             "volum": 13
         },
         {
+            "marca": "PEUGEOT",
+            "model": "208",
+            "volum": 13
+        },
+        {
             "marca": "HONDA",
-            "model": "HONDA E",
+            "model": "E",
             "volum": 12
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "UP",
+            "volum": 11
+        },
+        {
+            "marca": "NISSAN",
+            "model": "LEAF",
+            "volum": 10
         },
         {
             "marca": "SMART",
             "model": "EQ FORFOUR",
-            "volum": 9
+            "volum": 10
         },
         {
             "marca": "VOLKSWAGEN",
@@ -64,29 +74,19 @@
             "volum": 8
         },
         {
-            "marca": "SMART",
-            "model": "EQ FORTWO COUPE",
-            "volum": 8
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "UP !",
-            "volum": 8
-        },
-        {
             "marca": "SKODA",
             "model": "CITIGO",
             "volum": 8
         },
         {
-            "marca": "MERCEDES-BENZ~",
-            "model": "EQC 400 4MATIC",
-            "volum": 7
+            "marca": "SMART",
+            "model": "EQ FORTWO",
+            "volum": 8
         },
         {
             "marca": "TESLA",
             "model": "MODEL 3",
-            "volum": 7
+            "volum": 8
         },
         {
             "marca": "PEUGEOT",
@@ -94,8 +94,18 @@
             "volum": 7
         },
         {
+            "marca": "TESLA",
+            "model": "MODEL S",
+            "volum": 7
+        },
+        {
+            "marca": "AUDI",
+            "model": "E-TRON (SUV)",
+            "volum": 6
+        },
+        {
             "marca": "KIA",
-            "model": "NIRO",
+            "model": "NIRO EV",
             "volum": 6
         },
         {
@@ -104,18 +114,13 @@
             "volum": 6
         },
         {
-            "marca": "NISSAN",
-            "model": "LEAF 62KWH",
-            "volum": 6
-        },
-        {
             "marca": "OPEL",
             "model": "CORSA",
             "volum": 6
         },
         {
-            "marca": "TESLA",
-            "model": "MODEL S",
+            "marca": "BMW",
+            "model": "I3",
             "volum": 5
         },
         {
@@ -124,48 +129,13 @@
             "volum": 5
         },
         {
-            "marca": "BMW I",
-            "model": "I3",
-            "volum": 4
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "UP!",
-            "volum": 3
-        },
-        {
-            "marca": "AUDI",
-            "model": "AUDI E-TRON",
-            "volum": 3
-        },
-        {
             "marca": "JAGUAR",
-            "model": "JAGUAR I-PACE",
+            "model": "I PACE",
             "volum": 3
         },
         {
-            "marca": "TESLA MOTORS",
-            "model": "MODEL S",
-            "volum": 2
-        },
-        {
-            "marca": "AUDI",
-            "model": "E-TRON 55",
-            "volum": 2
-        },
-        {
-            "marca": "BMW I",
+            "marca": "BMW",
             "model": "I3S",
-            "volum": 2
-        },
-        {
-            "marca": "NISSAN",
-            "model": "LEAF 40KWH",
-            "volum": 2
-        },
-        {
-            "marca": "TESLA",
-            "model": "MODEL X",
             "volum": 2
         },
         {
@@ -174,33 +144,13 @@
             "volum": 2
         },
         {
+            "marca": "TESLA",
+            "model": "MODEL X",
+            "volum": 2
+        },
+        {
             "marca": "FIAT",
-            "model": "500E",
-            "volum": 1
-        },
-        {
-            "marca": "AUDI",
-            "model": "E-TRON SPORTBACK 50",
-            "volum": 1
-        },
-        {
-            "marca": "BMW",
-            "model": "I3",
-            "volum": 1
-        },
-        {
-            "marca": "SMART",
-            "model": "EQ FORTWO CABRIO",
-            "volum": 1
-        },
-        {
-            "marca": "SMART",
-            "model": "FORFOUR ED",
-            "volum": 1
-        },
-        {
-            "marca": "NISSAN",
-            "model": "LEAF",
+            "model": "500",
             "volum": 1
         },
         {
@@ -209,38 +159,35 @@
             "volum": 1
         },
         {
-            "marca": "NISSAN",
-            "model": "LEAF 30KWH",
-            "volum": 1
-        },
-        {
             "marca": "MITSUBISHI",
-            "model": "I-MIEV",
+            "model": "I MIEV",
             "volum": 1
         },
         {
-            "marca": "TESLA MOTORS",
-            "model": "MODEL 3",
+            "marca": "SMART",
+            "model": "EQ FORTWO CABRIO",
             "volum": 1
         }
     ],
     "radieriModele": [
         {
             "marca": "RENAULT",
-            "model": "ZOE",
+            "model": "KANGOO EXPRESS Z.E.",
             "volum": 2
         },
         {
             "marca": "RENAULT",
-            "model": "KANGOO EXPRESS Z,E,",
+            "model": "ZOE",
             "volum": 2
         },
         {
-            "marca": "TESLA MOTORS",
-            "model": "",
+            "marca": "TESLA",
+            "model": "MODEL NECUNOSCUT",
             "volum": 1
         }
     ],
     "luna": "2020-12",
-    "lunaNume": "DEC"
+    "lunaNume": "DEC",
+    "totalOtherOwners": 0,
+    "qualityNotices": []
 }

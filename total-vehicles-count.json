@@ -1,7 +1,8 @@
 {
-  "total": 74951,
-  "updated_year": 2026,
-  "updated_month": "AUG",
-  "source": "EV Radar Romania / DGPCI",
-  "note": "Numar total vehicule electrice (BEV) inmatriculate activ in Romania"
+    "total": 74911,
+    "updated_year": 2026,
+    "updated_month": "AUG",
+    "source": "EV Radar Romania / DGPCI",
+    "method": "Parc la 31.12.2025 + inmatriculari - radieri in 2026",
+    "baseline": 63946
 }

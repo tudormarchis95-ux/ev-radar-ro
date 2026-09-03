@@ -10,8 +10,8 @@
     "inmatriculariModele": [
         {
             "marca": "VOLKSWAGEN",
-            "model": "UP !",
-            "volum": 20
+            "model": "UP",
+            "volum": 27
         },
         {
             "marca": "PEUGEOT",
@@ -19,14 +19,14 @@
             "volum": 14
         },
         {
+            "marca": "BMW",
+            "model": "I3",
+            "volum": 13
+        },
+        {
             "marca": "RENAULT",
             "model": "ZOE",
             "volum": 12
-        },
-        {
-            "marca": "BMW I",
-            "model": "I3",
-            "volum": 10
         },
         {
             "marca": "MINI",
@@ -44,23 +44,23 @@
             "volum": 7
         },
         {
-            "marca": "VOLKSWAGEN",
-            "model": "UP!",
-            "volum": 7
+            "marca": "HYUNDAI",
+            "model": "KONA",
+            "volum": 6
         },
         {
             "marca": "MAZDA",
-            "model": "MX-30",
+            "model": "MX 30",
+            "volum": 6
+        },
+        {
+            "marca": "NISSAN",
+            "model": "LEAF",
             "volum": 6
         },
         {
             "marca": "VOLKSWAGEN",
-            "model": "ID,3 PRO 150 KW",
-            "volum": 6
-        },
-        {
-            "marca": "HYUNDAI",
-            "model": "KONA",
+            "model": "ID.3",
             "volum": 6
         },
         {
@@ -79,18 +79,18 @@
             "volum": 5
         },
         {
+            "marca": "TESLA",
+            "model": "MODEL S",
+            "volum": 5
+        },
+        {
             "marca": "JAGUAR",
-            "model": "JAGUAR I-PACE",
+            "model": "I PACE",
             "volum": 4
         },
         {
-            "marca": "BMW",
-            "model": "I3",
-            "volum": 3
-        },
-        {
-            "marca": "NISSAN",
-            "model": "LEAF 40KWH",
+            "marca": "AUDI",
+            "model": "E-TRON (SUV)",
             "volum": 3
         },
         {
@@ -99,38 +99,13 @@
             "volum": 3
         },
         {
-            "marca": "TESLA",
-            "model": "MODEL S",
-            "volum": 3
-        },
-        {
-            "marca": "DS",
-            "model": "DS3 CROSSBACK",
-            "volum": 2
-        },
-        {
-            "marca": "TESLA MOTORS",
-            "model": "MODEL S",
-            "volum": 2
-        },
-        {
-            "marca": "AUDI",
-            "model": "AUDI E-TRON",
-            "volum": 2
-        },
-        {
-            "marca": "BMW I",
+            "marca": "BMW",
             "model": "I3S",
             "volum": 2
         },
         {
-            "marca": "PORSCHE",
-            "model": "TAYCAN 4S",
-            "volum": 2
-        },
-        {
-            "marca": "SMART",
-            "model": "EQ FORTWO COUPE",
+            "marca": "DS",
+            "model": "DS3 CROSSBACK",
             "volum": 2
         },
         {
@@ -139,8 +114,23 @@
             "volum": 2
         },
         {
+            "marca": "PORSCHE",
+            "model": "TAYCAN 4S",
+            "volum": 2
+        },
+        {
             "marca": "RENAULT",
-            "model": "KANGOO EXPRESS Z,E,",
+            "model": "KANGOO EXPRESS Z.E.",
+            "volum": 2
+        },
+        {
+            "marca": "SMART",
+            "model": "EQ FORTWO",
+            "volum": 2
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL X",
             "volum": 2
         },
         {
@@ -149,49 +139,24 @@
             "volum": 1
         },
         {
-            "marca": "NISSAN",
-            "model": "LEAF 62KWH",
-            "volum": 1
-        },
-        {
-            "marca": "NISSAN",
-            "model": "NISSAN LEAF 40KWH",
-            "volum": 1
-        },
-        {
-            "marca": "TESLA MOTORS",
-            "model": "MODEL X",
-            "volum": 1
-        },
-        {
-            "marca": "AUDI",
-            "model": "E-TRON 55",
-            "volum": 1
-        },
-        {
-            "marca": "NISSAN",
-            "model": "LEAF",
-            "volum": 1
-        },
-        {
             "marca": "KIA",
-            "model": "NIRO",
-            "volum": 1
-        },
-        {
-            "marca": "TESLA",
-            "model": "MODEL X",
+            "model": "NIRO EV",
             "volum": 1
         }
     ],
     "radieriModele": [
+        {
+            "marca": "AUDI",
+            "model": "E-TRON (SUV)",
+            "volum": 1
+        },
         {
             "marca": "PORSCHE",
             "model": "TAYCAN 4S",
             "volum": 1
         },
         {
-            "marca": "TESLA MOTORS",
+            "marca": "TESLA",
             "model": "MODEL S",
             "volum": 1
         },
@@ -199,13 +164,10 @@
             "marca": "VOLKSWAGEN",
             "model": "GOLF",
             "volum": 1
-        },
-        {
-            "marca": "AUDI",
-            "model": "AUDI E-TRON",
-            "volum": 1
         }
     ],
     "luna": "2021-02",
-    "lunaNume": "FEB"
+    "lunaNume": "FEB",
+    "totalOtherOwners": 0,
+    "qualityNotices": []
 }

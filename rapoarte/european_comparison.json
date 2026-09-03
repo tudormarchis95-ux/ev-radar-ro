@@ -1,0 +1,23 @@
+{
+    "schemaVersion": 1,
+    "metric": "monthly-new-passenger-bev",
+    "definition": "Autoturisme BEV noi / total autoturisme noi, in luna calendaristica",
+    "periods": {
+        "2026-06": {
+            "source": "ACEA",
+            "sourceUrl": "https://www.acea.auto/files/Press_release_car_registrations_June_2026.pdf",
+            "publishedAt": "2026-07-23",
+            "provisional": true,
+            "countries": [
+                {"code": "NO", "name": "Norvegia", "flag": "🇳🇴", "bev": 18875, "total": 19558},
+                {"code": "SE", "name": "Suedia", "flag": "🇸🇪", "bev": 13014, "total": 29759},
+                {"code": "NL", "name": "Olanda", "flag": "🇳🇱", "bev": 17257, "total": 39015},
+                {"code": "FR", "name": "Franța", "flag": "🇫🇷", "bev": 55851, "total": 188787},
+                {"code": "UK", "name": "Marea Britanie", "flag": "🇬🇧", "bev": 63950, "total": 213166},
+                {"code": "DE", "name": "Germania", "flag": "🇩🇪", "bev": 84057, "total": 296378},
+                {"code": "ES", "name": "Spania", "flag": "🇪🇸", "bev": 14224, "total": 128426},
+                {"code": "RO", "name": "România", "flag": "🇷🇴", "bev": 1496, "total": 16120}
+            ]
+        }
+    }
+}

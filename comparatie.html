@@ -248,15 +248,16 @@
             <section class="card animate-fade-in" style="margin-bottom: 2rem; background: linear-gradient(135deg, rgba(2, 132, 199, 0.05) 0%, rgba(0, 75, 135, 0.03) 100%); border-color: rgba(0, 75, 135, 0.15);">
                 <h2>📈 Unde se situează România în Europa?</h2>
                 <p class="section-desc" style="margin-bottom: 0; line-height: 1.7;">
-                    România înregistrează o creștere solidă a numărului de EV-uri, însă din punct de vedere al cotei de piață (market share) și a volumelor absolute, decalajul față de liderii europeni precum Norvegia, Olanda sau Suedia rămâne semnificativ. Acest panou oferă o analiză comparativă bazată pe datele din proiectul de referință <strong>EU-EVs.com</strong> și cele mai recente date DGPCI procesate local.
+                    Comparația folosește aceeași definiție pentru fiecare țară: autoturisme BEV noi, raportate la totalul autoturismelor noi. Importurile rulate, importante pentru România, rămân vizibile în dashboardul național, dar nu sunt amestecate în cota europeană.
                 </p>
             </section>
 
             <!-- Hero Sectiune Volume Romania -->
             <div class="fleet-hero-card card animate-fade-in" style="margin-bottom: 2rem; text-align: center; background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(0, 75, 135, 0.03) 100%); border-color: rgba(0, 75, 135, 0.15);">
-                <span class="stat-label" style="font-size: 1.1rem; letter-spacing: 0.1em; color: var(--primary-color); font-weight: 700;">🚗 ÎNMATRICULĂRI EV ROMÂNIA</span>
+                <span class="stat-label" style="font-size: 1.1rem; letter-spacing: 0.1em; color: var(--primary-color); font-weight: 700;">🚗 AUTOTURISME ELECTRICE NOI — ROMÂNIA</span>
                 <div class="stat-value" id="val-comp-hero-volume" style="font-size: 4rem; font-weight: 900; color: var(--primary-color); text-shadow: none; margin: 0.5rem 0;">0</div>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Vehicule electrice noi (M1 + N1) înmatriculate în România în luna <span id="comp-hero-month-name">-</span></p>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Autoturisme BEV noi înmatriculate în România în <span id="comp-hero-month-name">-</span></p>
+                <p id="comparison-source-note" style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.5rem;"></p>
             </div>
 
             <!-- Delimitator cu denumirea lunii -->
@@ -269,7 +270,7 @@
                 <!-- Cota de Piata EV (Market Share %) -->
                 <section class="card chart-card animate-slide-up">
                     <h3>🇪🇺 Cotă de Piață Vehicule Electrice (BEV) - % din Înmatriculări Noi</h3>
-                    <p class="section-desc">Ponderea mașinilor 100% electrice din totalul autoturismelor înmatriculate.</p>
+                    <p class="section-desc">Ponderea autoturismelor BEV noi din totalul autoturismelor noi.</p>
                     <div class="bar-list" id="market-share-list">
                         <!-- Generat din JS -->
                     </div>
@@ -295,8 +296,8 @@
 
                     <div class="card" style="flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center;">
                         <span class="stat-label" style="font-size: 0.85rem; letter-spacing: 0.1em; color: var(--primary-color); font-weight: 700;">🏆 LIDERUL ADOPȚIEI</span>
-                        <div class="stat-value" style="font-size: 2.2rem; font-weight: 900; color: var(--primary-color); margin: 0.5rem 0;">Norvegia 🇳🇴</div>
-                        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5;">Norvegia se apropie de pragul de 95% cota EV, fiind un etalon global datorită stimulentelor guvernamentale susținute.</p>
+                        <div class="stat-value" id="comparison-leader" style="font-size: 2.2rem; font-weight: 900; color: var(--primary-color); margin: 0.5rem 0;">-</div>
+                        <p id="comparison-leader-note" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5;">Se calculează numai din perioada verificată selectată.</p>
                     </div>
                 </section>
             </div>
@@ -313,9 +314,9 @@
          
          <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); font-size: 0.85rem; font-weight: 500;">
              <p>© 2026 Tudor Marchis & Electromobilitate. Toate drepturile rezervate.</p>
-             <p style="margin-top: 0.25rem; font-size: 0.75rem; opacity: 0.8;">Date colectate oficial de pe DGPCI și EU-EVs.com.</p>
+             <p style="margin-top: 0.25rem; font-size: 0.75rem; opacity: 0.8;">Surse: DGPCI pentru România și ACEA pentru comparația europeană. Datele provizorii sunt marcate explicit.</p>
          </footer>
      </div>
-    <script src="comparatie.js?v=2"></script>
+    <script src="comparatie.js?v=3"></script>
 </body>
 </html>

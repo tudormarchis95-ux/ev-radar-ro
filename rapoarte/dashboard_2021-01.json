@@ -10,16 +10,16 @@
     "inmatriculariModele": [
         {
             "marca": "VOLKSWAGEN",
-            "model": "UP !",
-            "volum": 25
+            "model": "UP",
+            "volum": 31
         },
         {
             "marca": "VOLKSWAGEN",
-            "model": "ID,3 PRO 150 KW",
+            "model": "ID.3",
             "volum": 21
         },
         {
-            "marca": "BMW I",
+            "marca": "BMW",
             "model": "I3",
             "volum": 14
         },
@@ -35,8 +35,13 @@
         },
         {
             "marca": "SMART",
-            "model": "EQ FORTWO COUPE",
+            "model": "EQ FORTWO",
             "volum": 10
+        },
+        {
+            "marca": "NISSAN",
+            "model": "LEAF",
+            "volum": 9
         },
         {
             "marca": "RENAULT",
@@ -70,12 +75,7 @@
         },
         {
             "marca": "KIA",
-            "model": "NIRO",
-            "volum": 6
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "UP!",
+            "model": "NIRO EV",
             "volum": 6
         },
         {
@@ -85,12 +85,12 @@
         },
         {
             "marca": "MAZDA",
-            "model": "MX-30",
+            "model": "MX 30",
             "volum": 4
         },
         {
             "marca": "NISSAN",
-            "model": "LEAF 62KWH",
+            "model": "E-NV200",
             "volum": 4
         },
         {
@@ -99,19 +99,9 @@
             "volum": 4
         },
         {
-            "marca": "BMW I",
+            "marca": "BMW",
             "model": "I3S",
             "volum": 3
-        },
-        {
-            "marca": "NISSAN",
-            "model": "LEAF 40KWH",
-            "volum": 2
-        },
-        {
-            "marca": "NISSAN",
-            "model": "NISSAN E-NV200",
-            "volum": 2
         },
         {
             "marca": "PORSCHE",
@@ -119,23 +109,18 @@
             "volum": 2
         },
         {
-            "marca": "NISSAN",
-            "model": "LEAF",
+            "marca": "TESLA",
+            "model": "MODEL S",
             "volum": 2
-        },
-        {
-            "marca": "NISSAN",
-            "model": "E-NV200",
-            "volum": 2
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "EQC 400 4MATIC",
-            "volum": 1
         },
         {
             "marca": "AUDI",
-            "model": "E-TRON SPORTBACK 55",
+            "model": "E-TRON (SUV)",
+            "volum": 1
+        },
+        {
+            "marca": "CITROEN",
+            "model": "E-BERLINGO",
             "volum": 1
         },
         {
@@ -144,33 +129,13 @@
             "volum": 1
         },
         {
-            "marca": "NISSAN",
-            "model": "LEAF 24KWH",
-            "volum": 1
-        },
-        {
-            "marca": "SMART",
-            "model": "FORFOUR ED",
-            "volum": 1
-        },
-        {
-            "marca": "TESLA",
-            "model": "MODEL S",
-            "volum": 1
-        },
-        {
             "marca": "JAGUAR",
-            "model": "JAGUAR I-PACE",
+            "model": "I PACE",
             "volum": 1
         },
         {
-            "marca": "TESLA MOTORS",
-            "model": "MODEL X",
-            "volum": 1
-        },
-        {
-            "marca": "TESLA MOTORS",
-            "model": "MODELS",
+            "marca": "MERCEDES-BENZ",
+            "model": "EQC",
             "volum": 1
         },
         {
@@ -179,23 +144,30 @@
             "volum": 1
         },
         {
-            "marca": "CITROEN",
-            "model": "BERLINGO",
+            "marca": "SMART",
+            "model": "EQ FORFOUR",
+            "volum": 1
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL X",
             "volum": 1
         }
     ],
     "radieriModele": [
         {
             "marca": "VOLKSWAGEN",
-            "model": "ID,3 PRO 150 KW",
+            "model": "ID.3",
             "volum": 19
         },
         {
             "marca": "SMART",
-            "model": "FORTWO COUPE ED",
+            "model": "EQ FORTWO",
             "volum": 1
         }
     ],
     "luna": "2021-01",
-    "lunaNume": "JAN"
+    "lunaNume": "JAN",
+    "totalOtherOwners": 0,
+    "qualityNotices": []
 }

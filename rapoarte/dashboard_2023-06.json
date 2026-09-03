@@ -19,19 +19,19 @@
             "volum": 238
         },
         {
+            "marca": "TESLA",
+            "model": "MODEL 3",
+            "volum": 95
+        },
+        {
             "marca": "RENAULT",
             "model": "MEGANE E-TECH ELECTRIC",
             "volum": 94
         },
         {
-            "marca": "TESLA",
-            "model": "MODEL 3",
-            "volum": 94
-        },
-        {
             "marca": "VOLKSWAGEN",
-            "model": "ID,3 PRO 150 KW",
-            "volum": 52
+            "model": "ID.3",
+            "volum": 75
         },
         {
             "marca": "HYUNDAI",
@@ -40,8 +40,18 @@
         },
         {
             "marca": "VOLKSWAGEN",
-            "model": "UP !",
-            "volum": 33
+            "model": "UP",
+            "volum": 46
+        },
+        {
+            "marca": "SKODA",
+            "model": "ENYAQ",
+            "volum": 35
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "ID.4",
+            "volum": 29
         },
         {
             "marca": "PEUGEOT",
@@ -49,18 +59,13 @@
             "volum": 16
         },
         {
-            "marca": "SKODA",
-            "model": "ENYAQ 80",
-            "volum": 16
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "ID,3 PRO S 150 KW",
+            "marca": "MERCEDES-BENZ",
+            "model": "EQA",
             "volum": 15
         },
         {
             "marca": "FORD",
-            "model": "MUSTANG MACH-E",
+            "model": "MUSTANG MACH E",
             "volum": 14
         },
         {
@@ -69,19 +74,29 @@
             "volum": 14
         },
         {
-            "marca": "VOLKSWAGEN",
-            "model": "UP!",
-            "volum": 13
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "ID,4 PRO 128 KW",
-            "volum": 12
-        },
-        {
             "marca": "MINI",
             "model": "COOPER SE",
             "volum": 11
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "ID.5",
+            "volum": 11
+        },
+        {
+            "marca": "BMW",
+            "model": "IX",
+            "volum": 10
+        },
+        {
+            "marca": "FORD",
+            "model": "TRANSIT",
+            "volum": 10
+        },
+        {
+            "marca": "MERCEDES-BENZ",
+            "model": "EQB",
+            "volum": 10
         },
         {
             "marca": "PEUGEOT",
@@ -99,14 +114,14 @@
             "volum": 10
         },
         {
-            "marca": "FORD",
-            "model": "TRANSIT",
-            "volum": 10
+            "marca": "MERCEDES-BENZ",
+            "model": "EQS",
+            "volum": 9
         },
         {
-            "marca": "VOLKSWAGEN",
-            "model": "ID,4 PRO 150 KW",
-            "volum": 9
+            "marca": "BMW",
+            "model": "I4",
+            "volum": 8
         },
         {
             "marca": "FIAT",
@@ -114,34 +129,19 @@
             "volum": 8
         },
         {
-            "marca": "MERCEDES - BENZ",
-            "model": "EQA 250",
-            "volum": 8
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "ID,3 PRO 107 KW",
-            "volum": 8
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "ID,4 GTX 220 KW",
-            "volum": 8
+            "marca": "AUDI",
+            "model": "Q4 E-TRON",
+            "volum": 7
         },
         {
             "marca": "HYUNDAI",
-            "model": "IONIQ5",
+            "model": "IONIQ 5",
             "volum": 7
         },
         {
-            "marca": "VOLKSWAGEN",
-            "model": "ID,5 PRO 150 KW",
-            "volum": 7
-        },
-        {
-            "marca": "SKODA",
-            "model": "ENYAQ RS",
-            "volum": 7
+            "marca": "BMW",
+            "model": "IX1",
+            "volum": 6
         },
         {
             "marca": "TESLA",
@@ -149,43 +149,8 @@
             "volum": 6
         },
         {
-            "marca": "BMW",
-            "model": "IX1 XDRIVE30",
-            "volum": 6
-        },
-        {
-            "marca": "MERCEDES - BENZ",
-            "model": "EQB 300 4MATIC",
-            "volum": 6
-        },
-        {
-            "marca": "SKODA",
-            "model": "ENYAQ 60",
-            "volum": 6
-        },
-        {
-            "marca": "SKODA",
-            "model": "ENYAQ 80X",
-            "volum": 6
-        },
-        {
-            "marca": "MERCEDES - BENZ",
-            "model": "EQA 300 4MATIC",
-            "volum": 5
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "EQS 580 4MATIC",
-            "volum": 5
-        },
-        {
-            "marca": "BMW",
-            "model": "I4 EDRIVE40",
-            "volum": 5
-        },
-        {
-            "marca": "BMW",
-            "model": "IX XDRIVE40",
+            "marca": "AUDI",
+            "model": "E-TRON (SUV)",
             "volum": 5
         },
         {
@@ -195,17 +160,22 @@
         },
         {
             "marca": "VOLKSWAGEN",
-            "model": "ID, BUZZ PRO 150 KW",
+            "model": "ID. BUZZ",
             "volum": 5
         },
         {
             "marca": "BMW",
-            "model": "IX XDRIVE50",
+            "model": "I3",
+            "volum": 4
+        },
+        {
+            "marca": "CUPRA",
+            "model": "BORN",
             "volum": 4
         },
         {
             "marca": "HYUNDAI",
-            "model": "IONIQ6",
+            "model": "IONIQ 6",
             "volum": 4
         },
         {
@@ -214,38 +184,23 @@
             "volum": 4
         },
         {
-            "marca": "VOLVO",
-            "model": "C40",
-            "volum": 4
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "ID, BUZZ CARGO 150 KW",
-            "volum": 4
-        },
-        {
             "marca": "VOLKSWAGEN",
             "model": "CRAFTER",
             "volum": 4
         },
         {
+            "marca": "VOLKSWAGEN",
+            "model": "ID. BUZZ CARGO",
+            "volum": 4
+        },
+        {
             "marca": "VOLVO",
-            "model": "XC40",
-            "volum": 3
+            "model": "EC40",
+            "volum": 4
         },
         {
-            "marca": "KIA",
-            "model": "NIRO",
-            "volum": 3
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "AMG EQE 43 4MATIC",
-            "volum": 3
-        },
-        {
-            "marca": "BMW",
-            "model": "I4 M50",
+            "marca": "AUDI",
+            "model": "Q8 SPORTBACK E-TRON",
             "volum": 3
         },
         {
@@ -254,13 +209,23 @@
             "volum": 3
         },
         {
+            "marca": "KIA",
+            "model": "EV6",
+            "volum": 3
+        },
+        {
+            "marca": "KIA",
+            "model": "NIRO EV",
+            "volum": 3
+        },
+        {
             "marca": "MAZDA",
-            "model": "MX-30",
+            "model": "MX 30",
             "volum": 3
         },
         {
             "marca": "MERCEDES-BENZ",
-            "model": "EQB 350 4MATIC",
+            "model": "AMG EQE",
             "volum": 3
         },
         {
@@ -274,78 +239,23 @@
             "volum": 3
         },
         {
-            "marca": "VOLKSWAGEN",
-            "model": "ID,5 GTX 220 KW",
+            "marca": "VOLVO",
+            "model": "EX40",
             "volum": 3
         },
         {
-            "marca": "MERCEDES-BENZ",
-            "model": "EQS 350",
-            "volum": 2
-        },
-        {
-            "marca": "AUDI",
-            "model": "E-TRON 55",
-            "volum": 2
-        },
-        {
-            "marca": "AUDI",
-            "model": "Q4 40 E-TRON",
-            "volum": 2
-        },
-        {
-            "marca": "AUDI",
-            "model": "Q4 SPORTBACK 35 E-TRON",
-            "volum": 2
-        },
-        {
-            "marca": "AUDI",
-            "model": "Q8 SPORTBACK 55 E-TRON",
-            "volum": 2
-        },
-        {
-            "marca": "BMW I",
-            "model": "I3",
-            "volum": 2
-        },
-        {
-            "marca": "CUPRA",
-            "model": "BORN 150 KW 58/62 KWH",
-            "volum": 2
-        },
-        {
-            "marca": "CUPRA",
-            "model": "BORN 170 KW 58/62 KWH",
-            "volum": 2
-        },
-        {
             "marca": "JAGUAR",
-            "model": "JAGUAR I-PACE",
-            "volum": 2
-        },
-        {
-            "marca": "KIA",
-            "model": "EV 6",
-            "volum": 2
-        },
-        {
-            "marca": "MERCEDES - BENZ",
-            "model": "EQA 350 4MATIC",
+            "model": "I PACE",
             "volum": 2
         },
         {
             "marca": "MERCEDES-BENZ",
-            "model": "EQC 400 4MATIC",
+            "model": "EQC",
             "volum": 2
         },
         {
             "marca": "MERCEDES-BENZ",
-            "model": "EQS 450 4MATIC",
-            "volum": 2
-        },
-        {
-            "marca": "SMART",
-            "model": "EQ FORTWO COUPE",
+            "model": "EQE",
             "volum": 2
         },
         {
@@ -354,8 +264,8 @@
             "volum": 2
         },
         {
-            "marca": "BMW",
-            "model": "I3",
+            "marca": "NISSAN",
+            "model": "LEAF",
             "volum": 2
         },
         {
@@ -364,38 +274,43 @@
             "volum": 2
         },
         {
-            "marca": "NISSAN",
-            "model": "",
-            "volum": 1
-        },
-        {
-            "marca": "AUDI",
-            "model": "E-TRON S",
-            "volum": 1
+            "marca": "SMART",
+            "model": "EQ FORTWO",
+            "volum": 2
         },
         {
             "marca": "BMW",
-            "model": "",
-            "volum": 1
-        },
-        {
-            "marca": "AUDI",
-            "model": "E-TRON 50",
-            "volum": 1
-        },
-        {
-            "marca": "BMW",
-            "model": "IX M60",
-            "volum": 1
-        },
-        {
-            "marca": "BMW I",
             "model": "I3S",
+            "volum": 1
+        },
+        {
+            "marca": "BMW",
+            "model": "MODEL NECUNOSCUT",
             "volum": 1
         },
         {
             "marca": "CITROEN",
             "model": "E-BERLINGO",
+            "volum": 1
+        },
+        {
+            "marca": "CITROEN",
+            "model": "E-C4 X",
+            "volum": 1
+        },
+        {
+            "marca": "CITROEN",
+            "model": "JUMPY",
+            "volum": 1
+        },
+        {
+            "marca": "FIAT",
+            "model": "DUCATO",
+            "volum": 1
+        },
+        {
+            "marca": "GENESIS",
+            "model": "GV60",
             "volum": 1
         },
         {
@@ -405,17 +320,22 @@
         },
         {
             "marca": "HYUNDAI",
-            "model": "",
+            "model": "MODEL NECUNOSCUT",
             "volum": 1
         },
         {
-            "marca": "KIA",
-            "model": "EV6",
+            "marca": "MAXUS",
+            "model": "E-DELIVER 3",
             "volum": 1
         },
         {
             "marca": "MERCEDES-BENZ",
-            "model": "EQE 350 4MATIC",
+            "model": "ESPRINTER",
+            "volum": 1
+        },
+        {
+            "marca": "MERCEDES-BENZ",
+            "model": "EVITO",
             "volum": 1
         },
         {
@@ -425,7 +345,22 @@
         },
         {
             "marca": "NISSAN",
-            "model": "NISSAN LEAF",
+            "model": "MODEL NECUNOSCUT",
+            "volum": 1
+        },
+        {
+            "marca": "OPEL",
+            "model": "CORSA",
+            "volum": 1
+        },
+        {
+            "marca": "OPEL",
+            "model": "MOKKA",
+            "volum": 1
+        },
+        {
+            "marca": "PEUGEOT",
+            "model": "E RIFTER",
             "volum": 1
         },
         {
@@ -439,113 +374,13 @@
             "volum": 1
         },
         {
-            "marca": "PEUGEOT",
-            "model": "E-RIFTER",
-            "volum": 1
-        },
-        {
-            "marca": "AUDI",
-            "model": "AUDI E-TRON",
-            "volum": 1
-        },
-        {
-            "marca": "AUDI",
-            "model": "Q4 35 E-TRON",
-            "volum": 1
-        },
-        {
-            "marca": "NISSAN",
-            "model": "NISSAN LEAF 40KWH",
-            "volum": 1
-        },
-        {
-            "marca": "OPEL",
-            "model": "MOKKA",
-            "volum": 1
-        },
-        {
-            "marca": "CITROEN",
-            "model": "E-C4 X",
-            "volum": 1
-        },
-        {
-            "marca": "MERCEDES - BENZ",
-            "model": "EQB 350 4MATIC",
-            "volum": 1
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "EQE 350+",
-            "volum": 1
-        },
-        {
-            "marca": "AUDI",
-            "model": "Q8 SPORTBACK 50 E-TRON",
-            "volum": 1
-        },
-        {
-            "marca": "GENESIS",
-            "model": "GV60",
-            "volum": 1
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "ID,5 PRO 128 KW",
-            "volum": 1
-        },
-        {
-            "marca": "AUDI",
-            "model": "Q4 50 E-TRON",
-            "volum": 1
-        },
-        {
-            "marca": "OPEL",
-            "model": "CORSA",
-            "volum": 1
-        },
-        {
-            "marca": "TESLA MOTORS",
-            "model": "MODEL 3",
-            "volum": 1
-        },
-        {
-            "marca": "AUDI",
-            "model": "Q4 SPORTBACK 45 E-TRON",
-            "volum": 1
-        },
-        {
-            "marca": "CITROEN",
-            "model": "JUMPY",
-            "volum": 1
-        },
-        {
             "marca": "TOYOTA",
             "model": "PROACE",
             "volum": 1
         },
         {
             "marca": "TOYOTA",
-            "model": "PROACE CITY ELECTRIC",
-            "volum": 1
-        },
-        {
-            "marca": "FIAT",
-            "model": "DUCATO",
-            "volum": 1
-        },
-        {
-            "marca": "MAXUS",
-            "model": "MAXUS E-DELIVER 3",
-            "volum": 1
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "ESPRINTER",
-            "volum": 1
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "EVITO",
+            "model": "PROACE CITY",
             "volum": 1
         }
     ],
@@ -567,12 +402,27 @@
         },
         {
             "marca": "VOLKSWAGEN",
-            "model": "UP!",
+            "model": "UP",
+            "volum": 4
+        },
+        {
+            "marca": "NISSAN",
+            "model": "LEAF",
             "volum": 3
         },
         {
+            "marca": "BMW",
+            "model": "I3S",
+            "volum": 1
+        },
+        {
+            "marca": "DS",
+            "model": "DS3 CROSSBACK",
+            "volum": 1
+        },
+        {
             "marca": "MERCEDES-BENZ",
-            "model": "EQS 580 4MATIC",
+            "model": "EQS",
             "volum": 1
         },
         {
@@ -581,41 +431,13 @@
             "volum": 1
         },
         {
-            "marca": "BMW I",
-            "model": "I3S",
-            "volum": 1
-        },
-        {
-            "marca": "DS",
-            "model": "DS 3 CROSSBACK",
-            "volum": 1
-        },
-        {
-            "marca": "NISSAN",
-            "model": "LEAF",
-            "volum": 1
-        },
-        {
-            "marca": "NISSAN",
-            "model": "LEAF 40KWH",
-            "volum": 1
-        },
-        {
-            "marca": "NISSAN",
-            "model": "NISSAN LEAF 62KWH",
-            "volum": 1
-        },
-        {
             "marca": "VOLKSWAGEN",
-            "model": "UP !",
-            "volum": 1
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "ID,3 PURE 110 KW",
+            "model": "ID.3",
             "volum": 1
         }
     ],
     "luna": "2023-06",
-    "lunaNume": "JUN"
+    "lunaNume": "JUN",
+    "totalOtherOwners": 0,
+    "qualityNotices": []
 }

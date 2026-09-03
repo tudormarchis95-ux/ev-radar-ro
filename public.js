@@ -9,9 +9,16 @@ const state = {
     historicalSummary: null,
     historicalModels: null
 };
+const FLEET_BASELINE_DEC_2025 = 63946;
+
+function escapeHtml(value) {
+    return String(value ?? '').replace(/[&<>"']/g, character => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[character]));
+}
 
 function calculateDynamicTotalFleet(dataState, historicalSummary) {
-    const baseFleetDec2025 = 63986;
+    const baseFleetDec2025 = FLEET_BASELINE_DEC_2025;
     let totalFleet = baseFleetDec2025;
     const monthsOrder = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     const currentLunaNume = dataState.lunaNume || 'MAY';
@@ -281,9 +288,9 @@ function showEmptyDashboard(message) {
     document.getElementById('val-pf-pct').innerText = "-";
     document.getElementById('val-pf-qty').innerText = "-";
     
-    document.getElementById('top-brands-tbody').innerHTML = `<tr><td colspan="3" style="text-align: center; color: var(--text-muted);">${message}</td></tr>`;
-    document.getElementById('top-models-tbody').innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted);">${message}</td></tr>`;
-    document.getElementById('top-rad-tbody').innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted);">${message}</td></tr>`;
+    document.getElementById('top-brands-tbody').innerHTML = `<tr><td colspan="3" style="text-align: center; color: var(--text-muted);">${escapeHtml(message)}</td></tr>`;
+    document.getElementById('top-models-tbody').innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted);">${escapeHtml(message)}</td></tr>`;
+    document.getElementById('top-rad-tbody').innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted);">${escapeHtml(message)}</td></tr>`;
 }
 
 function renderDashboard() {
@@ -343,7 +350,7 @@ function renderDashboard() {
     brandTbody.innerHTML = '';
     topBrands.forEach((item, idx) => {
         const tr = document.createElement('tr');
-        tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${item.marca}</td><td><strong>${item.volum}</strong></td>`;
+        tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${escapeHtml(item.marca)}</td><td><strong>${item.volum}</strong></td>`;
         brandTbody.appendChild(tr);
     });
     
@@ -353,7 +360,10 @@ function renderDashboard() {
         if (!brand) return model;
         const b = brand.toString().trim().toUpperCase();
         let m = model.toString().trim().toUpperCase();
-        if (m.startsWith(b)) {
+        if (m === b) {
+            return "";
+        }
+        if (m.startsWith(b + " ")) {
             m = m.substring(b.length).trim();
         }
         return m;
@@ -365,7 +375,7 @@ function renderDashboard() {
         const tr = document.createElement('tr');
         const marcaDisplay = normalizeazaMarcaDisplay(item.marca);
         const modelDisplay = stripBrandFromModel(marcaDisplay, item.model);
-        tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${marcaDisplay}</td><td>${modelDisplay}</td><td><strong>${item.volum}</strong></td>`;
+        tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${escapeHtml(marcaDisplay)}</td><td>${escapeHtml(modelDisplay)}</td><td><strong>${item.volum}</strong></td>`;
         regTbody.appendChild(tr);
     });
     
@@ -376,7 +386,7 @@ function renderDashboard() {
         const tr = document.createElement('tr');
         const marcaRadDisplay = normalizeazaMarcaDisplay(item.marca);
         const modelDisplay = stripBrandFromModel(marcaRadDisplay, item.model);
-        tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${marcaRadDisplay}</td><td>${modelDisplay}</td><td><strong>${item.volum}</strong></td>`;
+        tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td><td>${escapeHtml(marcaRadDisplay)}</td><td>${escapeHtml(modelDisplay)}</td><td><strong>${item.volum}</strong></td>`;
         radTbody.appendChild(tr);
     });
 
@@ -384,7 +394,7 @@ function renderDashboard() {
     const formatModelName = (brand, model) => {
         const b = (brand || "").trim();
         const m = (model || "").trim();
-        if (m.toUpperCase().startsWith(b.toUpperCase())) {
+        if (m.toUpperCase() === b.toUpperCase() || m.toUpperCase().startsWith(b.toUpperCase() + " ")) {
             return m;
         }
         return `${b} ${m}`;
@@ -397,8 +407,8 @@ function renderDashboard() {
             const top50Ytd  = modelsData.ytd.slice(0, 50);
             const top50Parc = modelsData.parc.slice(0, 50);
             
-            const totalYtd = top50Ytd.reduce((sum, item) => sum + item.ytd, 0);
-            const totalParc = top50Parc.reduce((sum, item) => sum + item.parc, 0);
+            const totalYtd = modelsData.totals?.ytdRegistrations ?? modelsData.ytd.reduce((sum, item) => sum + item.ytd, 0);
+            const totalParc = modelsData.totals?.fleet ?? modelsData.parc.reduce((sum, item) => sum + item.parc, 0);
             
             // Render Top 50 YTD
             const ytdTbody = document.getElementById('top-50-ytd-tbody');
@@ -413,7 +423,7 @@ function renderDashboard() {
                     const modelNameStr = `${mBrand} ${mModel}`;
                     
                     tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td>
-                                    <td>${modelNameStr}</td>
+                                    <td>${escapeHtml(modelNameStr)}</td>
                                     <td><strong>${item.ytd.toLocaleString('ro-RO')}</strong></td>
                                     <td>${sharePct}%</td>`;
                     ytdTbody.appendChild(tr);
@@ -424,7 +434,9 @@ function renderDashboard() {
             const parcTbody = document.getElementById('top-50-parc-tbody');
             if (parcTbody) {
                 parcTbody.innerHTML = '';
-                top50Parc.forEach((item, idx) => {
+                if (modelsData.fleetAvailable === false) {
+                    parcTbody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:var(--text-muted);">În curs de reconciliere cu baza oficială DGPCI 2025.</td></tr>';
+                } else top50Parc.forEach((item, idx) => {
                     const sharePct = totalParc > 0 ? (item.parc / totalParc * 100).toFixed(2) : '0.00';
                     const tr = document.createElement('tr');
                     
@@ -433,7 +445,7 @@ function renderDashboard() {
                     const modelNameStr = `${mBrand} ${mModel}`;
                     
                     tr.innerHTML = `<td style="text-align: center; font-weight: 700; color: var(--text-muted);">${idx + 1}</td>
-                                    <td>${modelNameStr}</td>
+                                    <td>${escapeHtml(modelNameStr)}</td>
                                     <td><strong>${item.parc.toLocaleString('ro-RO')}</strong></td>
                                     <td>${sharePct}%</td>`;
                     parcTbody.appendChild(tr);
@@ -572,7 +584,7 @@ function renderHistoricalCharts() {
     }
     
     // 2. Evolutie Anuala 2011 - Prezent
-    const baseFleetDec2025 = 63986;
+    const baseFleetDec2025 = FLEET_BASELINE_DEC_2025;
     const annualData = [];
     // currentYear e definit deja la începutul funcției
     
@@ -605,13 +617,7 @@ function renderHistoricalCharts() {
             const yData = state.historicalSummary[String(y)];
             Object.keys(yData).forEach(m => {
                 const item = yData[m];
-                // Pana in 2024 inclusiv: brut (fara radieri) - metodologie istorica
-                // Din 2025: net (minus radieri) - metodologie noua cu DGPCI complet
-                if (y <= 2024) {
-                    yearTotalReg += (item.totalAutoReg + item.totalUtilReg);
-                } else {
-                    yearTotalReg += (item.totalAutoReg + item.totalUtilReg - item.totalRadieri);
-                }
+                yearTotalReg += item.grossRegistrations ?? (item.totalAutoReg + item.totalUtilReg);
             });
         }
         
@@ -641,7 +647,7 @@ function renderHistoricalCharts() {
             mRad = state.data.totalRadieri;
         }
         
-        currentYearCumulativeReg += (mReg - mRad);
+        currentYearCumulativeReg += mReg;
         currentYearCumulativeNet += (mReg - mRad);
         
         if (m === currentLunaNume) break;
@@ -661,7 +667,7 @@ function renderHistoricalCharts() {
     }
     const captionEl = document.getElementById('annual-chart-caption');
     if (captionEl) {
-        captionEl.innerHTML = `* Datele aferente anului ${currentYear} sunt în curs de actualizare (ian – ${currentLunaNume.toLowerCase()}).`;
+        captionEl.innerHTML = `* Barele reprezintă înmatriculări brute (noi + rulate), fără scăderea radierilor. ${currentYear}: ian – ${currentLunaNume.toLowerCase()}. Parcul total se calculează separat, prin creștere netă.`;
     }
     
     const annualContainer = document.getElementById('annual-evolution-list');

@@ -14,24 +14,24 @@
             "volum": 152
         },
         {
+            "marca": "VOLKSWAGEN",
+            "model": "UP",
+            "volum": 43
+        },
+        {
             "marca": "RENAULT",
             "model": "ZOE",
             "volum": 31
         },
         {
-            "marca": "VOLKSWAGEN",
-            "model": "UP !",
-            "volum": 24
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "UP!",
-            "volum": 19
-        },
-        {
             "marca": "TESLA",
             "model": "MODEL 3",
-            "volum": 14
+            "volum": 15
+        },
+        {
+            "marca": "HYUNDAI",
+            "model": "IONIQ",
+            "volum": 13
         },
         {
             "marca": "HYUNDAI",
@@ -44,19 +44,14 @@
             "volum": 13
         },
         {
-            "marca": "HYUNDAI",
-            "model": "IONIQ",
-            "volum": 13
-        },
-        {
             "marca": "PEUGEOT",
             "model": "208",
             "volum": 11
         },
         {
-            "marca": "BMW I",
+            "marca": "BMW",
             "model": "I3",
-            "volum": 8
+            "volum": 10
         },
         {
             "marca": "VOLKSWAGEN",
@@ -64,23 +59,23 @@
             "volum": 8
         },
         {
-            "marca": "MERCEDES-BENZ~",
-            "model": "EQC 400 4MATIC",
+            "marca": "NISSAN",
+            "model": "LEAF",
+            "volum": 7
+        },
+        {
+            "marca": "MERCEDES-BENZ",
+            "model": "EQC",
             "volum": 5
         },
         {
             "marca": "SMART",
-            "model": "EQ FORTWO COUPE",
+            "model": "EQ FORTWO",
             "volum": 5
         },
         {
-            "marca": "NISSAN",
-            "model": "LEAF 40KWH",
-            "volum": 4
-        },
-        {
             "marca": "KIA",
-            "model": "NIRO",
+            "model": "NIRO EV",
             "volum": 3
         },
         {
@@ -89,28 +84,18 @@
             "volum": 3
         },
         {
-            "marca": "PEUGEOT",
-            "model": "2008",
+            "marca": "AUDI",
+            "model": "E-TRON (SUV)",
             "volum": 2
         },
         {
             "marca": "BMW",
-            "model": "I3",
-            "volum": 2
-        },
-        {
-            "marca": "AUDI",
-            "model": "E-TRON 55",
-            "volum": 2
-        },
-        {
-            "marca": "BMW I",
             "model": "I3S",
             "volum": 2
         },
         {
             "marca": "JAGUAR",
-            "model": "JAGUAR I-PACE",
+            "model": "I PACE",
             "volum": 2
         },
         {
@@ -119,8 +104,18 @@
             "volum": 2
         },
         {
-            "marca": "NISSAN",
-            "model": "LEAF 62KWH",
+            "marca": "PEUGEOT",
+            "model": "2008",
+            "volum": 2
+        },
+        {
+            "marca": "RENAULT",
+            "model": "KANGOO EXPRESS Z.E.",
+            "volum": 2
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL S",
             "volum": 2
         },
         {
@@ -129,8 +124,18 @@
             "volum": 2
         },
         {
+            "marca": "KIA",
+            "model": "SOUL EV",
+            "volum": 1
+        },
+        {
             "marca": "NISSAN",
-            "model": "LEAF",
+            "model": "E-NV200",
+            "volum": 1
+        },
+        {
+            "marca": "PIAGGIO",
+            "model": "PORTER",
             "volum": 1
         },
         {
@@ -144,58 +149,20 @@
             "volum": 1
         },
         {
-            "marca": "TESLA MOTORS",
-            "model": "MODEL 3",
-            "volum": 1
-        },
-        {
-            "marca": "TESLA MOTORS",
-            "model": "MODEL S",
-            "volum": 1
-        },
-        {
-            "marca": "TESLA",
-            "model": "MODEL S",
-            "volum": 1
-        },
-        {
-            "marca": "KIA",
-            "model": "SOUL",
-            "volum": 1
-        },
-        {
             "marca": "THINK",
-            "model": "TH!NK CITY",
-            "volum": 1
-        },
-        {
-            "marca": "RENAULT",
-            "model": "KANGOO EXPRESS Z,E",
-            "volum": 1
-        },
-        {
-            "marca": "RENAULT",
-            "model": "KANGOO EXPRESS Z,E,",
-            "volum": 1
-        },
-        {
-            "marca": "PIAGGIO",
-            "model": "PORTER",
-            "volum": 1
-        },
-        {
-            "marca": "NISSAN",
-            "model": "E-NV200",
+            "model": "CITY",
             "volum": 1
         }
     ],
     "radieriModele": [
         {
             "marca": "NISSAN",
-            "model": "LEAF 40KWH",
+            "model": "LEAF",
             "volum": 1
         }
     ],
     "luna": "2020-07",
-    "lunaNume": "JUL"
+    "lunaNume": "JUL",
+    "totalOtherOwners": 0,
+    "qualityNotices": []
 }

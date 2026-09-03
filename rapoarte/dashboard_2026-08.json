@@ -2,12 +2,24 @@
     "totalAutoReg": 1162,
     "totalUtilReg": 116,
     "totalRadieri": 44,
+    "totalAutoNewEv": 671,
+    "totalAutoUsedEv": 491,
+    "totalUtilNewEv": 67,
+    "totalUtilUsedEv": 49,
+    "totalNewEv": 738,
+    "totalUsedEv": 540,
+    "totalNewAllFuels": 10709,
     "evShare": 0.0689139975721356,
     "usedShare": 0.4225352112676056,
     "yoyGrowth": -3.547169811320755,
     "totalFirme": 858,
     "totalPf": 420,
     "inmatriculariModele": [
+        {
+            "marca": "MG",
+            "model": "MG4",
+            "volum": 79
+        },
         {
             "marca": "TESLA",
             "model": "MODEL 3",
@@ -32,11 +44,6 @@
             "marca": "TESLA",
             "model": "MODEL Y",
             "volum": 55
-        },
-        {
-            "marca": "MG",
-            "model": "MG4",
-            "volum": 52
         },
         {
             "marca": "HYUNDAI",
@@ -64,14 +71,14 @@
             "volum": 27
         },
         {
-            "marca": "MG",
-            "model": "4 EV URBAN",
-            "volum": 27
-        },
-        {
             "marca": "RENAULT",
             "model": "ZOE",
             "volum": 26
+        },
+        {
+            "marca": "BMW",
+            "model": "IX3",
+            "volum": 17
         },
         {
             "marca": "FORD",
@@ -94,18 +101,13 @@
             "volum": 16
         },
         {
-            "marca": "BMW",
-            "model": "IX3 NEUE KLASSE",
+            "marca": "FIAT",
+            "model": "600",
             "volum": 15
         },
         {
             "marca": "FORD",
             "model": "EXPLORER",
-            "volum": 15
-        },
-        {
-            "marca": "FIAT",
-            "model": "600",
             "volum": 15
         },
         {
@@ -134,13 +136,18 @@
             "volum": 12
         },
         {
-            "marca": "RENAULT",
-            "model": "5 E-TECH",
+            "marca": "BYD",
+            "model": "ATTO 2",
             "volum": 11
         },
         {
-            "marca": "BYD",
-            "model": "ATTO 2",
+            "marca": "MERCEDES-BENZ",
+            "model": "GLC",
+            "volum": 11
+        },
+        {
+            "marca": "RENAULT",
+            "model": "5 E-TECH",
             "volum": 11
         },
         {
@@ -149,9 +156,9 @@
             "volum": 11
         },
         {
-            "marca": "MERCEDES-BENZ",
-            "model": "GLC 400 4MATIC WITH EQ TE",
-            "volum": 11
+            "marca": "VOLKSWAGEN",
+            "model": "ID. BUZZ CARGO",
+            "volum": 10
         },
         {
             "marca": "VOLVO",
@@ -159,9 +166,9 @@
             "volum": 10
         },
         {
-            "marca": "VOLKSWAGEN",
-            "model": "ID. BUZZ CARGO",
-            "volum": 10
+            "marca": "MERCEDES-BENZ",
+            "model": "EQE",
+            "volum": 9
         },
         {
             "marca": "PEUGEOT",
@@ -174,13 +181,23 @@
             "volum": 9
         },
         {
-            "marca": "SUZUKI",
-            "model": "E VITARA",
+            "marca": "ALFA ROMEO",
+            "model": "JUNIOR",
             "volum": 8
         },
         {
-            "marca": "TESLA",
-            "model": "",
+            "marca": "AUDI",
+            "model": "Q4 E-TRON",
+            "volum": 8
+        },
+        {
+            "marca": "BMW",
+            "model": "I4",
+            "volum": 8
+        },
+        {
+            "marca": "BMW",
+            "model": "IX",
             "volum": 8
         },
         {
@@ -189,13 +206,18 @@
             "volum": 8
         },
         {
-            "marca": "BMW",
-            "model": "iX",
+            "marca": "SKODA",
+            "model": "ENYAQ",
             "volum": 8
         },
         {
-            "marca": "ALFA ROMEO",
-            "model": "JUNIOR",
+            "marca": "SUZUKI",
+            "model": "E VITARA",
+            "volum": 8
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL NECUNOSCUT",
             "volum": 8
         },
         {
@@ -205,42 +227,12 @@
         },
         {
             "marca": "BMW",
-            "model": "I4",
-            "volum": 8
-        },
-        {
-            "marca": "SKODA",
-            "model": "ENYAQ",
-            "volum": 8
-        },
-        {
-            "marca": "AUDI",
-            "model": "Q4 E-TRON",
-            "volum": 8
+            "model": "IX1",
+            "volum": 7
         },
         {
             "marca": "FORD",
             "model": "MUSTANG MACH E",
-            "volum": 7
-        },
-        {
-            "marca": "MAZDA",
-            "model": "MX 30",
-            "volum": 7
-        },
-        {
-            "marca": "MG",
-            "model": "ZS EV",
-            "volum": 7
-        },
-        {
-            "marca": "ZEEKR",
-            "model": "7X",
-            "volum": 7
-        },
-        {
-            "marca": "FORD",
-            "model": "TRANSIT CUSTOM",
             "volum": 7
         },
         {
@@ -249,53 +241,38 @@
             "volum": 7
         },
         {
+            "marca": "FORD",
+            "model": "TRANSIT CUSTOM",
+            "volum": 7
+        },
+        {
+            "marca": "MAZDA",
+            "model": "MX 30",
+            "volum": 7
+        },
+        {
+            "marca": "MERCEDES-BENZ",
+            "model": "EQC",
+            "volum": 7
+        },
+        {
+            "marca": "MG",
+            "model": "ZS EV",
+            "volum": 7
+        },
+        {
             "marca": "PEUGEOT",
             "model": "EXPERT",
             "volum": 7
         },
         {
-            "marca": "MERCEDES-BENZ",
-            "model": "EQC 400 4MATIC",
+            "marca": "ZEEKR",
+            "model": "7X",
             "volum": 7
-        },
-        {
-            "marca": "BMW",
-            "model": "IX1",
-            "volum": 7
-        },
-        {
-            "marca": "MG",
-            "model": "MARVEL R ELECTRIC",
-            "volum": 6
-        },
-        {
-            "marca": "XPENG",
-            "model": "G9",
-            "volum": 6
-        },
-        {
-            "marca": "FIAT",
-            "model": "500",
-            "volum": 6
-        },
-        {
-            "marca": "MINI",
-            "model": "COOPER SE",
-            "volum": 6
-        },
-        {
-            "marca": "XPENG",
-            "model": "G6",
-            "volum": 6
         },
         {
             "marca": "BYD",
             "model": "SEAL U",
-            "volum": 6
-        },
-        {
-            "marca": "LEAPMOTOR",
-            "model": "T03",
             "volum": 6
         },
         {
@@ -304,39 +281,44 @@
             "volum": 6
         },
         {
+            "marca": "FIAT",
+            "model": "500",
+            "volum": 6
+        },
+        {
+            "marca": "LEAPMOTOR",
+            "model": "T03",
+            "volum": 6
+        },
+        {
+            "marca": "MERCEDES-BENZ",
+            "model": "EVITO",
+            "volum": 6
+        },
+        {
+            "marca": "MG",
+            "model": "MARVEL R ELECTRIC",
+            "volum": 6
+        },
+        {
+            "marca": "MINI",
+            "model": "COOPER SE",
+            "volum": 6
+        },
+        {
             "marca": "RENAULT",
             "model": "KANGOO EXPRESS Z.E.",
             "volum": 6
         },
         {
-            "marca": "CADILLAC",
-            "model": "LYRIQ",
-            "volum": 5
+            "marca": "XPENG",
+            "model": "G6",
+            "volum": 6
         },
         {
-            "marca": "FORD",
-            "model": "CAPRI",
-            "volum": 5
-        },
-        {
-            "marca": "PORSCHE",
-            "model": "MACAN 4",
-            "volum": 5
-        },
-        {
-            "marca": "MAXUS",
-            "model": "E-DELIVER 3",
-            "volum": 5
-        },
-        {
-            "marca": "VOLVO",
-            "model": "EX40",
-            "volum": 5
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "ID.5",
-            "volum": 5
+            "marca": "XPENG",
+            "model": "G9",
+            "volum": 6
         },
         {
             "marca": "AUDI",
@@ -349,9 +331,39 @@
             "volum": 5
         },
         {
-            "marca": "POLESTAR",
-            "model": "POLESTAR 2",
-            "volum": 4
+            "marca": "CADILLAC",
+            "model": "LYRIQ",
+            "volum": 5
+        },
+        {
+            "marca": "FORD",
+            "model": "CAPRI",
+            "volum": 5
+        },
+        {
+            "marca": "MAXUS",
+            "model": "E-DELIVER 3",
+            "volum": 5
+        },
+        {
+            "marca": "MERCEDES-BENZ",
+            "model": "EQA",
+            "volum": 5
+        },
+        {
+            "marca": "PORSCHE",
+            "model": "MACAN 4",
+            "volum": 5
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "ID.5",
+            "volum": 5
+        },
+        {
+            "marca": "VOLVO",
+            "model": "EX40",
+            "volum": 5
         },
         {
             "marca": "HYUNDAI",
@@ -369,23 +381,8 @@
             "volum": 4
         },
         {
-            "marca": "SKODA",
-            "model": "ELROQ",
-            "volum": 4
-        },
-        {
-            "marca": "TESLA",
-            "model": "MODEL X",
-            "volum": 4
-        },
-        {
-            "marca": "SMART",
-            "model": "#1",
-            "volum": 4
-        },
-        {
-            "marca": "OPEL",
-            "model": "CORSA",
+            "marca": "MERCEDES-BENZ",
+            "model": "EQS",
             "volum": 4
         },
         {
@@ -394,23 +391,38 @@
             "volum": 4
         },
         {
-            "marca": "MG",
-            "model": "MG5",
+            "marca": "OPEL",
+            "model": "CORSA",
+            "volum": 4
+        },
+        {
+            "marca": "POLESTAR",
+            "model": "POLESTAR 2",
+            "volum": 4
+        },
+        {
+            "marca": "SKODA",
+            "model": "ELROQ",
+            "volum": 4
+        },
+        {
+            "marca": "SMART",
+            "model": "#1",
+            "volum": 4
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODEL X",
+            "volum": 4
+        },
+        {
+            "marca": "AUDI",
+            "model": "E-TRON GT",
             "volum": 3
         },
         {
-            "marca": "VOLKSWAGEN",
-            "model": "GOLF",
-            "volum": 3
-        },
-        {
-            "marca": "LEAPMOTOR",
-            "model": "B10",
-            "volum": 3
-        },
-        {
-            "marca": "HYUNDAI",
-            "model": "INSTER",
+            "marca": "BMW",
+            "model": "I7",
             "volum": 3
         },
         {
@@ -429,23 +441,13 @@
             "volum": 3
         },
         {
-            "marca": "LYNK&CO",
-            "model": "LYNK & CO 02",
+            "marca": "FEIDI",
+            "model": "MODEL NECUNOSCUT",
             "volum": 3
         },
         {
-            "marca": "MINI",
-            "model": "ACEMAN SE",
-            "volum": 3
-        },
-        {
-            "marca": "PORSCHE",
-            "model": "TAYCAN",
-            "volum": 3
-        },
-        {
-            "marca": "ZEEKR",
-            "model": "7GT",
+            "marca": "HYUNDAI",
+            "model": "INSTER",
             "volum": 3
         },
         {
@@ -454,8 +456,28 @@
             "volum": 3
         },
         {
-            "marca": "MERCEDES-BENZ",
-            "model": "EVITO TOURER",
+            "marca": "LEAPMOTOR",
+            "model": "B10",
+            "volum": 3
+        },
+        {
+            "marca": "LYNK&CO",
+            "model": "LYNK & CO 02",
+            "volum": 3
+        },
+        {
+            "marca": "MAXUS",
+            "model": "E-DELIVER 9",
+            "volum": 3
+        },
+        {
+            "marca": "MG",
+            "model": "MG5",
+            "volum": 3
+        },
+        {
+            "marca": "MINI",
+            "model": "ACEMAN SE",
             "volum": 3
         },
         {
@@ -469,68 +491,28 @@
             "volum": 3
         },
         {
-            "marca": "FEIDI",
-            "model": "",
+            "marca": "PORSCHE",
+            "model": "TAYCAN",
             "volum": 3
         },
         {
-            "marca": "MAXUS",
-            "model": "E-DELIVER 9",
+            "marca": "VOLKSWAGEN",
+            "model": "GOLF",
             "volum": 3
         },
         {
-            "marca": "MERCEDES-BENZ",
-            "model": "EVITO",
-            "volum": 3
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "EQE 350 4MATIC",
+            "marca": "ZEEKR",
+            "model": "7GT",
             "volum": 3
         },
         {
             "marca": "AUDI",
-            "model": "E-TRON GT",
-            "volum": 3
-        },
-        {
-            "marca": "BMW",
-            "model": "I7",
-            "volum": 3
-        },
-        {
-            "marca": "LEAPMOTOR",
-            "model": "C10",
+            "model": "A6 E-TRON",
             "volum": 2
         },
         {
             "marca": "CITROEN",
             "model": "E-C4",
-            "volum": 2
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "EQA 250",
-            "volum": 2
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "EQA 250+",
-            "volum": 2
-        },
-        {
-            "marca": "MINI",
-            "model": "COUNTRYMAN SE ALL4",
-            "volum": 2
-        },
-        {
-            "marca": "KIA",
-            "model": "EV2",
-            "volum": 2
-        },
-        {
-            "marca": "KIA",
-            "model": "SOUL EV",
             "volum": 2
         },
         {
@@ -541,6 +523,31 @@
         {
             "marca": "FORD",
             "model": "TOURNEO COURIER",
+            "volum": 2
+        },
+        {
+            "marca": "JAGUAR",
+            "model": "I PACE",
+            "volum": 2
+        },
+        {
+            "marca": "KIA",
+            "model": "EV2",
+            "volum": 2
+        },
+        {
+            "marca": "KIA",
+            "model": "PV5",
+            "volum": 2
+        },
+        {
+            "marca": "KIA",
+            "model": "SOUL EV",
+            "volum": 2
+        },
+        {
+            "marca": "LEAPMOTOR",
+            "model": "C10",
             "volum": 2
         },
         {
@@ -555,12 +562,7 @@
         },
         {
             "marca": "MERCEDES-BENZ",
-            "model": "EQE 350",
-            "volum": 2
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "EQS 580 4MATIC",
+            "model": "EQB",
             "volum": 2
         },
         {
@@ -574,13 +576,8 @@
             "volum": 2
         },
         {
-            "marca": "PEUGEOT",
-            "model": "2008",
-            "volum": 2
-        },
-        {
-            "marca": "JAGUAR",
-            "model": "I PACE",
+            "marca": "MINI",
+            "model": "COUNTRYMAN SE ALL4",
             "volum": 2
         },
         {
@@ -589,28 +586,8 @@
             "volum": 2
         },
         {
-            "marca": "VOLKSWAGEN",
-            "model": "ID. POLO 155KW",
-            "volum": 2
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "EQE 300",
-            "volum": 2
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "UP",
-            "volum": 2
-        },
-        {
-            "marca": "TOYOTA",
-            "model": "PROACE",
-            "volum": 2
-        },
-        {
-            "marca": "KIA",
-            "model": "PV5",
+            "marca": "PEUGEOT",
+            "model": "2008",
             "volum": 2
         },
         {
@@ -619,13 +596,8 @@
             "volum": 2
         },
         {
-            "marca": "AUDI",
-            "model": "A6 E-TRON",
-            "volum": 2
-        },
-        {
-            "marca": "BMW",
-            "model": "IX3",
+            "marca": "TOYOTA",
+            "model": "PROACE",
             "volum": 2
         },
         {
@@ -634,8 +606,8 @@
             "volum": 2
         },
         {
-            "marca": "VOLVO",
-            "model": "EC40",
+            "marca": "VOLKSWAGEN",
+            "model": "ID. POLO 155KW",
             "volum": 2
         },
         {
@@ -644,8 +616,53 @@
             "volum": 2
         },
         {
-            "marca": "SEAT",
-            "model": "MII",
+            "marca": "VOLKSWAGEN",
+            "model": "UP",
+            "volum": 2
+        },
+        {
+            "marca": "VOLVO",
+            "model": "EC40",
+            "volum": 2
+        },
+        {
+            "marca": "AUDI",
+            "model": "Q8 E-TRON",
+            "volum": 1
+        },
+        {
+            "marca": "BMW",
+            "model": "I3",
+            "volum": 1
+        },
+        {
+            "marca": "BYD",
+            "model": "ETP3",
+            "volum": 1
+        },
+        {
+            "marca": "BYD",
+            "model": "HAN",
+            "volum": 1
+        },
+        {
+            "marca": "BYD",
+            "model": "TANG EV",
+            "volum": 1
+        },
+        {
+            "marca": "CITROEN",
+            "model": "E-BERLINGO VAN",
+            "volum": 1
+        },
+        {
+            "marca": "DODGE",
+            "model": "CHARGER DAYTONA",
+            "volum": 1
+        },
+        {
+            "marca": "FARIZON",
+            "model": "V7E",
             "volum": 1
         },
         {
@@ -654,13 +671,38 @@
             "volum": 1
         },
         {
+            "marca": "FIAT",
+            "model": "MODEL NECUNOSCUT",
+            "volum": 1
+        },
+        {
+            "marca": "FIAT",
+            "model": "SCUDO",
+            "volum": 1
+        },
+        {
+            "marca": "FIAT",
+            "model": "ULYSSE",
+            "volum": 1
+        },
+        {
             "marca": "FORD",
             "model": "TOURNEO CUSTOM",
             "volum": 1
         },
         {
-            "marca": "SMART",
-            "model": "ELECTRIC DRIVE",
+            "marca": "GMC",
+            "model": "HUMMER EV",
+            "volum": 1
+        },
+        {
+            "marca": "HONDA",
+            "model": "E",
+            "volum": 1
+        },
+        {
+            "marca": "IVECO",
+            "model": "ESUPERJOLLY",
             "volum": 1
         },
         {
@@ -669,8 +711,28 @@
             "volum": 1
         },
         {
-            "marca": "MERCEDES-BENZ",
-            "model": "EQE 500 4 MATIC",
+            "marca": "KIA",
+            "model": "EV5",
+            "volum": 1
+        },
+        {
+            "marca": "KIA",
+            "model": "EV6",
+            "volum": 1
+        },
+        {
+            "marca": "KIA",
+            "model": "MODEL NECUNOSCUT",
+            "volum": 1
+        },
+        {
+            "marca": "MAXUS",
+            "model": "EDELIVER 5",
+            "volum": 1
+        },
+        {
+            "marca": "MAXUS",
+            "model": "EDELIVER 7",
             "volum": 1
         },
         {
@@ -680,12 +742,7 @@
         },
         {
             "marca": "MERCEDES-BENZ",
-            "model": "EQB 300 4MATIC",
-            "volum": 1
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "EQE 350+",
+            "model": "G 580",
             "volum": 1
         },
         {
@@ -695,7 +752,17 @@
         },
         {
             "marca": "MERCEDES-BENZ",
-            "model": "MAYBACH EQS 680",
+            "model": "GLB 250+",
+            "volum": 1
+        },
+        {
+            "marca": "MG",
+            "model": "S5 EV",
+            "volum": 1
+        },
+        {
+            "marca": "NISSAN",
+            "model": "E-NV200",
             "volum": 1
         },
         {
@@ -705,7 +772,17 @@
         },
         {
             "marca": "PEUGEOT",
+            "model": "E RIFTER",
+            "volum": 1
+        },
+        {
+            "marca": "PEUGEOT",
             "model": "TRAVELLER",
+            "volum": 1
+        },
+        {
+            "marca": "PORSCHE",
+            "model": "CAYENNE",
             "volum": 1
         },
         {
@@ -720,12 +797,82 @@
         },
         {
             "marca": "PORSCHE",
+            "model": "TAYCAN 4",
+            "volum": 1
+        },
+        {
+            "marca": "PORSCHE",
             "model": "TAYCAN 4S",
+            "volum": 1
+        },
+        {
+            "marca": "PORSCHE",
+            "model": "TAYCAN GTS",
+            "volum": 1
+        },
+        {
+            "marca": "PORSCHE",
+            "model": "TAYCAN TURBO S",
+            "volum": 1
+        },
+        {
+            "marca": "RENAULT",
+            "model": "SCENIC E-TECH ELECTRIC",
+            "volum": 1
+        },
+        {
+            "marca": "RENAULT",
+            "model": "TRAFIC E-TECH",
             "volum": 1
         },
         {
             "marca": "RENAULT",
             "model": "TWINGO",
+            "volum": 1
+        },
+        {
+            "marca": "ROLLS ROYCE",
+            "model": "BLACK BADGE SPECTRE",
+            "volum": 1
+        },
+        {
+            "marca": "ROLLS ROYCE",
+            "model": "SPECTRE",
+            "volum": 1
+        },
+        {
+            "marca": "SEAT",
+            "model": "MII",
+            "volum": 1
+        },
+        {
+            "marca": "SMART",
+            "model": "ELECTRIC DRIVE",
+            "volum": 1
+        },
+        {
+            "marca": "SSANGYONG / KG MOBILITY",
+            "model": "KG MOBILITY MUSSO EV",
+            "volum": 1
+        },
+        {
+            "marca": "SSANGYONG / KG MOBILITY",
+            "model": "TORRES EVX",
+            "volum": 1
+        },
+        {
+            "marca": "STREETSCOOTER",
+            "model": "WORK",
+            "volum": 1
+        },
+        {
+            "marca": "TESLA",
+            "model": "MODELS",
+            "volum": 1
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "CRAFTER",
             "volum": 1
         },
         {
@@ -736,206 +883,6 @@
         {
             "marca": "ZEEKR",
             "model": "001",
-            "volum": 1
-        },
-        {
-            "marca": "DODGE",
-            "model": "CHARGER DAYTONA",
-            "volum": 1
-        },
-        {
-            "marca": "BYD",
-            "model": "TANG EV",
-            "volum": 1
-        },
-        {
-            "marca": "RENAULT",
-            "model": "SCENIC E-TECH ELECTRIC",
-            "volum": 1
-        },
-        {
-            "marca": "TESLA",
-            "model": "MODELS",
-            "volum": 1
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "EQB 250",
-            "volum": 1
-        },
-        {
-            "marca": "KIA",
-            "model": "EV5",
-            "volum": 1
-        },
-        {
-            "marca": "FIAT",
-            "model": "",
-            "volum": 1
-        },
-        {
-            "marca": "AUDI",
-            "model": "Q8 E-TRON",
-            "volum": 1
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "G 580",
-            "volum": 1
-        },
-        {
-            "marca": "GMC",
-            "model": "HUMMER EV",
-            "volum": 1
-        },
-        {
-            "marca": "KIA",
-            "model": "EV6",
-            "volum": 1
-        },
-        {
-            "marca": "PORSCHE",
-            "model": "CAYENNE",
-            "volum": 1
-        },
-        {
-            "marca": "PORSCHE",
-            "model": "TAYCAN 4",
-            "volum": 1
-        },
-        {
-            "marca": "PORSCHE",
-            "model": "TAYCAN GTS",
-            "volum": 1
-        },
-        {
-            "marca": "FIAT",
-            "model": "ULYSSE",
-            "volum": 1
-        },
-        {
-            "marca": "ROLLS ROYCE",
-            "model": "BLACK BADGE SPECTRE",
-            "volum": 1
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "EQS 450+",
-            "volum": 1
-        },
-        {
-            "marca": "PEUGEOT",
-            "model": "E RIFTER",
-            "volum": 1
-        },
-        {
-            "marca": "BYD",
-            "model": "HAN",
-            "volum": 1
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "EQA 300 4MATIC",
-            "volum": 1
-        },
-        {
-            "marca": "BMW",
-            "model": "I3",
-            "volum": 1
-        },
-        {
-            "marca": "SSANGYONG / KG MOBILITY",
-            "model": "TORRES EVX",
-            "volum": 1
-        },
-        {
-            "marca": "MERCEDES-BENZ",
-            "model": "GLB 250+",
-            "volum": 1
-        },
-        {
-            "marca": "MG",
-            "model": "S5 EV",
-            "volum": 1
-        },
-        {
-            "marca": "KIA",
-            "model": "",
-            "volum": 1
-        },
-        {
-            "marca": "PORSCHE",
-            "model": "TAYCAN TURBO S",
-            "volum": 1
-        },
-        {
-            "marca": "HONDA",
-            "model": "E",
-            "volum": 1
-        },
-        {
-            "marca": "ROLLS ROYCE",
-            "model": "SPECTRE",
-            "volum": 1
-        },
-        {
-            "marca": "BYD",
-            "model": "ETP3",
-            "volum": 1
-        },
-        {
-            "marca": "SSANGYONG / KG MOBILITY",
-            "model": "KG MOBILITY MUSSO EV",
-            "volum": 1
-        },
-        {
-            "marca": "CITROEN",
-            "model": "E-BERLINGO VAN",
-            "volum": 1
-        },
-        {
-            "marca": "FARIZON",
-            "model": "V7E",
-            "volum": 1
-        },
-        {
-            "marca": "FIAT",
-            "model": "SCUDO",
-            "volum": 1
-        },
-        {
-            "marca": "MAXUS",
-            "model": "EDELIVER 5",
-            "volum": 1
-        },
-        {
-            "marca": "NISSAN",
-            "model": "E-NV200",
-            "volum": 1
-        },
-        {
-            "marca": "RENAULT",
-            "model": "TRAFIC E-TECH",
-            "volum": 1
-        },
-        {
-            "marca": "STREETSCOOTER",
-            "model": "WORK",
-            "volum": 1
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "CRAFTER",
-            "volum": 1
-        },
-        {
-            "marca": "IVECO",
-            "model": "ESUPERJOLLY",
-            "volum": 1
-        },
-        {
-            "marca": "MAXUS",
-            "model": "EDELIVER 7",
             "volum": 1
         }
     ],
@@ -961,13 +908,13 @@
             "volum": 3
         },
         {
-            "marca": "TESLA",
-            "model": "MODEL 3",
+            "marca": "MINI",
+            "model": "COOPER E",
             "volum": 2
         },
         {
-            "marca": "MINI",
-            "model": "COOPER E",
+            "marca": "TESLA",
+            "model": "MODEL 3",
             "volum": 2
         },
         {
@@ -976,28 +923,18 @@
             "volum": 2
         },
         {
-            "marca": "PORSCHE",
-            "model": "TAYCAN GTS",
-            "volum": 1
-        },
-        {
-            "marca": "SKODA",
-            "model": "ELROQ",
-            "volum": 1
-        },
-        {
             "marca": "FORD",
             "model": "PUMA",
             "volum": 1
         },
         {
-            "marca": "SKODA",
-            "model": "CITIGO",
+            "marca": "HYUNDAI",
+            "model": "KONA",
             "volum": 1
         },
         {
-            "marca": "VOLKSWAGEN",
-            "model": "ID.3",
+            "marca": "PORSCHE",
+            "model": "TAYCAN GTS",
             "volum": 1
         },
         {
@@ -1006,8 +943,18 @@
             "volum": 1
         },
         {
-            "marca": "HYUNDAI",
-            "model": "KONA",
+            "marca": "SKODA",
+            "model": "CITIGO",
+            "volum": 1
+        },
+        {
+            "marca": "SKODA",
+            "model": "ELROQ",
+            "volum": 1
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "ID.3",
             "volum": 1
         },
         {
@@ -1017,5 +964,13 @@
         }
     ],
     "luna": "2026-08",
-    "lunaNume": "AUG"
+    "lunaNume": "AUG",
+    "methodologyVersion": 2,
+    "definitions": {
+        "registrations": "Inmatriculari BEV noi si rulate in luna selectata",
+        "marketShare": "BEV noi / toate vehiculele noi din categoriile analizate",
+        "netFleetGrowth": "Inmatriculari BEV minus radieri BEV"
+    },
+    "totalOtherOwners": 0,
+    "qualityNotices": []
 }

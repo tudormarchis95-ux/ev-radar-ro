@@ -10,17 +10,22 @@
     "inmatriculariModele": [
         {
             "marca": "VOLKSWAGEN",
-            "model": "UP !",
-            "volum": 15
+            "model": "UP",
+            "volum": 19
         },
         {
-            "marca": "BMW I",
+            "marca": "BMW",
             "model": "I3",
-            "volum": 11
+            "volum": 13
         },
         {
             "marca": "TESLA",
             "model": "MODEL 3",
+            "volum": 8
+        },
+        {
+            "marca": "VOLKSWAGEN",
+            "model": "ID.3",
             "volum": 8
         },
         {
@@ -29,18 +34,23 @@
             "volum": 7
         },
         {
+            "marca": "MAZDA",
+            "model": "MX 30",
+            "volum": 6
+        },
+        {
+            "marca": "NISSAN",
+            "model": "LEAF",
+            "volum": 6
+        },
+        {
             "marca": "RENAULT",
             "model": "ZOE",
             "volum": 6
         },
         {
-            "marca": "VOLKSWAGEN",
-            "model": "ID,3 PRO 150 KW",
-            "volum": 6
-        },
-        {
-            "marca": "MAZDA",
-            "model": "MX-30",
+            "marca": "TESLA",
+            "model": "MODEL S",
             "volum": 6
         },
         {
@@ -54,13 +64,8 @@
             "volum": 5
         },
         {
-            "marca": "MERCEDES - BENZ",
-            "model": "EQA 250",
-            "volum": 4
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "UP!",
+            "marca": "MERCEDES-BENZ",
+            "model": "EQA",
             "volum": 4
         },
         {
@@ -74,38 +79,23 @@
             "volum": 4
         },
         {
-            "marca": "TESLA",
-            "model": "MODEL S",
-            "volum": 3
-        },
-        {
             "marca": "HYUNDAI",
             "model": "KONA",
             "volum": 3
         },
         {
-            "marca": "TESLA MOTORS",
-            "model": "MODEL S",
+            "marca": "SMART",
+            "model": "EQ FORFOUR",
             "volum": 3
         },
         {
-            "marca": "BMW",
-            "model": "I3",
-            "volum": 2
+            "marca": "SMART",
+            "model": "EQ FORTWO",
+            "volum": 3
         },
         {
             "marca": "JAGUAR",
-            "model": "JAGUAR I-PACE",
-            "volum": 2
-        },
-        {
-            "marca": "NISSAN",
-            "model": "LEAF 62KWH",
-            "volum": 2
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "ID,4 PRO 150 KW",
+            "model": "I PACE",
             "volum": 2
         },
         {
@@ -114,27 +104,12 @@
             "volum": 2
         },
         {
-            "marca": "SMART",
-            "model": "EQ FORFOUR",
+            "marca": "VOLKSWAGEN",
+            "model": "ID.4",
             "volum": 2
         },
         {
-            "marca": "SMART",
-            "model": "EQ FORTWO COUPE",
-            "volum": 2
-        },
-        {
-            "marca": "NISSAN",
-            "model": "LEAF",
-            "volum": 1
-        },
-        {
-            "marca": "NISSAN",
-            "model": "LEAF 40KWH",
-            "volum": 1
-        },
-        {
-            "marca": "BMW I",
+            "marca": "BMW",
             "model": "I3S",
             "volum": 1
         },
@@ -150,7 +125,7 @@
         },
         {
             "marca": "KIA",
-            "model": "NIRO",
+            "model": "NIRO EV",
             "volum": 1
         },
         {
@@ -161,36 +136,6 @@
         {
             "marca": "MERCEDES-BENZ",
             "model": "EQV",
-            "volum": 1
-        },
-        {
-            "marca": "NISSAN",
-            "model": "LEAF 30KWH",
-            "volum": 1
-        },
-        {
-            "marca": "NISSAN",
-            "model": "NISSAN LEAF 40KWH",
-            "volum": 1
-        },
-        {
-            "marca": "SMART",
-            "model": "FORFOUR ED",
-            "volum": 1
-        },
-        {
-            "marca": "SMART",
-            "model": "FORTWO COUPE ED",
-            "volum": 1
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "ID,3 PRO 107 KW",
-            "volum": 1
-        },
-        {
-            "marca": "VOLKSWAGEN",
-            "model": "ID,3 PRO S 150 KW",
             "volum": 1
         },
         {
@@ -207,22 +152,22 @@
         },
         {
             "marca": "VOLKSWAGEN",
-            "model": "UP!",
+            "model": "UP",
             "volum": 3
         },
         {
-            "marca": "BMW I",
+            "marca": "BMW",
             "model": "I3",
             "volum": 2
         },
         {
             "marca": "NISSAN",
-            "model": "LEAF 40KWH",
+            "model": "LEAF",
             "volum": 2
         },
         {
             "marca": "JAGUAR",
-            "model": "JAGUAR I-PACE",
+            "model": "I PACE",
             "volum": 1
         },
         {
@@ -237,5 +182,7 @@
         }
     ],
     "luna": "2021-04",
-    "lunaNume": "APR"
+    "lunaNume": "APR",
+    "totalOtherOwners": 0,
+    "qualityNotices": []
 }
