@@ -3,6 +3,7 @@
 const state = {
     comparison: null,
     map: null,
+    projectionExtent: null,
     metric: 'registrations',
     group: 'regional',
     selectedCode: 'RO'
@@ -21,6 +22,7 @@ const monthCodes = {
 
 const smallCountryMarkers = new Set(['HR', 'NL', 'SI', 'SK']);
 const mapViewport = {width: 920, height: 620};
+const europeProjection = {centerLon: 10, centerLat: 52, padding: 20};
 const countryAnchors = {
     BG: [25.3, 42.7], CZ: [15.4, 49.8], DE: [10.4, 51.1], ES: [-3.7, 40.3],
     FR: [2.3, 46.4], GB: [-2.8, 54.2], HR: [16.4, 45.2], HU: [19.3, 47.2],
@@ -141,6 +143,7 @@ async function loadData() {
     if (!validateComparison(comparison) || !validateMap(map)) throw new Error('Datele comparative nu trec verificarea de integritate.');
     state.comparison = comparison;
     state.map = map;
+    state.projectionExtent = calculateProjectionExtent(map.bounds);
 }
 
 function registrationPeriodKey() {
@@ -220,13 +223,60 @@ function colorForValue(value) {
     return legends[state.metric].find(item => value < item.max)?.color || legends[state.metric].at(-1).color;
 }
 
+function lambertAzimuthalEqualArea(coordinate) {
+    const radians = Math.PI / 180;
+    const longitude = coordinate[0] * radians;
+    const latitude = coordinate[1] * radians;
+    const centerLongitude = europeProjection.centerLon * radians;
+    const centerLatitude = europeProjection.centerLat * radians;
+    const longitudeDelta = longitude - centerLongitude;
+    const denominator = 1
+        + Math.sin(centerLatitude) * Math.sin(latitude)
+        + Math.cos(centerLatitude) * Math.cos(latitude) * Math.cos(longitudeDelta);
+    const scale = Math.sqrt(2 / Math.max(denominator, 0.000001));
+    return [
+        scale * Math.cos(latitude) * Math.sin(longitudeDelta),
+        scale * (Math.cos(centerLatitude) * Math.sin(latitude)
+            - Math.sin(centerLatitude) * Math.cos(latitude) * Math.cos(longitudeDelta))
+    ];
+}
+
+function calculateProjectionExtent(bounds) {
+    const points = [];
+    const steps = 100;
+    for (let index = 0; index <= steps; index += 1) {
+        const ratio = index / steps;
+        const longitude = bounds.minLon + (bounds.maxLon - bounds.minLon) * ratio;
+        const latitude = bounds.minLat + (bounds.maxLat - bounds.minLat) * ratio;
+        points.push(
+            lambertAzimuthalEqualArea([longitude, bounds.minLat]),
+            lambertAzimuthalEqualArea([longitude, bounds.maxLat]),
+            lambertAzimuthalEqualArea([bounds.minLon, latitude]),
+            lambertAzimuthalEqualArea([bounds.maxLon, latitude])
+        );
+    }
+    return {
+        minX: Math.min(...points.map(point => point[0])),
+        maxX: Math.max(...points.map(point => point[0])),
+        minY: Math.min(...points.map(point => point[1])),
+        maxY: Math.max(...points.map(point => point[1]))
+    };
+}
+
 function projectCoordinate(coordinate) {
     const {width, height} = mapViewport;
-    const {minLon, maxLon, minLat, maxLat} = state.map.bounds;
-    const mercator = latitude => Math.log(Math.tan(Math.PI / 4 + latitude * Math.PI / 360));
-    const x = (coordinate[0] - minLon) / (maxLon - minLon) * width;
-    const y = (mercator(maxLat) - mercator(coordinate[1])) / (mercator(maxLat) - mercator(minLat)) * height;
-    return [x, y];
+    const {padding} = europeProjection;
+    const extent = state.projectionExtent;
+    const [rawX, rawY] = lambertAzimuthalEqualArea(coordinate);
+    const projectedWidth = extent.maxX - extent.minX;
+    const projectedHeight = extent.maxY - extent.minY;
+    const scale = Math.min((width - padding * 2) / projectedWidth, (height - padding * 2) / projectedHeight);
+    const offsetX = (width - projectedWidth * scale) / 2;
+    const offsetY = (height - projectedHeight * scale) / 2;
+    return [
+        offsetX + (rawX - extent.minX) * scale,
+        offsetY + (extent.maxY - rawY) * scale
+    ];
 }
 
 function positionMapHotspot(hotspot, coordinate) {
