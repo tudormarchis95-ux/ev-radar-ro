@@ -1,23 +1,69 @@
 {
-    "schemaVersion": 1,
-    "metric": "monthly-new-passenger-bev",
-    "definition": "Autoturisme BEV noi / total autoturisme noi, in luna calendaristica",
-    "periods": {
-        "2026-06": {
-            "source": "ACEA",
-            "sourceUrl": "https://www.acea.auto/files/Press_release_car_registrations_June_2026.pdf",
-            "publishedAt": "2026-07-23",
-            "provisional": true,
-            "countries": [
-                {"code": "NO", "name": "Norvegia", "flag": "🇳🇴", "bev": 18875, "total": 19558},
-                {"code": "SE", "name": "Suedia", "flag": "🇸🇪", "bev": 13014, "total": 29759},
-                {"code": "NL", "name": "Olanda", "flag": "🇳🇱", "bev": 17257, "total": 39015},
-                {"code": "FR", "name": "Franța", "flag": "🇫🇷", "bev": 55851, "total": 188787},
-                {"code": "UK", "name": "Marea Britanie", "flag": "🇬🇧", "bev": 63950, "total": 213166},
-                {"code": "DE", "name": "Germania", "flag": "🇩🇪", "bev": 84057, "total": 296378},
-                {"code": "ES", "name": "Spania", "flag": "🇪🇸", "bev": 14224, "total": 128426},
-                {"code": "RO", "name": "România", "flag": "🇷🇴", "bev": 1496, "total": 16120}
-            ]
-        }
+  "schemaVersion": 2,
+  "groups": {
+    "regional": {
+      "label": "Europa Centrală și de Est",
+      "codes": ["SI", "HU", "RO", "BG", "CZ", "SK", "PL", "HR"]
+    },
+    "benchmarks": {
+      "label": "Repere europene",
+      "codes": ["NO", "NL", "SE", "GB", "FR", "DE", "ES", "RO"]
     }
+  },
+  "registrationPeriods": {
+    "2026-06": {
+      "metric": "monthly-new-passenger-bev",
+      "definition": "Autoturisme BEV noi / total autoturisme noi, în luna calendaristică",
+      "source": "ACEA",
+      "sourceUrl": "https://www.acea.auto/files/Press_release_car_registrations_June_2026.pdf",
+      "publishedAt": "2026-07-23",
+      "provisional": true,
+      "countries": [
+        {"code": "SI", "name": "Slovenia", "flag": "🇸🇮", "bev": 1690, "total": 6684, "yoy": 206.7},
+        {"code": "HU", "name": "Ungaria", "flag": "🇭🇺", "bev": 1561, "total": 15096, "yoy": 19.4},
+        {"code": "RO", "name": "România", "flag": "🇷🇴", "bev": 1496, "total": 16120, "yoy": 283.6},
+        {"code": "BG", "name": "Bulgaria", "flag": "🇧🇬", "bev": 478, "total": 5457, "yoy": 135.5},
+        {"code": "CZ", "name": "Cehia", "flag": "🇨🇿", "bev": 2151, "total": 26398, "yoy": 58.4},
+        {"code": "SK", "name": "Slovacia", "flag": "🇸🇰", "bev": 694, "total": 9339, "yoy": 44.3},
+        {"code": "PL", "name": "Polonia", "flag": "🇵🇱", "bev": 3050, "total": 58979, "yoy": -19.3},
+        {"code": "HR", "name": "Croația", "flag": "🇭🇷", "bev": 344, "total": 9016, "yoy": 346.8},
+        {"code": "NO", "name": "Norvegia", "flag": "🇳🇴", "bev": 18875, "total": 19558, "yoy": 6.0},
+        {"code": "NL", "name": "Țările de Jos", "flag": "🇳🇱", "bev": 17257, "total": 39015, "yoy": 42.2},
+        {"code": "SE", "name": "Suedia", "flag": "🇸🇪", "bev": 13014, "total": 29759, "yoy": 21.3},
+        {"code": "GB", "name": "Regatul Unit", "flag": "🇬🇧", "bev": 63950, "total": 213166, "yoy": 35.0},
+        {"code": "FR", "name": "Franța", "flag": "🇫🇷", "bev": 55851, "total": 188787, "yoy": 93.5},
+        {"code": "DE", "name": "Germania", "flag": "🇩🇪", "bev": 84057, "total": 296378, "yoy": 78.2},
+        {"code": "ES", "name": "Spania", "flag": "🇪🇸", "bev": 14224, "total": 128426, "yoy": 26.5}
+      ]
+    }
+  },
+  "fleetPeriods": {
+    "2026-Q2": {
+      "metric": "passenger-bev-fleet",
+      "definition": "Autoturisme BEV aflate în parcul activ; include importurile și înmatriculările noi, minus exporturile și vehiculele scoase din circulație",
+      "shareAsOf": "2025-12-31",
+      "source": "European Alternative Fuels Observatory (EAFO)",
+      "sourceUrl": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/european-union-eu27/country-comparison",
+      "methodologyUrl": "https://alternative-fuels-observatory.ec.europa.eu/general-information/frequently-asked-questions",
+      "publishedAt": "2026-08-15",
+      "provisional": false,
+      "countries": [
+        {"code": "SI", "name": "Slovenia", "flag": "🇸🇮", "fleet": 28660, "previousYearEnd": 22563, "fleetShare": 1.75},
+        {"code": "HU", "name": "Ungaria", "flag": "🇭🇺", "fleet": 101401, "previousYearEnd": 94009, "fleetShare": 2.15},
+        {"code": "RO", "name": "România", "flag": "🇷🇴", "fleet": 64009, "previousYearEnd": 58322, "fleetShare": 0.67},
+        {"code": "BG", "name": "Bulgaria", "flag": "🇧🇬", "fleet": 23592, "previousYearEnd": 21545, "fleetShare": 0.68},
+        {"code": "CZ", "name": "Cehia", "flag": "🇨🇿", "fleet": 52664, "previousYearEnd": 45549, "fleetShare": 0.66},
+        {"code": "SK", "name": "Slovacia", "flag": "🇸🇰", "fleet": 21609, "previousYearEnd": 18895, "fleetShare": 0.68},
+        {"code": "PL", "name": "Polonia", "flag": "🇵🇱", "fleet": 142130, "previousYearEnd": 102710, "fleetShare": 0.44},
+        {"code": "HR", "name": "Croația", "flag": "🇭🇷", "fleet": 14385, "previousYearEnd": 12605, "fleetShare": 0.62},
+        {"code": "NO", "name": "Norvegia", "flag": "🇳🇴", "fleet": 1016799, "previousYearEnd": 945182, "fleetShare": 32.86},
+        {"code": "NL", "name": "Țările de Jos", "flag": "🇳🇱", "fleet": 745389, "previousYearEnd": 680605, "fleetShare": 7.23},
+        {"code": "SE", "name": "Suedia", "flag": "🇸🇪", "fleet": 491944, "previousYearEnd": 432709, "fleetShare": 8.59},
+        {"code": "GB", "name": "Regatul Unit", "flag": "🇬🇧", "fleet": 2021027, "previousYearEnd": 1736413, "fleetShare": 5.03},
+        {"code": "FR", "name": "Franța", "flag": "🇫🇷", "fleet": 1728682, "previousYearEnd": 1543440, "fleetShare": 3.88},
+        {"code": "DE", "name": "Germania", "flag": "🇩🇪", "fleet": 2393890, "previousYearEnd": 2034260, "fleetShare": 4.11},
+        {"code": "ES", "name": "Spania", "flag": "🇪🇸", "fleet": 344879, "previousYearEnd": 281653, "fleetShare": 1.05}
+      ]
+    }
+  }
 }

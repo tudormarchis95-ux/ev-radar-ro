@@ -12,15 +12,6 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <!-- Google Analytics (GA4) - Monitorizare Statistici Trafic -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B19F9R252Y"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-B19F9R252Y');
-    </script>
     <!-- Open Graph / Social Media Preview Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tudormarchis95-ux.github.io/ev-radar-ro/comparatie.html">
@@ -44,7 +35,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=5">
+    <link rel="stylesheet" href="style.css?v=8">
     <style>
         .nav-header {
             display: flex;
@@ -170,7 +161,7 @@
         }
     </style>
 </head>
-<body>
+<body class="comparison-page">
     <div class="app-container">
         <header style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; margin-bottom: 3rem;">
             <!-- Logo Partner Electromobilitate -->
@@ -204,7 +195,7 @@
                 </svg>
                 <h1 style="margin: 0; font-size: 2.8rem; font-weight: 800;">EV Radar <span>România</span></h1>
             </div>
-            <p class="subtitle">Comparație Europeană Înmatriculări Vehicule Electrice (BEV)</p>
+            <p class="subtitle">Comparație regională: înmatriculări și parc de autoturisme electrice</p>
         </header>
 
         <!-- Meniu Navigare -->
@@ -213,7 +204,7 @@
                 <a href="index.html" class="nav-btn" style="background: #ffffff; border: 1px solid var(--border-color); color: var(--text-color); font-weight: 600; text-decoration: none; padding: 0.5rem 1.25rem; border-radius: 8px; font-size: 0.9rem; transition: all 0.2s;">📊 Dashboard</a>
                 <a href="comparatie.html" class="nav-btn active" style="background: var(--primary-color); border: 1px solid var(--primary-color); color: #ffffff; box-shadow: 0 4px 12px rgba(0, 75, 135, 0.2); font-weight: 600; text-decoration: none; padding: 0.5rem 1.25rem; border-radius: 8px; font-size: 0.9rem;">🇪🇺 Comparație Europeană</a>
             </div>
-            <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+            <div id="registration-period-controls" class="comparison-period-controls">
                 <label for="public-year-select" style="font-weight: 700; color: var(--primary-color); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;">An:</label>
                 <select id="public-year-select" class="month-select" style="font-size: 0.9rem; padding: 0.4rem 0.6rem; min-width: 80px;">
                     <option value="2026" selected>2026</option>
@@ -241,82 +232,112 @@
                     <option value="12|DEC">Decembrie</option>
                 </select>
             </div>
+            <div id="fleet-period-label" class="comparison-period-controls is-hidden" aria-live="polite">
+                <span class="comparison-period-label">Perioadă:</span>
+                <strong id="fleet-period-value">-</strong>
+            </div>
         </div>
 
         <main>
-            <!-- Sectiunea 1: Intro Comparativ -->
-            <section class="card animate-fade-in" style="margin-bottom: 2rem; background: linear-gradient(135deg, rgba(2, 132, 199, 0.05) 0%, rgba(0, 75, 135, 0.03) 100%); border-color: rgba(0, 75, 135, 0.15);">
-                <h2>📈 Unde se situează România în Europa?</h2>
-                <p class="section-desc" style="margin-bottom: 0; line-height: 1.7;">
-                    Comparația folosește aceeași definiție pentru fiecare țară: autoturisme BEV noi, raportate la totalul autoturismelor noi. Importurile rulate, importante pentru România, rămân vizibile în dashboardul național, dar nu sunt amestecate în cota europeană.
+            <section class="card animate-fade-in" style="margin-bottom: 1.25rem; background: linear-gradient(135deg, rgba(2, 132, 199, 0.06), rgba(0, 75, 135, 0.02)); border-color: rgba(0, 75, 135, 0.15);">
+                <h2>Unde se situează România?</h2>
+                <p id="comparison-intro" class="section-desc" style="margin: 0; line-height: 1.7;">
+                    Comparăm piețe apropiate ca regiune și păstrăm separat reperele europene. Toate țările dintr-o vedere folosesc aceeași definiție și aceeași perioadă.
                 </p>
             </section>
 
-            <!-- Hero Sectiune Volume Romania -->
-            <div class="fleet-hero-card card animate-fade-in" style="margin-bottom: 2rem; text-align: center; background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(0, 75, 135, 0.03) 100%); border-color: rgba(0, 75, 135, 0.15);">
-                <span class="stat-label" style="font-size: 1.1rem; letter-spacing: 0.1em; color: var(--primary-color); font-weight: 700;">🚗 AUTOTURISME ELECTRICE NOI — ROMÂNIA</span>
-                <div class="stat-value" id="val-comp-hero-volume" style="font-size: 4rem; font-weight: 900; color: var(--primary-color); text-shadow: none; margin: 0.5rem 0;">0</div>
-                <p style="color: var(--text-muted); font-size: 0.9rem;">Autoturisme BEV noi înmatriculate în România în <span id="comp-hero-month-name">-</span></p>
-                <p id="comparison-source-note" style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.5rem;"></p>
+            <div class="comparison-toolbar animate-fade-in">
+                <div class="toggle-group" aria-label="Indicator comparat">
+                    <button type="button" class="toggle-button" data-metric="registrations" aria-pressed="true">Înmatriculări noi</button>
+                    <button type="button" class="toggle-button" data-metric="fleet" aria-pressed="false">Parc EV</button>
+                </div>
+                <div class="toggle-group" aria-label="Grup de țări">
+                    <button type="button" class="toggle-button" data-group="regional" aria-pressed="true">Europa Centrală și de Est</button>
+                    <button type="button" class="toggle-button" data-group="benchmarks" aria-pressed="false">Repere europene</button>
+                </div>
             </div>
 
-            <!-- Delimitator cu denumirea lunii -->
-            <div class="month-divider animate-fade-in" style="margin-bottom: 2rem;">
-                <span>Statistici comparativ europene: <strong id="divider-month-name">-</strong></span>
-            </div>
-
-            <!-- Sectiunea 2: Clasamente -->
-            <div class="comp-grid">
-                <!-- Cota de Piata EV (Market Share %) -->
-                <section class="card chart-card animate-slide-up">
-                    <h3>🇪🇺 Cotă de Piață Vehicule Electrice (BEV) - % din Înmatriculări Noi</h3>
-                    <p class="section-desc">Ponderea autoturismelor BEV noi din totalul autoturismelor noi.</p>
-                    <div class="bar-list" id="market-share-list">
-                        <!-- Generat din JS -->
+            <section class="card comparison-map-card animate-slide-up" aria-labelledby="map-card-title">
+                <div class="map-card-header">
+                    <div>
+                        <h2 id="map-card-title">Hartă regională a adopției EV</h2>
+                        <p id="map-subtitle" class="section-desc" style="margin-bottom: 0;">Culoarea indică ponderea BEV în înmatriculările noi.</p>
                     </div>
-                </section>
+                </div>
 
-                <!-- Indicatori Rapizi -->
-                <section style="display: flex; flex-direction: column; gap: 1.5rem;">
-                    <div class="card" style="flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center; border-color: rgba(2, 132, 199, 0.2);">
-                        <span class="stat-label" style="font-size: 0.85rem; letter-spacing: 0.1em; color: var(--primary-color); font-weight: 700;">🇷🇴 STATUT ROMÂNIA</span>
-                        <div class="stat-value" id="ro-adoption-status" style="font-size: 1.8rem; font-weight: 900; color: var(--primary-color); margin: 0.5rem 0;">Adopție Timpurie</div>
-                        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.75rem;">Cota de piață poziționează piața locală în faza de tranziție, reflectând evoluția infrastructurii și stimulentelor.</p>
-                        <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; margin-top: 0.5rem; display: flex; justify-content: space-around; font-size: 0.9rem;">
-                            <div>
-                                <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Înmatriculări</span>
-                                <strong id="ro-comp-volume" style="font-size: 1.15rem; color: var(--primary-color);">-</strong>
-                            </div>
-                            <div>
-                                <span style="display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Cotă de piață</span>
-                                <strong id="ro-comp-share" style="font-size: 1.15rem; color: var(--success-color);">-</strong>
-                            </div>
+                <div class="map-layout">
+                    <div>
+                        <div class="map-shell" id="map-shell">
+                            <svg id="europe-map" viewBox="0 0 920 620" preserveAspectRatio="none" role="img" aria-labelledby="map-svg-title map-svg-description">
+                                <title id="map-svg-title">Harta comparativă a pieței auto electrice din Europa</title>
+                                <desc id="map-svg-description">Selectați o țară pentru a vedea indicatorii detaliați.</desc>
+                                <g id="europe-map-countries"></g>
+                                <g id="europe-map-markers"></g>
+                            </svg>
+                            <div id="map-hotspots" class="map-hotspots" aria-label="Selectare rapidă pe hartă"></div>
+                            <div id="map-tooltip" class="map-tooltip" role="tooltip" aria-hidden="true"></div>
                         </div>
+                        <div id="map-legend" class="map-legend" aria-label="Legenda culorilor"></div>
                     </div>
 
-                    <div class="card" style="flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center;">
-                        <span class="stat-label" style="font-size: 0.85rem; letter-spacing: 0.1em; color: var(--primary-color); font-weight: 700;">🏆 LIDERUL ADOPȚIEI</span>
-                        <div class="stat-value" id="comparison-leader" style="font-size: 2.2rem; font-weight: 900; color: var(--primary-color); margin: 0.5rem 0;">-</div>
-                        <p id="comparison-leader-note" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5;">Se calculează numai din perioada verificată selectată.</p>
-                    </div>
-                </section>
+                    <aside class="map-side-panel" aria-label="Detalii țară">
+                        <div>
+                            <label for="country-select" class="comparison-period-label">Țară selectată</label>
+                            <select id="country-select" class="country-select"></select>
+                        </div>
+                        <div id="selected-country-card" class="selected-country-card" aria-live="polite">
+                            <div id="selected-country-name" class="selected-country-name">România 🇷🇴</div>
+                            <div id="selected-country-value" class="selected-country-value">-</div>
+                            <div id="selected-country-stats" class="selected-country-stats"></div>
+                        </div>
+                        <div id="comparison-method-note" class="comparison-notice"></div>
+                    </aside>
+                </div>
+
+                <p id="comparison-source-note" class="comparison-source-note"></p>
+            </section>
+
+            <div class="month-divider animate-fade-in" style="margin-bottom: 2rem;">
+                <span><strong id="divider-metric-name">Înmatriculări noi</strong> · <span id="divider-period-name">-</span></span>
             </div>
 
-            <!-- Sectiunea 3: Volume Absolute -->
-            <section class="card chart-card animate-slide-up" style="animation-delay: 0.1s; margin-bottom: 2rem;">
-                <h3>📊 Volum Înmatriculări Noi (Unități absolute)</h3>
-                <p class="section-desc">Numărul absolut de mașini electrice înmatriculate în luna selectată în diverse țări europene.</p>
-                <div class="bar-list" id="volumes-list">
-                    <!-- Generat din JS -->
+            <section class="comparison-summary-grid animate-slide-up" aria-label="Indicatori rapizi">
+                <div class="card comparison-summary-card">
+                    <span class="stat-label">🇷🇴 România</span>
+                    <div class="stat-value" id="summary-romania-value">-</div>
+                    <p id="summary-romania-note" class="section-desc" style="margin: 0;">-</p>
+                </div>
+                <div class="card comparison-summary-card">
+                    <span class="stat-label">🏆 Liderul grupului</span>
+                    <div class="stat-value" id="summary-leader-value">-</div>
+                    <p id="summary-leader-note" class="section-desc" style="margin: 0;">-</p>
+                </div>
+                <div class="card comparison-summary-card">
+                    <span class="stat-label">📍 Poziția României</span>
+                    <div class="stat-value" id="summary-romania-rank">-</div>
+                    <p id="summary-rank-note" class="section-desc" style="margin: 0;">-</p>
                 </div>
             </section>
+
+            <div class="comparison-details-grid">
+                <section class="card chart-card animate-slide-up">
+                    <h3 id="share-chart-title">Cotă BEV</h3>
+                    <p id="share-chart-description" class="section-desc">-</p>
+                    <div class="bar-list" id="market-share-list"></div>
+                </section>
+                <section class="card chart-card animate-slide-up" style="animation-delay: 0.1s;">
+                    <h3 id="volume-chart-title">Volum BEV</h3>
+                    <p id="volume-chart-description" class="section-desc">-</p>
+                    <div class="bar-list" id="volumes-list"></div>
+                </section>
+            </div>
         </main>
          
          <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); font-size: 0.85rem; font-weight: 500;">
              <p>© 2026 Tudor Marchis & Electromobilitate. Toate drepturile rezervate.</p>
-             <p style="margin-top: 0.25rem; font-size: 0.75rem; opacity: 0.8;">Surse: DGPCI pentru România și ACEA pentru comparația europeană. Datele provizorii sunt marcate explicit.</p>
+             <p style="margin-top: 0.25rem; font-size: 0.75rem; opacity: 0.8;">Surse: ACEA și European Alternative Fuels Observatory. Hartă: Natural Earth, public domain.</p>
          </footer>
      </div>
-    <script src="comparatie.js?v=3"></script>
+    <script src="comparatie.js?v=6"></script>
 </body>
 </html>

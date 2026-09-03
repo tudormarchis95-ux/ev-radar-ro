@@ -12,6 +12,430 @@
     --font-sans: 'Montserrat', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
+/* --- COMPARAȚIE REGIONALĂ ȘI HARTĂ EV --- */
+.comparison-page .comparison-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+}
+
+.comparison-page .toggle-group {
+    display: inline-flex;
+    gap: 0.35rem;
+    padding: 0.3rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: #f1f5f9;
+}
+
+.comparison-page .toggle-button {
+    appearance: none;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.55rem 0.8rem;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.comparison-page .toggle-button:hover {
+    color: var(--primary-color);
+}
+
+.comparison-page .toggle-button[aria-pressed="true"] {
+    background: #ffffff;
+    color: var(--primary-color);
+    box-shadow: 0 2px 9px rgba(15, 23, 42, 0.09);
+}
+
+.comparison-page .toggle-button:focus-visible,
+.comparison-page .map-country:focus-visible,
+.comparison-page .country-select:focus-visible {
+    outline: 3px solid rgba(2, 132, 199, 0.3);
+    outline-offset: 2px;
+}
+
+.comparison-page .comparison-period-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+}
+
+.comparison-page .comparison-period-label {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.comparison-page .comparison-map-card {
+    margin-bottom: 2rem;
+    padding: 1.25rem;
+}
+
+.comparison-page .map-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.comparison-page .map-card-header h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.comparison-page .map-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(230px, 0.8fr);
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.comparison-page .map-shell {
+    position: relative;
+    min-height: 430px;
+    overflow: hidden;
+    border: 1px solid #dbe7f0;
+    border-radius: 14px;
+    background:
+        radial-gradient(circle at 63% 48%, rgba(2, 132, 199, 0.09), transparent 42%),
+        linear-gradient(180deg, #f8fbfd 0%, #eef6fa 100%);
+}
+
+.comparison-page #europe-map {
+    display: block;
+    width: 100%;
+    height: 430px;
+}
+
+.comparison-page .map-country {
+    fill: #dce6ec;
+    stroke: #ffffff;
+    stroke-width: 1.2;
+    vector-effect: non-scaling-stroke;
+    transition: fill 0.18s, opacity 0.18s, stroke 0.18s;
+}
+
+.comparison-page .map-country.has-data {
+    cursor: pointer;
+}
+
+.comparison-page .map-country.has-data:hover,
+.comparison-page .map-country.has-data:focus {
+    filter: brightness(0.96);
+    stroke: #0f172a;
+    stroke-width: 1.8;
+}
+
+.comparison-page .map-country.is-selected {
+    stroke: #0f172a;
+    stroke-width: 2.4;
+}
+
+.comparison-page .map-country.is-romania {
+    stroke: #f97316;
+    stroke-width: 3;
+}
+
+.comparison-page .map-marker {
+    cursor: pointer;
+    fill: #ffffff;
+    stroke: var(--primary-color);
+    stroke-width: 2;
+    vector-effect: non-scaling-stroke;
+}
+
+.comparison-page .map-marker.is-romania {
+    fill: #fff7ed;
+    stroke: #f97316;
+    stroke-width: 3;
+}
+
+.comparison-page .map-hotspots {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.comparison-page .map-hotspot {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 2px 7px rgba(15, 23, 42, 0.25);
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.comparison-page .map-hotspot:hover,
+.comparison-page .map-hotspot:focus-visible,
+.comparison-page .map-hotspot.is-selected {
+    width: 18px;
+    height: 18px;
+    outline: 3px solid rgba(2, 132, 199, 0.2);
+    outline-offset: 2px;
+}
+
+.comparison-page .map-hotspot.is-romania {
+    border-color: #f97316;
+    background: #fff7ed;
+}
+
+.comparison-page .map-tooltip {
+    position: absolute;
+    z-index: 8;
+    width: min(250px, calc(100% - 24px));
+    pointer-events: none;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 14px 38px rgba(15, 23, 42, 0.16);
+    padding: 0.85rem;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.14s, transform 0.14s;
+}
+
+.comparison-page .map-tooltip.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.comparison-page .map-tooltip strong {
+    display: block;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    margin-bottom: 0.45rem;
+}
+
+.comparison-page .map-tooltip-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.25rem 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.76rem;
+}
+
+.comparison-page .map-tooltip-grid b {
+    color: var(--text-color);
+    text-align: right;
+}
+
+.comparison-page .map-side-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    background: #fbfdff;
+    padding: 1rem;
+}
+
+.comparison-page .country-select {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 9px;
+    background: #ffffff;
+    color: var(--primary-color);
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 0.65rem 0.75rem;
+}
+
+.comparison-page .selected-country-card {
+    flex: 1;
+    border-radius: 12px;
+    background: linear-gradient(150deg, #ffffff, #f1f7fb);
+    padding: 1rem;
+}
+
+.comparison-page .selected-country-name {
+    color: var(--primary-color);
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+.comparison-page .selected-country-value {
+    color: var(--text-color);
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    margin: 0.5rem 0 0.75rem;
+}
+
+.comparison-page .selected-country-stats {
+    display: grid;
+    gap: 0.6rem;
+}
+
+.comparison-page .selected-country-stat {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-top: 0.55rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.78rem;
+}
+
+.comparison-page .selected-country-stat strong {
+    color: var(--text-color);
+    text-align: right;
+}
+
+.comparison-page .map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.8rem;
+    margin-top: 0.8rem;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+}
+
+.comparison-page .legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.comparison-page .legend-swatch {
+    width: 13px;
+    height: 13px;
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    border-radius: 3px;
+}
+
+.comparison-page .comparison-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.comparison-page .comparison-summary-card {
+    text-align: center;
+}
+
+.comparison-page .comparison-summary-card .stat-value {
+    font-size: 1.85rem;
+}
+
+.comparison-page .comparison-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.comparison-page .chart-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.35rem;
+}
+
+.comparison-page .comparison-source-note {
+    color: var(--text-muted);
+    font-size: 0.76rem;
+    line-height: 1.55;
+    margin-top: 0.85rem;
+}
+
+.comparison-page .comparison-source-note a {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.comparison-page .comparison-notice {
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 8px;
+    background: #eff8ff;
+    color: #334155;
+    font-size: 0.8rem;
+    line-height: 1.55;
+    padding: 0.75rem 0.9rem;
+}
+
+.comparison-page .is-hidden {
+    display: none !important;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@media (max-width: 900px) {
+    .comparison-page .map-layout,
+    .comparison-page .comparison-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-page .comparison-summary-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .comparison-page .comparison-toolbar,
+    .comparison-page .map-card-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .comparison-page .toggle-group {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+    }
+
+    .comparison-page .toggle-button {
+        padding: 0.55rem 0.35rem;
+    }
+
+    .comparison-page .comparison-period-controls {
+        display: grid;
+        grid-template-columns: auto 1fr auto 1fr;
+        width: 100%;
+    }
+
+    .comparison-page .comparison-period-controls .month-select {
+        min-width: 0 !important;
+        width: 100%;
+    }
+
+    .comparison-page .map-shell,
+    .comparison-page #europe-map {
+        height: 340px;
+        min-height: 340px;
+    }
+
+    .comparison-page .selected-country-value {
+        font-size: 1.75rem;
+    }
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -820,7 +1244,7 @@ input, textarea, select {
     position: relative;
 }
 
-#monthly-comp-list, #annual-evolution-list {
+#monthly-comp-list, #annual-evolution-list, #ev-share-trend-list {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -1040,7 +1464,7 @@ input, textarea, select {
         /* nu are overflow, inner-ul se intinde liber */
         display: block !important;
     }
-    #monthly-comp-list {
+    #monthly-comp-list, #ev-share-trend-list {
         display: flex !important;
         align-items: flex-end !important;
         min-width: 660px !important;
@@ -1140,5 +1564,3 @@ input, textarea, select {
         text-align: right !important;
     }
 }
-
-

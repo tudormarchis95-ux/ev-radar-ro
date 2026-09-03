@@ -1,111 +1,439 @@
-/* Comparație europeană: numai date cu sursă și metodologie verificabile. */
+/* Comparație europeană: date locale, surse explicite și perioade comparabile. */
 
-const state = { comparison: null };
+const state = {
+    comparison: null,
+    map: null,
+    metric: 'registrations',
+    group: 'regional',
+    selectedCode: 'RO'
+};
+
 const monthNames = {
     '01': 'Ianuarie', '02': 'Februarie', '03': 'Martie', '04': 'Aprilie',
     '05': 'Mai', '06': 'Iunie', '07': 'Iulie', '08': 'August',
     '09': 'Septembrie', '10': 'Octombrie', '11': 'Noiembrie', '12': 'Decembrie'
 };
+
 const monthCodes = {
     '01': 'JAN', '02': 'FEB', '03': 'MAR', '04': 'APR', '05': 'MAY', '06': 'JUN',
     '07': 'JUL', '08': 'AUG', '09': 'SEP', '10': 'OCT', '11': 'NOV', '12': 'DEC'
 };
 
-function animateElementValue(id, endValue, duration = 600) {
-    const element = document.getElementById(id);
-    if (!element) return;
-    const start = Number(String(element.textContent).replace(/[^0-9-]/g, '')) || 0;
-    const startTime = performance.now();
-    const update = now => {
-        const progress = Math.min((now - startTime) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        element.textContent = Math.round(start + (endValue - start) * eased).toLocaleString('ro-RO');
-        if (progress < 1) requestAnimationFrame(update);
-    };
-    requestAnimationFrame(update);
+const smallCountryMarkers = new Set(['HR', 'NL', 'SI', 'SK']);
+const countryAnchors = {
+    BG: [25.3, 42.7], CZ: [15.4, 49.8], DE: [10.4, 51.1], ES: [-3.7, 40.3],
+    FR: [2.3, 46.4], GB: [-2.8, 54.2], HR: [16.4, 45.2], HU: [19.3, 47.2],
+    NL: [5.4, 52.2], NO: [9.2, 61.5], PL: [19.2, 52.0], RO: [24.9, 45.9],
+    SE: [15.3, 62.0], SI: [14.9, 46.1], SK: [19.5, 48.7]
+};
+
+const legends = {
+    registrations: [
+        {max: 5, label: 'sub 5%', color: '#dcecf5'},
+        {max: 10, label: '5–10%', color: '#abd5e9'},
+        {max: 20, label: '10–20%', color: '#69b6d8'},
+        {max: 40, label: '20–40%', color: '#2588bd'},
+        {max: Infinity, label: 'peste 40%', color: '#004b87'}
+    ],
+    fleet: [
+        {max: 0.5, label: 'sub 0,5%', color: '#dcecf5'},
+        {max: 1, label: '0,5–1%', color: '#abd5e9'},
+        {max: 2, label: '1–2%', color: '#69b6d8'},
+        {max: 5, label: '2–5%', color: '#2588bd'},
+        {max: Infinity, label: 'peste 5%', color: '#004b87'}
+    ]
+};
+
+function formatNumber(value) {
+    return Number(value).toLocaleString('ro-RO');
 }
 
-function validatePeriod(period) {
-    if (!period || !period.source || !period.sourceUrl?.startsWith('https://') || !Array.isArray(period.countries)) return false;
+function formatPercent(value) {
+    return `${Number(value).toLocaleString('ro-RO', {minimumFractionDigits: 2, maximumFractionDigits: 2})}%`;
+}
+
+function formatSignedPercent(value) {
+    const number = Number(value);
+    const prefix = number > 0 ? '+' : '';
+    return `${prefix}${number.toLocaleString('ro-RO', {minimumFractionDigits: 1, maximumFractionDigits: 1})}%`;
+}
+
+function formatDate(value) {
+    const [year, month, day] = String(value).split('-');
+    return year && month && day ? `${day}.${month}.${year}` : value;
+}
+
+function formatQuarter(value) {
+    const match = /^(20\d{2})-Q([1-4])$/.exec(value || '');
+    return match ? `Trimestrul ${match[2]} ${match[1]}` : value;
+}
+
+function registrationShare(country) {
+    return country.bev / country.total * 100;
+}
+
+function fleetGrowth(country) {
+    return (country.fleet / country.previousYearEnd - 1) * 100;
+}
+
+function validateCountries(countries, metric) {
+    if (!Array.isArray(countries) || !countries.length) return false;
     const codes = new Set();
-    return period.countries.every(country => {
-        const valid = country.code && !codes.has(country.code)
-            && Number.isInteger(country.bev) && Number.isInteger(country.total)
-            && country.bev >= 0 && country.total > 0 && country.bev <= country.total;
+    return countries.every(country => {
+        if (!/^[A-Z]{2}$/.test(country.code || '') || codes.has(country.code) || !country.name || !country.flag) return false;
         codes.add(country.code);
-        return valid;
+        if (metric === 'registrations') {
+            return Number.isInteger(country.bev) && Number.isInteger(country.total)
+                && country.bev >= 0 && country.total > 0 && country.bev <= country.total
+                && Number.isFinite(country.yoy);
+        }
+        return Number.isInteger(country.fleet) && Number.isInteger(country.previousYearEnd)
+            && country.fleet >= 0 && country.previousYearEnd > 0
+            && Number.isFinite(country.fleetShare) && country.fleetShare >= 0;
     });
 }
 
-async function loadComparison() {
-    const response = await fetch(`rapoarte/european_comparison.json?t=${Date.now()}`);
-    if (!response.ok) throw new Error('Setul european verificat nu este disponibil.');
-    const data = await response.json();
-    if (data.schemaVersion !== 1 || !data.periods) throw new Error('Schema comparației europene este invalidă.');
-    for (const [key, period] of Object.entries(data.periods)) {
-        if (!/^20\d{2}-\d{2}$/.test(key) || !validatePeriod(period)) {
-            throw new Error(`Perioada europeană ${key} nu trece validarea.`);
-        }
+function validateComparison(data) {
+    if (!data || data.schemaVersion !== 2 || !data.groups || !data.registrationPeriods || !data.fleetPeriods) return false;
+    for (const group of Object.values(data.groups)) {
+        if (!group.label || !Array.isArray(group.codes) || group.codes.length !== new Set(group.codes).size) return false;
     }
-    state.comparison = data;
+    for (const [key, period] of Object.entries(data.registrationPeriods)) {
+        if (!/^20\d{2}-\d{2}$/.test(key) || !period.sourceUrl?.startsWith('https://')
+            || !period.publishedAt || !validateCountries(period.countries, 'registrations')) return false;
+    }
+    for (const [key, period] of Object.entries(data.fleetPeriods)) {
+        if (!/^20\d{2}-Q[1-4]$/.test(key) || !period.sourceUrl?.startsWith('https://')
+            || !period.methodologyUrl?.startsWith('https://') || !period.shareAsOf
+            || !validateCountries(period.countries, 'fleet')) return false;
+    }
+    const latestRegistration = data.registrationPeriods[Object.keys(data.registrationPeriods).sort().at(-1)];
+    const latestFleet = data.fleetPeriods[Object.keys(data.fleetPeriods).sort().at(-1)];
+    const registrationCodes = new Set(latestRegistration.countries.map(country => country.code));
+    const fleetCodes = new Set(latestFleet.countries.map(country => country.code));
+    return Object.values(data.groups).every(group =>
+        group.codes.includes('RO')
+        && group.codes.every(code => registrationCodes.has(code) && fleetCodes.has(code))
+    );
+}
+
+function validateMap(data) {
+    if (!data || data.schemaVersion !== 1 || !data.bounds || !Array.isArray(data.features) || !data.features.length) return false;
+    const codes = new Set();
+    return data.features.every(feature => {
+        const code = feature?.properties?.code;
+        const type = feature?.geometry?.type;
+        if (!code || codes.has(code) || !['Polygon', 'MultiPolygon'].includes(type)) return false;
+        codes.add(code);
+        return Array.isArray(feature.geometry.coordinates);
+    });
+}
+
+async function loadData() {
+    const cacheBuster = Date.now();
+    const [comparisonResponse, mapResponse] = await Promise.all([
+        fetch(`rapoarte/european_comparison.json?t=${cacheBuster}`),
+        fetch(`rapoarte/europe_map.json?t=${cacheBuster}`)
+    ]);
+    if (!comparisonResponse.ok || !mapResponse.ok) throw new Error('Datele comparative nu sunt disponibile.');
+    const [comparison, map] = await Promise.all([comparisonResponse.json(), mapResponse.json()]);
+    if (!validateComparison(comparison) || !validateMap(map)) throw new Error('Datele comparative nu trec verificarea de integritate.');
+    state.comparison = comparison;
+    state.map = map;
+}
+
+function registrationPeriodKey() {
+    const year = document.getElementById('public-year-select').value;
+    const month = document.getElementById('public-month-select').value.split('|')[0];
+    return year && month ? `${year}-${month}` : null;
+}
+
+function latestFleetKey() {
+    return Object.keys(state.comparison.fleetPeriods).sort().at(-1);
+}
+
+function currentPeriod() {
+    if (state.metric === 'registrations') {
+        const key = registrationPeriodKey();
+        return {key, period: state.comparison.registrationPeriods[key]};
+    }
+    const key = latestFleetKey();
+    return {key, period: state.comparison.fleetPeriods[key]};
 }
 
 function configurePeriodSelectors() {
-    const periods = Object.keys(state.comparison.periods).sort();
+    const periods = Object.keys(state.comparison.registrationPeriods).sort();
     const yearSelect = document.getElementById('public-year-select');
-    const monthSelect = document.getElementById('public-month-select');
     const years = [...new Set(periods.map(period => period.slice(0, 4)))].sort().reverse();
-
-    yearSelect.innerHTML = '';
+    yearSelect.replaceChildren();
     years.forEach(year => {
         const option = document.createElement('option');
         option.value = year;
         option.textContent = year;
         yearSelect.appendChild(option);
     });
-
-    const latest = periods[periods.length - 1];
+    const latest = periods.at(-1);
     yearSelect.value = latest.slice(0, 4);
     updateMonthOptions(latest.slice(5));
     yearSelect.addEventListener('change', () => {
         updateMonthOptions();
-        renderComparison();
+        renderAll();
     });
-    monthSelect.addEventListener('change', renderComparison);
+    document.getElementById('public-month-select').addEventListener('change', renderAll);
 }
 
 function updateMonthOptions(preferredMonth) {
     const year = document.getElementById('public-year-select').value;
     const monthSelect = document.getElementById('public-month-select');
-    const months = Object.keys(state.comparison.periods)
+    const months = Object.keys(state.comparison.registrationPeriods)
         .filter(period => period.startsWith(`${year}-`))
         .map(period => period.slice(5))
         .sort();
-    monthSelect.innerHTML = '';
+    monthSelect.replaceChildren();
     months.forEach(month => {
         const option = document.createElement('option');
         option.value = `${month}|${monthCodes[month]}`;
         option.textContent = monthNames[month];
         monthSelect.appendChild(option);
     });
-    const selected = preferredMonth && months.includes(preferredMonth) ? preferredMonth : months[months.length - 1];
+    const selected = preferredMonth && months.includes(preferredMonth) ? preferredMonth : months.at(-1);
     if (selected) monthSelect.value = `${selected}|${monthCodes[selected]}`;
 }
 
-function selectedPeriodKey() {
-    const year = document.getElementById('public-year-select').value;
-    const month = document.getElementById('public-month-select').value.split('|')[0];
-    return year && month ? `${year}-${month}` : null;
+function metricValue(country) {
+    return state.metric === 'registrations' ? registrationShare(country) : country.fleetShare;
 }
 
-function renderBarList(containerId, countries, metric, formatter) {
+function volumeValue(country) {
+    return state.metric === 'registrations' ? country.bev : country.fleet;
+}
+
+function countriesForCurrentView() {
+    const {period} = currentPeriod();
+    const codes = state.comparison.groups[state.group].codes;
+    const byCode = new Map(period.countries.map(country => [country.code, country]));
+    return codes.map(code => byCode.get(code)).filter(Boolean);
+}
+
+function colorForValue(value) {
+    return legends[state.metric].find(item => value < item.max)?.color || legends[state.metric].at(-1).color;
+}
+
+function projectCoordinate(coordinate) {
+    const width = 920;
+    const height = 620;
+    const {minLon, maxLon, minLat, maxLat} = state.map.bounds;
+    const mercator = latitude => Math.log(Math.tan(Math.PI / 4 + latitude * Math.PI / 360));
+    const x = (coordinate[0] - minLon) / (maxLon - minLon) * width;
+    const y = (mercator(maxLat) - mercator(coordinate[1])) / (mercator(maxLat) - mercator(minLat)) * height;
+    return [x, y];
+}
+
+function ringPath(ring) {
+    return ring.map((point, index) => {
+        const [x, y] = projectCoordinate(point);
+        return `${index ? 'L' : 'M'}${x.toFixed(1)},${y.toFixed(1)}`;
+    }).join('') + 'Z';
+}
+
+function geometryPath(geometry) {
+    const polygons = geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates;
+    return polygons.map(polygon => polygon.map(ringPath).join('')).join('');
+}
+
+function tooltipRows(country) {
+    if (state.metric === 'registrations') {
+        return [
+            ['Autoturisme BEV noi', formatNumber(country.bev)],
+            ['Total autoturisme noi', formatNumber(country.total)],
+            ['Cotă BEV', formatPercent(registrationShare(country))],
+            ['Față de aceeași lună din 2025', formatSignedPercent(country.yoy)]
+        ];
+    }
+    return [
+        ['Autoturisme electrice', formatNumber(country.fleet)],
+        ['Pondere în parcul auto (2025)', formatPercent(country.fleetShare)],
+        ['Față de finalul lui 2025', formatSignedPercent(fleetGrowth(country))]
+    ];
+}
+
+function buildTooltip(country) {
+    const fragment = document.createDocumentFragment();
+    const title = document.createElement('strong');
+    title.textContent = `${country.flag} ${country.name}`;
+    const grid = document.createElement('div');
+    grid.className = 'map-tooltip-grid';
+    tooltipRows(country).forEach(([label, value]) => {
+        const labelElement = document.createElement('span');
+        labelElement.textContent = label;
+        const valueElement = document.createElement('b');
+        valueElement.textContent = value;
+        grid.append(labelElement, valueElement);
+    });
+    fragment.append(title, grid);
+    return fragment;
+}
+
+function showTooltip(country, event) {
+    const tooltip = document.getElementById('map-tooltip');
+    const shell = document.getElementById('map-shell');
+    tooltip.replaceChildren(buildTooltip(country));
+    tooltip.classList.add('is-visible');
+    tooltip.setAttribute('aria-hidden', 'false');
+    const rect = shell.getBoundingClientRect();
+    const requestedX = event?.clientX ? event.clientX - rect.left + 14 : rect.width / 2;
+    const requestedY = event?.clientY ? event.clientY - rect.top + 14 : 18;
+    const width = Math.min(250, rect.width - 24);
+    const left = Math.max(12, Math.min(requestedX, rect.width - width - 12));
+    const top = Math.max(12, Math.min(requestedY, rect.height - 150));
+    tooltip.style.left = `${left}px`;
+    tooltip.style.top = `${top}px`;
+}
+
+function hideTooltip() {
+    const tooltip = document.getElementById('map-tooltip');
+    tooltip.classList.remove('is-visible');
+    tooltip.setAttribute('aria-hidden', 'true');
+}
+
+function selectCountry(code) {
+    state.selectedCode = code;
+    document.getElementById('country-select').value = code;
+    renderMap();
+    renderSelectedCountry();
+}
+
+function bindMapInteraction(element, country) {
+    element.addEventListener('pointerenter', event => showTooltip(country, event));
+    element.addEventListener('pointermove', event => showTooltip(country, event));
+    element.addEventListener('pointerleave', hideTooltip);
+    element.addEventListener('focus', event => showTooltip(country, event));
+    element.addEventListener('blur', hideTooltip);
+    element.addEventListener('click', () => selectCountry(country.code));
+    element.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            selectCountry(country.code);
+        }
+    });
+}
+
+function renderMap() {
+    const namespace = 'http://www.w3.org/2000/svg';
+    const countriesGroup = document.getElementById('europe-map-countries');
+    const markersGroup = document.getElementById('europe-map-markers');
+    const hotspots = document.getElementById('map-hotspots');
+    const currentCountries = countriesForCurrentView();
+    const dataByCode = new Map(currentCountries.map(country => [country.code, country]));
+    countriesGroup.replaceChildren();
+    markersGroup.replaceChildren();
+    hotspots.replaceChildren();
+
+    state.map.features.forEach(feature => {
+        const path = document.createElementNS(namespace, 'path');
+        const code = feature.properties.code;
+        const country = dataByCode.get(code);
+        path.setAttribute('d', geometryPath(feature.geometry));
+        path.setAttribute('fill-rule', 'evenodd');
+        path.classList.add('map-country');
+        if (country) {
+            path.classList.add('has-data');
+            if (code === state.selectedCode) path.classList.add('is-selected');
+            if (code === 'RO') path.classList.add('is-romania');
+            path.setAttribute('fill', colorForValue(metricValue(country)));
+            bindMapInteraction(path, country);
+        }
+        countriesGroup.appendChild(path);
+    });
+
+    currentCountries.filter(country => smallCountryMarkers.has(country.code)).forEach(country => {
+        const marker = document.createElementNS(namespace, 'circle');
+        const [x, y] = projectCoordinate(countryAnchors[country.code]);
+        marker.setAttribute('cx', x.toFixed(1));
+        marker.setAttribute('cy', y.toFixed(1));
+        marker.setAttribute('r', country.code === state.selectedCode ? '8' : '6');
+        marker.setAttribute('aria-hidden', 'true');
+        marker.classList.add('map-marker');
+        if (country.code === 'RO') marker.classList.add('is-romania');
+        markersGroup.appendChild(marker);
+    });
+
+    currentCountries.forEach(country => {
+        const hotspot = document.createElement('button');
+        const [x, y] = projectCoordinate(countryAnchors[country.code]);
+        hotspot.type = 'button';
+        hotspot.className = 'map-hotspot';
+        if (country.code === state.selectedCode) hotspot.classList.add('is-selected');
+        if (country.code === 'RO') hotspot.classList.add('is-romania');
+        hotspot.style.left = `${x / 920 * 100}%`;
+        hotspot.style.top = `${y / 620 * 100}%`;
+        hotspot.setAttribute('aria-label', `Selectează ${country.name}: ${formatPercent(metricValue(country))}`);
+        hotspot.title = `${country.name}: ${formatPercent(metricValue(country))}`;
+        bindMapInteraction(hotspot, country);
+        hotspots.appendChild(hotspot);
+    });
+}
+
+function renderLegend() {
+    const container = document.getElementById('map-legend');
+    container.replaceChildren();
+    const title = document.createElement('strong');
+    title.textContent = state.metric === 'registrations' ? 'Cotă BEV:' : 'Pondere în parc:';
+    container.appendChild(title);
+    [...legends[state.metric], {label: 'fără date', color: '#dce6ec'}].forEach(item => {
+        const entry = document.createElement('span');
+        entry.className = 'legend-item';
+        const swatch = document.createElement('span');
+        swatch.className = 'legend-swatch';
+        swatch.style.backgroundColor = item.color;
+        const label = document.createElement('span');
+        label.textContent = item.label;
+        entry.append(swatch, label);
+        container.appendChild(entry);
+    });
+}
+
+function configureCountrySelect(countries) {
+    if (!countries.some(country => country.code === state.selectedCode)) state.selectedCode = 'RO';
+    const select = document.getElementById('country-select');
+    select.replaceChildren();
+    countries.forEach(country => {
+        const option = document.createElement('option');
+        option.value = country.code;
+        option.textContent = `${country.flag} ${country.name}`;
+        select.appendChild(option);
+    });
+    select.value = state.selectedCode;
+}
+
+function addCountryStat(container, label, value) {
+    const row = document.createElement('div');
+    row.className = 'selected-country-stat';
+    const labelElement = document.createElement('span');
+    labelElement.textContent = label;
+    const valueElement = document.createElement('strong');
+    valueElement.textContent = value;
+    row.append(labelElement, valueElement);
+    container.appendChild(row);
+}
+
+function renderSelectedCountry() {
+    const country = countriesForCurrentView().find(item => item.code === state.selectedCode);
+    if (!country) return;
+    document.getElementById('selected-country-name').textContent = `${country.flag} ${country.name}`;
+    document.getElementById('selected-country-value').textContent = formatPercent(metricValue(country));
+    const stats = document.getElementById('selected-country-stats');
+    stats.replaceChildren();
+    tooltipRows(country).forEach(([label, value]) => addCountryStat(stats, label, value));
+}
+
+function renderBarList(containerId, countries, valueGetter, formatter) {
     const container = document.getElementById(containerId);
-    container.innerHTML = '';
-    const maximum = Math.max(...countries.map(country => metric(country)), 1);
+    container.replaceChildren();
+    const maximum = Math.max(...countries.map(valueGetter), 1);
     countries.forEach(country => {
         const item = document.createElement('div');
         item.className = 'bar-item';
-
         const label = document.createElement('div');
         label.className = 'country-label';
         const flag = document.createElement('span');
@@ -119,77 +447,158 @@ function renderBarList(containerId, countries, metric, formatter) {
         track.className = 'bar-track';
         const fill = document.createElement('div');
         fill.className = `bar-fill${country.code === 'RO' ? ' highlight' : ''}`;
-        fill.style.width = `${(metric(country) / maximum * 100).toFixed(1)}%`;
+        fill.style.width = `${(valueGetter(country) / maximum * 100).toFixed(1)}%`;
         track.appendChild(fill);
 
         const value = document.createElement('div');
         value.className = 'bar-value';
-        value.textContent = formatter(metric(country));
+        value.textContent = formatter(valueGetter(country));
         item.append(label, track, value);
         container.appendChild(item);
     });
 }
 
-function renderComparison() {
-    const key = selectedPeriodKey();
-    const period = key && state.comparison.periods[key];
-    if (!period) return;
-
-    const countries = period.countries.map(country => ({
-        ...country,
-        share: country.bev / country.total * 100
-    }));
-    const byShare = [...countries].sort((a, b) => b.share - a.share);
-    const byVolume = [...countries].sort((a, b) => b.bev - a.bev);
-    renderBarList('market-share-list', byShare, country => country.share, value => `${value.toFixed(2)}%`);
-    renderBarList('volumes-list', byVolume, country => country.bev, value => value.toLocaleString('ro-RO'));
-
-    const [year, month] = key.split('-');
-    const periodLabel = `${monthNames[month]} ${year}`;
-    document.getElementById('divider-month-name').textContent = periodLabel;
-    document.getElementById('comp-hero-month-name').textContent = periodLabel.toLowerCase();
-
-    const romania = countries.find(country => country.code === 'RO');
-    if (romania) {
-        animateElementValue('val-comp-hero-volume', romania.bev);
-        animateElementValue('ro-comp-volume', romania.bev);
-        document.getElementById('ro-comp-share').textContent = `${romania.share.toFixed(2)}%`;
-        const status = romania.share >= 20 ? 'Piață matură' : romania.share >= 10 ? 'În tranziție' : 'Adopție în dezvoltare';
-        document.getElementById('ro-adoption-status').textContent = status;
+function renderRankings(countries) {
+    const byShare = [...countries].sort((a, b) => metricValue(b) - metricValue(a));
+    const byVolume = [...countries].sort((a, b) => volumeValue(b) - volumeValue(a));
+    renderBarList('market-share-list', byShare, metricValue, formatPercent);
+    renderBarList('volumes-list', byVolume, volumeValue, formatNumber);
+    if (state.metric === 'registrations') {
+        document.getElementById('share-chart-title').textContent = 'Cotă BEV în înmatriculările noi';
+        document.getElementById('share-chart-description').textContent = 'Ponderea autoturismelor electrice în totalul autoturismelor noi din luna selectată.';
+        document.getElementById('volume-chart-title').textContent = 'Înmatriculări BEV — volum';
+        document.getElementById('volume-chart-description').textContent = 'Numărul autoturismelor electrice noi înmatriculate în aceeași lună.';
+    } else {
+        document.getElementById('share-chart-title').textContent = 'Ponderea BEV în parcul auto';
+        document.getElementById('share-chart-description').textContent = 'Procentul autoturismelor electrice din întregul parc auto, la final de 2025.';
+        document.getElementById('volume-chart-title').textContent = 'Parc de autoturisme electrice';
+        document.getElementById('volume-chart-description').textContent = 'Numărul autoturismelor electrice aflate în circulație în trimestrul II 2026.';
     }
+}
 
+function renderSummary(countries) {
+    const byShare = [...countries].sort((a, b) => metricValue(b) - metricValue(a));
+    const romania = countries.find(country => country.code === 'RO');
     const leader = byShare[0];
-    document.getElementById('comparison-leader').textContent = `${leader.name} ${leader.flag}`;
-    document.getElementById('comparison-leader-note').textContent =
-        `${leader.share.toFixed(2)}% din autoturismele noi au fost BEV în ${periodLabel.toLowerCase()}.`;
+    const rank = byShare.findIndex(country => country.code === 'RO') + 1;
+    document.getElementById('summary-romania-value').textContent = formatPercent(metricValue(romania));
+    document.getElementById('summary-leader-value').textContent = `${leader.flag} ${leader.name}`;
+    document.getElementById('summary-romania-rank').textContent = `${rank} din ${countries.length}`;
+    if (state.metric === 'registrations') {
+        document.getElementById('summary-romania-note').textContent = `${formatNumber(romania.bev)} autoturisme BEV noi`;
+        document.getElementById('summary-leader-note').textContent = `${formatPercent(metricValue(leader))} cotă BEV în luna selectată`;
+        document.getElementById('summary-rank-note').textContent = 'Clasament după cota în înmatriculările noi';
+    } else {
+        document.getElementById('summary-romania-note').textContent = `${formatNumber(romania.fleet)} autoturisme electrice în circulație`;
+        document.getElementById('summary-leader-note').textContent = `${formatPercent(metricValue(leader))} din parcul auto`;
+        document.getElementById('summary-rank-note').textContent = 'Clasament după ponderea în parcul auto';
+    }
+}
 
-    const sourceNote = document.getElementById('comparison-source-note');
-    sourceNote.innerHTML = '';
-    const link = document.createElement('a');
-    link.href = period.sourceUrl;
-    link.target = '_blank';
-    link.rel = 'noopener';
-    link.textContent = `Sursa: ${period.source}, publicată la ${period.publishedAt}`;
-    sourceNote.appendChild(link);
-    if (period.provisional) sourceNote.append(' · date provizorii');
+function renderSource(period) {
+    const container = document.getElementById('comparison-source-note');
+    container.replaceChildren();
+    const sourceLink = document.createElement('a');
+    sourceLink.href = period.sourceUrl;
+    sourceLink.target = '_blank';
+    sourceLink.rel = 'noopener';
+    sourceLink.textContent = `Sursa datelor: ${period.source}`;
+    container.append(sourceLink, ` · actualizare ${formatDate(period.publishedAt)}`);
+    if (period.provisional) container.append(' · date provizorii');
+    if (state.metric === 'fleet') {
+        const methodLink = document.createElement('a');
+        methodLink.href = period.methodologyUrl;
+        methodLink.target = '_blank';
+        methodLink.rel = 'noopener';
+        methodLink.textContent = 'metodologie';
+        container.append(' · ', methodLink);
+    }
+    const mapLink = document.createElement('a');
+    mapLink.href = state.map.sourceUrl;
+    mapLink.target = '_blank';
+    mapLink.rel = 'noopener';
+    mapLink.textContent = 'Natural Earth';
+    container.append(' · hartă: ', mapLink, ' (public domain)');
+}
+
+function renderContext(key, period) {
+    const groupLabel = state.comparison.groups[state.group].label;
+    document.getElementById('map-card-title').textContent = groupLabel;
+    document.getElementById('divider-metric-name').textContent = state.metric === 'registrations' ? 'Înmatriculări noi' : 'Parc EV';
+    document.getElementById('registration-period-controls').classList.toggle('is-hidden', state.metric !== 'registrations');
+    document.getElementById('fleet-period-label').classList.toggle('is-hidden', state.metric !== 'fleet');
+    if (state.metric === 'registrations') {
+        const [year, month] = key.split('-');
+        const label = `${monthNames[month]} ${year}`;
+        document.getElementById('divider-period-name').textContent = label;
+        document.getElementById('map-subtitle').textContent = 'Culoarea indică ponderea BEV în înmatriculările de autoturisme noi.';
+        document.getElementById('comparison-method-note').textContent = 'Comparația folosește numai autoturisme noi. Importurile rulate rămân în dashboardul național și nu intră în cota de piață.';
+    } else {
+        const label = formatQuarter(key);
+        document.getElementById('fleet-period-value').textContent = label;
+        document.getElementById('divider-period-name').textContent = label;
+        document.getElementById('map-subtitle').textContent = `Culoarea indică ponderea BEV în parcul auto la ${formatDate(period.shareAsOf)}.`;
+        document.getElementById('comparison-method-note').textContent = 'Parcul activ include autoturismele noi și pe cele importate rulate, apoi scade exporturile și vehiculele scoase din circulație. Autoutilitarele din contorul național nu sunt incluse, de aceea totalul României este mai mic decât cel din Dashboard.';
+    }
+}
+
+function renderControls() {
+    document.querySelectorAll('[data-metric]').forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.metric === state.metric));
+    });
+    document.querySelectorAll('[data-group]').forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.group === state.group));
+    });
+}
+
+function renderAll() {
+    const {key, period} = currentPeriod();
+    if (!period) return;
+    const countries = countriesForCurrentView();
+    configureCountrySelect(countries);
+    renderControls();
+    renderContext(key, period);
+    renderMap();
+    renderLegend();
+    renderSelectedCountry();
+    renderRankings(countries);
+    renderSummary(countries);
+    renderSource(period);
 }
 
 function showError(error) {
     const message = error instanceof Error ? error.message : String(error);
+    document.getElementById('map-shell').textContent = message;
+    document.getElementById('comparison-source-note').textContent = 'Nu afișăm valori estimate sau date care nu trec verificarea.';
     for (const id of ['market-share-list', 'volumes-list']) {
         const container = document.getElementById(id);
         container.textContent = message;
         container.style.color = 'var(--warning-color)';
     }
-    document.getElementById('comparison-source-note').textContent =
-        'Nu afișăm estimări sau luni copiate. Comparația revine când există date verificate.';
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        await loadComparison();
+        await loadData();
         configurePeriodSelectors();
-        renderComparison();
+        document.querySelectorAll('[data-metric]').forEach(button => {
+            button.addEventListener('click', () => {
+                state.metric = button.dataset.metric;
+                renderAll();
+            });
+        });
+        document.querySelectorAll('[data-group]').forEach(button => {
+            button.addEventListener('click', () => {
+                state.group = button.dataset.group;
+                if (!state.comparison.groups[state.group].codes.includes(state.selectedCode)) state.selectedCode = 'RO';
+                renderAll();
+            });
+        });
+        document.getElementById('country-select').addEventListener('change', event => selectCountry(event.target.value));
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') hideTooltip();
+        });
+        renderAll();
     } catch (error) {
         console.error('[Comparație]', error);
         showError(error);
