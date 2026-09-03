@@ -20,6 +20,7 @@ const monthCodes = {
 };
 
 const smallCountryMarkers = new Set(['HR', 'NL', 'SI', 'SK']);
+const mapViewport = {width: 920, height: 620};
 const countryAnchors = {
     BG: [25.3, 42.7], CZ: [15.4, 49.8], DE: [10.4, 51.1], ES: [-3.7, 40.3],
     FR: [2.3, 46.4], GB: [-2.8, 54.2], HR: [16.4, 45.2], HU: [19.3, 47.2],
@@ -220,13 +221,31 @@ function colorForValue(value) {
 }
 
 function projectCoordinate(coordinate) {
-    const width = 920;
-    const height = 620;
+    const {width, height} = mapViewport;
     const {minLon, maxLon, minLat, maxLat} = state.map.bounds;
     const mercator = latitude => Math.log(Math.tan(Math.PI / 4 + latitude * Math.PI / 360));
     const x = (coordinate[0] - minLon) / (maxLon - minLon) * width;
     const y = (mercator(maxLat) - mercator(coordinate[1])) / (mercator(maxLat) - mercator(minLat)) * height;
     return [x, y];
+}
+
+function positionMapHotspot(hotspot, coordinate) {
+    const shell = document.getElementById('map-shell');
+    const [x, y] = projectCoordinate(coordinate);
+    const width = shell.clientWidth || mapViewport.width;
+    const height = shell.clientHeight || mapViewport.height;
+    const scale = Math.min(width / mapViewport.width, height / mapViewport.height);
+    const offsetX = (width - mapViewport.width * scale) / 2;
+    const offsetY = (height - mapViewport.height * scale) / 2;
+    hotspot.style.left = `${offsetX + x * scale}px`;
+    hotspot.style.top = `${offsetY + y * scale}px`;
+}
+
+function positionMapHotspots() {
+    document.querySelectorAll('.map-hotspot').forEach(hotspot => {
+        const anchor = countryAnchors[hotspot.dataset.countryCode];
+        if (anchor) positionMapHotspot(hotspot, anchor);
+    });
 }
 
 function ringPath(ring) {
@@ -360,13 +379,12 @@ function renderMap() {
 
     currentCountries.forEach(country => {
         const hotspot = document.createElement('button');
-        const [x, y] = projectCoordinate(countryAnchors[country.code]);
         hotspot.type = 'button';
         hotspot.className = 'map-hotspot';
+        hotspot.dataset.countryCode = country.code;
         if (country.code === state.selectedCode) hotspot.classList.add('is-selected');
         if (country.code === 'RO') hotspot.classList.add('is-romania');
-        hotspot.style.left = `${x / 920 * 100}%`;
-        hotspot.style.top = `${y / 620 * 100}%`;
+        positionMapHotspot(hotspot, countryAnchors[country.code]);
         hotspot.setAttribute('aria-label', `Selectează ${country.name}: ${formatPercent(metricValue(country))}`);
         hotspot.title = `${country.name}: ${formatPercent(metricValue(country))}`;
         bindMapInteraction(hotspot, country);
@@ -597,6 +615,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('country-select').addEventListener('change', event => selectCountry(event.target.value));
         document.addEventListener('keydown', event => {
             if (event.key === 'Escape') hideTooltip();
+        });
+        let resizeFrame = null;
+        window.addEventListener('resize', () => {
+            if (resizeFrame) window.cancelAnimationFrame(resizeFrame);
+            resizeFrame = window.requestAnimationFrame(positionMapHotspots);
         });
         renderAll();
     } catch (error) {

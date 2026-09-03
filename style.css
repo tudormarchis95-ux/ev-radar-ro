@@ -108,9 +108,7 @@
     overflow: hidden;
     border: 1px solid #dbe7f0;
     border-radius: 14px;
-    background:
-        radial-gradient(circle at 63% 48%, rgba(2, 132, 199, 0.09), transparent 42%),
-        linear-gradient(180deg, #f8fbfd 0%, #eef6fa 100%);
+    background: #f3f8fb;
 }
 
 .comparison-page #europe-map {
@@ -178,7 +176,7 @@
     border: 2px solid var(--primary-color);
     border-radius: 50%;
     background: #ffffff;
-    box-shadow: 0 2px 7px rgba(15, 23, 42, 0.25);
+    box-shadow: none;
     cursor: pointer;
     pointer-events: auto;
 }
