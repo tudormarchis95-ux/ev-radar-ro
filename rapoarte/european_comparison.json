@@ -3,7 +3,7 @@
   "groups": {
     "regional": {
       "label": "Europa Centrală și de Est",
-      "codes": ["SI", "HU", "RO", "BG", "CZ", "SK", "PL", "HR"]
+      "codes": ["AT", "BG", "CZ", "HR", "EE", "GR", "LV", "LT", "PL", "RO", "SK", "SI", "HU"]
     },
     "benchmarks": {
       "label": "Repere europene",
@@ -19,6 +19,11 @@
       "publishedAt": "2026-07-23",
       "provisional": true,
       "countries": [
+        {"code": "AT", "name": "Austria", "flag": "🇦🇹", "bev": 8993, "total": 34256, "yoy": 44.1},
+        {"code": "EE", "name": "Estonia", "flag": "🇪🇪", "bev": 146, "total": 1932, "yoy": 64.0},
+        {"code": "GR", "name": "Grecia", "flag": "🇬🇷", "bev": 1346, "total": 18668, "yoy": 54.9},
+        {"code": "LV", "name": "Letonia", "flag": "🇱🇻", "bev": 287, "total": 2389, "yoy": 88.8},
+        {"code": "LT", "name": "Lituania", "flag": "🇱🇹", "bev": 475, "total": 5016, "yoy": 69.6},
         {"code": "SI", "name": "Slovenia", "flag": "🇸🇮", "bev": 1690, "total": 6684, "yoy": 206.7},
         {"code": "HU", "name": "Ungaria", "flag": "🇭🇺", "bev": 1561, "total": 15096, "yoy": 19.4},
         {"code": "RO", "name": "România", "flag": "🇷🇴", "bev": 1496, "total": 16120, "yoy": 283.6},
@@ -48,6 +53,11 @@
       "publishedAt": "2026-08-15",
       "provisional": false,
       "countries": [
+        {"code": "AT", "name": "Austria", "flag": "🇦🇹", "fleet": 296746, "previousYearEnd": 257717, "fleetShare": 4.88},
+        {"code": "EE", "name": "Estonia", "flag": "🇪🇪", "fleet": 11596, "previousYearEnd": 10084, "fleetShare": 1.49},
+        {"code": "GR", "name": "Grecia", "flag": "🇬🇷", "fleet": 36094, "previousYearEnd": 30789, "fleetShare": 0.50},
+        {"code": "LV", "name": "Letonia", "flag": "🇱🇻", "fleet": 11848, "previousYearEnd": 11025, "fleetShare": 1.38},
+        {"code": "LT", "name": "Lituania", "flag": "🇱🇹", "fleet": 28013, "previousYearEnd": 19876, "fleetShare": 1.13},
         {"code": "SI", "name": "Slovenia", "flag": "🇸🇮", "fleet": 28660, "previousYearEnd": 22563, "fleetShare": 1.75},
         {"code": "HU", "name": "Ungaria", "flag": "🇭🇺", "fleet": 101401, "previousYearEnd": 94009, "fleetShare": 2.15},
         {"code": "RO", "name": "România", "flag": "🇷🇴", "fleet": 64009, "previousYearEnd": 58322, "fleetShare": 0.67},
