@@ -12,6 +12,13 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
+    <link rel="canonical" href="https://evradar.electromobilitate.com/">
+    <script>
+      if (/\/index\.html$/.test(window.location.pathname)) {
+        const rootPath = window.location.pathname.slice(0, -'index.html'.length);
+        window.location.replace(rootPath + window.location.search + window.location.hash);
+      }
+    </script>
     <!-- Google Analytics (GA4) - Monitorizare Statistici Trafic -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B19F9R252Y"></script>
     <script>
@@ -23,14 +30,14 @@
     </script>
     <!-- Open Graph / Social Media Preview Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tudormarchis95-ux.github.io/ev-radar-ro/public.html">
+    <meta property="og:url" content="https://evradar.electromobilitate.com/">
     <meta property="og:title" content="EV Radar România - date înmatriculări vehicule electrice">
     <meta property="og:description" content="Procesator și Agregator Lunar de Date Înmatriculări și Radieri EV din România. Partener Electromobilitate.">
     <meta property="og:image" content="https://tudormarchis95-ux.github.io/ev-radar-ro/social_preview.png">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://tudormarchis95-ux.github.io/ev-radar-ro/public.html">
+    <meta name="twitter:url" content="https://evradar.electromobilitate.com/">
     <meta name="twitter:title" content="EV Radar România - date înmatriculări vehicule electrice">
     <meta name="twitter:description" content="Procesator și Agregator Lunar de Date Înmatriculări și Radieri EV din România. Partener Electromobilitate.">
     <meta name="twitter:image" content="https://tudormarchis95-ux.github.io/ev-radar-ro/social_preview.png">
@@ -105,7 +112,7 @@
         <!-- Meniu Navigare Public -->
         <div class="nav-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
             <div class="nav-links" style="display: flex; gap: 1rem;">
-                <a href="index.html" class="nav-btn active" style="background: var(--primary-color); border: 1px solid var(--primary-color); color: #ffffff; box-shadow: 0 4px 12px rgba(0, 75, 135, 0.2); font-weight: 600; text-decoration: none; padding: 0.5rem 1.25rem; border-radius: 8px; font-size: 0.9rem;">📊 Dashboard</a>
+                <a href="./" class="nav-btn active" style="background: var(--primary-color); border: 1px solid var(--primary-color); color: #ffffff; box-shadow: 0 4px 12px rgba(0, 75, 135, 0.2); font-weight: 600; text-decoration: none; padding: 0.5rem 1.25rem; border-radius: 8px; font-size: 0.9rem;">📊 Dashboard</a>
                 <a href="comparatie.html" class="nav-btn" style="background: #ffffff; border: 1px solid var(--border-color); color: var(--text-color); font-weight: 600; text-decoration: none; padding: 0.5rem 1.25rem; border-radius: 8px; font-size: 0.9rem; transition: all 0.2s;">🇪🇺 Comparație Europeană</a>
             </div>
             <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
@@ -379,6 +386,6 @@
          </footer>
      </div>
     
-    <script src="public.js?v=20260904_1"></script>
+    <script src="public.js?v=20260904_2"></script>
 </body>
 </html>

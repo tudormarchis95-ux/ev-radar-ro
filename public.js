@@ -41,6 +41,11 @@ function escapeHtml(value) {
     }[character]));
 }
 
+function setElementText(id, value) {
+    const element = document.getElementById(id);
+    if (element) element.innerText = value;
+}
+
 function calculateDynamicTotalFleet(dataState, historicalSummary) {
     const baseFleetDec2025 = FLEET_BASELINE_DEC_2025;
     let totalFleet = baseFleetDec2025;
@@ -300,9 +305,9 @@ async function loadMonthData() {
 
 function showEmptyDashboard(message) {
     document.getElementById('val-national-fleet').innerText = "-";
-    document.getElementById('val-total-reg').innerText = "-";
-    document.getElementById('monthly-total-period').innerText = "-";
-    document.getElementById('monthly-total-breakdown').innerText = message;
+    setElementText('val-total-reg', '-');
+    setElementText('monthly-total-period', '-');
+    setElementText('monthly-total-breakdown', message);
     document.getElementById('val-auto-reg').innerText = "-";
     document.getElementById('val-util-reg').innerText = "-";
     document.getElementById('val-total-rad').innerText = "-";
@@ -340,8 +345,8 @@ function renderDashboard() {
     animateElementValue('val-national-fleet', totalFleet);
     document.getElementById('fleet-month-name').innerText = currentLunaNume + " " + currentYear;
     document.getElementById('divider-month-name').innerText = currentLunaNume + " " + currentYear;
-    document.getElementById('monthly-total-period').innerText = `${PUBLIC_MONTH_LABELS[currentLunaNume] || currentLunaNume} ${currentYear}`;
-    document.getElementById('monthly-total-breakdown').innerText = `${state.data.totalAutoReg.toLocaleString('ro-RO')} autoturisme + ${state.data.totalUtilReg.toLocaleString('ro-RO')} autoutilitare · vehicule noi și importuri rulate`;
+    setElementText('monthly-total-period', `${PUBLIC_MONTH_LABELS[currentLunaNume] || currentLunaNume} ${currentYear}`);
+    setElementText('monthly-total-breakdown', `${state.data.totalAutoReg.toLocaleString('ro-RO')} autoturisme + ${state.data.totalUtilReg.toLocaleString('ro-RO')} autoutilitare · vehicule noi și importuri rulate`);
     
     // Advanced stats
     document.getElementById('val-ev-share').innerText = `${(state.data.evShare * 100).toFixed(2)}%`;
