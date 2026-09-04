@@ -212,8 +212,8 @@
         const notice = document.getElementById("data-notice");
         notice.hidden = unallocated === 0;
         notice.textContent = unallocated === 1
-            ? "Un vehicul apare în totalul național, dar nu are județ atribuit în lista detaliată DGPCI; nu este plasat artificial pe hartă."
-            : `${formatter.format(unallocated)} vehicule apar în totalul național, dar nu au județ atribuit în listele detaliate DGPCI; nu sunt plasate artificial pe hartă.`;
+            ? "Un vehicul apare în totalul național, dar nu poate fi atribuit unui județ din lista detaliată DGPCI; nu este plasat artificial pe hartă."
+            : `${formatter.format(unallocated)} vehicule apar în totalul național, dar nu pot fi atribuite unui județ din listele detaliate DGPCI; nu sunt plasate artificial pe hartă.`;
     }
 
     function updatePanel() {
