@@ -321,7 +321,7 @@ function tooltipRows(country) {
         ];
     }
     return [
-        ['Autoturisme electrice', formatNumber(country.fleet)],
+        ['Autoturisme electrice M1 (EAFO)', formatNumber(country.fleet)],
         ['Pondere în parcul auto (2025)', formatPercent(country.fleetShare)],
         ['Față de finalul lui 2025', formatSignedPercent(fleetGrowth(country))]
     ];
@@ -540,8 +540,8 @@ function renderRankings(countries) {
     } else {
         document.getElementById('share-chart-title').textContent = 'Ponderea BEV în parcul auto';
         document.getElementById('share-chart-description').textContent = 'Procentul autoturismelor electrice din întregul parc auto, la final de 2025.';
-        document.getElementById('volume-chart-title').textContent = 'Parc de autoturisme electrice';
-        document.getElementById('volume-chart-description').textContent = 'Numărul autoturismelor electrice aflate în circulație în trimestrul II 2026.';
+        document.getElementById('volume-chart-title').textContent = 'Parc armonizat EAFO de autoturisme electrice';
+        document.getElementById('volume-chart-description').textContent = 'Numărul autoturismelor electrice M1 din seria armonizată EAFO, în trimestrul II 2026.';
     }
 }
 
@@ -558,7 +558,7 @@ function renderSummary(countries) {
         document.getElementById('summary-leader-note').textContent = `${formatPercent(metricValue(leader))} cotă BEV în luna selectată`;
         document.getElementById('summary-rank-note').textContent = 'Clasament după cota în înmatriculările noi';
     } else {
-        document.getElementById('summary-romania-note').textContent = `${formatNumber(romania.fleet)} autoturisme electrice în circulație`;
+        document.getElementById('summary-romania-note').textContent = `${formatNumber(romania.fleet)} autoturisme electrice M1 în seria EAFO`;
         document.getElementById('summary-leader-note').textContent = `${formatPercent(metricValue(leader))} din parcul auto`;
         document.getElementById('summary-rank-note').textContent = 'Clasament după ponderea în parcul auto';
     }
@@ -607,7 +607,7 @@ function renderContext(key, period) {
         document.getElementById('fleet-period-value').textContent = label;
         document.getElementById('divider-period-name').textContent = label;
         document.getElementById('map-subtitle').textContent = `Culoarea indică ponderea BEV în parcul auto la ${formatDate(period.shareAsOf)}.`;
-        document.getElementById('comparison-method-note').textContent = 'Parcul activ include autoturismele noi și pe cele importate rulate, apoi scade exporturile și vehiculele scoase din circulație. Autoutilitarele din contorul național nu sunt incluse, de aceea totalul României este mai mic decât cel din Dashboard.';
+        document.getElementById('comparison-method-note').textContent = 'Aici, „Parc EV” este seria armonizată EAFO pentru autoturisme M1, calculată după aceeași definiție în toate țările. Dashboardul național EV Radar folosește date DGPCI pentru autoturisme și autoutilitare (M1 + M1G + N1), actualizate lunar cu înmatriculările minus radierile. Totalurile nu sunt direct comparabile.';
     }
 }
 
