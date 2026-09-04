@@ -1680,3 +1680,420 @@ input, textarea, select {
         text-align: right !important;
     }
 }
+
+/* --- SISTEM VIZUAL PUBLIC 2026 --- */
+body.public-dashboard,
+body.comparison-page {
+    margin: 0;
+    padding: 28px 18px;
+    background: #eef3f8;
+    background-image: none;
+    color: #17233a;
+    font-family: "Plus Jakarta Sans", Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.public-dashboard .app-container,
+.comparison-page .app-container {
+    min-width: 0;
+    max-width: 1380px;
+    padding: clamp(20px, 3vw, 38px);
+    border: 1px solid #d8e3ed;
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 18px 55px rgba(28, 61, 91, 0.09);
+}
+
+.public-dashboard .site-header,
+.comparison-page .site-header {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    align-items: center !important;
+    gap: 4px 24px !important;
+    margin: 0 0 22px !important;
+    text-align: left;
+}
+
+.public-dashboard .site-header .partner-logo,
+.comparison-page .site-header .partner-logo {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    margin: 0 !important;
+}
+
+.public-dashboard .site-header .partner-logo img,
+.comparison-page .site-header .partner-logo img {
+    width: auto;
+    height: 38px !important;
+    max-width: 220px !important;
+}
+
+.public-dashboard .site-header .logo-area,
+.comparison-page .site-header .logo-area {
+    grid-column: 1;
+    grid-row: 1;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    margin: 0;
+}
+
+.public-dashboard .site-header .ev-radar-logo,
+.comparison-page .site-header .ev-radar-logo {
+    width: 42px;
+    height: 42px;
+}
+
+.public-dashboard .site-header h1,
+.comparison-page .site-header h1 {
+    color: #003f73;
+    background: none;
+    font-family: Montserrat, Arial, sans-serif;
+    font-size: clamp(28px, 3.6vw, 42px) !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.045em;
+    line-height: 1.05;
+    -webkit-text-fill-color: currentColor;
+}
+
+.public-dashboard .site-header h1 span,
+.comparison-page .site-header h1 span {
+    color: #005596;
+    -webkit-text-fill-color: currentColor;
+}
+
+.public-dashboard .site-header .subtitle,
+.comparison-page .site-header .subtitle {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0 0 0 52px;
+    color: #667792;
+    font-size: 0.86rem;
+    font-weight: 500;
+    text-align: left;
+}
+
+.public-dashboard .site-nav,
+.comparison-page .site-nav {
+    padding: 11px !important;
+    margin-bottom: 22px !important;
+    border: 1px solid #d8e3ed !important;
+    border-radius: 15px;
+    background: #f3f7fb;
+}
+
+.public-dashboard .nav-links,
+.comparison-page .nav-links {
+    gap: 7px !important;
+}
+
+.public-dashboard .nav-btn,
+.comparison-page .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0.58rem 0.9rem !important;
+    border: 1px solid transparent !important;
+    border-radius: 10px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #52647e !important;
+    font-family: Montserrat, Arial, sans-serif;
+    font-size: 0.76rem !important;
+    font-weight: 800 !important;
+    line-height: 1.2;
+    text-decoration: none;
+}
+
+.public-dashboard .nav-btn:hover,
+.comparison-page .nav-btn:hover {
+    border-color: #d8e3ed !important;
+    background: #ffffff !important;
+    color: #005596 !important;
+}
+
+.public-dashboard .nav-btn.active,
+.comparison-page .nav-btn.active {
+    border-color: #005596 !important;
+    background: #005596 !important;
+    color: #ffffff !important;
+}
+
+.public-dashboard .period-controls,
+.comparison-page .comparison-period-controls {
+    gap: 7px;
+    color: #667792;
+}
+
+.public-dashboard .period-controls label,
+.comparison-page .comparison-period-controls label,
+.comparison-page .comparison-period-label {
+    color: #667792 !important;
+    font-family: Montserrat, Arial, sans-serif;
+    font-size: 0.68rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.06em !important;
+}
+
+.public-dashboard .month-select,
+.comparison-page .month-select {
+    min-height: 40px;
+    padding: 0.45rem 0.68rem !important;
+    border: 1px solid #d8e3ed;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #003f73;
+    font-size: 0.78rem !important;
+    font-weight: 800;
+}
+
+.public-dashboard .card,
+.comparison-page .card {
+    border-color: #d8e3ed;
+    border-radius: 17px;
+    background-color: #fbfdff;
+    box-shadow: none;
+}
+
+.public-dashboard .card:hover,
+.comparison-page .card:hover {
+    border-color: #c3d5e4;
+    box-shadow: none;
+}
+
+.public-dashboard .fleet-hero-card {
+    padding: clamp(26px, 4vw, 48px) !important;
+    border-color: #bed7e9 !important;
+    background: linear-gradient(145deg, #f5fbff 0%, #edf6fb 100%) !important;
+}
+
+.public-dashboard .fleet-hero-card .stat-label {
+    color: #005596 !important;
+    font-family: Montserrat, Arial, sans-serif;
+    font-size: 0.84rem !important;
+}
+
+.public-dashboard .fleet-hero-card #val-national-fleet {
+    color: #003f73 !important;
+    font-family: Montserrat, Arial, sans-serif;
+    font-size: clamp(3.4rem, 8vw, 6rem) !important;
+    letter-spacing: -0.055em;
+    line-height: 1;
+}
+
+.public-dashboard .monthly-total-card {
+    border-left: 0;
+    border-color: #9fd9cb;
+    background: #f1fbf8;
+}
+
+.public-dashboard .monthly-total-card .stat-value {
+    color: #18a87c;
+    font-family: Montserrat, Arial, sans-serif;
+}
+
+.public-dashboard .stat-label,
+.comparison-page .stat-label {
+    color: #667792;
+    font-family: Montserrat, Arial, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.055em;
+}
+
+.public-dashboard .stat-value,
+.comparison-page .stat-value,
+.public-dashboard h2,
+.public-dashboard h3,
+.comparison-page h2,
+.comparison-page h3 {
+    font-family: Montserrat, Arial, sans-serif;
+}
+
+.comparison-page .comparison-toolbar {
+    padding: 10px;
+    border: 1px solid #d8e3ed;
+    border-radius: 14px;
+    background: #f3f7fb;
+}
+
+.comparison-page .toggle-button {
+    border-radius: 9px;
+}
+
+.comparison-page .comparison-notice {
+    border-left-color: #168bc4;
+    background: #eef8fd;
+}
+
+.public-dashboard footer,
+.comparison-page footer {
+    margin-top: 30px !important;
+    padding-top: 18px !important;
+    border-top-color: #d8e3ed !important;
+    color: #667792 !important;
+    font-size: 0.75rem !important;
+}
+
+@media (max-width: 820px) {
+    body.public-dashboard,
+    body.comparison-page {
+        padding: 0;
+    }
+
+    .public-dashboard .app-container,
+    .comparison-page .app-container {
+        width: 100%;
+        padding: 18px;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .public-dashboard .site-header,
+    .comparison-page .site-header {
+        grid-template-columns: 1fr auto;
+        margin-bottom: 16px !important;
+    }
+
+    .public-dashboard .site-header .partner-logo img,
+    .comparison-page .site-header .partner-logo img {
+        height: 28px !important;
+        max-width: 145px !important;
+    }
+
+    .public-dashboard .site-header .logo-area,
+    .comparison-page .site-header .logo-area {
+        flex-direction: row !important;
+        text-align: left !important;
+    }
+
+    .public-dashboard .site-header .ev-radar-logo,
+    .comparison-page .site-header .ev-radar-logo {
+        width: 34px;
+        height: 34px;
+    }
+
+    .public-dashboard .site-header h1,
+    .comparison-page .site-header h1 {
+        font-size: clamp(23px, 6vw, 31px) !important;
+        text-align: left;
+    }
+
+    .public-dashboard .site-header h1 span,
+    .comparison-page .site-header h1 span {
+        display: inline;
+        font-size: inherit;
+        font-weight: inherit;
+    }
+
+    .public-dashboard .site-header .subtitle,
+    .comparison-page .site-header .subtitle {
+        margin-left: 44px;
+        padding: 0;
+        font-size: 0.72rem !important;
+    }
+
+    .public-dashboard .site-nav,
+    .comparison-page .site-nav {
+        align-items: stretch !important;
+        gap: 10px !important;
+    }
+
+    .public-dashboard .nav-links,
+    .comparison-page .nav-links {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        width: 100% !important;
+    }
+
+    .public-dashboard .nav-btn,
+    .comparison-page .nav-btn {
+        width: 100%;
+        padding: 0.5rem 0.35rem !important;
+        font-size: 0.67rem !important;
+    }
+
+    .public-dashboard .period-controls,
+    .comparison-page .comparison-period-controls {
+        justify-content: center !important;
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 520px) {
+    .public-dashboard .site-header,
+    .comparison-page .site-header {
+        grid-template-columns: 1fr;
+    }
+
+    .public-dashboard .site-header .partner-logo,
+    .comparison-page .site-header .partner-logo {
+        display: none;
+    }
+
+    .public-dashboard .site-header .subtitle,
+    .comparison-page .site-header .subtitle {
+        margin-left: 44px;
+        text-align: left;
+    }
+
+    .public-dashboard .site-nav,
+    .comparison-page .site-nav {
+        padding: 8px !important;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .public-dashboard .nav-btn,
+    .comparison-page .nav-btn {
+        min-height: 44px;
+        min-width: 0;
+        overflow-wrap: anywhere;
+        white-space: normal;
+    }
+
+    .public-dashboard .stats-grid.grid-2,
+    .public-dashboard .stats-grid.grid-3,
+    .public-dashboard .stats-grid.grid-4,
+    .comparison-page .comparison-summary-grid {
+        grid-template-columns: 1fr !important;
+        gap: 10px;
+    }
+
+    .public-dashboard .card,
+    .comparison-page .card {
+        min-width: 0;
+        max-width: 100%;
+        padding: 16px;
+    }
+
+    .public-dashboard main,
+    .public-dashboard .results-section,
+    .public-dashboard .historical-charts-grid,
+    .public-dashboard .v-chart-scroll-wrapper,
+    .comparison-page main,
+    .comparison-page .comparison-details-grid,
+    .comparison-page .map-layout,
+    .comparison-page .map-panel {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .public-dashboard .v-chart-scroll-wrapper {
+        overflow-x: auto !important;
+        overscroll-behavior-inline: contain;
+    }
+
+    .public-dashboard .month-divider {
+        min-width: 0;
+        text-align: center;
+    }
+
+    .public-dashboard .month-divider > span {
+        max-width: calc(100vw - 48px);
+        padding: 0.55rem 0.9rem;
+        white-space: normal;
+    }
+}

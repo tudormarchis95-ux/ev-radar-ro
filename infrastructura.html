@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="same-origin">
+    <link rel="canonical" href="https://evradar.electromobilitate.com/infrastructura.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://evradar.electromobilitate.com/infrastructura.html">
+    <meta property="og:title" content="Infrastructura publică de încărcare · EV Radar România">
+    <meta property="og:description" content="Comparație regională a infrastructurii publice de încărcare pentru autoturisme electrice.">
+    <meta property="og:image" content="https://evradar.electromobilitate.com/social_preview.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Infrastructura publică de încărcare · EV Radar România</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="infrastructura-preview.css?v=3">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B19F9R252Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-B19F9R252Y');
+    </script>
+</head>
+<body>
+    <main class="preview-shell" id="charging-app">
+        <nav class="site-navigation" aria-label="Navigare principală">
+            <div class="site-nav-links">
+                <a href="./">📊 Dashboard</a>
+                <a href="comparatie.html">🇪🇺 Comparație regională</a>
+                <a href="infrastructura.html" class="active" aria-current="page">⚡ Infrastructură</a>
+            </div>
+            <a class="partner-mark" href="https://electromobilitate.com" target="_blank" rel="noopener">
+                <img src="electromobilitate_logo.png" alt="Electromobilitate">
+            </a>
+        </nav>
+
+        <header class="preview-header">
+            <div>
+                <p class="eyebrow">EV Radar România · comparație regională</p>
+                <h1>Infrastructura publică de încărcare</h1>
+                <p class="intro">Cât de dezvoltată este rețeaua și ce capacitate oferă pentru parcul electric actual?</p>
+            </div>
+            <span class="preview-badge">Exclusiv BEV · 13 țări</span>
+        </header>
+
+        <p class="reference-line">Infrastructură: mai 2026 · parc de autoturisme BEV: trimestrul I 2026 · populație: 1 ianuarie 2025</p>
+
+        <section class="summary" aria-label="Rezumat România">
+            <article><span>Puncte publice</span><strong id="ro-points">–</strong></article>
+            <article><span>Autoturisme BEV M1</span><strong id="ro-fleet">–</strong></article>
+            <article class="accent"><span>Putere publică / BEV</span><strong id="ro-power">–</strong><small>kW pentru fiecare autoturism BEV</small></article>
+            <article><span>DC ≥ 50 kW / 100.000 loc.</span><strong id="ro-fast-density">–</strong></article>
+        </section>
+
+        <section class="dashboard-grid">
+            <article class="panel matrix-panel">
+                <div class="panel-heading">
+                    <div>
+                        <p class="panel-kicker">Comparație regională</p>
+                        <h2>Densitatea rețelei rapide și capacitatea pentru parcul BEV</h2>
+                    </div>
+                    <span class="matrix-badge">Exclusiv BEV</span>
+                </div>
+                <p class="panel-note">Mai la dreapta înseamnă mai multe puncte rapide raportate la populație. Mai sus înseamnă mai multă putere publică raportată la parcul BEV M1.</p>
+                <p class="mobile-swipe">Glisează graficul spre stânga pentru toate țările.</p>
+                <div class="matrix-scroll">
+                    <svg id="infrastructure-matrix" viewBox="0 0 820 500" role="img" aria-label="Grafic comparativ al infrastructurii publice de încărcare"></svg>
+                </div>
+                <p class="matrix-footnote">Liniile punctate reprezintă medianele celor 13 țări, nu praguri de calitate. Selectează un punct pentru detalii.</p>
+            </article>
+
+            <aside class="panel country-panel" aria-live="polite">
+                <label for="country-select">Țară selectată</label>
+                <select id="country-select"></select>
+                <div class="country-title"><span id="country-flag"></span><strong id="country-name">–</strong></div>
+                <div class="ratio-large" id="country-power">–</div>
+                <div class="ratio-unit">kW de putere publică / autoturism BEV M1</div>
+                <dl>
+                    <div><dt>DC ≥ 50 kW / 100.000 loc.</dt><dd id="country-fast-density">–</dd></div>
+                    <div><dt>DC ≥ 150 kW / 100.000 loc.</dt><dd id="country-ultra-density">–</dd></div>
+                    <div><dt>Putere publică totală</dt><dd id="country-total-power">–</dd></div>
+                    <div><dt>Puncte publice</dt><dd id="country-points">–</dd></div>
+                    <div><dt>Puncte AC</dt><dd id="country-ac">–</dd></div>
+                    <div><dt>Puncte DC</dt><dd id="country-dc">–</dd></div>
+                    <div><dt>Parc M1 BEV</dt><dd id="country-fleet">–</dd></div>
+                    <div><dt>BEV / punct public</dt><dd id="country-bev-per-point">–</dd></div>
+                </dl>
+                <div class="composition" aria-label="Compoziția rețelei selectate">
+                    <span id="composition-ac"></span><span id="composition-dc"></span>
+                </div>
+                <div class="composition-labels"><span id="ac-label">–</span><span id="dc-label">–</span></div>
+            </aside>
+        </section>
+
+        <section class="panel table-panel">
+            <h2>Datele comparative</h2>
+            <div class="table-scroll">
+                <table>
+                    <thead><tr><th>Țară</th><th>Putere publică / BEV</th><th>DC ≥ 50 kW / 100.000 loc.</th><th>DC ≥ 150 kW / 100.000 loc.</th><th>Putere publică</th><th>BEV / punct</th></tr></thead>
+                    <tbody id="comparison-table"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p><strong>Definiție:</strong> un punct de reîncărcare poate încărca un singur vehicul simultan. Sunt incluse numai punctele accesibile publicului, conform metodologiei AFIR.</p>
+            <p><strong>Metodă EV Radar:</strong> sunt folosite exclusiv autoturismele BEV M1. Indicatorul de putere este un raport comparativ și nu reprezintă calculul legal complet AFIR.</p>
+            <p><strong>Formula legală AFIR:</strong> ținta minimă națională = 1,3 kW × numărul de vehicule ușoare BEV + 0,8 kW × numărul de vehicule ușoare PHEV. Conformitatea compară această țintă cu puterea totală a infrastructurii publice; PHEV apar numai în formula legală explicativă, nu în indicatorii EV Radar.</p>
+            <p><strong>Atenție:</strong> graficul nu măsoară distribuția geografică, disponibilitatea în timp real, fiabilitatea, prețul sau experiența de încărcare.</p>
+            <p><strong>Surse:</strong> <a id="source-link" href="https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/european-union-eu27/target-tracker" target="_blank" rel="noopener">EAFO</a> pentru infrastructură, putere și parc; <a id="population-link" href="https://ec.europa.eu/eurostat/databrowser/view/demo_pjan/default/table?lang=en" target="_blank" rel="noopener">Eurostat</a> pentru populație; <a href="https://eur-lex.europa.eu/eli/reg/2023/1804/oj" target="_blank" rel="noopener">Regulamentul (UE) 2023/1804</a>. Data prelucrării: <span id="generated-at">–</span>.</p>
+            <p class="copyright">© 2026 Tudor Marchis & Electromobilitate. Toate drepturile rezervate.</p>
+        </footer>
+    </main>
+    <div class="error-message" id="error-message" role="alert" hidden>Datele nu au putut fi încărcate.</div>
+    <script src="infrastructura-preview.js?v=3" defer></script>
+</body>
+</html>
