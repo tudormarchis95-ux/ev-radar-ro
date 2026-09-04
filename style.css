@@ -451,8 +451,20 @@
 
     .comparison-page .map-shell,
     .comparison-page #europe-map {
-        height: 340px;
-        min-height: 340px;
+        height: 390px;
+        min-height: 390px;
+    }
+
+    .comparison-page .map-hotspot {
+        width: 18px;
+        height: 18px;
+    }
+
+    .comparison-page .map-hotspot:hover,
+    .comparison-page .map-hotspot:focus-visible,
+    .comparison-page .map-hotspot.is-selected {
+        width: 22px;
+        height: 22px;
     }
 
     .comparison-page .selected-country-value {
@@ -1081,13 +1093,40 @@ tr:hover .car-silhouette {
     margin-left: 1.5rem;
 }
 
-.month-divider span {
+.month-divider > span {
     background: #ffffff;
     padding: 0.6rem 1.8rem;
     border: 1px solid var(--border-color);
     border-radius: 50px;
     box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
     backdrop-filter: blur(8px);
+}
+
+.monthly-total-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    border-left: 5px solid var(--primary-color);
+    background: linear-gradient(135deg, #ffffff 0%, #f1f7fb 100%);
+}
+
+.monthly-total-card .stat-label {
+    margin-bottom: 0.2rem;
+    color: var(--primary-color);
+}
+
+.monthly-total-card .stat-value {
+    flex: 0 0 auto;
+    font-size: 2.75rem;
+}
+
+.monthly-total-copy p {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    line-height: 1.45;
 }
 
 /* Admin panel display controls */
@@ -1366,6 +1405,10 @@ input, textarea, select {
     color: #004b87;
 }
 
+.v-bar-val-static.is-staggered {
+    margin-bottom: 24px;
+}
+
 /* Badge-uri de crestere */
 .growth-badges-row {
     display: flex;
@@ -1520,6 +1563,18 @@ input, textarea, select {
     }
     .v-bar-val-static {
         font-size: 0.58rem !important;
+    }
+    .v-bar-val-static.is-staggered {
+        margin-bottom: 21px !important;
+    }
+    .monthly-total-card {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+    .monthly-total-card .stat-value {
+        font-size: 2.5rem;
     }
 
     /* Responsive Tables on mobile */

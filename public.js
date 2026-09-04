@@ -10,6 +10,30 @@ const state = {
     historicalModels: null
 };
 const FLEET_BASELINE_DEC_2025 = 63946;
+const HISTORICAL_ANNUAL_REGISTRATIONS = Object.freeze({
+    2011: 7, 2012: 5, 2013: 50, 2014: 16, 2015: 32,
+    2016: 104, 2017: 247, 2018: 710, 2019: 1747, 2020: 3134
+});
+const ANNUAL_REGISTRATION_FALLBACK = Object.freeze({
+    2021: 6830, 2022: 12463, 2023: 16839, 2024: 12662, 2025: 14054
+});
+const PUBLIC_MONTH_LABELS = Object.freeze({
+    JAN: 'Ianuarie', FEB: 'Februarie', MAR: 'Martie', APR: 'Aprilie',
+    MAY: 'Mai', JUN: 'Iunie', JUL: 'Iulie', AUG: 'August',
+    SEP: 'Septembrie', OCT: 'Octombrie', NOV: 'Noiembrie', DEC: 'Decembrie'
+});
+
+function annualRegistrationTotal(year, historicalSummary) {
+    if (Object.prototype.hasOwnProperty.call(HISTORICAL_ANNUAL_REGISTRATIONS, year)) {
+        return HISTORICAL_ANNUAL_REGISTRATIONS[year];
+    }
+    const yearData = historicalSummary?.[String(year)];
+    if (yearData && Object.keys(yearData).length) {
+        return Object.values(yearData).reduce((total, item) =>
+            total + (item.grossRegistrations ?? (item.totalAutoReg + item.totalUtilReg)), 0);
+    }
+    return ANNUAL_REGISTRATION_FALLBACK[year] || 0;
+}
 
 function escapeHtml(value) {
     return String(value ?? '').replace(/[&<>"']/g, character => ({
@@ -276,6 +300,9 @@ async function loadMonthData() {
 
 function showEmptyDashboard(message) {
     document.getElementById('val-national-fleet').innerText = "-";
+    document.getElementById('val-total-reg').innerText = "-";
+    document.getElementById('monthly-total-period').innerText = "-";
+    document.getElementById('monthly-total-breakdown').innerText = message;
     document.getElementById('val-auto-reg').innerText = "-";
     document.getElementById('val-util-reg').innerText = "-";
     document.getElementById('val-total-rad').innerText = "-";
@@ -299,6 +326,7 @@ function renderDashboard() {
     const totalEV = state.data.totalAutoReg + state.data.totalUtilReg;
     const netGrowth = totalEV - state.data.totalRadieri;
     
+    animateElementValue('val-total-reg', totalEV);
     animateElementValue('val-auto-reg', state.data.totalAutoReg);
     animateElementValue('val-util-reg', state.data.totalUtilReg);
     animateElementValue('val-total-rad', state.data.totalRadieri);
@@ -312,6 +340,8 @@ function renderDashboard() {
     animateElementValue('val-national-fleet', totalFleet);
     document.getElementById('fleet-month-name').innerText = currentLunaNume + " " + currentYear;
     document.getElementById('divider-month-name').innerText = currentLunaNume + " " + currentYear;
+    document.getElementById('monthly-total-period').innerText = `${PUBLIC_MONTH_LABELS[currentLunaNume] || currentLunaNume} ${currentYear}`;
+    document.getElementById('monthly-total-breakdown').innerText = `${state.data.totalAutoReg.toLocaleString('ro-RO')} autoturisme + ${state.data.totalUtilReg.toLocaleString('ro-RO')} autoutilitare · vehicule noi și importuri rulate`;
     
     // Advanced stats
     document.getElementById('val-ev-share').innerText = `${(state.data.evShare * 100).toFixed(2)}%`;
@@ -534,6 +564,7 @@ function renderHistoricalCharts() {
                 badgeHTML = `<span class="growth-badge ${badgeClass}" style="padding: 0.2rem 0.45rem; font-size: 0.78rem; border-radius: 4px; line-height: 1; font-weight: 800;">${sign}${pct}%</span>`;
             }
 
+            const labelsAreClose = val26 !== null && Math.abs(Number(h26) - Number(h25)) < 8;
             const col = document.createElement('div');
             col.className = 'v-col-group';
             col.innerHTML = `
@@ -543,7 +574,7 @@ function renderHistoricalCharts() {
                 <div class="v-bars" style="height: 190px;">
                     ${val26 !== null ? `
                         <div class="v-bar-2026" style="height: ${h26}%;">
-                            <span class="v-bar-val-static active-year">${val26.toLocaleString('ro-RO')}</span>
+                            <span class="v-bar-val-static active-year ${labelsAreClose ? 'is-staggered' : ''}">${val26.toLocaleString('ro-RO')}</span>
                         </div>
                     ` : ''}
                     <div class="v-bar-2025" style="height: ${h25}%;">
@@ -601,30 +632,9 @@ function renderHistoricalCharts() {
     }
     years = years.filter(y => y < currentYear);
     
-    const annualQtyMap = {
-        2011: 7, 2012: 5, 2013: 50, 2014: 16, 2015: 32, 2016: 104, 2017: 247, 2018: 710, 2019: 1747,
-        2020: 3134, 2021: 6831, 2022: 12466, 2023: 16852, 2024: 12677, 2025: 12756
-    };
-
     years.forEach(y => {
-        if (y < 2020) {
-            annualData.push({ year: y, qty: annualQtyMap[y] || 0 });
-            return;
-        }
-        
-        let yearTotalReg = 0;
-        if (state.historicalSummary && state.historicalSummary[String(y)]) {
-            const yData = state.historicalSummary[String(y)];
-            Object.keys(yData).forEach(m => {
-                const item = yData[m];
-                yearTotalReg += item.grossRegistrations ?? (item.totalAutoReg + item.totalUtilReg);
-            });
-        }
-        
-        const qty = yearTotalReg > 0 ? yearTotalReg : (annualQtyMap[y] || 0);
-        
         if (y !== currentYear) {
-            annualData.push({ year: y, qty: qty });
+            annualData.push({ year: y, qty: annualRegistrationTotal(y, state.historicalSummary) });
         }
     });
 
@@ -667,7 +677,7 @@ function renderHistoricalCharts() {
     }
     const captionEl = document.getElementById('annual-chart-caption');
     if (captionEl) {
-        captionEl.innerHTML = `* Barele reprezintă înmatriculări brute (noi + rulate), fără scăderea radierilor. ${currentYear}: ian – ${currentLunaNume.toLowerCase()}. Parcul total se calculează separat, prin creștere netă.`;
+        captionEl.innerHTML = `* Barele reprezintă înmatriculări brute (noi + rulate), fără scăderea radierilor. 2011–2020: serie anuală DRPCIV; 2021–prezent: suma rapoartelor lunare DRPCIV/DGPCI procesate de EV Radar. ${currentYear}: ian – ${currentLunaNume.toLowerCase()}. Parcul total se calculează separat, prin creștere netă.`;
     }
     
     const annualContainer = document.getElementById('annual-evolution-list');

@@ -280,16 +280,65 @@ function projectCoordinate(coordinate) {
     ];
 }
 
+function collectProjectedPoints(coordinates, points) {
+    if (!Array.isArray(coordinates)) return;
+    if (coordinates.length >= 2 && Number.isFinite(coordinates[0]) && Number.isFinite(coordinates[1])) {
+        points.push(projectCoordinate(coordinates));
+        return;
+    }
+    coordinates.forEach(item => collectProjectedPoints(item, points));
+}
+
+function mapViewBoxForCurrentLayout() {
+    const fullViewBox = {x: 0, y: 0, width: mapViewport.width, height: mapViewport.height};
+    if (!window.matchMedia('(max-width: 640px)').matches) return fullViewBox;
+
+    const visibleCodes = new Set(state.comparison.groups[state.group].codes);
+    const points = [];
+    state.map.features
+        .filter(feature => visibleCodes.has(feature.properties.code))
+        .forEach(feature => collectProjectedPoints(feature.geometry.coordinates, points));
+    if (!points.length) return fullViewBox;
+
+    const padding = 28;
+    const minX = Math.min(...points.map(point => point[0])) - padding;
+    const maxX = Math.max(...points.map(point => point[0])) + padding;
+    const minY = Math.min(...points.map(point => point[1])) - padding;
+    const maxY = Math.max(...points.map(point => point[1])) + padding;
+    const shell = document.getElementById('map-shell');
+    const targetAspect = Math.max((shell.clientWidth || 320) / (shell.clientHeight || 390), 0.65);
+    let width = maxX - minX;
+    let height = maxY - minY;
+    if (width / height > targetAspect) height = width / targetAspect;
+    else width = height * targetAspect;
+    width = Math.min(width, mapViewport.width);
+    height = Math.min(height, mapViewport.height);
+
+    let x = (minX + maxX - width) / 2;
+    let y = (minY + maxY - height) / 2;
+    x = Math.max(0, Math.min(x, mapViewport.width - width));
+    y = Math.max(0, Math.min(y, mapViewport.height - height));
+    return {x, y, width, height};
+}
+
+function updateMapViewBox() {
+    const svg = document.getElementById('europe-map');
+    const viewBox = mapViewBoxForCurrentLayout();
+    svg.setAttribute('viewBox', `${viewBox.x.toFixed(1)} ${viewBox.y.toFixed(1)} ${viewBox.width.toFixed(1)} ${viewBox.height.toFixed(1)}`);
+}
+
 function positionMapHotspot(hotspot, coordinate) {
     const shell = document.getElementById('map-shell');
+    const svg = document.getElementById('europe-map');
     const [x, y] = projectCoordinate(coordinate);
-    const width = shell.clientWidth || mapViewport.width;
-    const height = shell.clientHeight || mapViewport.height;
-    const scale = Math.min(width / mapViewport.width, height / mapViewport.height);
-    const offsetX = (width - mapViewport.width * scale) / 2;
-    const offsetY = (height - mapViewport.height * scale) / 2;
-    hotspot.style.left = `${offsetX + x * scale}px`;
-    hotspot.style.top = `${offsetY + y * scale}px`;
+    const shellRect = shell.getBoundingClientRect();
+    const svgRect = svg.getBoundingClientRect();
+    const viewBox = svg.viewBox.baseVal;
+    const scale = Math.min(svgRect.width / viewBox.width, svgRect.height / viewBox.height);
+    const offsetX = svgRect.left - shellRect.left + (svgRect.width - viewBox.width * scale) / 2;
+    const offsetY = svgRect.top - shellRect.top + (svgRect.height - viewBox.height * scale) / 2;
+    hotspot.style.left = `${offsetX + (x - viewBox.x) * scale}px`;
+    hotspot.style.top = `${offsetY + (y - viewBox.y) * scale}px`;
 }
 
 function positionMapHotspots() {
@@ -394,6 +443,7 @@ function renderMap() {
     const markersGroup = document.getElementById('europe-map-markers');
     const hotspots = document.getElementById('map-hotspots');
     const currentCountries = countriesForCurrentView();
+    updateMapViewBox();
     const dataByCode = new Map(currentCountries.map(country => [country.code, country]));
     countriesGroup.replaceChildren();
     markersGroup.replaceChildren();
@@ -670,7 +720,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         let resizeFrame = null;
         window.addEventListener('resize', () => {
             if (resizeFrame) window.cancelAnimationFrame(resizeFrame);
-            resizeFrame = window.requestAnimationFrame(positionMapHotspots);
+            resizeFrame = window.requestAnimationFrame(() => {
+                updateMapViewBox();
+                positionMapHotspots();
+            });
         });
         renderAll();
     } catch (error) {
