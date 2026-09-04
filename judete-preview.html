@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <meta name="referrer" content="same-origin">
+    <title>Previzualizare județe · EV Radar România</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="judete-preview.css?v=1">
+</head>
+<body>
+    <main class="preview-shell" id="county-app">
+        <header class="preview-header">
+            <div>
+                <p class="eyebrow">EV Radar România · prototip pentru evaluare</p>
+                <h1>Înmatriculări EV pe județe</h1>
+                <p class="intro">Persoane fizice, raportat la populație, pentru o comparație regională mai relevantă.</p>
+            </div>
+            <span class="preview-badge">Nepublicat în dashboard</span>
+        </header>
+
+        <section class="controls" aria-label="Filtre hartă">
+            <fieldset>
+                <legend>Perioadă</legend>
+                <div class="segmented">
+                    <button type="button" data-control="period" data-value="rolling" aria-pressed="true">Ultimele 12 luni</button>
+                    <button type="button" data-control="period" data-value="ytd" aria-pressed="false">2026 YTD</button>
+                    <button type="button" data-control="period" data-value="latest" aria-pressed="false">Ultima lună</button>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Deținător</legend>
+                <div class="segmented">
+                    <button type="button" data-control="owner" data-value="pf" aria-pressed="true">Persoane fizice</button>
+                    <button type="button" data-control="owner" data-value="company" aria-pressed="false">Companii</button>
+                    <button type="button" data-control="owner" data-value="total" aria-pressed="false">Total</button>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Afișare</legend>
+                <div class="segmented">
+                    <button type="button" data-control="mode" data-value="rate" aria-pressed="true">La 100.000 loc.</button>
+                    <button type="button" data-control="mode" data-value="absolute" aria-pressed="false">Număr</button>
+                </div>
+            </fieldset>
+        </section>
+
+        <p class="period-label" id="period-label" aria-live="polite">Se încarcă datele…</p>
+
+        <section class="visual-layout" aria-label="Hartă și detalii">
+            <div class="map-panel" id="map-panel">
+                <div class="map-toolbar">
+                    <button type="button" id="expand-map" aria-pressed="false">Extinde harta</button>
+                </div>
+                <svg id="county-map" viewBox="0 0 820 560" role="img" aria-label="Harta României cu înmatriculările electrice pe județe"></svg>
+                <div class="tooltip" id="map-tooltip" role="tooltip"></div>
+                <div class="legend" id="map-legend" aria-label="Legendă hartă"></div>
+            </div>
+
+            <aside class="detail-panel" aria-live="polite">
+                <label for="county-select">Județ selectat</label>
+                <select id="county-select"></select>
+                <strong class="primary-value" id="primary-value">–</strong>
+                <span class="primary-unit" id="primary-unit">înmatriculări / 100.000 locuitori</span>
+                <dl>
+                    <div><dt>Vehicule noi</dt><dd id="new-value">–</dd></div>
+                    <div><dt>Importuri rulate</dt><dd id="used-value">–</dd></div>
+                    <div><dt>Total</dt><dd id="total-value">–</dd></div>
+                    <div><dt>Populație</dt><dd id="population-value">–</dd></div>
+                    <div id="foreign-row" hidden><dt>Persoane străine</dt><dd id="foreign-value">–</dd></div>
+                </dl>
+                <p class="context-note" id="context-note"></p>
+            </aside>
+        </section>
+
+        <p class="data-notice" id="data-notice" hidden></p>
+
+        <footer>
+            <p><strong>Ce măsoară:</strong> înmatriculări BEV M1, M1G și N1 în județul declarat în evidențele DGPCI. Nu reprezintă automat locul în care circulă vehiculul.</p>
+            <p><strong>Surse:</strong> arhivele lunare <a href="https://dgpci.mai.gov.ro/news-and-media/statistica" target="_blank" rel="noopener">DGPCI</a>; populație rezidentă <a href="https://ec.europa.eu/eurostat/databrowser/view/demo_r_pjangrp3/default/table" target="_blank" rel="noopener">Eurostat</a>, 2024. Data generării: <span id="generated-at">–</span>.</p>
+        </footer>
+    </main>
+    <div class="error-message" id="error-message" role="alert" hidden>Datele nu au putut fi încărcate.</div>
+    <script src="judete-preview.js?v=1" defer></script>
+</body>
+</html>
