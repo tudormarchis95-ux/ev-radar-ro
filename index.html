@@ -44,7 +44,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=5">
+    <link rel="stylesheet" href="style.css?v=13">
     <style>
         /* Meniu public simplificat */
         .public-controls {
@@ -143,14 +143,26 @@
              <section class="results-section" id="results-dashboard">
                  <!-- Parcul Auto Hero -->
                  <div class="fleet-hero-card card animate-fade-in" style="margin-bottom: 1.5rem; text-align: center; background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(0, 75, 135, 0.03) 100%); border-color: rgba(0, 75, 135, 0.15);">
-                     <span class="stat-label" style="font-size: 1.1rem; letter-spacing: 0.1em; color: var(--primary-color); font-weight: 700;">🚗 PARCUL AUTO NAȚIONAL EV</span>
+                     <span class="stat-label" style="font-size: 1.1rem; letter-spacing: 0.1em; color: var(--primary-color); font-weight: 700;">🚗 PARCUL AUTO NAȚIONAL EV · DGPCI</span>
                      <div class="stat-value" id="val-national-fleet" style="font-size: 4rem; font-weight: 900; color: var(--primary-color); text-shadow: none; margin: 0.5rem 0;">0</div>
                      <p style="color: var(--text-muted); font-size: 0.9rem;">Total autoturisme și autoutilitare electrice înmatriculate în România la finalul lunii <span id="fleet-month-name">-</span></p>
+                     <div class="data-definition-note" role="note" aria-label="Metodologia parcului auto național">
+                         <p><strong>Cum este calculat:</strong> indicatorul EV Radar pornește de la parcul oficial DGPCI la 31 decembrie 2025 și adaugă lunar înmatriculările (vehicule noi și importuri rulate), apoi scade radierile. Include autoturismele și autoutilitarele electrice din categoriile M1, M1G și N1.</p>
+                         <p><strong>De ce diferă de pagina europeană:</strong> EAFO publică o serie armonizată pentru autoturisme M1, cu aceeași definiție în toate țările. Cele două totaluri nu măsoară exact aceeași categorie și nu sunt direct comparabile. <a href="comparatie.html">Vezi comparația europeană</a>.</p>
+                     </div>
                  </div>
  
                  <!-- Delimitator Luna -->
                  <div class="month-divider animate-fade-in">
                      <span>Statistici detaliate: <strong id="divider-month-name">-</strong></span>
+                 </div>
+
+                 <div class="monthly-total-card card animate-slide-up" aria-live="polite">
+                     <div class="monthly-total-copy">
+                         <span class="stat-label">Total înmatriculări EV · <span id="monthly-total-period">-</span></span>
+                         <p id="monthly-total-breakdown">Autoturisme + autoutilitare · vehicule noi și importuri rulate</p>
+                     </div>
+                     <div class="stat-value" id="val-total-reg">0</div>
                  </div>
  
                  <!-- Stats Grid 1 -->
@@ -367,6 +379,6 @@
          </footer>
      </div>
     
-    <script src="public.js?v=20260903_4"></script>
+    <script src="public.js?v=20260904_1"></script>
 </body>
 </html>
