@@ -51,7 +51,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=13">
+    <link rel="stylesheet" href="style.css?v=14">
     <style>
         /* Meniu public simplificat */
         .public-controls {
@@ -153,10 +153,6 @@
                      <span class="stat-label" style="font-size: 1.1rem; letter-spacing: 0.1em; color: var(--primary-color); font-weight: 700;">🚗 PARCUL AUTO NAȚIONAL EV · DGPCI</span>
                      <div class="stat-value" id="val-national-fleet" style="font-size: 4rem; font-weight: 900; color: var(--primary-color); text-shadow: none; margin: 0.5rem 0;">0</div>
                      <p style="color: var(--text-muted); font-size: 0.9rem;">Total autoturisme și autoutilitare electrice înmatriculate în România la finalul lunii <span id="fleet-month-name">-</span></p>
-                     <div class="data-definition-note" role="note" aria-label="Metodologia parcului auto național">
-                         <p><strong>Cum este calculat:</strong> indicatorul EV Radar pornește de la parcul oficial DGPCI la 31 decembrie 2025 și adaugă lunar înmatriculările (vehicule noi și importuri rulate), apoi scade radierile. Include autoturismele și autoutilitarele electrice din categoriile M1, M1G și N1.</p>
-                         <p><strong>De ce diferă de pagina europeană:</strong> EAFO publică o serie armonizată pentru autoturisme M1, cu aceeași definiție în toate țările. Cele două totaluri nu măsoară exact aceeași categorie și nu sunt direct comparabile. <a href="comparatie.html">Vezi comparația europeană</a>.</p>
-                     </div>
                  </div>
  
                  <!-- Delimitator Luna -->
@@ -381,6 +377,13 @@
          </main>
          
          <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); font-size: 0.85rem; font-weight: 500;">
+             <details class="footer-methodology">
+                 <summary>Metodologie și surse</summary>
+                 <div>
+                     <p><strong>Parc național:</strong> stoc DGPCI la 31 decembrie 2025, actualizat lunar cu înmatriculări minus radieri; include M1, M1G și N1.</p>
+                     <p><strong>Comparație europeană:</strong> seria armonizată EAFO pentru autoturisme M1. Din cauza definițiilor diferite, totalurile nu sunt direct comparabile. <a href="comparatie.html">Vezi comparația</a>.</p>
+                 </div>
+             </details>
              <p>© 2026 Tudor Marchis & Electromobilitate. Toate drepturile rezervate.</p>
              <p style="margin-top: 0.25rem; font-size: 0.75rem; opacity: 0.8;">Date procesate oficial pe baza înregistrărilor DGPCI România.</p>
          </footer>

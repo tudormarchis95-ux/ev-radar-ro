@@ -361,24 +361,55 @@
     font-weight: 700;
 }
 
-.data-definition-note {
+.footer-methodology {
     max-width: 900px;
-    margin: 1rem auto 0;
-    padding: 0.85rem 1rem;
-    border-left: 4px solid var(--secondary-color);
-    border-radius: 8px;
-    background: rgba(239, 248, 255, 0.9);
-    color: #334155;
-    font-size: 0.8rem;
-    line-height: 1.55;
+    margin: 0 auto 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.65);
     text-align: left;
 }
 
-.data-definition-note p + p {
-    margin-top: 0.45rem;
+.footer-methodology summary {
+    display: flex;
+    align-items: center;
+    padding: 0.7rem 0.9rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    list-style: none;
+    text-transform: uppercase;
 }
 
-.data-definition-note a,
+.footer-methodology summary::-webkit-details-marker {
+    display: none;
+}
+
+.footer-methodology summary::after {
+    content: "+";
+    margin-left: auto;
+    font-size: 1rem;
+}
+
+.footer-methodology[open] summary::after {
+    content: "−";
+}
+
+.footer-methodology > div {
+    padding: 0.75rem 0.9rem 0.9rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.76rem;
+    line-height: 1.55;
+}
+
+.footer-methodology p + p {
+    margin-top: 0.35rem;
+}
+
+.footer-methodology a,
 .comparison-page .comparison-notice a {
     color: var(--primary-color);
     font-weight: 700;
@@ -471,8 +502,10 @@
         font-size: 1.75rem;
     }
 
-    .data-definition-note {
-        padding: 0.75rem 0.8rem;
+    .footer-methodology summary,
+    .footer-methodology > div {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
     }
 }
 
