@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="infrastructura-preview.css?v=1">
+    <link rel="stylesheet" href="infrastructura-preview.css?v=2">
 </head>
 <body>
     <main class="preview-shell" id="charging-app">
@@ -18,46 +18,52 @@
             <div>
                 <p class="eyebrow">EV Radar România · prototip pentru evaluare</p>
                 <h1>Infrastructura publică de încărcare</h1>
-                <p class="intro">Cât de solicitată este rețeaua de încărcare în România și în piețele din regiune?</p>
+                <p class="intro">Cât de dezvoltată este rețeaua și ce capacitate oferă pentru parcul electric actual?</p>
             </div>
             <span class="preview-badge">Nepublicat în dashboard</span>
         </header>
 
-        <p class="reference-line">Puncte publice: mai 2026 · parc de autoturisme BEV: trimestrul II 2026</p>
+        <p class="reference-line">Infrastructură: mai 2026 · parc de autoturisme BEV: trimestrul I 2026 · populație: 1 ianuarie 2025</p>
 
         <section class="summary" aria-label="Rezumat România">
             <article><span>Puncte publice</span><strong id="ro-points">–</strong></article>
-            <article><span>Autoturisme BEV</span><strong id="ro-fleet">–</strong></article>
-            <article class="accent"><span>BEV / punct public</span><strong id="ro-ratio">–</strong><small>mai puține = presiune mai redusă</small></article>
-            <article><span>DC de minimum 50 kW</span><strong id="ro-fast-share">–</strong></article>
+            <article><span>Autoturisme BEV M1</span><strong id="ro-fleet">–</strong></article>
+            <article class="accent"><span>Putere publică / BEV</span><strong id="ro-power">–</strong><small>kW pentru fiecare autoturism BEV</small></article>
+            <article><span>DC ≥ 50 kW / 100.000 loc.</span><strong id="ro-fast-density">–</strong></article>
         </section>
 
         <section class="dashboard-grid">
-            <article class="panel ranking-panel">
+            <article class="panel matrix-panel">
                 <div class="panel-heading">
                     <div>
                         <p class="panel-kicker">Comparație regională</p>
-                        <h2>Autoturisme BEV pentru fiecare punct public</h2>
+                        <h2>Densitatea rețelei rapide și capacitatea pentru parcul BEV</h2>
                     </div>
-                    <span id="ro-rank" class="rank-badge">–</span>
+                    <span class="matrix-badge">Exclusiv BEV</span>
                 </div>
-                <p class="panel-note">Valoarea mai mică indică mai multe puncte disponibile raportat la parcul electric, nu neapărat o experiență mai bună la încărcare.</p>
-                <div class="ranking-list" id="ranking-list"></div>
+                <p class="panel-note">Mai la dreapta înseamnă mai multe puncte rapide raportate la populație. Mai sus înseamnă mai multă putere publică raportată la parcul BEV M1.</p>
+                <p class="mobile-swipe">Glisează graficul spre stânga pentru toate țările.</p>
+                <div class="matrix-scroll">
+                    <svg id="infrastructure-matrix" viewBox="0 0 820 500" role="img" aria-label="Grafic comparativ al infrastructurii publice de încărcare"></svg>
+                </div>
+                <p class="matrix-footnote">Liniile punctate reprezintă medianele celor 13 țări, nu praguri de calitate. Selectează un punct pentru detalii.</p>
             </article>
 
             <aside class="panel country-panel" aria-live="polite">
                 <label for="country-select">Țară selectată</label>
                 <select id="country-select"></select>
                 <div class="country-title"><span id="country-flag"></span><strong id="country-name">–</strong></div>
-                <div class="ratio-large" id="country-ratio">–</div>
-                <div class="ratio-unit">autoturisme BEV / punct public</div>
+                <div class="ratio-large" id="country-power">–</div>
+                <div class="ratio-unit">kW de putere publică / autoturism BEV M1</div>
                 <dl>
+                    <div><dt>DC ≥ 50 kW / 100.000 loc.</dt><dd id="country-fast-density">–</dd></div>
+                    <div><dt>DC ≥ 150 kW / 100.000 loc.</dt><dd id="country-ultra-density">–</dd></div>
+                    <div><dt>Putere publică totală</dt><dd id="country-total-power">–</dd></div>
                     <div><dt>Puncte publice</dt><dd id="country-points">–</dd></div>
                     <div><dt>Puncte AC</dt><dd id="country-ac">–</dd></div>
                     <div><dt>Puncte DC</dt><dd id="country-dc">–</dd></div>
-                    <div><dt>DC ≥ 50 kW</dt><dd id="country-fast">–</dd></div>
-                    <div><dt>DC ≥ 150 kW</dt><dd id="country-ultra">–</dd></div>
                     <div><dt>Parc M1 BEV</dt><dd id="country-fleet">–</dd></div>
+                    <div><dt>BEV / punct public</dt><dd id="country-bev-per-point">–</dd></div>
                 </dl>
                 <div class="composition" aria-label="Compoziția rețelei selectate">
                     <span id="composition-ac"></span><span id="composition-dc"></span>
@@ -70,7 +76,7 @@
             <h2>Datele comparative</h2>
             <div class="table-scroll">
                 <table>
-                    <thead><tr><th>Poziție</th><th>Țară</th><th>Puncte publice</th><th>Parc M1 BEV</th><th>BEV / punct</th><th>DC ≥ 50 kW</th></tr></thead>
+                    <thead><tr><th>Țară</th><th>Putere publică / BEV</th><th>DC ≥ 50 kW / 100.000 loc.</th><th>DC ≥ 150 kW / 100.000 loc.</th><th>Putere publică</th><th>BEV / punct</th></tr></thead>
                     <tbody id="comparison-table"></tbody>
                 </table>
             </div>
@@ -78,11 +84,12 @@
 
         <footer>
             <p><strong>Definiție:</strong> un punct de reîncărcare poate încărca un singur vehicul simultan. Sunt incluse numai punctele accesibile publicului, conform metodologiei AFIR.</p>
-            <p><strong>Atenție:</strong> raportul BEV/punct este orientativ deoarece infrastructura și parcul au date de referință consecutive. Nu măsoară distribuția geografică, disponibilitatea în timp real, fiabilitatea sau viteza efectivă.</p>
-            <p><strong>Sursa:</strong> <a id="source-link" href="https://alternative-fuels-observatory.ec.europa.eu/general-information/frequently-asked-questions" target="_blank" rel="noopener">European Alternative Fuels Observatory</a>. Data prelucrării: <span id="generated-at">–</span>.</p>
+            <p><strong>Metodă:</strong> sunt folosite exclusiv autoturismele BEV M1. Indicatorul de putere este un raport BEV Radar și nu reprezintă calculul legal complet AFIR.</p>
+            <p><strong>Atenție:</strong> graficul compară densitatea și capacitatea, dar nu măsoară distribuția geografică, disponibilitatea în timp real, fiabilitatea, prețul sau experiența de încărcare.</p>
+            <p><strong>Surse:</strong> <a id="source-link" href="https://alternative-fuels-observatory.ec.europa.eu/general-information/frequently-asked-questions" target="_blank" rel="noopener">EAFO</a> pentru infrastructură, putere și parc; <a id="population-link" href="https://ec.europa.eu/eurostat/databrowser/view/demo_pjan/default/table?lang=en" target="_blank" rel="noopener">Eurostat</a> pentru populație. Data prelucrării: <span id="generated-at">–</span>.</p>
         </footer>
     </main>
     <div class="error-message" id="error-message" role="alert" hidden>Datele nu au putut fi încărcate.</div>
-    <script src="infrastructura-preview.js?v=1" defer></script>
+    <script src="infrastructura-preview.js?v=2" defer></script>
 </body>
 </html>
