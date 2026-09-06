@@ -3,24 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow, noarchive">
     <meta name="referrer" content="same-origin">
-    <title>Previzualizare județe · EV Radar România</title>
+    <link rel="canonical" href="https://evradar.electromobilitate.com/judete.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://evradar.electromobilitate.com/judete.html">
+    <meta property="og:title" content="Înmatriculări EV pe județe · EV Radar România">
+    <meta property="og:description" content="Distribuția înmatriculărilor de vehicule electrice pe județe, cu filtre pentru persoane fizice și companii.">
+    <meta property="og:image" content="https://evradar.electromobilitate.com/social_preview.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Înmatriculări EV pe județe · EV Radar România</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="judete-preview.css?v=1">
+    <link rel="stylesheet" href="judete.css?v=1">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B19F9R252Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-B19F9R252Y');
+    </script>
 </head>
 <body>
     <main class="preview-shell" id="county-app">
+        <nav class="site-navigation" aria-label="Navigare principală">
+            <div class="site-nav-links">
+                <a href="./">📊 Dashboard</a>
+                <a href="judete.html" class="active" aria-current="page">🗺️ Județe</a>
+                <a href="comparatie.html">🇪🇺 Comparație regională</a>
+                <a href="infrastructura.html">⚡ Infrastructură</a>
+            </div>
+            <a class="partner-mark" href="https://electromobilitate.com" target="_blank" rel="noopener">
+                <img src="electromobilitate_logo.png" alt="Electromobilitate">
+            </a>
+        </nav>
+
         <header class="preview-header">
             <div>
-                <p class="eyebrow">EV Radar România · prototip pentru evaluare</p>
+                <p class="eyebrow">EV Radar România · distribuție județeană</p>
                 <h1>Înmatriculări EV pe județe</h1>
                 <p class="intro">Persoane fizice, raportat la populație, pentru o comparație regională mai relevantă.</p>
             </div>
-            <span class="preview-badge">Nepublicat în dashboard</span>
+            <span class="preview-badge">42 de județe · ultimele 12 luni</span>
         </header>
 
         <section class="controls" aria-label="Filtre hartă">
@@ -50,6 +75,7 @@
         </section>
 
         <p class="period-label" id="period-label" aria-live="polite">Se încarcă datele…</p>
+        <p class="leasing-warning"><strong>Notă:</strong> imaginea distribuției județene poate fi distorsionată, mai ales pentru „Companii” și „Total”, deoarece vehiculele firmelor de leasing apar în județul sediului juridic, nu neapărat acolo unde sunt utilizate.</p>
 
         <section class="visual-layout" aria-label="Hartă și detalii">
             <div class="map-panel" id="map-panel">
@@ -85,6 +111,6 @@
         </footer>
     </main>
     <div class="error-message" id="error-message" role="alert" hidden>Datele nu au putut fi încărcate.</div>
-    <script src="judete-preview.js?v=1" defer></script>
+    <script src="judete.js?v=1" defer></script>
 </body>
 </html>

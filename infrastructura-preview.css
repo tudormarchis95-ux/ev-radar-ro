@@ -103,7 +103,7 @@ footer a { color: var(--blue); font-weight: 700; }
 @media (max-width: 700px) {
     .preview-shell { width: 100%; margin: 0; padding: 16px; border: 0; border-radius: 0; }
     .site-navigation { align-items: stretch; flex-direction: column; margin-bottom: 18px; padding: 8px; }
-    .site-nav-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .site-nav-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .site-nav-links a { min-height: 44px; padding: 7px 4px; font-size: 10px; text-align: center; }
     .partner-mark { display: none; }
     .preview-header { display: block; }

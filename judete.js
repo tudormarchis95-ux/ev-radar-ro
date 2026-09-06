@@ -1,6 +1,8 @@
 (() => {
     "use strict";
 
+    // Public county-registration dashboard.
+
     const app = document.getElementById("county-app");
     const errorMessage = document.getElementById("error-message");
     const svg = document.getElementById("county-map");
