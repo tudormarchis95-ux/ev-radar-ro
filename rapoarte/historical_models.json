@@ -45944,7 +45944,7 @@
             },
             {
                 "brand": "DS",
-                "model": "N°8",
+                "model": "N\u00b08",
                 "ytd": 2
             },
             {
@@ -47556,7 +47556,7 @@
             },
             {
                 "brand": "DS",
-                "model": "N°8",
+                "model": "N\u00b08",
                 "parc": 2
             },
             {
@@ -48906,7 +48906,7 @@
             },
             {
                 "brand": "DS",
-                "model": "N°8",
+                "model": "N\u00b08",
                 "ytd": 2
             },
             {
@@ -50618,7 +50618,7 @@
             },
             {
                 "brand": "DS",
-                "model": "N°8",
+                "model": "N\u00b08",
                 "parc": 2
             },
             {
@@ -51948,7 +51948,7 @@
             },
             {
                 "brand": "DS",
-                "model": "N°8",
+                "model": "N\u00b08",
                 "ytd": 3
             },
             {
@@ -53690,7 +53690,7 @@
             },
             {
                 "brand": "DS",
-                "model": "N°8",
+                "model": "N\u00b08",
                 "parc": 3
             },
             {
@@ -55275,7 +55275,7 @@
             },
             {
                 "brand": "DS",
-                "model": "N°8",
+                "model": "N\u00b08",
                 "ytd": 3
             },
             {
@@ -57037,7 +57037,7 @@
             },
             {
                 "brand": "DS",
-                "model": "N°8",
+                "model": "N\u00b08",
                 "parc": 3
             },
             {
@@ -57846,11 +57846,6 @@
                 "ytd": 209
             },
             {
-                "brand": "MG",
-                "model": "MG4",
-                "ytd": 205
-            },
-            {
                 "brand": "FORD",
                 "model": "EXPLORER",
                 "ytd": 202
@@ -57859,6 +57854,11 @@
                 "brand": "RENAULT",
                 "model": "ZOE",
                 "ytd": 185
+            },
+            {
+                "brand": "MG",
+                "model": "MG4",
+                "ytd": 173
             },
             {
                 "brand": "MAZDA",
@@ -58098,6 +58098,11 @@
             {
                 "brand": "BYD",
                 "model": "ATTO 3",
+                "ytd": 32
+            },
+            {
+                "brand": "MG",
+                "model": "MG4 URBAN",
                 "ytd": 32
             },
             {
@@ -58707,7 +58712,7 @@
             },
             {
                 "brand": "DS",
-                "model": "N°8",
+                "model": "N\u00b08",
                 "ytd": 3
             },
             {
@@ -59348,11 +59353,6 @@
                 "parc": 514
             },
             {
-                "brand": "MG",
-                "model": "MG4",
-                "parc": 507
-            },
-            {
                 "brand": "HYUNDAI",
                 "model": "INSTER",
                 "parc": 500
@@ -59371,6 +59371,11 @@
                 "brand": "VOLVO",
                 "model": "EX30",
                 "parc": 481
+            },
+            {
+                "brand": "MG",
+                "model": "MG4",
+                "parc": 475
             },
             {
                 "brand": "RENAULT",
@@ -59910,6 +59915,11 @@
             {
                 "brand": "MINI",
                 "model": "ACEMAN SE",
+                "parc": 32
+            },
+            {
+                "brand": "MG",
+                "model": "MG4 URBAN",
                 "parc": 32
             },
             {
@@ -60519,7 +60529,7 @@
             },
             {
                 "brand": "DS",
-                "model": "N°8",
+                "model": "N\u00b08",
                 "parc": 3
             },
             {
@@ -61348,11 +61358,6 @@
                 "ytd": 382
             },
             {
-                "brand": "MG",
-                "model": "MG4",
-                "ytd": 284
-            },
-            {
                 "brand": "RENAULT",
                 "model": "5 E-TECH",
                 "ytd": 263
@@ -61381,6 +61386,11 @@
                 "brand": "MAZDA",
                 "model": "6E",
                 "ytd": 190
+            },
+            {
+                "brand": "MG",
+                "model": "MG4",
+                "ytd": 179
             },
             {
                 "brand": "MERCEDES-BENZ",
@@ -61431,6 +61441,11 @@
                 "brand": "NISSAN",
                 "model": "LEAF",
                 "ytd": 106
+            },
+            {
+                "brand": "MG",
+                "model": "MG4 URBAN",
+                "ytd": 105
             },
             {
                 "brand": "LEAPMOTOR",
@@ -62264,7 +62279,7 @@
             },
             {
                 "brand": "DS",
-                "model": "N°8",
+                "model": "N\u00b08",
                 "ytd": 3
             },
             {
@@ -62915,11 +62930,6 @@
                 "parc": 589
             },
             {
-                "brand": "MG",
-                "model": "MG4",
-                "parc": 586
-            },
-            {
                 "brand": "FIAT",
                 "model": "500",
                 "parc": 575
@@ -62958,6 +62968,11 @@
                 "brand": "SMART",
                 "model": "EQ FORTWO",
                 "parc": 490
+            },
+            {
+                "brand": "MG",
+                "model": "MG4",
+                "parc": 481
             },
             {
                 "brand": "RENAULT",
@@ -63197,6 +63212,11 @@
             {
                 "brand": "PEUGEOT",
                 "model": "EXPERT",
+                "parc": 105
+            },
+            {
+                "brand": "MG",
+                "model": "MG4 URBAN",
                 "parc": 105
             },
             {
@@ -64126,7 +64146,7 @@
             },
             {
                 "brand": "DS",
-                "model": "N°8",
+                "model": "N\u00b08",
                 "parc": 3
             },
             {

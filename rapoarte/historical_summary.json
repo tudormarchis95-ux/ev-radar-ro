@@ -882,9 +882,9 @@
             "totalRadieri": 169,
             "grossRegistrations": 1524,
             "netFleetGrowth": 1355,
-            "totalNewEv": null,
-            "totalUsedEv": null,
-            "totalNewAllFuels": null,
+            "totalNewEv": 893,
+            "totalUsedEv": 631,
+            "totalNewAllFuels": 12696,
             "evShare": 0.07033711405166981,
             "usedShare": 0.4140419947506562
         },
