@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="infrastructura-preview.css?v=5">
+    <link rel="stylesheet" href="site-chrome.css?v=1">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B19F9R252Y"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -27,6 +28,27 @@
 </head>
 <body>
     <main class="preview-shell" id="charging-app">
+        <header class="site-header evr-shared-header">
+            <div class="partner-logo">
+                <a href="https://electromobilitate.com" target="_blank" rel="noopener">
+                    <img src="electromobilitate_logo.png" alt="Electromobilitate Logo">
+                </a>
+            </div>
+            <div class="logo-area">
+                <svg class="ev-radar-logo" viewBox="0 0 100 100" width="55" height="55" aria-hidden="true">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="#005596" stroke-width="2" opacity="0.15" />
+                    <circle cx="50" cy="50" r="30" fill="none" stroke="#005596" stroke-width="2" opacity="0.3" />
+                    <circle cx="50" cy="50" r="15" fill="none" stroke="#005596" stroke-width="2" opacity="0.5" />
+                    <line x1="50" y1="50" x2="82" y2="18" stroke="#168bc4" stroke-width="3.5" stroke-linecap="round">
+                        <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="5s" repeatCount="indefinite" />
+                    </line>
+                    <polygon points="48,22 59,46 50,46 52,78 41,50 50,50" fill="#005596" />
+                </svg>
+                <h1>EV Radar <span>România</span></h1>
+            </div>
+            <p class="subtitle">Date publice despre înmatriculări, parc auto și infrastructură BEV</p>
+        </header>
+
         <nav class="site-navigation" aria-label="Navigare principală">
             <div class="site-nav-links">
                 <a href="./">📊 Dashboard</a>
@@ -34,9 +56,6 @@
                 <a href="comparatie.html">🇪🇺 Comparație regională</a>
                 <a href="infrastructura.html" class="active" aria-current="page">⚡ Infrastructură</a>
             </div>
-            <a class="partner-mark" href="https://electromobilitate.com" target="_blank" rel="noopener">
-                <img src="electromobilitate_logo.png" alt="Electromobilitate">
-            </a>
         </nav>
 
         <header class="preview-header">
