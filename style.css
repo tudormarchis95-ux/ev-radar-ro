@@ -134,16 +134,28 @@
 .comparison-page .map-country.has-data:hover,
 .comparison-page .map-country.has-data:focus {
     filter: brightness(0.96);
+}
+
+.comparison-page .map-country-outline {
+    fill: none;
+    stroke: none;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+    pointer-events: none;
+}
+
+.comparison-page .map-country-outline.is-hovered,
+.comparison-page .map-country-outline.is-focused {
     stroke: #0f172a;
     stroke-width: 1.8;
 }
 
-.comparison-page .map-country.is-selected {
+.comparison-page .map-country-outline.is-selected {
     stroke: #0f172a;
     stroke-width: 2.4;
 }
 
-.comparison-page .map-country.is-romania {
+.comparison-page .map-country-outline.is-romania {
     stroke: #f97316;
     stroke-width: 3;
 }

@@ -422,12 +422,24 @@ function selectCountry(code) {
     renderSelectedCountry();
 }
 
-function bindMapInteraction(element, country) {
-    element.addEventListener('pointerenter', event => showTooltip(country, event));
+function bindMapInteraction(element, country, outline) {
+    element.addEventListener('pointerenter', event => {
+        outline?.classList.add('is-hovered');
+        showTooltip(country, event);
+    });
     element.addEventListener('pointermove', event => showTooltip(country, event));
-    element.addEventListener('pointerleave', hideTooltip);
-    element.addEventListener('focus', event => showTooltip(country, event));
-    element.addEventListener('blur', hideTooltip);
+    element.addEventListener('pointerleave', () => {
+        outline?.classList.remove('is-hovered');
+        hideTooltip();
+    });
+    element.addEventListener('focus', event => {
+        outline?.classList.add('is-focused');
+        showTooltip(country, event);
+    });
+    element.addEventListener('blur', () => {
+        outline?.classList.remove('is-focused');
+        hideTooltip();
+    });
     element.addEventListener('click', () => selectCountry(country.code));
     element.addEventListener('keydown', event => {
         if (event.key === 'Enter' || event.key === ' ') {
@@ -440,12 +452,15 @@ function bindMapInteraction(element, country) {
 function renderMap() {
     const namespace = 'http://www.w3.org/2000/svg';
     const countriesGroup = document.getElementById('europe-map-countries');
+    const outlinesGroup = document.getElementById('europe-map-outlines');
+    const outlinesByCode = new Map();
     const markersGroup = document.getElementById('europe-map-markers');
     const hotspots = document.getElementById('map-hotspots');
     const currentCountries = countriesForCurrentView();
     updateMapViewBox();
     const dataByCode = new Map(currentCountries.map(country => [country.code, country]));
     countriesGroup.replaceChildren();
+    outlinesGroup.replaceChildren();
     markersGroup.replaceChildren();
     hotspots.replaceChildren();
 
@@ -461,7 +476,15 @@ function renderMap() {
             if (code === state.selectedCode) path.classList.add('is-selected');
             if (code === 'RO') path.classList.add('is-romania');
             path.setAttribute('fill', colorForValue(metricValue(country)));
-            bindMapInteraction(path, country);
+            // Draw each highlight once, above all country fills and below the markers.
+            const outline = document.createElementNS(namespace, 'path');
+            outline.setAttribute('d', path.getAttribute('d'));
+            outline.classList.add('map-country-outline');
+            if (code === state.selectedCode) outline.classList.add('is-selected');
+            if (code === 'RO') outline.classList.add('is-romania');
+            outlinesGroup.appendChild(outline);
+            outlinesByCode.set(code, outline);
+            bindMapInteraction(path, country, outline);
         }
         countriesGroup.appendChild(path);
     });
@@ -488,7 +511,7 @@ function renderMap() {
         positionMapHotspot(hotspot, countryAnchors[country.code]);
         hotspot.setAttribute('aria-label', `Selectează ${country.name}: ${formatPercent(metricValue(country))}`);
         hotspot.title = `${country.name}: ${formatPercent(metricValue(country))}`;
-        bindMapInteraction(hotspot, country);
+        bindMapInteraction(hotspot, country, outlinesByCode.get(country.code));
         hotspots.appendChild(hotspot);
     });
 }
