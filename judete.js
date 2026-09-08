@@ -20,6 +20,17 @@
     let mapData;
     let countyPaths = [];
     let featureByCode;
+    const countyOutlines = {};
+
+    function updateOutline(kind, path) {
+        countyOutlines[kind].setAttribute("d", path?.getAttribute("d") || "");
+        const visiblePaths = new Set();
+        Object.values(countyOutlines).forEach(outline => {
+            const geometry = outline.getAttribute("d");
+            outline.setAttribute("visibility", geometry && !visiblePaths.has(geometry) ? "visible" : "hidden");
+            if (geometry) visiblePaths.add(geometry);
+        });
+    }
 
     function assertData() {
         if (!registrationData || registrationData.schemaVersion !== 1 || !registrationData.monthly) {
@@ -147,6 +158,12 @@
         const project = createProjector(mapData.features);
         featureByCode = new Map(mapData.features.map(feature => [feature.properties.NUTS_ID, feature]));
         const fragment = document.createDocumentFragment();
+        ["selected", "hover", "focus"].forEach(kind => {
+            const outline = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            outline.setAttribute("class", "county-outline");
+            outline.setAttribute("aria-hidden", "true");
+            countyOutlines[kind] = outline;
+        });
         countyPaths = mapData.features.map(feature => {
             const code = feature.properties.NUTS_ID;
             const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -156,8 +173,16 @@
             path.setAttribute("tabindex", "0");
             path.setAttribute("role", "button");
             path.dataset.code = code;
+            path.addEventListener("pointerenter", () => updateOutline("hover", path));
             path.addEventListener("pointermove", event => showTooltip(event, code));
-            path.addEventListener("pointerleave", hideTooltip);
+            path.addEventListener("pointerleave", () => {
+                updateOutline("hover", null);
+                hideTooltip();
+            });
+            path.addEventListener("focus", () => {
+                updateOutline("focus", path.matches(":focus-visible") ? path : null);
+            });
+            path.addEventListener("blur", () => updateOutline("focus", null));
             path.addEventListener("click", () => selectCounty(code));
             path.addEventListener("keydown", event => {
                 if (event.key === "Enter" || event.key === " ") {
@@ -168,7 +193,9 @@
             fragment.append(path);
             return path;
         });
-        svg.replaceChildren(fragment);
+        // Paint highlights above every county so neighboring fills cannot cover their borders.
+        // Separate, noninteractive paths also preserve keyboard order and pointer targets.
+        svg.replaceChildren(fragment, ...Object.values(countyOutlines));
 
         [...featureByCode.entries()]
             .sort((left, right) => left[1].properties.NAME_LATN.localeCompare(right[1].properties.NAME_LATN, "ro"))
@@ -251,6 +278,7 @@
             const metricLabel = state.mode === "rate" ? `${rateFormatter.format(value)} la 100.000 locuitori` : `${formatter.format(value)} vehicule`;
             path.setAttribute("aria-label", `${nameFor(code)}: ${metricLabel}`);
         });
+        updateOutline("selected", countyPaths.find(path => path.dataset.code === state.selected));
         updateLegend(maximum);
         updatePeriod();
         updatePanel();

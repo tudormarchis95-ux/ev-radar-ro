@@ -228,9 +228,13 @@ button:focus-visible, select:focus-visible {
     transition: fill 140ms ease, stroke 140ms ease;
 }
 
-.county:hover, .county:focus-visible, .county[data-selected="true"] {
+.county-outline {
+    fill: none;
     stroke: var(--orange);
     stroke-width: 3;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+    pointer-events: none;
 }
 
 .tooltip {
