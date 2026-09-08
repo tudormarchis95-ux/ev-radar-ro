@@ -159,7 +159,7 @@ legend {
     box-shadow: 0 2px 9px rgba(31, 74, 110, .12);
 }
 
-button:focus-visible, select:focus-visible, path:focus-visible {
+button:focus-visible, select:focus-visible {
     outline: 3px solid rgba(22, 139, 196, .38);
     outline-offset: 2px;
 }
@@ -221,13 +221,14 @@ button:focus-visible, select:focus-visible, path:focus-visible {
 
 .county {
     cursor: pointer;
+    outline: none;
     stroke: #fff;
     stroke-width: 1.4;
     vector-effect: non-scaling-stroke;
     transition: fill 140ms ease, stroke 140ms ease;
 }
 
-.county:hover, .county[data-selected="true"] {
+.county:hover, .county:focus-visible, .county[data-selected="true"] {
     stroke: var(--orange);
     stroke-width: 3;
 }
