@@ -899,6 +899,18 @@
             "totalNewAllFuels": 10709,
             "evShare": 0.0689139975721356,
             "usedShare": 0.4225352112676056
+        },
+        "SEP": {
+            "totalAutoReg": 1370,
+            "totalUtilReg": 91,
+            "totalRadieri": 155,
+            "grossRegistrations": 1461,
+            "netFleetGrowth": 1306,
+            "totalNewEv": 916,
+            "totalUsedEv": 545,
+            "totalNewAllFuels": 12034,
+            "evShare": 0.07611766661126808,
+            "usedShare": 0.3730321697467488
         }
     }
 }

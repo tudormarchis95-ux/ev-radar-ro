@@ -64956,5 +64956,3797 @@
         },
         "fleetAsOf": "2026-08",
         "fleetAvailable": true
+    },
+    "2026-09": {
+        "ytd": [
+            {
+                "brand": "TESLA",
+                "model": "MODEL 3",
+                "ytd": 1568
+            },
+            {
+                "brand": "TESLA",
+                "model": "MODEL Y",
+                "ytd": 1265
+            },
+            {
+                "brand": "BYD",
+                "model": "DOLPHIN SURF",
+                "ytd": 696
+            },
+            {
+                "brand": "BYD",
+                "model": "SEALION 7",
+                "ytd": 548
+            },
+            {
+                "brand": "FORD",
+                "model": "PUMA",
+                "ytd": 474
+            },
+            {
+                "brand": "HYUNDAI",
+                "model": "KONA",
+                "ytd": 450
+            },
+            {
+                "brand": "DACIA",
+                "model": "SPRING",
+                "ytd": 403
+            },
+            {
+                "brand": "RENAULT",
+                "model": "5 E-TECH",
+                "ytd": 294
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ID.4",
+                "ytd": 247
+            },
+            {
+                "brand": "MG",
+                "model": "MG4 URBAN",
+                "ytd": 245
+            },
+            {
+                "brand": "BYD",
+                "model": "ATTO 2",
+                "ytd": 243
+            },
+            {
+                "brand": "FORD",
+                "model": "EXPLORER",
+                "ytd": 242
+            },
+            {
+                "brand": "RENAULT",
+                "model": "ZOE",
+                "ytd": 242
+            },
+            {
+                "brand": "MAZDA",
+                "model": "6E",
+                "ytd": 237
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "CLA 250+",
+                "ytd": 207
+            },
+            {
+                "brand": "MG",
+                "model": "MG4",
+                "ytd": 181
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ID.3",
+                "ytd": 146
+            },
+            {
+                "brand": "TESLA",
+                "model": "MODEL S",
+                "ytd": 136
+            },
+            {
+                "brand": "AUDI",
+                "model": "E-TRON (SUV)",
+                "ytd": 136
+            },
+            {
+                "brand": "VOLVO",
+                "model": "EX30",
+                "ytd": 134
+            },
+            {
+                "brand": "NISSAN",
+                "model": "LEAF",
+                "ytd": 125
+            },
+            {
+                "brand": "BMW",
+                "model": "I4",
+                "ytd": 122
+            },
+            {
+                "brand": "BMW",
+                "model": "IX3",
+                "ytd": 121
+            },
+            {
+                "brand": "BYD",
+                "model": "SEAL",
+                "ytd": 120
+            },
+            {
+                "brand": "HYUNDAI",
+                "model": "INSTER",
+                "ytd": 112
+            },
+            {
+                "brand": "KIA",
+                "model": "NIRO EV",
+                "ytd": 106
+            },
+            {
+                "brand": "LEAPMOTOR",
+                "model": "T03",
+                "ytd": 103
+            },
+            {
+                "brand": "FORD",
+                "model": "CAPRI",
+                "ytd": 95
+            },
+            {
+                "brand": "FORD",
+                "model": "MUSTANG MACH E",
+                "ytd": 94
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EQA",
+                "ytd": 93
+            },
+            {
+                "brand": "MG",
+                "model": "ZS EV",
+                "ytd": 90
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EQE",
+                "ytd": 87
+            },
+            {
+                "brand": "TOYOTA",
+                "model": "BZ4X",
+                "ytd": 85
+            },
+            {
+                "brand": "BMW",
+                "model": "IX",
+                "ytd": 81
+            },
+            {
+                "brand": "BYD",
+                "model": "SEAL U",
+                "ytd": 81
+            },
+            {
+                "brand": "HYUNDAI",
+                "model": "IONIQ 5",
+                "ytd": 78
+            },
+            {
+                "brand": "RENAULT",
+                "model": "MEGANE E-TECH ELECTRIC",
+                "ytd": 78
+            },
+            {
+                "brand": "TOYOTA",
+                "model": "C-HR",
+                "ytd": 76
+            },
+            {
+                "brand": "BMW",
+                "model": "IX1",
+                "ytd": 73
+            },
+            {
+                "brand": "SKODA",
+                "model": "ENYAQ",
+                "ytd": 68
+            },
+            {
+                "brand": "MAXUS",
+                "model": "E-DELIVER 3",
+                "ytd": 68
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "208",
+                "ytd": 66
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "2008",
+                "ytd": 64
+            },
+            {
+                "brand": "RENAULT",
+                "model": "4 E-TECH",
+                "ytd": 64
+            },
+            {
+                "brand": "ZEEKR",
+                "model": "7X",
+                "ytd": 63
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "GLC",
+                "ytd": 63
+            },
+            {
+                "brand": "AUDI",
+                "model": "Q4 E-TRON",
+                "ytd": 62
+            },
+            {
+                "brand": "VOLVO",
+                "model": "EX40",
+                "ytd": 60
+            },
+            {
+                "brand": "FORD",
+                "model": "TRANSIT",
+                "ytd": 58
+            },
+            {
+                "brand": "TESLA",
+                "model": "MODEL X",
+                "ytd": 57
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "ESPRINTER",
+                "ytd": 57
+            },
+            {
+                "brand": "FIAT",
+                "model": "500",
+                "ytd": 54
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EVITO",
+                "ytd": 53
+            },
+            {
+                "brand": "SKODA",
+                "model": "ELROQ",
+                "ytd": 52
+            },
+            {
+                "brand": "KIA",
+                "model": "EV6",
+                "ytd": 52
+            },
+            {
+                "brand": "FORD",
+                "model": "TRANSIT COURIER",
+                "ytd": 51
+            },
+            {
+                "brand": "SSANGYONG / KG MOBILITY",
+                "model": "TORRES EVX",
+                "ytd": 49
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "GOLF",
+                "ytd": 47
+            },
+            {
+                "brand": "KIA",
+                "model": "EV3",
+                "ytd": 45
+            },
+            {
+                "brand": "RENAULT",
+                "model": "KANGOO EXPRESS Z.E.",
+                "ytd": 43
+            },
+            {
+                "brand": "CADILLAC",
+                "model": "LYRIQ",
+                "ytd": 43
+            },
+            {
+                "brand": "HYUNDAI",
+                "model": "IONIQ 6",
+                "ytd": 42
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EQC",
+                "ytd": 41
+            },
+            {
+                "brand": "MINI",
+                "model": "COOPER SE",
+                "ytd": 41
+            },
+            {
+                "brand": "FORD",
+                "model": "TRANSIT CUSTOM",
+                "ytd": 41
+            },
+            {
+                "brand": "AUDI",
+                "model": "Q6 E-TRON",
+                "ytd": 40
+            },
+            {
+                "brand": "BYD",
+                "model": "ATTO 3",
+                "ytd": 38
+            },
+            {
+                "brand": "MAZDA",
+                "model": "MX 30",
+                "ytd": 38
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "E PARTNER",
+                "ytd": 37
+            },
+            {
+                "brand": "OPEL",
+                "model": "MOKKA",
+                "ytd": 35
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EQS",
+                "ytd": 34
+            },
+            {
+                "brand": "HYUNDAI",
+                "model": "IONIQ",
+                "ytd": 31
+            },
+            {
+                "brand": "OPEL",
+                "model": "CORSA",
+                "ytd": 31
+            },
+            {
+                "brand": "FORD",
+                "model": "TOURNEO COURIER",
+                "ytd": 30
+            },
+            {
+                "brand": "BMW",
+                "model": "I5",
+                "ytd": 30
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ID.7",
+                "ytd": 30
+            },
+            {
+                "brand": "NISSAN",
+                "model": "E-NV200",
+                "ytd": 28
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "MACAN 4",
+                "ytd": 27
+            },
+            {
+                "brand": "SUZUKI",
+                "model": "E VITARA",
+                "ytd": 27
+            },
+            {
+                "brand": "MG",
+                "model": "MARVEL R ELECTRIC",
+                "ytd": 27
+            },
+            {
+                "brand": "FIAT",
+                "model": "SCUDO",
+                "ytd": 25
+            },
+            {
+                "brand": "MG",
+                "model": "S5 EV",
+                "ytd": 24
+            },
+            {
+                "brand": "RENAULT",
+                "model": "SCENIC E-TECH ELECTRIC",
+                "ytd": 24
+            },
+            {
+                "brand": "OPEL",
+                "model": "VIVARO",
+                "ytd": 24
+            },
+            {
+                "brand": "TESLA",
+                "model": "MODEL NECUNOSCUT",
+                "ytd": 23
+            },
+            {
+                "brand": "BMW",
+                "model": "IX2",
+                "ytd": 23
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ID.5",
+                "ytd": 23
+            },
+            {
+                "brand": "RENAULT",
+                "model": "KANGOO VAN E-TECH ELECTRIC",
+                "ytd": 22
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "CLA 350 4MATIC",
+                "ytd": 22
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "GLB 250+",
+                "ytd": 22
+            },
+            {
+                "brand": "POLESTAR",
+                "model": "POLESTAR 2",
+                "ytd": 21
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "TAYCAN 4S",
+                "ytd": 20
+            },
+            {
+                "brand": "NISSAN",
+                "model": "VOLTIA",
+                "ytd": 20
+            },
+            {
+                "brand": "LEAPMOTOR",
+                "model": "B10",
+                "ytd": 20
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EQB",
+                "ytd": 19
+            },
+            {
+                "brand": "KIA",
+                "model": "SOUL EV",
+                "ytd": 19
+            },
+            {
+                "brand": "FIAT",
+                "model": "600",
+                "ytd": 19
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "GLB 350 4MATIC",
+                "ytd": 19
+            },
+            {
+                "brand": "SMART",
+                "model": "EQ FORFOUR",
+                "ytd": 18
+            },
+            {
+                "brand": "LYNK&CO",
+                "model": "LYNK & CO 02",
+                "ytd": 18
+            },
+            {
+                "brand": "TOYOTA",
+                "model": "PROACE",
+                "ytd": 18
+            },
+            {
+                "brand": "VOLVO",
+                "model": "EX90",
+                "ytd": 18
+            },
+            {
+                "brand": "VOLVO",
+                "model": "EC40",
+                "ytd": 18
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "EXPERT",
+                "ytd": 18
+            },
+            {
+                "brand": "FIAT",
+                "model": "E-DOBLO",
+                "ytd": 18
+            },
+            {
+                "brand": "TOYOTA",
+                "model": "PROACE CITY",
+                "ytd": 17
+            },
+            {
+                "brand": "BMW",
+                "model": "I7",
+                "ytd": 17
+            },
+            {
+                "brand": "JAGUAR",
+                "model": "I PACE",
+                "ytd": 17
+            },
+            {
+                "brand": "CITROEN",
+                "model": "E-C4",
+                "ytd": 17
+            },
+            {
+                "brand": "MG",
+                "model": "MG5",
+                "ytd": 17
+            },
+            {
+                "brand": "RENAULT",
+                "model": "MASTER E-TECH",
+                "ytd": 17
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "CRAFTER",
+                "ytd": 17
+            },
+            {
+                "brand": "XPENG",
+                "model": "G9",
+                "ytd": 17
+            },
+            {
+                "brand": "KIA",
+                "model": "PV5",
+                "ytd": 16
+            },
+            {
+                "brand": "FARIZON",
+                "model": "V6E",
+                "ytd": 16
+            },
+            {
+                "brand": "JAECOO",
+                "model": "JAECOO5 EV",
+                "ytd": 16
+            },
+            {
+                "brand": "XPENG",
+                "model": "G6",
+                "ytd": 16
+            },
+            {
+                "brand": "SMART",
+                "model": "EQ FORTWO",
+                "ytd": 15
+            },
+            {
+                "brand": "BMW",
+                "model": "I3",
+                "ytd": 15
+            },
+            {
+                "brand": "RENAULT",
+                "model": "TWINGO",
+                "ytd": 15
+            },
+            {
+                "brand": "KIA",
+                "model": "EV4",
+                "ytd": 14
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "TAYCAN",
+                "ytd": 14
+            },
+            {
+                "brand": "MAXUS",
+                "model": "E-DELIVER 9",
+                "ytd": 14
+            },
+            {
+                "brand": "AUDI",
+                "model": "E-TRON GT",
+                "ytd": 13
+            },
+            {
+                "brand": "AUDI",
+                "model": "A6 E-TRON",
+                "ytd": 13
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ID. BUZZ CARGO",
+                "ytd": 13
+            },
+            {
+                "brand": "MINI",
+                "model": "COOPER E",
+                "ytd": 13
+            },
+            {
+                "brand": "OPEL",
+                "model": "COMBO E CARGO",
+                "ytd": 13
+            },
+            {
+                "brand": "CUPRA",
+                "model": "TAVASCAN",
+                "ytd": 12
+            },
+            {
+                "brand": "ALFA ROMEO",
+                "model": "JUNIOR",
+                "ytd": 11
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "TAYCAN 4",
+                "ytd": 11
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "UP",
+                "ytd": 11
+            },
+            {
+                "brand": "FIAT",
+                "model": "PANDA",
+                "ytd": 11
+            },
+            {
+                "brand": "JEEP",
+                "model": "AVENGER",
+                "ytd": 11
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ID. POLO 155KW",
+                "ytd": 11
+            },
+            {
+                "brand": "RENAULT",
+                "model": "TRAFIC E-TECH",
+                "ytd": 10
+            },
+            {
+                "brand": "CITROEN",
+                "model": "E-C3",
+                "ytd": 10
+            },
+            {
+                "brand": "MAXUS",
+                "model": "EDELIVER 7",
+                "ytd": 10
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "AMG EQE",
+                "ytd": 10
+            },
+            {
+                "brand": "ZEEKR",
+                "model": "001",
+                "ytd": 10
+            },
+            {
+                "brand": "OMODA",
+                "model": "OMODA5 EV",
+                "ytd": 9
+            },
+            {
+                "brand": "CITROEN",
+                "model": "C ZERO",
+                "ytd": 9
+            },
+            {
+                "brand": "VOLVO",
+                "model": "ES90",
+                "ytd": 9
+            },
+            {
+                "brand": "MINI",
+                "model": "ACEMAN SE",
+                "ytd": 9
+            },
+            {
+                "brand": "SMART",
+                "model": "#1",
+                "ytd": 9
+            },
+            {
+                "brand": "AUDI",
+                "model": "Q8 E-TRON",
+                "ytd": 9
+            },
+            {
+                "brand": "MAZDA",
+                "model": "CX 6E",
+                "ytd": 9
+            },
+            {
+                "brand": "DS",
+                "model": "DS3 CROSSBACK",
+                "ytd": 8
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "G 580",
+                "ytd": 8
+            },
+            {
+                "brand": "NECUNOSCUT",
+                "model": "MODEL NECUNOSCUT",
+                "ytd": 8
+            },
+            {
+                "brand": "ROLLS ROYCE",
+                "model": "SPECTRE",
+                "ytd": 8
+            },
+            {
+                "brand": "DFSK",
+                "model": "SERES 3",
+                "ytd": 7
+            },
+            {
+                "brand": "GEELY",
+                "model": "EX5",
+                "ytd": 7
+            },
+            {
+                "brand": "HONDA",
+                "model": "E:NY1",
+                "ytd": 7
+            },
+            {
+                "brand": "CITROEN",
+                "model": "E-BERLINGO VAN",
+                "ytd": 7
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "ION",
+                "ytd": 7
+            },
+            {
+                "brand": "KIA",
+                "model": "EV2",
+                "ytd": 7
+            },
+            {
+                "brand": "ZEEKR",
+                "model": "7GT",
+                "ytd": 7
+            },
+            {
+                "brand": "CITROEN",
+                "model": "E-C3 AIRCROSS",
+                "ytd": 6
+            },
+            {
+                "brand": "CUPRA",
+                "model": "BORN",
+                "ytd": 6
+            },
+            {
+                "brand": "MAXUS",
+                "model": "EDELIVER 5",
+                "ytd": 6
+            },
+            {
+                "brand": "MINI",
+                "model": "JCW E",
+                "ytd": 6
+            },
+            {
+                "brand": "CITROEN",
+                "model": "JUMPY",
+                "ytd": 6
+            },
+            {
+                "brand": "MINI",
+                "model": "ACEMAN E",
+                "ytd": 6
+            },
+            {
+                "brand": "MINI",
+                "model": "COUNTRYMAN SE ALL4",
+                "ytd": 6
+            },
+            {
+                "brand": "CITROEN",
+                "model": "E-BERLINGO",
+                "ytd": 6
+            },
+            {
+                "brand": "MG",
+                "model": "CYBERSTER",
+                "ytd": 6
+            },
+            {
+                "brand": "AUDI",
+                "model": "Q8 SPORTBACK E-TRON",
+                "ytd": 6
+            },
+            {
+                "brand": "POLESTAR",
+                "model": "POLESTAR 4",
+                "ytd": 6
+            },
+            {
+                "brand": "LEAPMOTOR",
+                "model": "C10",
+                "ytd": 6
+            },
+            {
+                "brand": "FARIZON",
+                "model": "SV",
+                "ytd": 5
+            },
+            {
+                "brand": "LEXUS",
+                "model": "UX300E",
+                "ytd": 5
+            },
+            {
+                "brand": "SMART",
+                "model": "EQ FORTWO CABRIO",
+                "ytd": 5
+            },
+            {
+                "brand": "ZEEKR",
+                "model": "X",
+                "ytd": 5
+            },
+            {
+                "brand": "KIA",
+                "model": "MODEL NECUNOSCUT",
+                "ytd": 5
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "AMG EQS",
+                "ytd": 5
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "MACAN",
+                "ytd": 5
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "TAYCAN GTS",
+                "ytd": 5
+            },
+            {
+                "brand": "MITSUBISHI",
+                "model": "I MIEV",
+                "ytd": 5
+            },
+            {
+                "brand": "SSANGYONG / KG MOBILITY",
+                "model": "KG MOBILITY MUSSO EV",
+                "ytd": 5
+            },
+            {
+                "brand": "HONDA",
+                "model": "E",
+                "ytd": 4
+            },
+            {
+                "brand": "MINI",
+                "model": "COUNTRYMAN E",
+                "ytd": 4
+            },
+            {
+                "brand": "SERES",
+                "model": "5",
+                "ytd": 4
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EQV",
+                "ytd": 4
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "3008",
+                "ytd": 4
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ABT E-TRANSPORTER",
+                "ytd": 4
+            },
+            {
+                "brand": "DODGE",
+                "model": "CHARGER DAYTONA",
+                "ytd": 4
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "CLA 200",
+                "ytd": 4
+            },
+            {
+                "brand": "NISSAN",
+                "model": "ARIYA",
+                "ytd": 4
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "TRAVELLER",
+                "ytd": 4
+            },
+            {
+                "brand": "KING LONG",
+                "model": "E CARGO 10",
+                "ytd": 4
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "CAYENNE",
+                "ytd": 4
+            },
+            {
+                "brand": "JAC",
+                "model": "T9EV",
+                "ytd": 4
+            },
+            {
+                "brand": "CENNTRO",
+                "model": "LOGISTAR",
+                "ytd": 3
+            },
+            {
+                "brand": "BYD",
+                "model": "ETP3",
+                "ytd": 3
+            },
+            {
+                "brand": "FIAT",
+                "model": "MODEL NECUNOSCUT",
+                "ytd": 3
+            },
+            {
+                "brand": "NIO",
+                "model": "ET5",
+                "ytd": 3
+            },
+            {
+                "brand": "NIO",
+                "model": "ET7",
+                "ytd": 3
+            },
+            {
+                "brand": "SEAT",
+                "model": "MII",
+                "ytd": 3
+            },
+            {
+                "brand": "SMART",
+                "model": "ELECTRIC DRIVE",
+                "ytd": 3
+            },
+            {
+                "brand": "DFSK",
+                "model": "EC35",
+                "ytd": 3
+            },
+            {
+                "brand": "JAC",
+                "model": "E30X",
+                "ytd": 3
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "TAYCAN TURBO",
+                "ytd": 3
+            },
+            {
+                "brand": "SSANGYONG / KG MOBILITY",
+                "model": "KORANDO E MOTION",
+                "ytd": 3
+            },
+            {
+                "brand": "DS",
+                "model": "N\u00b08",
+                "ytd": 3
+            },
+            {
+                "brand": "IVECO",
+                "model": "ESUPERJOLLY",
+                "ytd": 3
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "MACAN TURBO",
+                "ytd": 3
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "MODEL NECUNOSCUT",
+                "ytd": 3
+            },
+            {
+                "brand": "FIAT",
+                "model": "DUCATO",
+                "ytd": 3
+            },
+            {
+                "brand": "GREAT WALL MOTOR",
+                "model": "ORA FUNKY CAT",
+                "ytd": 3
+            },
+            {
+                "brand": "MG",
+                "model": "ZS",
+                "ytd": 3
+            },
+            {
+                "brand": "NIO",
+                "model": "EL7",
+                "ytd": 3
+            },
+            {
+                "brand": "SKODA",
+                "model": "CITIGO",
+                "ytd": 3
+            },
+            {
+                "brand": "KIA",
+                "model": "EV5",
+                "ytd": 3
+            },
+            {
+                "brand": "LEXUS",
+                "model": "RZ550E",
+                "ytd": 3
+            },
+            {
+                "brand": "FEIDI",
+                "model": "MODEL NECUNOSCUT",
+                "ytd": 3
+            },
+            {
+                "brand": "OFFICINE CUCINI",
+                "model": "PORTER OC NP6/S C",
+                "ytd": 3
+            },
+            {
+                "brand": "AVATR",
+                "model": "12",
+                "ytd": 2
+            },
+            {
+                "brand": "BMW",
+                "model": "I3S",
+                "ytd": 2
+            },
+            {
+                "brand": "BYD",
+                "model": "MODEL NECUNOSCUT",
+                "ytd": 2
+            },
+            {
+                "brand": "FAW",
+                "model": "EHS9",
+                "ytd": 2
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "ECITAN",
+                "ytd": 2
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "MACAN 4S",
+                "ytd": 2
+            },
+            {
+                "brand": "SKYWELL",
+                "model": "ET5",
+                "ytd": 2
+            },
+            {
+                "brand": "OPEL",
+                "model": "FRONTERA",
+                "ytd": 2
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "PARTNER",
+                "ytd": 2
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "TRANSPORTER",
+                "ytd": 2
+            },
+            {
+                "brand": "ABARTH",
+                "model": "500",
+                "ytd": 2
+            },
+            {
+                "brand": "SSANGYONG / KG MOBILITY",
+                "model": "MUSSO EV",
+                "ytd": 2
+            },
+            {
+                "brand": "BYD",
+                "model": "ATTO 2 DM I",
+                "ytd": 2
+            },
+            {
+                "brand": "FORD",
+                "model": "FOCUS ELECTRIC",
+                "ytd": 2
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "B 250 E",
+                "ytd": 2
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EQT",
+                "ytd": 2
+            },
+            {
+                "brand": "FORD",
+                "model": "TOURNEO CUSTOM",
+                "ytd": 2
+            },
+            {
+                "brand": "OPEL",
+                "model": "GRANDLAND",
+                "ytd": 2
+            },
+            {
+                "brand": "BYD",
+                "model": "ATTO 3 EVO",
+                "ytd": 2
+            },
+            {
+                "brand": "KING LONG",
+                "model": "E CARGO 7",
+                "ytd": 2
+            },
+            {
+                "brand": "SMART",
+                "model": "#3",
+                "ytd": 2
+            },
+            {
+                "brand": "XIAOMI",
+                "model": "MODEL NECUNOSCUT",
+                "ytd": 2
+            },
+            {
+                "brand": "MAN",
+                "model": "TGE",
+                "ytd": 2
+            },
+            {
+                "brand": "FARIZON",
+                "model": "V7E",
+                "ytd": 2
+            },
+            {
+                "brand": "FEST",
+                "model": "M",
+                "ytd": 2
+            },
+            {
+                "brand": "GMC",
+                "model": "HUMMER EV",
+                "ytd": 2
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "ELECTRIC DRIVE",
+                "ytd": 2
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "CAYENNE TURBO",
+                "ytd": 2
+            },
+            {
+                "brand": "TESLA",
+                "model": "MODELS",
+                "ytd": 2
+            },
+            {
+                "brand": "DACIA",
+                "model": "DUSTER",
+                "ytd": 2
+            },
+            {
+                "brand": "FIAT",
+                "model": "ULYSSE",
+                "ytd": 2
+            },
+            {
+                "brand": "ROLLS ROYCE",
+                "model": "BLACK BADGE SPECTRE",
+                "ytd": 2
+            },
+            {
+                "brand": "FORD",
+                "model": "MODEL NECUNOSCUT",
+                "ytd": 2
+            },
+            {
+                "brand": "GENESIS",
+                "model": "GV60",
+                "ytd": 2
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "C 400 4MATIC ELECTRIC",
+                "ytd": 2
+            },
+            {
+                "brand": "SUBARU",
+                "model": "UNCHARTED",
+                "ytd": 2
+            },
+            {
+                "brand": "AVANTIER",
+                "model": "COMMUTER",
+                "ytd": 1
+            },
+            {
+                "brand": "CHEVROLET",
+                "model": "EQUINOX EV",
+                "ytd": 1
+            },
+            {
+                "brand": "LEXUS",
+                "model": "RZ300E",
+                "ytd": 1
+            },
+            {
+                "brand": "LEXUS",
+                "model": "RZ450E",
+                "ytd": 1
+            },
+            {
+                "brand": "NIO",
+                "model": "MODEL NECUNOSCUT",
+                "ytd": 1
+            },
+            {
+                "brand": "AUDI",
+                "model": "SQ5 SB",
+                "ytd": 1
+            },
+            {
+                "brand": "CAVAN",
+                "model": "C1 BJ5031XXYEVZC",
+                "ytd": 1
+            },
+            {
+                "brand": "MAZDA",
+                "model": "MAZDA3",
+                "ytd": 1
+            },
+            {
+                "brand": "MICRO VETT",
+                "model": "FIORINO ELETTRICO",
+                "ytd": 1
+            },
+            {
+                "brand": "SUZUKI",
+                "model": "VITARA",
+                "ytd": 1
+            },
+            {
+                "brand": "CHERY",
+                "model": "TIGGO9",
+                "ytd": 1
+            },
+            {
+                "brand": "LAMBORGHINI",
+                "model": "URUS",
+                "ytd": 1
+            },
+            {
+                "brand": "AUDI",
+                "model": "MODEL NECUNOSCUT",
+                "ytd": 1
+            },
+            {
+                "brand": "AVATR",
+                "model": "06",
+                "ytd": 1
+            },
+            {
+                "brand": "AVATR",
+                "model": "11",
+                "ytd": 1
+            },
+            {
+                "brand": "BMW",
+                "model": "MODEL NECUNOSCUT",
+                "ytd": 1
+            },
+            {
+                "brand": "DACIA",
+                "model": "BIGSTER",
+                "ytd": 1
+            },
+            {
+                "brand": "IVECO",
+                "model": "35S10E",
+                "ytd": 1
+            },
+            {
+                "brand": "LUCID",
+                "model": "GRAVITY",
+                "ytd": 1
+            },
+            {
+                "brand": "NIO",
+                "model": "ES8",
+                "ytd": 1
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "5008",
+                "ytd": 1
+            },
+            {
+                "brand": "SUZUKI",
+                "model": "S CROSS",
+                "ytd": 1
+            },
+            {
+                "brand": "ABARTH",
+                "model": "600E",
+                "ytd": 1
+            },
+            {
+                "brand": "CITROEN",
+                "model": "JUMPY SPACE TOURER",
+                "ytd": 1
+            },
+            {
+                "brand": "ELARIS",
+                "model": "PIO",
+                "ytd": 1
+            },
+            {
+                "brand": "KIA",
+                "model": "EV9",
+                "ytd": 1
+            },
+            {
+                "brand": "OMODA",
+                "model": "9",
+                "ytd": 1
+            },
+            {
+                "brand": "POLESTAR",
+                "model": "POLESTAR 3",
+                "ytd": 1
+            },
+            {
+                "brand": "SMART",
+                "model": "#5",
+                "ytd": 1
+            },
+            {
+                "brand": "VNFS",
+                "model": "MODEL NECUNOSCUT",
+                "ytd": 1
+            },
+            {
+                "brand": "BYD",
+                "model": "SEAL 5 DM",
+                "ytd": 1
+            },
+            {
+                "brand": "CHERY",
+                "model": "TIGGO4 HYBRID",
+                "ytd": 1
+            },
+            {
+                "brand": "MINI",
+                "model": "JCW ACEMAN E",
+                "ytd": 1
+            },
+            {
+                "brand": "NIO",
+                "model": "EL6",
+                "ytd": 1
+            },
+            {
+                "brand": "TOYOTA",
+                "model": "PROACE MAX",
+                "ytd": 1
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ID. BUZZ",
+                "ytd": 1
+            },
+            {
+                "brand": "AIWAYS",
+                "model": "U5",
+                "ytd": 1
+            },
+            {
+                "brand": "CITROEN",
+                "model": "E-C4 X",
+                "ytd": 1
+            },
+            {
+                "brand": "DODGE",
+                "model": "CXA",
+                "ytd": 1
+            },
+            {
+                "brand": "FISKER",
+                "model": "OCEAN",
+                "ytd": 1
+            },
+            {
+                "brand": "LEXUS",
+                "model": "UX 300E",
+                "ytd": 1
+            },
+            {
+                "brand": "LOTUS",
+                "model": "ELETRE",
+                "ytd": 1
+            },
+            {
+                "brand": "NISSAN",
+                "model": "MODEL NECUNOSCUT",
+                "ytd": 1
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "E PARTENER",
+                "ytd": 1
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "CARAVELLE",
+                "ytd": 1
+            },
+            {
+                "brand": "XIA0MI",
+                "model": "YU7",
+                "ytd": 1
+            },
+            {
+                "brand": "BYD",
+                "model": "HAN",
+                "ytd": 1
+            },
+            {
+                "brand": "BYD",
+                "model": "TANG EV",
+                "ytd": 1
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "AMG G 63",
+                "ytd": 1
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "GLB 200",
+                "ytd": 1
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "E RIFTER",
+                "ytd": 1
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "TAYCAN TURBO S",
+                "ytd": 1
+            },
+            {
+                "brand": "STREETSCOOTER",
+                "model": "WORK",
+                "ytd": 1
+            },
+            {
+                "brand": "VOLVO",
+                "model": "EX60",
+                "ytd": 1
+            },
+            {
+                "brand": "CUPRA",
+                "model": "RAVAL 166KW",
+                "ytd": 1
+            },
+            {
+                "brand": "CUPRA",
+                "model": "RAVAL 99KW",
+                "ytd": 1
+            },
+            {
+                "brand": "DONGFENG",
+                "model": "NAMI06",
+                "ytd": 1
+            },
+            {
+                "brand": "GENESIS",
+                "model": "GV70 GENESIS",
+                "ytd": 1
+            },
+            {
+                "brand": "GREAT WALL",
+                "model": "ORA FUNKY CAT",
+                "ytd": 1
+            },
+            {
+                "brand": "L CITY",
+                "model": "KOFFER",
+                "ytd": 1
+            },
+            {
+                "brand": "LEXUS",
+                "model": "ES350E",
+                "ytd": 1
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "MODEL NECUNOSCUT",
+                "ytd": 1
+            },
+            {
+                "brand": "SPIER",
+                "model": "ETGE ATHLET",
+                "ytd": 1
+            },
+            {
+                "brand": "SUBARU",
+                "model": "SOLTERRA",
+                "ytd": 1
+            },
+            {
+                "brand": "XIA0MI",
+                "model": "YU7 MAX",
+                "ytd": 1
+            },
+            {
+                "brand": "XIAOMI",
+                "model": "SU7 ULTRA",
+                "ytd": 1
+            }
+        ],
+        "parc": [
+            {
+                "brand": "DACIA",
+                "model": "SPRING",
+                "parc": 18570
+            },
+            {
+                "brand": "TESLA",
+                "model": "MODEL 3",
+                "parc": 7761
+            },
+            {
+                "brand": "TESLA",
+                "model": "MODEL Y",
+                "parc": 5219
+            },
+            {
+                "brand": "HYUNDAI",
+                "model": "KONA",
+                "parc": 3167
+            },
+            {
+                "brand": "RENAULT",
+                "model": "ZOE",
+                "parc": 2486
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ID.3",
+                "parc": 1716
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "UP",
+                "parc": 1703
+            },
+            {
+                "brand": "RENAULT",
+                "model": "MEGANE E-TECH ELECTRIC",
+                "parc": 1532
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ID.4",
+                "parc": 1365
+            },
+            {
+                "brand": "NISSAN",
+                "model": "LEAF",
+                "parc": 1213
+            },
+            {
+                "brand": "FORD",
+                "model": "PUMA",
+                "parc": 967
+            },
+            {
+                "brand": "BYD",
+                "model": "DOLPHIN SURF",
+                "parc": 915
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EQA",
+                "parc": 784
+            },
+            {
+                "brand": "BMW",
+                "model": "I3",
+                "parc": 768
+            },
+            {
+                "brand": "TESLA",
+                "model": "MODEL S",
+                "parc": 710
+            },
+            {
+                "brand": "SKODA",
+                "model": "ENYAQ",
+                "parc": 702
+            },
+            {
+                "brand": "BYD",
+                "model": "SEALION 7",
+                "parc": 659
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "GOLF",
+                "parc": 627
+            },
+            {
+                "brand": "FORD",
+                "model": "EXPLORER",
+                "parc": 617
+            },
+            {
+                "brand": "BMW",
+                "model": "I4",
+                "parc": 600
+            },
+            {
+                "brand": "FIAT",
+                "model": "500",
+                "parc": 580
+            },
+            {
+                "brand": "AUDI",
+                "model": "E-TRON (SUV)",
+                "parc": 576
+            },
+            {
+                "brand": "HYUNDAI",
+                "model": "IONIQ 5",
+                "parc": 567
+            },
+            {
+                "brand": "FORD",
+                "model": "MUSTANG MACH E",
+                "parc": 525
+            },
+            {
+                "brand": "VOLVO",
+                "model": "EX30",
+                "parc": 505
+            },
+            {
+                "brand": "HYUNDAI",
+                "model": "INSTER",
+                "parc": 503
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "208",
+                "parc": 501
+            },
+            {
+                "brand": "SMART",
+                "model": "EQ FORTWO",
+                "parc": 492
+            },
+            {
+                "brand": "RENAULT",
+                "model": "5 E-TECH",
+                "parc": 486
+            },
+            {
+                "brand": "MG",
+                "model": "MG4",
+                "parc": 483
+            },
+            {
+                "brand": "MINI",
+                "model": "COOPER SE",
+                "parc": 477
+            },
+            {
+                "brand": "BMW",
+                "model": "IX",
+                "parc": 476
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EQE",
+                "parc": 476
+            },
+            {
+                "brand": "TESLA",
+                "model": "MODEL X",
+                "parc": 415
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "2008",
+                "parc": 404
+            },
+            {
+                "brand": "SMART",
+                "model": "EQ FORFOUR",
+                "parc": 400
+            },
+            {
+                "brand": "LEAPMOTOR",
+                "model": "T03",
+                "parc": 394
+            },
+            {
+                "brand": "FORD",
+                "model": "TRANSIT",
+                "parc": 388
+            },
+            {
+                "brand": "TOYOTA",
+                "model": "BZ4X",
+                "parc": 378
+            },
+            {
+                "brand": "RENAULT",
+                "model": "KANGOO VAN E-TECH ELECTRIC",
+                "parc": 377
+            },
+            {
+                "brand": "MAZDA",
+                "model": "MX 30",
+                "parc": 342
+            },
+            {
+                "brand": "RENAULT",
+                "model": "KANGOO EXPRESS Z.E.",
+                "parc": 342
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EQS",
+                "parc": 340
+            },
+            {
+                "brand": "KIA",
+                "model": "NIRO EV",
+                "parc": 339
+            },
+            {
+                "brand": "FORD",
+                "model": "CAPRI",
+                "parc": 334
+            },
+            {
+                "brand": "BMW",
+                "model": "IX3",
+                "parc": 333
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EQC",
+                "parc": 328
+            },
+            {
+                "brand": "SKODA",
+                "model": "CITIGO",
+                "parc": 322
+            },
+            {
+                "brand": "BMW",
+                "model": "IX1",
+                "parc": 316
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EQB",
+                "parc": 314
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EVITO",
+                "parc": 305
+            },
+            {
+                "brand": "BYD",
+                "model": "ATTO 2",
+                "parc": 294
+            },
+            {
+                "brand": "MG",
+                "model": "ZS EV",
+                "parc": 285
+            },
+            {
+                "brand": "MAZDA",
+                "model": "6E",
+                "parc": 280
+            },
+            {
+                "brand": "VOLVO",
+                "model": "EX40",
+                "parc": 277
+            },
+            {
+                "brand": "OPEL",
+                "model": "CORSA",
+                "parc": 268
+            },
+            {
+                "brand": "AUDI",
+                "model": "Q4 E-TRON",
+                "parc": 262
+            },
+            {
+                "brand": "HYUNDAI",
+                "model": "IONIQ",
+                "parc": 253
+            },
+            {
+                "brand": "MAXUS",
+                "model": "E-DELIVER 3",
+                "parc": 245
+            },
+            {
+                "brand": "MG",
+                "model": "MG4 URBAN",
+                "parc": 245
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "CLA 250+",
+                "parc": 241
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ID.5",
+                "parc": 231
+            },
+            {
+                "brand": "HYUNDAI",
+                "model": "IONIQ 6",
+                "parc": 208
+            },
+            {
+                "brand": "KIA",
+                "model": "EV6",
+                "parc": 202
+            },
+            {
+                "brand": "JAGUAR",
+                "model": "I PACE",
+                "parc": 198
+            },
+            {
+                "brand": "CITROEN",
+                "model": "E-C4",
+                "parc": 179
+            },
+            {
+                "brand": "BYD",
+                "model": "SEAL",
+                "parc": 174
+            },
+            {
+                "brand": "RENAULT",
+                "model": "SCENIC E-TECH ELECTRIC",
+                "parc": 166
+            },
+            {
+                "brand": "OPEL",
+                "model": "MOKKA",
+                "parc": 162
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "TAYCAN 4S",
+                "parc": 157
+            },
+            {
+                "brand": "NISSAN",
+                "model": "E-NV200",
+                "parc": 149
+            },
+            {
+                "brand": "BMW",
+                "model": "I3S",
+                "parc": 148
+            },
+            {
+                "brand": "KIA",
+                "model": "SOUL EV",
+                "parc": 133
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "AMG EQE",
+                "parc": 125
+            },
+            {
+                "brand": "BMW",
+                "model": "I7",
+                "parc": 115
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ID.7",
+                "parc": 115
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "ESPRINTER",
+                "parc": 114
+            },
+            {
+                "brand": "VOLVO",
+                "model": "EC40",
+                "parc": 110
+            },
+            {
+                "brand": "BYD",
+                "model": "SEAL U",
+                "parc": 106
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "EXPERT",
+                "parc": 105
+            },
+            {
+                "brand": "SKODA",
+                "model": "ELROQ",
+                "parc": 105
+            },
+            {
+                "brand": "FORD",
+                "model": "TRANSIT CUSTOM",
+                "parc": 101
+            },
+            {
+                "brand": "BMW",
+                "model": "I5",
+                "parc": 98
+            },
+            {
+                "brand": "KIA",
+                "model": "EV3",
+                "parc": 98
+            },
+            {
+                "brand": "TOYOTA",
+                "model": "PROACE CITY",
+                "parc": 96
+            },
+            {
+                "brand": "NISSAN",
+                "model": "ARIYA",
+                "parc": 94
+            },
+            {
+                "brand": "SSANGYONG / KG MOBILITY",
+                "model": "TORRES EVX",
+                "parc": 94
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ID. BUZZ CARGO",
+                "parc": 87
+            },
+            {
+                "brand": "CITROEN",
+                "model": "E-BERLINGO VAN",
+                "parc": 84
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "ECITAN",
+                "parc": 80
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EQV",
+                "parc": 79
+            },
+            {
+                "brand": "AUDI",
+                "model": "Q6 E-TRON",
+                "parc": 79
+            },
+            {
+                "brand": "RENAULT",
+                "model": "4 E-TECH",
+                "parc": 77
+            },
+            {
+                "brand": "FORD",
+                "model": "TRANSIT COURIER",
+                "parc": 77
+            },
+            {
+                "brand": "TOYOTA",
+                "model": "C-HR",
+                "parc": 77
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "MACAN 4",
+                "parc": 76
+            },
+            {
+                "brand": "CUPRA",
+                "model": "BORN",
+                "parc": 75
+            },
+            {
+                "brand": "HONDA",
+                "model": "E",
+                "parc": 75
+            },
+            {
+                "brand": "JEEP",
+                "model": "AVENGER",
+                "parc": 75
+            },
+            {
+                "brand": "SUDA",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 74
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "TAYCAN",
+                "parc": 74
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "E PARTNER",
+                "parc": 73
+            },
+            {
+                "brand": "TOYOTA",
+                "model": "PROACE",
+                "parc": 72
+            },
+            {
+                "brand": "BYD",
+                "model": "ETP3",
+                "parc": 69
+            },
+            {
+                "brand": "CITROEN",
+                "model": "E-C3",
+                "parc": 65
+            },
+            {
+                "brand": "BYD",
+                "model": "ATTO 3",
+                "parc": 65
+            },
+            {
+                "brand": "AUDI",
+                "model": "E-TRON GT",
+                "parc": 63
+            },
+            {
+                "brand": "ZEEKR",
+                "model": "7X",
+                "parc": 63
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "GLC",
+                "parc": 63
+            },
+            {
+                "brand": "SSANGYONG / KG MOBILITY",
+                "model": "KORANDO E MOTION",
+                "parc": 62
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ID. BUZZ",
+                "parc": 58
+            },
+            {
+                "brand": "DFSK",
+                "model": "SERES 3",
+                "parc": 58
+            },
+            {
+                "brand": "BMW",
+                "model": "IX2",
+                "parc": 57
+            },
+            {
+                "brand": "RENAULT",
+                "model": "FLUENCE Z.E.",
+                "parc": 55
+            },
+            {
+                "brand": "CITROEN",
+                "model": "C ZERO",
+                "parc": 52
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "CRAFTER",
+                "parc": 51
+            },
+            {
+                "brand": "CITROEN",
+                "model": "JUMPY",
+                "parc": 50
+            },
+            {
+                "brand": "TESLA",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 49
+            },
+            {
+                "brand": "RENAULT",
+                "model": "MASTER E-TECH",
+                "parc": 48
+            },
+            {
+                "brand": "MINI",
+                "model": "COOPER E",
+                "parc": 45
+            },
+            {
+                "brand": "FORD",
+                "model": "TOURNEO COURIER",
+                "parc": 45
+            },
+            {
+                "brand": "AUDI",
+                "model": "Q8 E-TRON",
+                "parc": 44
+            },
+            {
+                "brand": "CUPRA",
+                "model": "TAVASCAN",
+                "parc": 43
+            },
+            {
+                "brand": "CADILLAC",
+                "model": "LYRIQ",
+                "parc": 43
+            },
+            {
+                "brand": "MITSUBISHI",
+                "model": "I MIEV",
+                "parc": 42
+            },
+            {
+                "brand": "AUDI",
+                "model": "Q8 SPORTBACK E-TRON",
+                "parc": 42
+            },
+            {
+                "brand": "CITROEN",
+                "model": "E-BERLINGO",
+                "parc": 42
+            },
+            {
+                "brand": "LYNK&CO",
+                "model": "LYNK & CO 02",
+                "parc": 42
+            },
+            {
+                "brand": "FIAT",
+                "model": "SCUDO",
+                "parc": 42
+            },
+            {
+                "brand": "VOLVO",
+                "model": "EX90",
+                "parc": 41
+            },
+            {
+                "brand": "CENNTRO",
+                "model": "LOGISTAR",
+                "parc": 40
+            },
+            {
+                "brand": "MAXUS",
+                "model": "E-DELIVER 9",
+                "parc": 40
+            },
+            {
+                "brand": "SMART",
+                "model": "ELECTRIC DRIVE",
+                "parc": 39
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "TAYCAN 4",
+                "parc": 39
+            },
+            {
+                "brand": "SMART",
+                "model": "EQ FORTWO CABRIO",
+                "parc": 38
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "ION",
+                "parc": 37
+            },
+            {
+                "brand": "MG",
+                "model": "MARVEL R ELECTRIC",
+                "parc": 37
+            },
+            {
+                "brand": "MINI",
+                "model": "ACEMAN SE",
+                "parc": 35
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "CLA 350 4MATIC",
+                "parc": 35
+            },
+            {
+                "brand": "OPEL",
+                "model": "VIVARO",
+                "parc": 35
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "B 250 E",
+                "parc": 34
+            },
+            {
+                "brand": "DS",
+                "model": "DS3 CROSSBACK",
+                "parc": 34
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "G 580",
+                "parc": 33
+            },
+            {
+                "brand": "KIA",
+                "model": "EV9",
+                "parc": 32
+            },
+            {
+                "brand": "ROLLS ROYCE",
+                "model": "SPECTRE",
+                "parc": 32
+            },
+            {
+                "brand": "CITROEN",
+                "model": "E-C4 X",
+                "parc": 31
+            },
+            {
+                "brand": "MG",
+                "model": "S5 EV",
+                "parc": 31
+            },
+            {
+                "brand": "POLESTAR",
+                "model": "POLESTAR 2",
+                "parc": 30
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "TAYCAN GTS",
+                "parc": 29
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "TAYCAN TURBO",
+                "parc": 27
+            },
+            {
+                "brand": "LEXUS",
+                "model": "UX300E",
+                "parc": 27
+            },
+            {
+                "brand": "FIAT",
+                "model": "600",
+                "parc": 27
+            },
+            {
+                "brand": "SUZUKI",
+                "model": "E VITARA",
+                "parc": 27
+            },
+            {
+                "brand": "OPEL",
+                "model": "ASTRA",
+                "parc": 26
+            },
+            {
+                "brand": "NISSAN",
+                "model": "VOLTIA",
+                "parc": 26
+            },
+            {
+                "brand": "GEELY",
+                "model": "EX5",
+                "parc": 25
+            },
+            {
+                "brand": "AUDI",
+                "model": "A6 E-TRON",
+                "parc": 25
+            },
+            {
+                "brand": "MINI",
+                "model": "ACEMAN E",
+                "parc": 24
+            },
+            {
+                "brand": "FARIZON",
+                "model": "V6E",
+                "parc": 24
+            },
+            {
+                "brand": "MG",
+                "model": "MG5",
+                "parc": 24
+            },
+            {
+                "brand": "MINI",
+                "model": "COUNTRYMAN SE ALL4",
+                "parc": 23
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ABT E-TRANSPORTER",
+                "parc": 22
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "GLB 250+",
+                "parc": 22
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "3008",
+                "parc": 21
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "AMG EQS",
+                "parc": 21
+            },
+            {
+                "brand": "CITROEN",
+                "model": "SPACETOURER",
+                "parc": 20
+            },
+            {
+                "brand": "FIAT",
+                "model": "DUCATO",
+                "parc": 20
+            },
+            {
+                "brand": "FIAT",
+                "model": "PANDA",
+                "parc": 20
+            },
+            {
+                "brand": "RENAULT",
+                "model": "TWINGO",
+                "parc": 20
+            },
+            {
+                "brand": "XPENG",
+                "model": "G9",
+                "parc": 20
+            },
+            {
+                "brand": "FIAT",
+                "model": "E-DOBLO",
+                "parc": 20
+            },
+            {
+                "brand": "LEAPMOTOR",
+                "model": "B10",
+                "parc": 20
+            },
+            {
+                "brand": "MINI",
+                "model": "COUNTRYMAN E",
+                "parc": 19
+            },
+            {
+                "brand": "SERES",
+                "model": "5",
+                "parc": 19
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "GLB 350 4MATIC",
+                "parc": 19
+            },
+            {
+                "brand": "SKYWELL",
+                "model": "ET5",
+                "parc": 18
+            },
+            {
+                "brand": "DFSK",
+                "model": "EC35",
+                "parc": 18
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "MACAN TURBO",
+                "parc": 18
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "PARTNER",
+                "parc": 17
+            },
+            {
+                "brand": "HONDA",
+                "model": "E:NY1",
+                "parc": 17
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "MACAN 4S",
+                "parc": 16
+            },
+            {
+                "brand": "LEAPMOTOR",
+                "model": "C10",
+                "parc": 16
+            },
+            {
+                "brand": "SMART",
+                "model": "#1",
+                "parc": 16
+            },
+            {
+                "brand": "OPEL",
+                "model": "COMBO E CARGO",
+                "parc": 16
+            },
+            {
+                "brand": "KIA",
+                "model": "PV5",
+                "parc": 16
+            },
+            {
+                "brand": "JAECOO",
+                "model": "JAECOO5 EV",
+                "parc": 16
+            },
+            {
+                "brand": "XPENG",
+                "model": "G6",
+                "parc": 16
+            },
+            {
+                "brand": "LOTUS",
+                "model": "ELETRE",
+                "parc": 15
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "TAYCAN TURBO S",
+                "parc": 15
+            },
+            {
+                "brand": "GENESIS",
+                "model": "GV60",
+                "parc": 15
+            },
+            {
+                "brand": "MAXUS",
+                "model": "EDELIVER 5",
+                "parc": 15
+            },
+            {
+                "brand": "KIA",
+                "model": "EV4",
+                "parc": 15
+            },
+            {
+                "brand": "LEXUS",
+                "model": "RZ450E",
+                "parc": 14
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "EQT",
+                "parc": 13
+            },
+            {
+                "brand": "FIAT",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 13
+            },
+            {
+                "brand": "ALFA ROMEO",
+                "model": "JUNIOR",
+                "parc": 12
+            },
+            {
+                "brand": "SOMMER",
+                "model": "TA",
+                "parc": 11
+            },
+            {
+                "brand": "THINK",
+                "model": "CITY",
+                "parc": 11
+            },
+            {
+                "brand": "NISSAN",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 11
+            },
+            {
+                "brand": "KIA",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 11
+            },
+            {
+                "brand": "MG",
+                "model": "CYBERSTER",
+                "parc": 11
+            },
+            {
+                "brand": "RENAULT",
+                "model": "TRAFIC E-TECH",
+                "parc": 11
+            },
+            {
+                "brand": "ZEEKR",
+                "model": "001",
+                "parc": 11
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ID. POLO 155KW",
+                "parc": 11
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "ELECTRIC DRIVE",
+                "parc": 10
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "MACAN",
+                "parc": 10
+            },
+            {
+                "brand": "MAXUS",
+                "model": "EDELIVER 7",
+                "parc": 10
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "E RIFTER",
+                "parc": 9
+            },
+            {
+                "brand": "MAN",
+                "model": "TGE",
+                "parc": 9
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "TRAVELLER",
+                "parc": 9
+            },
+            {
+                "brand": "CITROEN",
+                "model": "E-C3 AIRCROSS",
+                "parc": 9
+            },
+            {
+                "brand": "OMODA",
+                "model": "OMODA5 EV",
+                "parc": 9
+            },
+            {
+                "brand": "VOLVO",
+                "model": "ES90",
+                "parc": 9
+            },
+            {
+                "brand": "MAZDA",
+                "model": "CX 6E",
+                "parc": 9
+            },
+            {
+                "brand": "BMW",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 8
+            },
+            {
+                "brand": "FAW",
+                "model": "EHS9",
+                "parc": 8
+            },
+            {
+                "brand": "SEAT",
+                "model": "MII",
+                "parc": 8
+            },
+            {
+                "brand": "MINI",
+                "model": "JCW E",
+                "parc": 8
+            },
+            {
+                "brand": "POLESTAR",
+                "model": "POLESTAR 4",
+                "parc": 8
+            },
+            {
+                "brand": "PIAGGIO",
+                "model": "PORTER",
+                "parc": 7
+            },
+            {
+                "brand": "SERES",
+                "model": "3",
+                "parc": 7
+            },
+            {
+                "brand": "FISKER",
+                "model": "OCEAN",
+                "parc": 7
+            },
+            {
+                "brand": "STREETSCOOTER",
+                "model": "WORK",
+                "parc": 7
+            },
+            {
+                "brand": "OPEL",
+                "model": "FRONTERA",
+                "parc": 7
+            },
+            {
+                "brand": "MG",
+                "model": "ZS",
+                "parc": 7
+            },
+            {
+                "brand": "KIA",
+                "model": "EV2",
+                "parc": 7
+            },
+            {
+                "brand": "ZEEKR",
+                "model": "7GT",
+                "parc": 7
+            },
+            {
+                "brand": "DACIA",
+                "model": "LOGAN",
+                "parc": 6
+            },
+            {
+                "brand": "JAC",
+                "model": "IEV7S",
+                "parc": 6
+            },
+            {
+                "brand": "OPEL",
+                "model": "AMPERA E",
+                "parc": 6
+            },
+            {
+                "brand": "NIO",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 6
+            },
+            {
+                "brand": "ZEEKR",
+                "model": "X",
+                "parc": 6
+            },
+            {
+                "brand": "DFSK",
+                "model": "EC31",
+                "parc": 5
+            },
+            {
+                "brand": "IVECO",
+                "model": "35S14E",
+                "parc": 5
+            },
+            {
+                "brand": "GMC",
+                "model": "HUMMER EV",
+                "parc": 5
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 5
+            },
+            {
+                "brand": "JAC",
+                "model": "T9EV",
+                "parc": 5
+            },
+            {
+                "brand": "FARIZON",
+                "model": "SV",
+                "parc": 5
+            },
+            {
+                "brand": "NECUNOSCUT",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 5
+            },
+            {
+                "brand": "SSANGYONG / KG MOBILITY",
+                "model": "KG MOBILITY MUSSO EV",
+                "parc": 5
+            },
+            {
+                "brand": "JIAYUAN",
+                "model": "KOMI",
+                "parc": 4
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "106",
+                "parc": 4
+            },
+            {
+                "brand": "SKODA",
+                "model": "OCTAVIA",
+                "parc": 4
+            },
+            {
+                "brand": "CITROEN",
+                "model": "JUMPY SPACE TOURER",
+                "parc": 4
+            },
+            {
+                "brand": "MINI",
+                "model": "JCW ACEMAN E",
+                "parc": 4
+            },
+            {
+                "brand": "SUBARU",
+                "model": "SOLTERRA",
+                "parc": 4
+            },
+            {
+                "brand": "ABARTH",
+                "model": "500",
+                "parc": 4
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "TRANSPORTER",
+                "parc": 4
+            },
+            {
+                "brand": "NIO",
+                "model": "ET5",
+                "parc": 4
+            },
+            {
+                "brand": "DODGE",
+                "model": "CHARGER DAYTONA",
+                "parc": 4
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "CLA 200",
+                "parc": 4
+            },
+            {
+                "brand": "KING LONG",
+                "model": "E CARGO 10",
+                "parc": 4
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "CAYENNE",
+                "parc": 4
+            },
+            {
+                "brand": "CITROEN",
+                "model": "SAXO",
+                "parc": 3
+            },
+            {
+                "brand": "E.GO",
+                "model": "LIFE",
+                "parc": 3
+            },
+            {
+                "brand": "IVECO",
+                "model": "DAILY",
+                "parc": 3
+            },
+            {
+                "brand": "LEXUS",
+                "model": "RX500H",
+                "parc": 3
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "SPRINTER",
+                "parc": 3
+            },
+            {
+                "brand": "TAZZARI",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 3
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "E-GOLF",
+                "parc": 3
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "ID.6",
+                "parc": 3
+            },
+            {
+                "brand": "AIWAYS",
+                "model": "U5",
+                "parc": 3
+            },
+            {
+                "brand": "BYD",
+                "model": "HAN",
+                "parc": 3
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "5008",
+                "parc": 3
+            },
+            {
+                "brand": "FEST",
+                "model": "M",
+                "parc": 3
+            },
+            {
+                "brand": "FIAT",
+                "model": "ULYSSE",
+                "parc": 3
+            },
+            {
+                "brand": "FORD",
+                "model": "FOCUS ELECTRIC",
+                "parc": 3
+            },
+            {
+                "brand": "FORD",
+                "model": "TOURNEO CUSTOM",
+                "parc": 3
+            },
+            {
+                "brand": "OPEL",
+                "model": "GRANDLAND",
+                "parc": 3
+            },
+            {
+                "brand": "NIO",
+                "model": "ET7",
+                "parc": 3
+            },
+            {
+                "brand": "JAC",
+                "model": "E30X",
+                "parc": 3
+            },
+            {
+                "brand": "DS",
+                "model": "N\u00b08",
+                "parc": 3
+            },
+            {
+                "brand": "IVECO",
+                "model": "ESUPERJOLLY",
+                "parc": 3
+            },
+            {
+                "brand": "GREAT WALL MOTOR",
+                "model": "ORA FUNKY CAT",
+                "parc": 3
+            },
+            {
+                "brand": "NIO",
+                "model": "EL7",
+                "parc": 3
+            },
+            {
+                "brand": "KIA",
+                "model": "EV5",
+                "parc": 3
+            },
+            {
+                "brand": "LEXUS",
+                "model": "RZ550E",
+                "parc": 3
+            },
+            {
+                "brand": "FEIDI",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 3
+            },
+            {
+                "brand": "OFFICINE CUCINI",
+                "model": "PORTER OC NP6/S C",
+                "parc": 3
+            },
+            {
+                "brand": "MAXUS",
+                "model": "EUNIQ 6",
+                "parc": 2
+            },
+            {
+                "brand": "ALKE`",
+                "model": "ATX320E",
+                "parc": 2
+            },
+            {
+                "brand": "BLUECAR",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 2
+            },
+            {
+                "brand": "CHEVROLET",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 2
+            },
+            {
+                "brand": "CITROEN",
+                "model": "E MEHARI",
+                "parc": 2
+            },
+            {
+                "brand": "CITROEN",
+                "model": "E-JUMPER",
+                "parc": 2
+            },
+            {
+                "brand": "DS",
+                "model": "3",
+                "parc": 2
+            },
+            {
+                "brand": "DS",
+                "model": "DS3",
+                "parc": 2
+            },
+            {
+                "brand": "GARIA",
+                "model": "MELEX N.50 N1 LWB",
+                "parc": 2
+            },
+            {
+                "brand": "GENESIS",
+                "model": "G80",
+                "parc": 2
+            },
+            {
+                "brand": "JAGUAR",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 2
+            },
+            {
+                "brand": "LEXUS",
+                "model": "NX350H",
+                "parc": 2
+            },
+            {
+                "brand": "OPEL",
+                "model": "COMBO E LIFE",
+                "parc": 2
+            },
+            {
+                "brand": "SHINERAY",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 2
+            },
+            {
+                "brand": "SMART",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 2
+            },
+            {
+                "brand": "STREETSCOOTER",
+                "model": "B14 POST",
+                "parc": 2
+            },
+            {
+                "brand": "SUZUKI",
+                "model": "SWIFT",
+                "parc": 2
+            },
+            {
+                "brand": "TESLA",
+                "model": "ROADSTER",
+                "parc": 2
+            },
+            {
+                "brand": "TRABANT",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 2
+            },
+            {
+                "brand": "AVATR",
+                "model": "11",
+                "parc": 2
+            },
+            {
+                "brand": "DACIA",
+                "model": "BIGSTER",
+                "parc": 2
+            },
+            {
+                "brand": "L CITY",
+                "model": "KOFFER",
+                "parc": 2
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "AMG G 63",
+                "parc": 2
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 2
+            },
+            {
+                "brand": "NIO",
+                "model": "ES8",
+                "parc": 2
+            },
+            {
+                "brand": "AVATR",
+                "model": "12",
+                "parc": 2
+            },
+            {
+                "brand": "BYD",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 2
+            },
+            {
+                "brand": "SSANGYONG / KG MOBILITY",
+                "model": "MUSSO EV",
+                "parc": 2
+            },
+            {
+                "brand": "BYD",
+                "model": "ATTO 2 DM I",
+                "parc": 2
+            },
+            {
+                "brand": "BYD",
+                "model": "ATTO 3 EVO",
+                "parc": 2
+            },
+            {
+                "brand": "KING LONG",
+                "model": "E CARGO 7",
+                "parc": 2
+            },
+            {
+                "brand": "SMART",
+                "model": "#3",
+                "parc": 2
+            },
+            {
+                "brand": "XIAOMI",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 2
+            },
+            {
+                "brand": "FARIZON",
+                "model": "V7E",
+                "parc": 2
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "CAYENNE TURBO",
+                "parc": 2
+            },
+            {
+                "brand": "TESLA",
+                "model": "MODELS",
+                "parc": 2
+            },
+            {
+                "brand": "DACIA",
+                "model": "DUSTER",
+                "parc": 2
+            },
+            {
+                "brand": "ROLLS ROYCE",
+                "model": "BLACK BADGE SPECTRE",
+                "parc": 2
+            },
+            {
+                "brand": "FORD",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 2
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "C 400 4MATIC ELECTRIC",
+                "parc": 2
+            },
+            {
+                "brand": "SUBARU",
+                "model": "UNCHARTED",
+                "parc": 2
+            },
+            {
+                "brand": "ABT E LINE",
+                "model": "E TRANSPORTER",
+                "parc": 1
+            },
+            {
+                "brand": "ALKE`",
+                "model": "ATX",
+                "parc": 1
+            },
+            {
+                "brand": "ALPINE",
+                "model": "AMPERE SAS",
+                "parc": 1
+            },
+            {
+                "brand": "BMW",
+                "model": "X5 XDRIVE40D",
+                "parc": 1
+            },
+            {
+                "brand": "BYD",
+                "model": "DOLPHIN",
+                "parc": 1
+            },
+            {
+                "brand": "CENNTRO",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "CITROEN",
+                "model": "C1",
+                "parc": 1
+            },
+            {
+                "brand": "DACIA",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "DFSK",
+                "model": "EC75",
+                "parc": 1
+            },
+            {
+                "brand": "EDWARD DAVIES COMMERCIALS",
+                "model": "TRANSIT CUSTOM",
+                "parc": 1
+            },
+            {
+                "brand": "ESAGONO ENERGIA",
+                "model": "GASTONE",
+                "parc": 1
+            },
+            {
+                "brand": "FORD",
+                "model": "FOCUS",
+                "parc": 1
+            },
+            {
+                "brand": "FUSO",
+                "model": "E CANTER",
+                "parc": 1
+            },
+            {
+                "brand": "GENESIS",
+                "model": "GV70",
+                "parc": 1
+            },
+            {
+                "brand": "GENESIS",
+                "model": "GV70.GENESIS GV70",
+                "parc": 1
+            },
+            {
+                "brand": "GMC",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "GOUPIL",
+                "model": "G3",
+                "parc": 1
+            },
+            {
+                "brand": "HONGQI",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "HOZON",
+                "model": "X",
+                "parc": 1
+            },
+            {
+                "brand": "HUMMER",
+                "model": "EV",
+                "parc": 1
+            },
+            {
+                "brand": "HYUNDAI",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "IVECO",
+                "model": "35S+14E",
+                "parc": 1
+            },
+            {
+                "brand": "IVECO",
+                "model": "50C80E",
+                "parc": 1
+            },
+            {
+                "brand": "JEAMEAN",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "JENHOO",
+                "model": "HUDSON EV",
+                "parc": 1
+            },
+            {
+                "brand": "KAMA",
+                "model": "ES7",
+                "parc": 1
+            },
+            {
+                "brand": "L CITY",
+                "model": "PICKUP",
+                "parc": 1
+            },
+            {
+                "brand": "LUCID",
+                "model": "AIR",
+                "parc": 1
+            },
+            {
+                "brand": "LUCID",
+                "model": "GRAND TOURING",
+                "parc": 1
+            },
+            {
+                "brand": "MAN",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "MASERATI",
+                "model": "GRECALE FOLGORE",
+                "parc": 1
+            },
+            {
+                "brand": "MAXUS",
+                "model": "ETERRON 9",
+                "parc": 1
+            },
+            {
+                "brand": "MAXUS",
+                "model": "MIFA 9",
+                "parc": 1
+            },
+            {
+                "brand": "MAXUS",
+                "model": "T90 EV",
+                "parc": 1
+            },
+            {
+                "brand": "MAXUS",
+                "model": "V80",
+                "parc": 1
+            },
+            {
+                "brand": "MAZDA",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "GLE 400 E 4MATIC COUPE",
+                "parc": 1
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "SPRINTER 313CDI",
+                "parc": 1
+            },
+            {
+                "brand": "MG",
+                "model": "MG3 HYBRID+",
+                "parc": 1
+            },
+            {
+                "brand": "MIA",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "NETA",
+                "model": "AYA",
+                "parc": 1
+            },
+            {
+                "brand": "NETA",
+                "model": "GT",
+                "parc": 1
+            },
+            {
+                "brand": "NETA",
+                "model": "U",
+                "parc": 1
+            },
+            {
+                "brand": "NISSAN",
+                "model": "ATLEON 35.15",
+                "parc": 1
+            },
+            {
+                "brand": "NISSAN",
+                "model": "TOWNSTAR",
+                "parc": 1
+            },
+            {
+                "brand": "OLTCIT",
+                "model": "CLUB",
+                "parc": 1
+            },
+            {
+                "brand": "OPEL",
+                "model": "ASTRA SPORTS TOURER",
+                "parc": 1
+            },
+            {
+                "brand": "OPEL",
+                "model": "CORSA B",
+                "parc": 1
+            },
+            {
+                "brand": "OPEL",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "106STE",
+                "parc": 1
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "BOXER",
+                "parc": 1
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "EXPERT TRAVELLER",
+                "parc": 1
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "PIAGGIO",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "911SC",
+                "parc": 1
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "944",
+                "parc": 1
+            },
+            {
+                "brand": "PORSCHE",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "RENAULT",
+                "model": "MASTER",
+                "parc": 1
+            },
+            {
+                "brand": "ROLLS ROYCE",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "SKODA",
+                "model": "KODIAQ",
+                "parc": 1
+            },
+            {
+                "brand": "SMART",
+                "model": "BRABUS 92R EDITION 423",
+                "parc": 1
+            },
+            {
+                "brand": "SMART",
+                "model": "ROADSTER COUPER",
+                "parc": 1
+            },
+            {
+                "brand": "STREETSCOOTER",
+                "model": "WORK L",
+                "parc": 1
+            },
+            {
+                "brand": "SUZUKI",
+                "model": "STROMOS",
+                "parc": 1
+            },
+            {
+                "brand": "TESLA",
+                "model": "S",
+                "parc": 1
+            },
+            {
+                "brand": "THINK",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "TOYOTA",
+                "model": "CAMRY",
+                "parc": 1
+            },
+            {
+                "brand": "TOYOTA",
+                "model": "COROLLA",
+                "parc": 1
+            },
+            {
+                "brand": "VOLKSKWAGEN",
+                "model": "ID.7 PRO 210KW",
+                "parc": 1
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "1300",
+                "parc": 1
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "TOUAREG EHYBRID",
+                "parc": 1
+            },
+            {
+                "brand": "VOLVO",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "VOLVO",
+                "model": "XC60",
+                "parc": 1
+            },
+            {
+                "brand": "XPENG",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "YUEDA HUMAN HORIZONS",
+                "model": "HIPHI Z",
+                "parc": 1
+            },
+            {
+                "brand": "AVANTIER",
+                "model": "COMMUTER",
+                "parc": 1
+            },
+            {
+                "brand": "CHEVROLET",
+                "model": "EQUINOX EV",
+                "parc": 1
+            },
+            {
+                "brand": "LEXUS",
+                "model": "RZ300E",
+                "parc": 1
+            },
+            {
+                "brand": "AUDI",
+                "model": "SQ5 SB",
+                "parc": 1
+            },
+            {
+                "brand": "CAVAN",
+                "model": "C1 BJ5031XXYEVZC",
+                "parc": 1
+            },
+            {
+                "brand": "MAZDA",
+                "model": "MAZDA3",
+                "parc": 1
+            },
+            {
+                "brand": "MICRO VETT",
+                "model": "FIORINO ELETTRICO",
+                "parc": 1
+            },
+            {
+                "brand": "SUZUKI",
+                "model": "VITARA",
+                "parc": 1
+            },
+            {
+                "brand": "CHERY",
+                "model": "TIGGO9",
+                "parc": 1
+            },
+            {
+                "brand": "LAMBORGHINI",
+                "model": "URUS",
+                "parc": 1
+            },
+            {
+                "brand": "AUDI",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "AVATR",
+                "model": "06",
+                "parc": 1
+            },
+            {
+                "brand": "IVECO",
+                "model": "35S10E",
+                "parc": 1
+            },
+            {
+                "brand": "LUCID",
+                "model": "GRAVITY",
+                "parc": 1
+            },
+            {
+                "brand": "SUZUKI",
+                "model": "S CROSS",
+                "parc": 1
+            },
+            {
+                "brand": "ABARTH",
+                "model": "600E",
+                "parc": 1
+            },
+            {
+                "brand": "ELARIS",
+                "model": "PIO",
+                "parc": 1
+            },
+            {
+                "brand": "OMODA",
+                "model": "9",
+                "parc": 1
+            },
+            {
+                "brand": "POLESTAR",
+                "model": "POLESTAR 3",
+                "parc": 1
+            },
+            {
+                "brand": "SMART",
+                "model": "#5",
+                "parc": 1
+            },
+            {
+                "brand": "VNFS",
+                "model": "MODEL NECUNOSCUT",
+                "parc": 1
+            },
+            {
+                "brand": "BYD",
+                "model": "SEAL 5 DM",
+                "parc": 1
+            },
+            {
+                "brand": "CHERY",
+                "model": "TIGGO4 HYBRID",
+                "parc": 1
+            },
+            {
+                "brand": "NIO",
+                "model": "EL6",
+                "parc": 1
+            },
+            {
+                "brand": "TOYOTA",
+                "model": "PROACE MAX",
+                "parc": 1
+            },
+            {
+                "brand": "DODGE",
+                "model": "CXA",
+                "parc": 1
+            },
+            {
+                "brand": "LEXUS",
+                "model": "UX 300E",
+                "parc": 1
+            },
+            {
+                "brand": "PEUGEOT",
+                "model": "E PARTENER",
+                "parc": 1
+            },
+            {
+                "brand": "VOLKSWAGEN",
+                "model": "CARAVELLE",
+                "parc": 1
+            },
+            {
+                "brand": "XIA0MI",
+                "model": "YU7",
+                "parc": 1
+            },
+            {
+                "brand": "BYD",
+                "model": "TANG EV",
+                "parc": 1
+            },
+            {
+                "brand": "MERCEDES-BENZ",
+                "model": "GLB 200",
+                "parc": 1
+            },
+            {
+                "brand": "VOLVO",
+                "model": "EX60",
+                "parc": 1
+            },
+            {
+                "brand": "CUPRA",
+                "model": "RAVAL 166KW",
+                "parc": 1
+            },
+            {
+                "brand": "CUPRA",
+                "model": "RAVAL 99KW",
+                "parc": 1
+            },
+            {
+                "brand": "DONGFENG",
+                "model": "NAMI06",
+                "parc": 1
+            },
+            {
+                "brand": "GENESIS",
+                "model": "GV70 GENESIS",
+                "parc": 1
+            },
+            {
+                "brand": "GREAT WALL",
+                "model": "ORA FUNKY CAT",
+                "parc": 1
+            },
+            {
+                "brand": "LEXUS",
+                "model": "ES350E",
+                "parc": 1
+            },
+            {
+                "brand": "SPIER",
+                "model": "ETGE ATHLET",
+                "parc": 1
+            },
+            {
+                "brand": "XIA0MI",
+                "model": "YU7 MAX",
+                "parc": 1
+            },
+            {
+                "brand": "XIAOMI",
+                "model": "SU7 ULTRA",
+                "parc": 1
+            }
+        ],
+        "totals": {
+            "ytdRegistrations": 13324,
+            "fleet": 76217
+        },
+        "fleetAsOf": "2026-09",
+        "fleetAvailable": true
     }
 }
