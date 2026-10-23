@@ -1,129 +1,549 @@
 {
     "schemaVersion": 2,
-    "generatedAt": "2026-10-05T13:13:14.743187+03:00",
+    "generatedAt": "2026-10-23T10:55:25.201598+03:00",
     "metric": "bev-only-charging-readiness",
     "definition": "Comparatie BEV: densitatea punctelor DC rapide si puterea publica instalata per autoturism BEV M1",
-    "infrastructureAsOf": "2026-08-31",
+    "infrastructureAsOf": "2026-09-30",
     "fleetAsOf": "2026-Q2",
+    "powerAsOf": "2026-05-31",
     "populationAsOf": "2025-01-01",
     "scopeCaveat": "Indicatorii folosesc exclusiv parcul BEV M1 si nu reprezinta calculul legal complet al conformitatii AFIR.",
     "source": {
         "organization": "European Alternative Fuels Observatory (EAFO) și Eurostat",
-        "infrastructureUrl": "https://alternative-fuels-observatory.ec.europa.eu/general-information/news/eafo-data-update-news-flash-september-2026",
+        "infrastructureUrl": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/european-union-eu27/country-comparison",
         "fleetUrl": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/european-union-eu27/country-comparison",
         "powerUrl": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/european-union-eu27/target-tracker",
         "populationUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?lang=en&sex=T&age=TOTAL&unit=NR&time=2025&geo=AT&geo=BG&geo=CZ&geo=EE&geo=EL&geo=HR&geo=HU&geo=LT&geo=LV&geo=PL&geo=RO&geo=SI&geo=SK",
         "methodologyUrl": "https://alternative-fuels-observatory.ec.europa.eu/general-information/frequently-asked-questions",
-        "infrastructureSha256": "4f12a445f5da428b85aa46d76906cff28102008527e1d8502626674bc1a37dbf",
-        "fleetSha256": "fd12c016f892cad1b3c88c574d7cbb57f12fa23180de6aa434c05de400aa3d93",
-        "powerSha256": "c0c705eb28a0f595126df43379aa7057d3c33df09ae401ef10e3c4406709013e",
-        "populationSha256": "f1169e4b39cf4a6f4800661b69375ffc6806db91b22e72336d8f02d097ed4257"
+        "infrastructureSha256": "0321e8146efd04c9b26ae6a796d37f54e0f0fa7c80fc1d114a162ebc821e8cb7",
+        "fleetSha256": "234c65aa64f833c53b7e18a5f9ec193dd5d75550b252a13354d9397cc22f5ff8",
+        "powerSha256": "c2283d2979ddd61a735316a675f10582848fd4f9d6e461cdf30596c3c3685eab",
+        "populationSha256": "f1169e4b39cf4a6f4800661b69375ffc6806db91b22e72336d8f02d097ed4257",
+        "countryExports": {
+            "AT": [
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/austria/infrastructure",
+                    "file": "AT-infrastructure.html",
+                    "sha256": "6eab5c6d3e20099218058cf01a2a578bdae42e433d14cff10ce1867981ddbad1"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/austria/ac_public_recharging_points_afir.csv?token=1792403735",
+                    "file": "AT-ac.csv",
+                    "sha256": "c7c7a973dc28bb4299cb240c7b4f0b0b78785fad905fc213adfa428201abe286"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/austria/dc_public_recharging_points_afir.csv?token=1792403735",
+                    "file": "AT-dc.csv",
+                    "sha256": "bdf3c882d6c9d48ec3817f10018f14567980e084c5982bef8baeb1c91dad5d7e"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/austria/recharging_points_afir.csv?token=1792403735",
+                    "file": "AT-total.csv",
+                    "sha256": "5a59bccaf8d008c73d29b724ce9359b9047b050b93619c5bb09b18411c4b8ca7"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/austria/vehicles-and-fleet",
+                    "file": "AT-fleet.html",
+                    "sha256": "fc284099e00e849305ba57bc5292e958455e63561db1954b569d525666d6b913"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/austria/fleet_m1_total_number.csv?token=1792403735",
+                    "file": "AT-fleet.csv",
+                    "sha256": "33f93c4b07ea9535be016f29886ac730ddabb3fbdc95794174cc6a60518cac51"
+                }
+            ],
+            "BG": [
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/bulgaria/infrastructure",
+                    "file": "BG-infrastructure.html",
+                    "sha256": "1c67ca046a416c72cd4c3ef6efacb75be2a9c6ab6e54667b07fcb32377975fd7"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/bulgaria/ac_public_recharging_points_afir.csv?token=1792404776",
+                    "file": "BG-ac.csv",
+                    "sha256": "335624c65b6ec756403e9bf0fe13c8f62ee75ccfc2e7fc80251bfc2a775b2789"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/bulgaria/dc_public_recharging_points_afir.csv?token=1792404776",
+                    "file": "BG-dc.csv",
+                    "sha256": "1d9f2c71f38cb11eb48ea9ba2dcce44e6b800d7a32364089318fc1d9c24e1884"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/bulgaria/recharging_points_afir.csv?token=1792404776",
+                    "file": "BG-total.csv",
+                    "sha256": "0c6921926565b82abc506b9a24f24903bd94920ec023eb98326b30418244d8e6"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/bulgaria/vehicles-and-fleet",
+                    "file": "BG-fleet.html",
+                    "sha256": "62c47a296e8d20222badcf0eb9619a6083725d5763cae5a4e0d062135162eec5"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/bulgaria/fleet_m1_total_number.csv?token=1792404749",
+                    "file": "BG-fleet.csv",
+                    "sha256": "74e987ac7c2341f6003e0f443cc9e06f03dd8ee200f92c070c8c9301f337bfba"
+                }
+            ],
+            "CZ": [
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/czech-republic/infrastructure",
+                    "file": "CZ-infrastructure.html",
+                    "sha256": "e9dc189bca03dbce5c56eb5ac95ef84d89790a5bb8ea3b84eac09ba49c216f8e"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/czech-republic/ac_public_recharging_points_afir.csv?token=1792409492",
+                    "file": "CZ-ac.csv",
+                    "sha256": "b3bd745f9aaa26214eda2698776cf34a169a7b97e2d28162f9b4c9cb475736a5"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/czech-republic/dc_public_recharging_points_afir.csv?token=1792409492",
+                    "file": "CZ-dc.csv",
+                    "sha256": "bd3e1f6c5061ca40a5e868f44825458bfcb225da23c2726655afc9be8000133a"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/czech-republic/recharging_points_afir.csv?token=1792409492",
+                    "file": "CZ-total.csv",
+                    "sha256": "c3a50c2fb5831d12a48353863d02a1179046a493a5b45a5155cdc16b4896e051"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/czech-republic/vehicles-and-fleet",
+                    "file": "CZ-fleet.html",
+                    "sha256": "c66cefe04a0d27298600e78354b4a96d7292af1020d2f0d895223cd52d1aa357"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/czech-republic/fleet_m1_total_number.csv?token=1792405874",
+                    "file": "CZ-fleet.csv",
+                    "sha256": "74922d1e71a5e958cf579f4bfbdedd69bfa028293dbdc0d78b0016b435df8479"
+                }
+            ],
+            "EE": [
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/estonia/infrastructure",
+                    "file": "EE-infrastructure.html",
+                    "sha256": "ce46e14df1851101ff23b877a59e44372e7947618fc0a851f0cb669ccd26cb2b"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/estonia/ac_public_recharging_points_afir.csv?token=1792409496",
+                    "file": "EE-ac.csv",
+                    "sha256": "8065f67c2d073b4044cbdee89ba70e42e4688279d45e73c7ac1fe05fd1fadfcc"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/estonia/dc_public_recharging_points_afir.csv?token=1792409496",
+                    "file": "EE-dc.csv",
+                    "sha256": "567c1207ada3979a98577bfb35e7ef5d06ee5b25e047ffd4bb603015ebb70af7"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/estonia/recharging_points_afir.csv?token=1792409496",
+                    "file": "EE-total.csv",
+                    "sha256": "625b44aa253fa9dce64c892f516cbf76dd5948d69e29a8e3597d480be031015d"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/estonia/vehicles-and-fleet",
+                    "file": "EE-fleet.html",
+                    "sha256": "faa9c56af5c02c693a47375c6b22dab79890e2f924cc615fdee8d98ee84c0476"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/estonia/fleet_m1_total_number.csv?token=1792404205",
+                    "file": "EE-fleet.csv",
+                    "sha256": "1a5738597130578c4a75b5a8b517912f0e336099ea0feebcffdba14a2633e663"
+                }
+            ],
+            "GR": [
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/greece/infrastructure",
+                    "file": "GR-infrastructure.html",
+                    "sha256": "bd096c9ced318cb5c6d7ad0a111ff2f507df57fe96b2f549c40986be15f2cbfb"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/greece/ac_public_recharging_points_afir.csv?token=1792409504",
+                    "file": "GR-ac.csv",
+                    "sha256": "e237226f7ccb752784c7ebc9dcab775c9aa96d3de5250b27bb5981b72b6c07c3"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/greece/dc_public_recharging_points_afir.csv?token=1792409504",
+                    "file": "GR-dc.csv",
+                    "sha256": "ea8db46668a9b552543e872dbc525f7f566c255ec9c82b904aa0e319c0410434"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/greece/recharging_points_afir.csv?token=1792409504",
+                    "file": "GR-total.csv",
+                    "sha256": "77660e8a2a3e75ad3ccf5591b9dabc4dc6207883cf9bfd63dc63380c56365b3b"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/greece/vehicles-and-fleet",
+                    "file": "GR-fleet.html",
+                    "sha256": "4d81b67dade7b97f8b0ea2625efb01aa61660f4d6d60d5108903f8632c073801"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/greece/fleet_m1_total_number.csv?token=1792403387",
+                    "file": "GR-fleet.csv",
+                    "sha256": "81a5afad189724ccada554a2892bab4ba0e86f4ae1c73b04b74590c2a5efac15"
+                }
+            ],
+            "HR": [
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/croatia/infrastructure",
+                    "file": "HR-infrastructure.html",
+                    "sha256": "93162439a95f72dc4b35144eb679644720ee9103abac972ff1b448abddeb926e"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/croatia/ac_public_recharging_points_afir.csv?token=1792404941",
+                    "file": "HR-ac.csv",
+                    "sha256": "5a5a60b4a63d3a94a30b9dc6a3150a7166bed0429760b2496f6265024d087531"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/croatia/dc_public_recharging_points_afir.csv?token=1792404941",
+                    "file": "HR-dc.csv",
+                    "sha256": "55b4e45da94b3e5ec55ffc009b517305ea5b079e50560ed728cff4656bdd9d7d"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/croatia/recharging_points_afir.csv?token=1792404941",
+                    "file": "HR-total.csv",
+                    "sha256": "ce386027f95b2b179f74b10c97b6dcbe24e5cafed827d3bd8a22049f3353c8fd"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/croatia/vehicles-and-fleet",
+                    "file": "HR-fleet.html",
+                    "sha256": "8152aa7d689b776ceb4cc4f9ede3e1883e73c3acaf972dec04b8e6f2f1adadbf"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/croatia/fleet_m1_total_number.csv?token=1792404001",
+                    "file": "HR-fleet.csv",
+                    "sha256": "ced1525427dc2b8ce9e8aa19fc76cae259deaa0f39239ae023982a709059d3ad"
+                }
+            ],
+            "HU": [
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/hungary/infrastructure",
+                    "file": "HU-infrastructure.html",
+                    "sha256": "8767a8c11bc2d89ccdb18c4f31f7b75c7ce72a33f489db4501509005c65edc34"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/hungary/ac_public_recharging_points_afir.csv?token=1792407975",
+                    "file": "HU-ac.csv",
+                    "sha256": "3fc9708649970add9897e5c41afe4daef8c4353ebe2ce162f4b79826b211ab57"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/hungary/dc_public_recharging_points_afir.csv?token=1792407975",
+                    "file": "HU-dc.csv",
+                    "sha256": "a7d4b65eb7ae95a85177f14187af2f4d9971ff707e09cdc9685b8c3fad818016"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/hungary/recharging_points_afir.csv?token=1792407975",
+                    "file": "HU-total.csv",
+                    "sha256": "0fa79b38a042316ddd02db874c933eef18d3939daa91c0eb71de92f273155315"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/hungary/vehicles-and-fleet",
+                    "file": "HU-fleet.html",
+                    "sha256": "aa1d2ab9359ca90f30845e5813b0272812e6c15579bff66e091685ca60331cb0"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/hungary/fleet_m1_total_number.csv?token=1792403545",
+                    "file": "HU-fleet.csv",
+                    "sha256": "58fbae42a62f33d4a9314ed7b74663c4023ef0073851c3ac33d670f84c89a6f1"
+                }
+            ],
+            "LT": [
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/lithuania/infrastructure",
+                    "file": "LT-infrastructure.html",
+                    "sha256": "7874e8b9b52beee351ffca307d6cab6f18d4b485f33107cd440b1c0d559b5b88"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/lithuania/ac_public_recharging_points_afir.csv?token=1792409514",
+                    "file": "LT-ac.csv",
+                    "sha256": "b82dc4d3ba22679ae335aad67c1ffe4c2b9ea4fb8c8a7c9ea98af6adf3dd6f27"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/lithuania/dc_public_recharging_points_afir.csv?token=1792409514",
+                    "file": "LT-dc.csv",
+                    "sha256": "abc39c1131fb6c290818489271b2e73c91e6547036dbba34ae3be05808805a56"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/lithuania/recharging_points_afir.csv?token=1792409514",
+                    "file": "LT-total.csv",
+                    "sha256": "04d9587b9f21cd5ac7a073b5e38140eadde0d22ff219d2f85dbd6d8f4e91ab70"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/lithuania/vehicles-and-fleet",
+                    "file": "LT-fleet.html",
+                    "sha256": "28da5b4cf9e3f91e97e0f952756804aed080afa3d1b0af356de0acdcec3d8f28"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/lithuania/fleet_m1_total_number.csv?token=1792405221",
+                    "file": "LT-fleet.csv",
+                    "sha256": "1665a2aa8f99d9e7f13acc43734f15fc501e2bbd69508ebe2f6d941f74c922d3"
+                }
+            ],
+            "LV": [
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/latvia/infrastructure",
+                    "file": "LV-infrastructure.html",
+                    "sha256": "4b5a1fd056cb7d810e119f71a412101f43ea0717ad56d672efcbf179dc18fe34"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/latvia/ac_public_recharging_points_afir.csv?token=1792409512",
+                    "file": "LV-ac.csv",
+                    "sha256": "b3fe778edc3a41445fbda9c24acd6b8695431487e1f5ae2e45562ab62e7e247e"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/latvia/dc_public_recharging_points_afir.csv?token=1792409512",
+                    "file": "LV-dc.csv",
+                    "sha256": "721bcc417c30b5e9e5ed8a91edd14051a77700c1c8b269e3fbbc8cc6a4e2d799"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/latvia/recharging_points_afir.csv?token=1792409512",
+                    "file": "LV-total.csv",
+                    "sha256": "6a2f3fe85af8ba010d918a80b14ac70fab41afcb859eacce3b12d53e59b8ae69"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/latvia/vehicles-and-fleet",
+                    "file": "LV-fleet.html",
+                    "sha256": "edb3c6de417f5385dacc9aec6eba9b979578e2044e71183d27761df9859600e3"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/latvia/fleet_m1_total_number.csv?token=1792405876",
+                    "file": "LV-fleet.csv",
+                    "sha256": "023b608eb876c58eff7541b321f8f96a2f7abd7107842279b7f18791912d5daf"
+                }
+            ],
+            "PL": [
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/poland/infrastructure",
+                    "file": "PL-infrastructure.html",
+                    "sha256": "54fee0aff93341fbc256539ff38cd47d42c09e8ef301b6a49f3d5f22f3a39cfd"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/poland/ac_public_recharging_points_afir.csv?token=1792403990",
+                    "file": "PL-ac.csv",
+                    "sha256": "dced2bfeeeb090113419fc2687ae74f4ba646596e94115d4b7f71c14cc990d18"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/poland/dc_public_recharging_points_afir.csv?token=1792403990",
+                    "file": "PL-dc.csv",
+                    "sha256": "c78abcb2da674f3a882b25b6b89122d5e6a94dd5dc9fbcf6171dd0093f3bf27d"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/poland/recharging_points_afir.csv?token=1792403990",
+                    "file": "PL-total.csv",
+                    "sha256": "a0400c6bce3dc9d446b71feb35d8f0e4c7decf7f15d14cf7509d1430d492de7f"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/poland/vehicles-and-fleet",
+                    "file": "PL-fleet.html",
+                    "sha256": "415dde481c6eafa0fb978e1bc9adb88a3fa883ed3bef320ae771295ba03d36f3"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/poland/fleet_m1_total_number.csv?token=1792405863",
+                    "file": "PL-fleet.csv",
+                    "sha256": "ffd64e2548691aaafb88719f08dfd0032945b9c302a2017fc717325de5ab06ab"
+                }
+            ],
+            "RO": [
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/romania/infrastructure",
+                    "file": "RO-infrastructure.html",
+                    "sha256": "9755924926421985e36b01d4ac771398b790a353d346f436b873bea64e300d17"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/romania/ac_public_recharging_points_afir.csv?token=1792409526",
+                    "file": "RO-ac.csv",
+                    "sha256": "3f6ec647d0d66ab73fd3e36192db9d4b0d303cf79540a62060f54c7a55f6d3d8"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/romania/dc_public_recharging_points_afir.csv?token=1792409526",
+                    "file": "RO-dc.csv",
+                    "sha256": "4d28fff5c9999145506826a8a5e061cfd76bd07a885caca863b16b3e7de61409"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/romania/recharging_points_afir.csv?token=1792409526",
+                    "file": "RO-total.csv",
+                    "sha256": "1ec1aab004c70d2e94ff7548f9d26b7ec2bd3e6b920c6a354d800341f5a3b9e7"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/romania/vehicles-and-fleet",
+                    "file": "RO-fleet.html",
+                    "sha256": "6e36030fa98914c47a0cc19ac70d7beb2c80cc2aef88f031eebc3cb35e5ed262"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/romania/fleet_m1_total_number.csv?token=1792405871",
+                    "file": "RO-fleet.csv",
+                    "sha256": "2917c49426d1a6eef5709396ebbc0b88292c6fe579016957da47045996985acc"
+                }
+            ],
+            "SI": [
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/slovenia/infrastructure",
+                    "file": "SI-infrastructure.html",
+                    "sha256": "7f7a307de2a62c00f385576136f32e9a97f40c3d714814de918add84c7096b2f"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/slovenia/ac_public_recharging_points_afir.csv?token=1792409530",
+                    "file": "SI-ac.csv",
+                    "sha256": "f9ad32c5c4f3c5cbc7a12be584f936837d5991e7e4265df8247f616c659921d3"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/slovenia/dc_public_recharging_points_afir.csv?token=1792409530",
+                    "file": "SI-dc.csv",
+                    "sha256": "02a05ca8218001c181b4d8e4350d96eda4ba82049a26adb5e64a9e98c5aa1bfe"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/slovenia/recharging_points_afir.csv?token=1792409530",
+                    "file": "SI-total.csv",
+                    "sha256": "6d7774da6e7503c1dd0edf2f6c274a1a6bcd990e0d5a7b0f0ceae5aaa591ef55"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/slovenia/vehicles-and-fleet",
+                    "file": "SI-fleet.html",
+                    "sha256": "ae2e7311d0c671c9a94274217e73152bebd7e659aa1a3ca9678b8706654d306f"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/slovenia/fleet_m1_total_number.csv?token=1792405880",
+                    "file": "SI-fleet.csv",
+                    "sha256": "56e80647155688ff4d7c3e691d28bd7d52bcb69e36f0e3f99561f870fd86de61"
+                }
+            ],
+            "SK": [
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/slovakia/infrastructure",
+                    "file": "SK-infrastructure.html",
+                    "sha256": "7048382b0cd37093176c5b6b3936753d1258fa81de68c778e4a8ec97364ae8f6"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/slovakia/ac_public_recharging_points_afir.csv?token=1792409528",
+                    "file": "SK-ac.csv",
+                    "sha256": "4930d73dc006616f73cefcaaf4315b2960a25d87b4b2ec8d37553a51299da258"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/slovakia/dc_public_recharging_points_afir.csv?token=1792409528",
+                    "file": "SK-dc.csv",
+                    "sha256": "76e99e6f3823fa2cbcb72f987a3dc3aac05e39bb3a5e7e57a9b730ea57caf6ee"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/slovakia/recharging_points_afir.csv?token=1792409528",
+                    "file": "SK-total.csv",
+                    "sha256": "e5ceed3a0f775b144e45f60d7f0a7a40afc63a4f78c63f116083cfb0c2914f26"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/transport-mode/road/slovakia/vehicles-and-fleet",
+                    "file": "SK-fleet.html",
+                    "sha256": "07a9d63ca888dd238eae4d8a5aa81b8a61f30013e08a9d060e2ac76d1fa4d6e1"
+                },
+                {
+                    "url": "https://alternative-fuels-observatory.ec.europa.eu/sites/default/files/csv/slovakia/fleet_m1_total_number.csv?token=1792409527",
+                    "file": "SK-fleet.csv",
+                    "sha256": "eadad720fd7bdbc041e964c27dedb3a5bc992238d3d1b4a18c2f36792ade5ecf"
+                }
+            ]
+        },
+        "retrievedAt": "2026-10-23T07:54:39.533903+00:00"
     },
     "countries": [
         {
             "code": "AT",
             "name": "Austria",
             "flag": "🇦🇹",
-            "publicPoints": 32901,
-            "acPoints": 23835,
-            "dcPoints": 9066,
-            "highPowerDcPoints": 8700,
-            "ultraFastDcPoints": 6433,
+            "publicPoints": 30886,
+            "acPoints": 21859,
+            "dcPoints": 9027,
+            "highPowerDcPoints": 8741,
+            "ultraFastDcPoints": 6452,
             "bevFleetM1": 296746,
             "population": 9197213,
-            "totalPublicPowerKw": 1495492,
-            "publicPowerKwPerBev": 5.0396,
-            "fastDcPer100kResidents": 94.5939,
-            "ultraFastDcPer100kResidents": 69.9451,
-            "bevPerPoint": 9.0194,
-            "highPowerShare": 26.443,
+            "totalPublicPowerKw": 1480696,
+            "publicPowerKwPerBev": 4.9898,
+            "fastDcPer100kResidents": 95.0397,
+            "ultraFastDcPer100kResidents": 70.1517,
+            "bevPerPoint": 9.6078,
+            "highPowerShare": 28.3008,
             "categories": {
-                "ac_over_22": 66,
-                "ac_7_4_to_22": 23314,
-                "ac_under_7_4": 455,
-                "dc_50_to_150": 2267,
-                "dc_150_to_350": 5159,
-                "dc_350_plus": 1274,
-                "dc_under_50": 366
+                "ac_over_22": 57,
+                "ac_7_4_to_22": 21379,
+                "ac_under_7_4": 423,
+                "dc_50_to_150": 2289,
+                "dc_150_to_350": 5149,
+                "dc_350_plus": 1303,
+                "dc_under_50": 286
             }
         },
         {
             "code": "BG",
             "name": "Bulgaria",
             "flag": "🇧🇬",
-            "publicPoints": 4540,
-            "acPoints": 2486,
-            "dcPoints": 2054,
-            "highPowerDcPoints": 1881,
-            "ultraFastDcPoints": 917,
+            "publicPoints": 4653,
+            "acPoints": 2520,
+            "dcPoints": 2133,
+            "highPowerDcPoints": 1959,
+            "ultraFastDcPoints": 959,
             "bevFleetM1": 23592,
             "population": 6437360,
-            "totalPublicPowerKw": 212491,
-            "publicPowerKwPerBev": 9.0069,
-            "fastDcPer100kResidents": 29.2201,
-            "ultraFastDcPer100kResidents": 14.245,
-            "bevPerPoint": 5.1965,
-            "highPowerShare": 41.4317,
+            "totalPublicPowerKw": 223074,
+            "publicPowerKwPerBev": 9.4555,
+            "fastDcPer100kResidents": 30.4317,
+            "ultraFastDcPer100kResidents": 14.8974,
+            "bevPerPoint": 5.0703,
+            "highPowerShare": 42.1019,
             "categories": {
-                "ac_over_22": 66,
-                "ac_7_4_to_22": 2045,
-                "ac_under_7_4": 375,
-                "dc_50_to_150": 964,
-                "dc_150_to_350": 753,
-                "dc_350_plus": 164,
-                "dc_under_50": 173
+                "ac_over_22": 65,
+                "ac_7_4_to_22": 2078,
+                "ac_under_7_4": 377,
+                "dc_50_to_150": 1000,
+                "dc_150_to_350": 772,
+                "dc_350_plus": 187,
+                "dc_under_50": 174
             }
         },
         {
             "code": "CZ",
             "name": "Cehia",
             "flag": "🇨🇿",
-            "publicPoints": 7590,
-            "acPoints": 4880,
-            "dcPoints": 2710,
-            "highPowerDcPoints": 2543,
-            "ultraFastDcPoints": 1119,
+            "publicPoints": 7669,
+            "acPoints": 4899,
+            "dcPoints": 2770,
+            "highPowerDcPoints": 2597,
+            "ultraFastDcPoints": 1153,
             "bevFleetM1": 52664,
             "population": 10909500,
-            "totalPublicPowerKw": 388866,
-            "publicPowerKwPerBev": 7.3839,
-            "fastDcPer100kResidents": 23.31,
-            "ultraFastDcPer100kResidents": 10.2571,
-            "bevPerPoint": 6.9386,
-            "highPowerShare": 33.5046,
+            "totalPublicPowerKw": 395246,
+            "publicPowerKwPerBev": 7.5051,
+            "fastDcPer100kResidents": 23.8049,
+            "ultraFastDcPer100kResidents": 10.5688,
+            "bevPerPoint": 6.8671,
+            "highPowerShare": 33.8636,
             "categories": {
-                "ac_over_22": 89,
-                "ac_7_4_to_22": 4786,
+                "ac_over_22": 93,
+                "ac_7_4_to_22": 4801,
                 "ac_under_7_4": 5,
-                "dc_50_to_150": 1424,
-                "dc_150_to_350": 933,
+                "dc_50_to_150": 1444,
+                "dc_150_to_350": 967,
                 "dc_350_plus": 186,
-                "dc_under_50": 167
+                "dc_under_50": 173
             }
         },
         {
             "code": "EE",
             "name": "Estonia",
             "flag": "🇪🇪",
-            "publicPoints": 2372,
-            "acPoints": 987,
-            "dcPoints": 1385,
-            "highPowerDcPoints": 1040,
-            "ultraFastDcPoints": 673,
+            "publicPoints": 2411,
+            "acPoints": 992,
+            "dcPoints": 1419,
+            "highPowerDcPoints": 1074,
+            "ultraFastDcPoints": 706,
             "bevFleetM1": 11596,
             "population": 1369995,
-            "totalPublicPowerKw": 139339,
-            "publicPowerKwPerBev": 12.0161,
-            "fastDcPer100kResidents": 75.9127,
-            "ultraFastDcPer100kResidents": 49.1243,
-            "bevPerPoint": 4.8887,
-            "highPowerShare": 43.8449,
+            "totalPublicPowerKw": 142935,
+            "publicPowerKwPerBev": 12.3262,
+            "fastDcPer100kResidents": 78.3944,
+            "ultraFastDcPer100kResidents": 51.533,
+            "bevPerPoint": 4.8096,
+            "highPowerShare": 44.5458,
             "categories": {
                 "ac_over_22": 12,
-                "ac_7_4_to_22": 939,
-                "ac_under_7_4": 36,
-                "dc_50_to_150": 367,
-                "dc_150_to_350": 623,
+                "ac_7_4_to_22": 948,
+                "ac_under_7_4": 32,
+                "dc_50_to_150": 368,
+                "dc_150_to_350": 656,
                 "dc_350_plus": 50,
                 "dc_under_50": 345
             }
@@ -132,107 +552,107 @@
             "code": "GR",
             "name": "Grecia",
             "flag": "🇬🇷",
-            "publicPoints": 8430,
-            "acPoints": 6453,
-            "dcPoints": 1977,
-            "highPowerDcPoints": 1563,
-            "ultraFastDcPoints": 454,
+            "publicPoints": 8528,
+            "acPoints": 6503,
+            "dcPoints": 2025,
+            "highPowerDcPoints": 1598,
+            "ultraFastDcPoints": 449,
             "bevFleetM1": 36094,
             "population": 10372335,
-            "totalPublicPowerKw": 263762,
-            "publicPowerKwPerBev": 7.3076,
-            "fastDcPer100kResidents": 15.0689,
-            "ultraFastDcPer100kResidents": 4.377,
-            "bevPerPoint": 4.2816,
-            "highPowerShare": 18.5409,
+            "totalPublicPowerKw": 268233,
+            "publicPowerKwPerBev": 7.4315,
+            "fastDcPer100kResidents": 15.4064,
+            "ultraFastDcPer100kResidents": 4.3288,
+            "bevPerPoint": 4.2324,
+            "highPowerShare": 18.7383,
             "categories": {
-                "ac_over_22": 76,
-                "ac_7_4_to_22": 6353,
-                "ac_under_7_4": 24,
-                "dc_50_to_150": 1109,
-                "dc_150_to_350": 389,
-                "dc_350_plus": 65,
-                "dc_under_50": 414
+                "ac_over_22": 83,
+                "ac_7_4_to_22": 6393,
+                "ac_under_7_4": 27,
+                "dc_50_to_150": 1149,
+                "dc_150_to_350": 382,
+                "dc_350_plus": 67,
+                "dc_under_50": 427
             }
         },
         {
             "code": "HR",
             "name": "Croația",
             "flag": "🇭🇷",
-            "publicPoints": 2297,
-            "acPoints": 1268,
-            "dcPoints": 1029,
-            "highPowerDcPoints": 988,
-            "ultraFastDcPoints": 442,
+            "publicPoints": 2505,
+            "acPoints": 1434,
+            "dcPoints": 1071,
+            "highPowerDcPoints": 1029,
+            "ultraFastDcPoints": 472,
             "bevFleetM1": 14385,
             "population": 3874350,
-            "totalPublicPowerKw": 140640,
-            "publicPowerKwPerBev": 9.7769,
-            "fastDcPer100kResidents": 25.5011,
-            "ultraFastDcPer100kResidents": 11.4084,
-            "bevPerPoint": 6.2625,
-            "highPowerShare": 43.0126,
+            "totalPublicPowerKw": 151666,
+            "publicPowerKwPerBev": 10.5433,
+            "fastDcPer100kResidents": 26.5593,
+            "ultraFastDcPer100kResidents": 12.1827,
+            "bevPerPoint": 5.7425,
+            "highPowerShare": 41.0778,
             "categories": {
-                "ac_over_22": 30,
-                "ac_7_4_to_22": 1223,
+                "ac_over_22": 32,
+                "ac_7_4_to_22": 1387,
                 "ac_under_7_4": 15,
-                "dc_50_to_150": 546,
-                "dc_150_to_350": 303,
-                "dc_350_plus": 139,
-                "dc_under_50": 41
+                "dc_50_to_150": 557,
+                "dc_150_to_350": 323,
+                "dc_350_plus": 149,
+                "dc_under_50": 42
             }
         },
         {
             "code": "HU",
             "name": "Ungaria",
             "flag": "🇭🇺",
-            "publicPoints": 4954,
-            "acPoints": 3348,
-            "dcPoints": 1606,
-            "highPowerDcPoints": 1290,
-            "ultraFastDcPoints": 835,
+            "publicPoints": 4974,
+            "acPoints": 3302,
+            "dcPoints": 1672,
+            "highPowerDcPoints": 1306,
+            "ultraFastDcPoints": 846,
             "bevFleetM1": 101401,
             "population": 9539502,
-            "totalPublicPowerKw": 244631,
-            "publicPowerKwPerBev": 2.4125,
-            "fastDcPer100kResidents": 13.5227,
-            "ultraFastDcPer100kResidents": 8.7531,
-            "bevPerPoint": 20.4685,
-            "highPowerShare": 26.0396,
+            "totalPublicPowerKw": 243459,
+            "publicPowerKwPerBev": 2.401,
+            "fastDcPer100kResidents": 13.6904,
+            "ultraFastDcPer100kResidents": 8.8684,
+            "bevPerPoint": 20.3862,
+            "highPowerShare": 26.2565,
             "categories": {
                 "ac_over_22": 12,
-                "ac_7_4_to_22": 3030,
-                "ac_under_7_4": 306,
-                "dc_50_to_150": 455,
-                "dc_150_to_350": 692,
-                "dc_350_plus": 143,
-                "dc_under_50": 316
+                "ac_7_4_to_22": 2982,
+                "ac_under_7_4": 308,
+                "dc_50_to_150": 460,
+                "dc_150_to_350": 749,
+                "dc_350_plus": 97,
+                "dc_under_50": 366
             }
         },
         {
             "code": "LT",
             "name": "Lituania",
             "flag": "🇱🇹",
-            "publicPoints": 5769,
-            "acPoints": 3417,
-            "dcPoints": 2352,
-            "highPowerDcPoints": 1939,
-            "ultraFastDcPoints": 1228,
+            "publicPoints": 6125,
+            "acPoints": 3705,
+            "dcPoints": 2420,
+            "highPowerDcPoints": 2007,
+            "ultraFastDcPoints": 1279,
             "bevFleetM1": 28013,
             "population": 2890664,
-            "totalPublicPowerKw": 253938,
-            "publicPowerKwPerBev": 9.065,
-            "fastDcPer100kResidents": 67.078,
-            "ultraFastDcPer100kResidents": 42.4816,
-            "bevPerPoint": 4.8558,
-            "highPowerShare": 33.6107,
+            "totalPublicPowerKw": 266042,
+            "publicPowerKwPerBev": 9.4971,
+            "fastDcPer100kResidents": 69.4304,
+            "ultraFastDcPer100kResidents": 44.2459,
+            "bevPerPoint": 4.5736,
+            "highPowerShare": 32.7673,
             "categories": {
                 "ac_over_22": 113,
-                "ac_7_4_to_22": 2851,
+                "ac_7_4_to_22": 3139,
                 "ac_under_7_4": 453,
-                "dc_50_to_150": 711,
-                "dc_150_to_350": 1135,
-                "dc_350_plus": 93,
+                "dc_50_to_150": 728,
+                "dc_150_to_350": 1178,
+                "dc_350_plus": 101,
                 "dc_under_50": 413
             }
         },
@@ -240,135 +660,135 @@
             "code": "LV",
             "name": "Letonia",
             "flag": "🇱🇻",
-            "publicPoints": 2296,
-            "acPoints": 921,
-            "dcPoints": 1375,
-            "highPowerDcPoints": 1240,
-            "ultraFastDcPoints": 867,
+            "publicPoints": 2350,
+            "acPoints": 945,
+            "dcPoints": 1405,
+            "highPowerDcPoints": 1263,
+            "ultraFastDcPoints": 883,
             "bevFleetM1": 11848,
             "population": 1860565,
-            "totalPublicPowerKw": 153497,
-            "publicPowerKwPerBev": 12.9555,
-            "fastDcPer100kResidents": 66.6464,
-            "ultraFastDcPer100kResidents": 46.5987,
-            "bevPerPoint": 5.1603,
-            "highPowerShare": 54.007,
+            "totalPublicPowerKw": 156429,
+            "publicPowerKwPerBev": 13.203,
+            "fastDcPer100kResidents": 67.8826,
+            "ultraFastDcPer100kResidents": 47.4587,
+            "bevPerPoint": 5.0417,
+            "highPowerShare": 53.7447,
             "categories": {
                 "ac_over_22": 131,
-                "ac_7_4_to_22": 790,
+                "ac_7_4_to_22": 814,
                 "ac_under_7_4": 0,
-                "dc_50_to_150": 373,
-                "dc_150_to_350": 845,
+                "dc_50_to_150": 380,
+                "dc_150_to_350": 861,
                 "dc_350_plus": 22,
-                "dc_under_50": 135
+                "dc_under_50": 142
             }
         },
         {
             "code": "PL",
             "name": "Polonia",
             "flag": "🇵🇱",
-            "publicPoints": 15588,
-            "acPoints": 8615,
-            "dcPoints": 6973,
-            "highPowerDcPoints": 6509,
-            "ultraFastDcPoints": 2369,
+            "publicPoints": 15892,
+            "acPoints": 8761,
+            "dcPoints": 7131,
+            "highPowerDcPoints": 6671,
+            "ultraFastDcPoints": 2475,
             "bevFleetM1": 142130,
             "population": 36497495,
-            "totalPublicPowerKw": 740248,
-            "publicPowerKwPerBev": 5.2082,
-            "fastDcPer100kResidents": 17.8341,
-            "ultraFastDcPer100kResidents": 6.4909,
-            "bevPerPoint": 9.1179,
-            "highPowerShare": 41.7565,
+            "totalPublicPowerKw": 765921,
+            "publicPowerKwPerBev": 5.3889,
+            "fastDcPer100kResidents": 18.278,
+            "ultraFastDcPer100kResidents": 6.7813,
+            "bevPerPoint": 8.9435,
+            "highPowerShare": 41.9771,
             "categories": {
-                "ac_over_22": 271,
-                "ac_7_4_to_22": 8105,
-                "ac_under_7_4": 239,
-                "dc_50_to_150": 4140,
-                "dc_150_to_350": 1700,
-                "dc_350_plus": 669,
-                "dc_under_50": 464
+                "ac_over_22": 274,
+                "ac_7_4_to_22": 8241,
+                "ac_under_7_4": 246,
+                "dc_50_to_150": 4196,
+                "dc_150_to_350": 1746,
+                "dc_350_plus": 729,
+                "dc_under_50": 460
             }
         },
         {
             "code": "RO",
             "name": "România",
             "flag": "🇷🇴",
-            "publicPoints": 10070,
-            "acPoints": 5060,
-            "dcPoints": 5010,
-            "highPowerDcPoints": 4650,
-            "ultraFastDcPoints": 2065,
+            "publicPoints": 10442,
+            "acPoints": 5266,
+            "dcPoints": 5176,
+            "highPowerDcPoints": 4812,
+            "ultraFastDcPoints": 2121,
             "bevFleetM1": 64009,
             "population": 19043151,
-            "totalPublicPowerKw": 551718,
-            "publicPowerKwPerBev": 8.6194,
-            "fastDcPer100kResidents": 24.4182,
-            "ultraFastDcPer100kResidents": 10.8438,
-            "bevPerPoint": 6.3564,
-            "highPowerShare": 46.1768,
+            "totalPublicPowerKw": 569113,
+            "publicPowerKwPerBev": 8.8911,
+            "fastDcPer100kResidents": 25.2689,
+            "ultraFastDcPer100kResidents": 11.1379,
+            "bevPerPoint": 6.13,
+            "highPowerShare": 46.0831,
             "categories": {
-                "ac_over_22": 161,
-                "ac_7_4_to_22": 4825,
+                "ac_over_22": 180,
+                "ac_7_4_to_22": 5012,
                 "ac_under_7_4": 74,
-                "dc_50_to_150": 2585,
-                "dc_150_to_350": 1919,
-                "dc_350_plus": 146,
-                "dc_under_50": 360
+                "dc_50_to_150": 2691,
+                "dc_150_to_350": 1947,
+                "dc_350_plus": 174,
+                "dc_under_50": 364
             }
         },
         {
             "code": "SI",
             "name": "Slovenia",
             "flag": "🇸🇮",
-            "publicPoints": 3129,
-            "acPoints": 2481,
-            "dcPoints": 648,
-            "highPowerDcPoints": 556,
-            "ultraFastDcPoints": 303,
+            "publicPoints": 3155,
+            "acPoints": 2501,
+            "dcPoints": 654,
+            "highPowerDcPoints": 559,
+            "ultraFastDcPoints": 309,
             "bevFleetM1": 28660,
             "population": 2130850,
-            "totalPublicPowerKw": 109927,
-            "publicPowerKwPerBev": 3.8356,
-            "fastDcPer100kResidents": 26.0929,
-            "ultraFastDcPer100kResidents": 14.2197,
-            "bevPerPoint": 9.1595,
-            "highPowerShare": 17.7693,
+            "totalPublicPowerKw": 111018,
+            "publicPowerKwPerBev": 3.8736,
+            "fastDcPer100kResidents": 26.2337,
+            "ultraFastDcPer100kResidents": 14.5013,
+            "bevPerPoint": 9.084,
+            "highPowerShare": 17.7179,
             "categories": {
                 "ac_over_22": 32,
-                "ac_7_4_to_22": 2416,
+                "ac_7_4_to_22": 2436,
                 "ac_under_7_4": 33,
-                "dc_50_to_150": 253,
-                "dc_150_to_350": 250,
+                "dc_50_to_150": 250,
+                "dc_150_to_350": 256,
                 "dc_350_plus": 53,
-                "dc_under_50": 92
+                "dc_under_50": 95
             }
         },
         {
             "code": "SK",
             "name": "Slovacia",
             "flag": "🇸🇰",
-            "publicPoints": 4320,
-            "acPoints": 2581,
-            "dcPoints": 1739,
-            "highPowerDcPoints": 1653,
-            "ultraFastDcPoints": 945,
+            "publicPoints": 4415,
+            "acPoints": 2606,
+            "dcPoints": 1809,
+            "highPowerDcPoints": 1720,
+            "ultraFastDcPoints": 998,
             "bevFleetM1": 21609,
             "population": 5419451,
-            "totalPublicPowerKw": 229657,
-            "publicPowerKwPerBev": 10.6278,
-            "fastDcPer100kResidents": 30.5012,
-            "ultraFastDcPer100kResidents": 17.4372,
-            "bevPerPoint": 5.0021,
-            "highPowerShare": 38.2639,
+            "totalPublicPowerKw": 237529,
+            "publicPowerKwPerBev": 10.9921,
+            "fastDcPer100kResidents": 31.7375,
+            "ultraFastDcPer100kResidents": 18.4151,
+            "bevPerPoint": 4.8945,
+            "highPowerShare": 38.9581,
             "categories": {
-                "ac_over_22": 20,
-                "ac_7_4_to_22": 2543,
+                "ac_over_22": 21,
+                "ac_7_4_to_22": 2567,
                 "ac_under_7_4": 18,
-                "dc_50_to_150": 708,
-                "dc_150_to_350": 641,
-                "dc_350_plus": 304,
-                "dc_under_50": 86
+                "dc_50_to_150": 722,
+                "dc_150_to_350": 640,
+                "dc_350_plus": 358,
+                "dc_under_50": 89
             }
         }
     ]
