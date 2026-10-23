@@ -220,6 +220,9 @@
         .then(payload => {
             assertData(payload);
             data = payload;
+            const monthLabel = value => new Date(value + "T12:00:00Z").toLocaleDateString("ro-RO", {month: "long", year: "numeric", timeZone: "UTC"});
+            const fleetLabel = data.fleetAsOf.replace(/^(\d{4})-Q([1-4])$/, "trimestrul $2 $1");
+            document.querySelector(".reference-line").textContent = `Puncte publice: ${monthLabel(data.infrastructureAsOf)} · putere instalată: ${monthLabel(data.powerAsOf || data.infrastructureAsOf)} · parc BEV M1: ${fleetLabel} · populație: ${data.populationAsOf.slice(0, 4)}`;
             buildSelect();
             renderSummary();
             renderMatrix();
